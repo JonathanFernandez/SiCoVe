@@ -1,2 +1,5 @@
 SiCove/bin/
 SiCove/obj/
+SiCoVe/csharp/bin
+SiCoVe/csharp/src/OpenAlprApi/bin
+SiCoVe/csharp/src/OpenAlprApi.Test/bin
