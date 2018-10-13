@@ -15,53 +15,78 @@
                 Acta de comprobación
             </div>
             <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="form-group">
-                            <label>Apellido</label>
-                            <input class="form-control" placeholder="Ingrese el apellido">
+                            <label>N° de acta</label>
+                            <input class="form-control" placeholder="Ingrese el N° de acta">
                         </div>
                         <div class="form-group">
-                            <label>Nombre</label>
-                            <input class="form-control" placeholder="Ingrese el nombre">
+                            <label>Fecha</label>
+                            <input class="form-control" placeholder="Ingrese la fecha">
                         </div>
                         <div class="form-group">
-                            <label>Sexo</label>
-                            <select class="form-control">
-                                <option>M</option>
-                                <option>F</option>
-                            </select>
-                        </div> 
+                            <label>Hora</label>
+                            <input class="form-control" placeholder="Ingrese la hora">
+                        </div>
                         <div class="form-group">
-                            <label>Nacionalidad</label>
+                            <label>Dominio</label>
+                            <input class="form-control" placeholder="Ingrese el dominio">
+                        </div>
+                        <div class="form-group">
+                            <label>País</label>
                             <select class="form-control">
                                 <option>Argentina</option>
-                                <option>Española</option>
+                                <option>Chile</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de vehículo</label>
+                            <select class="form-control">
+                                <option>Automovil</option>
+                                <option>Motovehículo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Otros</label>
+                            <input class="form-control" placeholder="Ingrese otros tipos de vehículo">
+                        </div>
+                        <div class="form-group">
+                            <label>Marca</label>
+                            <select class="form-control">
+                                <option>Ford</option>
+                                <option>Fiat</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Modelo</label>
+                            <input class="form-control" placeholder="Ingrese el modelo">
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría de infracción</label>
+                            <select class="form-control">
+                                <option>Conducta peligrosa</option>
+                                <option>Otros</option>
                             </select>
                         </div> 
-                        <div class="form-group">
-                            <label>Fecha de nacimiento</label>
-                            <input class="form-control" placeholder="Ingrese la fecha de nacimiento">
-                        </div>
-                        <div class="form-group">
-                            <label>Documento</label>
-                            <input class="form-control" placeholder="Ingrese el número de documento">
-                        </div>
-                        <div class="form-group">
-                            <label>Domicilio</label>
-                            <input class="form-control" placeholder="Ingrese el domicilio">
-                        </div>
-                        <div class="form-group">
-                            <label>Lugar de nacimiento</label>
+                            <div class="form-group">
+                            <label>Infracción</label>
                             <select class="form-control">
-                                <option>Buenos Aires</option>
-                                <option>Chaco</option>
+                                <option>Circular a contramano</option>
+                                <option>Circular a contramano</option>
                             </select>
                         </div>
-
-                    <!-- Datos licencia -->
                         <div class="form-group">
-                            <label>N° de licencia</label>
-                            <input class="form-control" placeholder="Ingrese el N° de licencia">
+                            <label>Descripción de la infracción</label>
+                            <textarea class="form-control" rows="3" placeholder="Ingrese la descripción de la infracción"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Lugar de la infracción</label>
+                            <input class="form-control" placeholder="Ingrese el lugar de la infracción">
+                        </div>
+
+                        <h1>Datos del imputado</h1>
+
                         <div class="form-group">
                             <label>Apellido</label>
                             <input class="form-control" placeholder="Ingrese el apellido">
@@ -71,177 +96,80 @@
                             <input class="form-control" placeholder="Ingrese los nombres">
                         </div>
                         <div class="form-group">
-                            <label>Fecha de nacimiento</label>
-                            <input class="form-control" placeholder="Ingrese la fecha de nacimiento">
-                        </div>
-                        <div class="form-group">
                             <label>Domicilio</label>
                             <input class="form-control" placeholder="Ingrese el domicilio">
                         </div>
                         <div class="form-group">
-                            <label>Nacionalidad</label>
+                            <label>N° de puerta</label>
+                            <input class="form-control" placeholder="Ingrese el N° de puerta">
+                        </div>
+                        <div class="form-group">
+                            <label>Piso</label>
+                            <input class="form-control" placeholder="Ingrese el piso">
+                        </div>
+                        <div class="form-group">
+                            <label>Departamento</label>
+                            <input class="form-control" placeholder="Ingrese el departamento">
+                        </div>
+                        <div class="form-group">
+                            <label>Localidad</label>
                             <select class="form-control">
-                                <option>Argentina</option>
-                                <option>Española</option>
+                                <option>Morón</option>
+                                <option>Ituzaingó</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Provincia</label>
+                            <select class="form-control">
+                                <option>Buenas Aires</option>
+                                <option>Córdoba</option>
                             </select>
                         </div> 
                         <div class="form-group">
-                            <label>Sexo</label>
+                            <label>Tipo de documento</label>
                             <select class="form-control">
-                                <option>M</option>
-                                <option>F</option>
-                            </select>
-                        </div> 
-                        <div class="form-group">
-                            <label>Fecha de otorgamiento</label>
-                            <input class="form-control" placeholder="Ingrese la fecha de otorgamiento">
-                        </div>
-                        <div class="form-group">
-                            <label>Fecha de vencimiento</label>
-                            <input class="form-control" placeholder="Ingrese la fecha de vencimiento">
-                        </div>
-                        <div class="form-group">
-                            <label>Categoría</label>
-                            <input class="form-control" placeholder="Ingrese la categoría">
-                        </div>
-                        <div class="form-group">
-                            <label>Clases</label>
-                            <input class="form-control" placeholder="Ingrese las clases">
-                        </div>
-                        <div class="form-group">
-                            <label>Observaciones</label>
-                            <input class="form-control" placeholder="Ingrese las observaciones">
-                        </div>
-
-                    <!-- Datos cédula -->
-
-                        <div class="form-group">
-                            <label>N° de cédula</label>
-                            <input class="form-control" placeholder="Ingrese el N° de cedula">
-                        </div>
-                        <div class="form-group">
-                            <label>Dominio</label>
-                            <input class="form-control" placeholder="Ingrese el dominio">
-                        </div>
-                        <div class="form-group">
-                            <label>Estado</label>
-                            <input class="form-control" placeholder="Ingrese el estado">
-                        </div>
-                        <div class="form-group">
-                            <label>Marca</label>
-                            <select class="form-control">
-                                <option>Ford</option>
-                                <option>Fiat</option>
+                                <option>DNI</option>
+                                <option>Pasaporte</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Modelo</label>
-                            <input class="form-control" placeholder="Ingrese el modelo">
+                            <label>N° de documento</label>
+                            <input class="form-control" placeholder="Ingrese el N° de documento">
                         </div>
                         <div class="form-group">
-                            <label>Tipo</label>
+                            <label>N° de licencia</label>
+                            <input class="form-control" placeholder="Ingrese el N° de licencia">
+                        </div>
+                        <div class="form-group">
+                            <label>Municipio licencia</label>
                             <select class="form-control">
-                                <option>Automovil</option>
-                                <option>Motovehículo</option>
+                                <option>Morón</option>
+                                <option>Ituzaingó</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Uso</label>
+                            <label>Categoría licencia</label>
                             <select class="form-control">
-                                <option>Privado</option>
-                                <option>Público</option>
-                                <option>Oficial</option>
+                                <option>Profesional</option>
+                                <option>Profesional</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Cuadro / Chasis</label>
-                            <input class="form-control" placeholder="Ingrese el cuadro / chasis">
+                            <label>Detalle de la documentación retenida</label>
+                            <textarea class="form-control" rows="3" placeholder="Ingrese el detalle de la documentación retenida"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>N° de motor</label>
-                            <input class="form-control" placeholder="Ingrese el N° de motor">
+                            <label>Vehículo retenido en</label>
+                            <input class="form-control" placeholder="Ingrese en dónde de encuantra retenido el vehículo">
                         </div>
                         <div class="form-group">
-                            <label>Fecha de vencimiento</label>
-                            <input class="form-control" placeholder="Ingrese la fecha de vencimiento">
+                            <label>N° agente / inspector</label>
+                            <input class="form-control" placeholder="Ingrese el N° agente / inspector">
                         </div>
-                        <div class="form-group">
-                            <label>Cilindrada</label>
-                            <input class="form-control" placeholder="Ingrese la cilindrada">
-                        </div>
-                        <div class="form-group">
-                            <label>Titular</label>
-                            <input class="form-control" placeholder="Ingrese el titular">
-                        </div>
-                        <div class="form-group">
-                            <label>Documento</label>
-                            <input class="form-control" placeholder="Ingrese el documento">
-                        </div>
-                        <div class="form-group">
-                            <label>Domicilio</label>
-                            <input class="form-control" placeholder="Ingrese el domicilio">
-                        </div>
-
-                    <!-- Datos seguro -->
-
-                        <div class="form-group">
-                            <label>Aseguradora</label>
-                            <select class="form-control">
-                                <option>Mapfre</option>
-                                <option>Assurant</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Asegurado</label>
-                            <input class="form-control" placeholder="Ingrese el asegurado">
-                        </div>
-                        <div class="form-group">
-                            <label>Póliza</label>
-                            <input class="form-control" placeholder="Ingrese la póliza">
-                        </div>
-                        <div class="form-group">
-                            <label>Marca</label>
-                            <select class="form-control">
-                                <option>Ford</option>
-                                <option>Fiat</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Modelo</label>
-                            <input class="form-control" placeholder="Ingrese el modelo">
-                        </div>
-                        <div class="form-group">
-                            <label>Cilindrada</label>
-                            <input class="form-control" placeholder="Ingrese la cilindrada">
-                        </div>
-                        <div class="form-group">
-                            <label>Dominio</label>
-                            <input class="form-control" placeholder="Ingrese el dominio">
-                        </div>
-                        <div class="form-group">
-                            <label>Año</label>
-                            <input class="form-control" placeholder="Ingrese el año">
-                        </div>
-                        <div class="form-group">
-                            <label>N° de motor</label>
-                            <input class="form-control" placeholder="Ingrese el N° de motor">
-                        </div>
-                        <div class="form-group">
-                            <label>N° de chasis</label>
-                            <input class="form-control" placeholder="Ingrese el N° de chasis">
-                        </div>
-                        <div class="form-group">
-                            <label>Fecha desde</label>
-                            <input class="form-control" placeholder="Ingrese la fecha desde">
-                        </div>
-                        <div class="form-group">
-                            <label>Fecha hasta</label>
-                            <input class="form-control" placeholder="Ingrese la fecha hasta">
-                        </div>
-
-
-                <button type="submit" class="btn btn-default">Aceptar</button>
-
+                        <br />
+                        <button type="submit" class="btn btn-default">Aceptar</button>
+                    </div>
+                 </div>
             </div>  
         </div>         
     </div>
