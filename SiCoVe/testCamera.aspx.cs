@@ -6,8 +6,8 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using IronOcr;
-using MODI;
+//using IronOcr;
+//using MODI;
 using OpenAlprApi.Api;
 using OpenAlprApi.Client;
 using OpenAlprApi.Model;
@@ -23,7 +23,7 @@ namespace SiCoVe
 
         protected void btnTraerPatente_Click(object sender, EventArgs e)
         {
-            var Ocr = new AutoOcr();
+            //var Ocr = new AutoOcr();
             FileUploadFoto.SaveAs(Server.MapPath("Temp//" + FileUploadFoto.FileName));
 
             //var Result = Ocr.Read(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
@@ -64,15 +64,15 @@ namespace SiCoVe
                 //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
             }
         }
-        private string ExtractTextFromImage(string filePath)
-        {
-            Document modiDocument = new Document();
-            modiDocument.Create(filePath);
-            modiDocument.OCR(MiLANGUAGES.miLANG_ENGLISH);
-            MODI.Image modiImage = (modiDocument.Images[0] as MODI.Image);
-            string extractedText = modiImage.Layout.Text;
-            modiDocument.Close();
-            return extractedText;
-        }
+        //private string ExtractTextFromImage(string filePath)
+        //{
+        //    Document modiDocument = new Document();
+        //    modiDocument.Create(filePath);
+        //    modiDocument.OCR(MiLANGUAGES.miLANG_ENGLISH);
+        //    MODI.Image modiImage = (modiDocument.Images[0] as MODI.Image);
+        //    string extractedText = modiImage.Layout.Text;
+        //    modiDocument.Close();
+        //    return extractedText;
+        //}
     }
 }
