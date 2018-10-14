@@ -27,239 +27,211 @@
                 </ul>
                 <br />
                 <div class="row">
-                    <div class="col-lg-4"> <!--col-lg-6-->
+                    <div class="col-lg-4">
                         <div class="tab-content">
                             <!-- Datos DNI -->
                             <div class="tab-pane fade in active" id="dni">
                                 <div class="form-group">
                                     <label>Apellido</label>
-                                    <input class="form-control" placeholder="Ingrese el apellido">
+                                    <asp:TextBox ID="txtApellidoDNI" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Nombre</label>
-                                    <input class="form-control" placeholder="Ingrese el nombre">
+                                    <asp:TextBox ID="txtNombreDNI" runat="server" class="form-control" placeholder="Ingrese el nombre"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Sexo</label>
-                                    <select class="form-control">
-                                        <option>M</option>
-                                        <option>F</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlSexoDNI" runat="server" class="form-control"></asp:DropDownList>
                                 </div> 
                                 <div class="form-group">
                                     <label>Nacionalidad</label>
-                                    <select class="form-control">
-                                        <option>Argentina</option>
-                                        <option>Española</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlNacionalidadDNI" runat="server" class="form-control"></asp:DropDownList>
                                 </div> 
                                 <div class="form-group">
                                     <label>Fecha de nacimiento</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha de nacimiento">
+                                    <asp:TextBox ID="txtFecNacimientoDNI" runat="server" class="form-control" placeholder="Ingrese la fecha de nacimiento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Documento</label>
-                                    <input class="form-control" placeholder="Ingrese el número de documento">
+                                    <asp:TextBox ID="txtDocumentoDNI" runat="server" class="form-control" placeholder="Ingrese el número de documento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Domicilio</label>
-                                    <input class="form-control" placeholder="Ingrese el domicilio">
+                                    <asp:TextBox ID="txtDomicilioDNI" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Lugar de nacimiento</label>
-                                    <select class="form-control">
-                                        <option>Buenos Aires</option>
-                                        <option>Chaco</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                             </div>
                             <!-- Datos licencia -->
                             <div class="tab-pane fade" id="licencia">
                                 <div class="form-group">
                                     <label>N° de licencia</label>
-                                    <input class="form-control" placeholder="Ingrese el N° de licencia">
+                                    <asp:TextBox ID="txtNumLicenciaLIC" runat="server" class="form-control" placeholder="Ingrese el N° de licencia"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Apellido</label>
-                                    <input class="form-control" placeholder="Ingrese el apellido">
+                                    <asp:TextBox ID="txtApellidoLIC" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Nombres</label>
-                                    <input class="form-control" placeholder="Ingrese los nombres">
+                                    <asp:TextBox ID="txtNombresLIC" runat="server" class="form-control" placeholder="Ingrese el/los nombre/s"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha de nacimiento</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha de nacimiento">
+                                    <asp:TextBox ID="txtFecNacimientoLIC" runat="server" class="form-control" placeholder="Ingrese la fecha de nacimiento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Domicilio</label>
-                                    <input class="form-control" placeholder="Ingrese el domicilio">
+                                    <asp:TextBox ID="txtDomicilioLIC" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Nacionalidad</label>
-                                    <select class="form-control">
-                                        <option>Argentina</option>
-                                        <option>Española</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlNacionalidadLIC" runat="server" class="form-control"></asp:DropDownList>
                                 </div> 
                                 <div class="form-group">
                                     <label>Sexo</label>
-                                    <select class="form-control">
-                                        <option>M</option>
-                                        <option>F</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlSexoLIC" runat="server" class="form-control"></asp:DropDownList>
                                 </div> 
                                 <div class="form-group">
                                     <label>Fecha de otorgamiento</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha de otorgamiento">
+                                    <asp:TextBox ID="txtFecOtorgamientoLIC" runat="server" class="form-control" placeholder="Ingrese la fecha de otorgamiento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha de vencimiento</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha de vencimiento">
+                                    <asp:TextBox ID="txtFecVencimientoLIC" runat="server" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Categoría</label>
-                                    <input class="form-control" placeholder="Ingrese la categoría">
+                                    <asp:TextBox ID="txtcategoriLIC" runat="server" class="form-control" placeholder="Ingrese la categoría"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Clases</label>
-                                    <input class="form-control" placeholder="Ingrese las clases">
+                                    <asp:TextBox ID="txtClasesLIC" runat="server" class="form-control" placeholder="Ingrese las clases"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Observaciones</label>
-                                    <input class="form-control" placeholder="Ingrese las observaciones">
+                                    <asp:TextBox ID="txtObservaciones" runat="server" class="form-control" placeholder="Ingrese las observaciones"></asp:TextBox>
                                 </div>
                             </div>
                             <!-- Datos cédula -->
                             <div class="tab-pane fade" id="cedula">
                                 <div class="form-group">
                                     <label>N° de cédula</label>
-                                    <input class="form-control" placeholder="Ingrese el N° de cedula">
+                                    <asp:TextBox ID="txtNumCedulaCED" runat="server" class="form-control" placeholder="Ingrese el N° de cédula"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Dominio</label>
-                                    <input class="form-control" placeholder="Ingrese el dominio">
+                                    <asp:TextBox ID="txtDominioCED" runat="server" class="form-control" placeholder="Ingrese el dominio"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Estado</label>
-                                    <input class="form-control" placeholder="Ingrese el estado">
+                                    <asp:DropDownList ID="ddlEstadoCED" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label>Marca</label>
-                                    <select class="form-control">
-                                        <option>Ford</option>
-                                        <option>Fiat</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlMarcaCED" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label>Modelo</label>
-                                    <input class="form-control" placeholder="Ingrese el modelo">
+                                    <asp:TextBox ID="txtModeloCED" runat="server" class="form-control" placeholder="Ingrese el modelo"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Tipo</label>
-                                    <select class="form-control">
-                                        <option>Automovil</option>
-                                        <option>Motovehículo</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlTipoCED" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label>Uso</label>
-                                    <select class="form-control">
-                                        <option>Privado</option>
+                                    <asp:DropDownList ID="ddlUsoCED" runat="server" class="form-control"></asp:DropDownList>
+                                        <!--option>Privado</!--option>
                                         <option>Público</option>
-                                        <option>Oficial</option>
-                                    </select>
+                                        <option>Oficial</option-->
                                 </div>
                                 <div class="form-group">
                                     <label>Cuadro / Chasis</label>
-                                    <input class="form-control" placeholder="Ingrese el cuadro / chasis">
+                                    <asp:TextBox ID="txtChasisCED" runat="server" class="form-control" placeholder="Ingrese el cuadro / chasis"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>N° de motor</label>
-                                    <input class="form-control" placeholder="Ingrese el N° de motor">
+                                    <asp:TextBox ID="txtNumMotorCED" runat="server" class="form-control" placeholder="Ingrese el N° de motor"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha de vencimiento</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha de vencimiento">
+                                    <asp:TextBox ID="txtFecVencimientoCED" runat="server" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Cilindrada</label>
-                                    <input class="form-control" placeholder="Ingrese la cilindrada">
+                                    <asp:TextBox ID="txtCilindradaCED" runat="server" class="form-control" placeholder="Ingrese la la cilindrada"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Titular</label>
-                                    <input class="form-control" placeholder="Ingrese el titular">
+                                    <asp:TextBox ID="txtTitularCED" runat="server" class="form-control" placeholder="Ingrese el titular"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Documento</label>
-                                    <input class="form-control" placeholder="Ingrese el documento">
+                                    <asp:TextBox ID="txtDocumentoCED" runat="server" class="form-control" placeholder="Ingrese el documento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Domicilio</label>
-                                    <input class="form-control" placeholder="Ingrese el domicilio">
+                                    <asp:TextBox ID="txtDomicilioCED" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                 </div>
                             </div>
                             <!-- Datos seguro -->
                             <div class="tab-pane fade" id="seguro">
                                 <div class="form-group">
                                     <label>Aseguradora</label>
-                                    <select class="form-control">
-                                        <option>Mapfre</option>
-                                        <option>Assurant</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlAseguradoraSEG" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label>Asegurado</label>
-                                    <input class="form-control" placeholder="Ingrese el asegurado">
+                                    <asp:TextBox ID="txtAseguradoSEG" runat="server" class="form-control" placeholder="Ingrese el asegurado"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Póliza</label>
-                                    <input class="form-control" placeholder="Ingrese la póliza">
+                                    <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control" placeholder="Ingrese el póliza"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Marca</label>
-                                    <select class="form-control">
-                                        <option>Ford</option>
-                                        <option>Fiat</option>
-                                    </select>
+                                    <asp:DropDownList ID="ddlMarcaSEG" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
                                     <label>Modelo</label>
-                                    <input class="form-control" placeholder="Ingrese el modelo">
+                                    <asp:TextBox ID="txtModeloSEG" runat="server" class="form-control" placeholder="Ingrese el modelo"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Cilindrada</label>
-                                    <input class="form-control" placeholder="Ingrese la cilindrada">
+                                    <asp:TextBox ID="txtcilindradaSEG" runat="server" class="form-control" placeholder="Ingrese la cilindrada"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Dominio</label>
-                                    <input class="form-control" placeholder="Ingrese el dominio">
+                                    <asp:TextBox ID="txtDominioSEG" runat="server" class="form-control" placeholder="Ingrese el dominio"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Año</label>
-                                    <input class="form-control" placeholder="Ingrese el año">
+                                    <asp:TextBox ID="txtAnioSEG" runat="server" class="form-control" placeholder="Ingrese el año"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>N° de motor</label>
-                                    <input class="form-control" placeholder="Ingrese el N° de motor">
+                                    <asp:TextBox ID="txtNumMotorSEG" runat="server" class="form-control" placeholder="Ingrese el N° de motor"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>N° de chasis</label>
-                                    <input class="form-control" placeholder="Ingrese el N° de chasis">
+                                    <asp:TextBox ID="txtNumChasisSEG" runat="server" class="form-control" placeholder="Ingrese el N° de chasis"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha desde</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha desde">
+                                    <asp:TextBox ID="txtFecDesdeSEG" runat="server" class="form-control" placeholder="Ingrese la fecha desde"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Fecha hasta</label>
-                                    <input class="form-control" placeholder="Ingrese la fecha hasta">
+                                    <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control" placeholder="Ingrese la fecha hasta"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
                         <br />
-                        <button type="submit" class="btn btn-default">Aprobar</button>
-                        <button type="submit" class="btn btn-default">Modificar</button>
+                        <button type="submit" class="btn btn-default" ID="btnAprobar">Aprobar</button>
+                        <button type="submit" class="btn btn-default" ID="btnModificar">Modificar</button>
                     </div>
                 </div>
             </div>
