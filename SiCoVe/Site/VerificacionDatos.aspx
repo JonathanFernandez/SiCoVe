@@ -27,7 +27,7 @@
                 </ul>
                 <br />
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4"> <!--col-lg-6-->
                         <div class="tab-content">
                             <!-- Datos DNI -->
                             <div class="tab-pane fade in active" id="dni">
