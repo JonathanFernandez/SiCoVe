@@ -432,7 +432,7 @@
     </Compile>
     <Compile Include="Site\ActaComprobacion.aspx.designer.cs">
       <DependentUpon>ActaComprobacion.aspx</DependentUpon>
-	  <SubType>ASPXCodeBehind</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site\HistorialDenuncias.aspx.cs">
       <DependentUpon>HistorialDenuncias.aspx</DependentUpon>
