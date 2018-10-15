@@ -36,8 +36,8 @@
                                     <asp:TextBox ID="txtApellidoDNI" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nombre</label>
-                                    <asp:TextBox ID="txtNombreDNI" runat="server" class="form-control" placeholder="Ingrese el nombre"></asp:TextBox>
+                                    <label>Nombres</label>
+                                    <asp:TextBox ID="txtNombreDNI" runat="server" class="form-control" placeholder="Ingrese el/los nombre/s"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Sexo</label>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Observaciones</label>
-                                    <asp:TextBox ID="txtObservaciones" runat="server" class="form-control" placeholder="Ingrese las observaciones"></asp:TextBox>
+                                    <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine" placeholder="Ingrese las observaciones"></asp:textbox>
                                 </div>
                             </div>
                             <!-- Datos cédula -->

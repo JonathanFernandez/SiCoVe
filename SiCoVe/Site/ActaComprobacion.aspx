@@ -63,7 +63,7 @@
                         </div>
                         <div class="form-group">
                             <label>Descripción de la infracción</label>
-                            <asp:TextBox ID="txtDescInfraccionAC" rows="3" runat="server" class="form-control" placeholder="Ingrese la descripción de la infracción"></asp:TextBox>
+                            <asp:textbox id="txtDescInfraccionAC" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine" placeholder="Ingrese la descripción de la infracción"></asp:textbox>
                         </div>
                         <div class="form-group">
                             <label>Lugar de la infracción</label>
@@ -71,6 +71,7 @@
                         </div>
 
                         <h1>Datos del imputado</h1>
+                        <hr />
 
                         <div class="form-group">
                             <label>Apellido</label>
@@ -126,7 +127,7 @@
                         </div>
                         <div class="form-group">
                             <label>Detalle de la documentación retenida</label>
-                            <asp:TextBox ID="txtDocuRetenidaAC" rows="3" runat="server" class="form-control" placeholder="Ingrese el detalle de la documentación retenida"></asp:TextBox>
+                            <asp:textbox id="txtDocuRetenidaAC" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine" placeholder="Ingrese el detalle de la documentación retenida"></asp:textbox>
                         </div>
                         <div class="form-group">
                             <label>Vehículo retenido en</label>
