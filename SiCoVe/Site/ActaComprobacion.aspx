@@ -16,158 +16,128 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label>N° de acta</label>
-                            <input class="form-control" placeholder="Ingrese el N° de acta">
+                            <asp:TextBox ID="txtNumActaAC" runat="server" class="form-control" placeholder="Ingrese el N° de acta"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Fecha</label>
-                            <input class="form-control" placeholder="Ingrese la fecha">
+                            <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control" placeholder="Ingrese la fecha"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Hora</label>
-                            <input class="form-control" placeholder="Ingrese la hora">
+                            <asp:TextBox ID="txtHoraActaAC" runat="server" class="form-control" placeholder="Ingrese la hora"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Dominio</label>
-                            <input class="form-control" placeholder="Ingrese el dominio">
+                            <asp:TextBox ID="txtDominioAC" runat="server" class="form-control" placeholder="Ingrese el dominio"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>País</label>
-                            <select class="form-control">
-                                <option>Argentina</option>
-                                <option>Chile</option>
-                            </select>
+                            <asp:DropDownList ID="ddlPaisAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Tipo de vehículo</label>
-                            <select class="form-control">
-                                <option>Automovil</option>
-                                <option>Motovehículo</option>
-                            </select>
+                            <asp:DropDownList ID="ddlTipoVehiculoAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Otros</label>
-                            <input class="form-control" placeholder="Ingrese otros tipos de vehículo">
+                            <asp:TextBox ID="txtOtrosTipVehAC" runat="server" class="form-control" placeholder="Ingrese otros tipos de vehículo"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Marca</label>
-                            <select class="form-control">
-                                <option>Ford</option>
-                                <option>Fiat</option>
-                            </select>
+                            <asp:DropDownList ID="ddlMarcaAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Modelo</label>
-                            <input class="form-control" placeholder="Ingrese el modelo">
+                            <asp:TextBox ID="txtModeloAC" runat="server" class="form-control" placeholder="Ingrese el modelo"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Categoría de infracción</label>
-                            <select class="form-control">
-                                <option>Conducta peligrosa</option>
-                                <option>Otros</option>
-                            </select>
+                            <asp:DropDownList ID="ddlCatInfraccionAC" runat="server" class="form-control"></asp:DropDownList>
                         </div> 
                             <div class="form-group">
                             <label>Infracción</label>
-                            <select class="form-control">
-                                <option>Circular a contramano</option>
-                                <option>Circular a contramano</option>
-                            </select>
+                            <asp:DropDownList ID="ddlInfraccionAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Descripción de la infracción</label>
-                            <textarea class="form-control" rows="3" placeholder="Ingrese la descripción de la infracción"></textarea>
+                            <asp:TextBox ID="txtDescInfraccionAC" rows="3" runat="server" class="form-control" placeholder="Ingrese la descripción de la infracción"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Lugar de la infracción</label>
-                            <input class="form-control" placeholder="Ingrese el lugar de la infracción">
+                            <asp:TextBox ID="txtLugarInfraccionAC" runat="server" class="form-control" placeholder="Ingrese el lugar de la infracción"></asp:TextBox>
                         </div>
 
                         <h1>Datos del imputado</h1>
 
                         <div class="form-group">
                             <label>Apellido</label>
-                            <input class="form-control" placeholder="Ingrese el apellido">
+                            <asp:TextBox ID="txtApellido" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input class="form-control" placeholder="Ingrese los nombres">
+                            <asp:TextBox ID="txtNombre" runat="server" class="form-control" placeholder="Ingrese el nombre"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Domicilio</label>
-                            <input class="form-control" placeholder="Ingrese el domicilio">
+                            <asp:TextBox ID="txtDomicilio" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>N° de puerta</label>
-                            <input class="form-control" placeholder="Ingrese el N° de puerta">
+                            <asp:TextBox ID="txtNumPuertaAC" runat="server" class="form-control" placeholder="Ingrese el N° de puerta"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Piso</label>
-                            <input class="form-control" placeholder="Ingrese el piso">
+                            <asp:TextBox ID="txtPisoAC" runat="server" class="form-control" placeholder="Ingrese el piso"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Departamento</label>
-                            <input class="form-control" placeholder="Ingrese el departamento">
+                            <asp:TextBox ID="txtDepartamentoAC" runat="server" class="form-control" placeholder="Ingrese el departamento"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Localidad</label>
-                            <select class="form-control">
-                                <option>Morón</option>
-                                <option>Ituzaingó</option>
-                            </select>
+                            <asp:DropDownList ID="ddlLocalidadAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Provincia</label>
-                            <select class="form-control">
-                                <option>Buenas Aires</option>
-                                <option>Córdoba</option>
-                            </select>
+                            <asp:DropDownList ID="ddlProvinciaAC" runat="server" class="form-control"></asp:DropDownList>
                         </div> 
                         <div class="form-group">
                             <label>Tipo de documento</label>
-                            <select class="form-control">
-                                <option>DNI</option>
-                                <option>Pasaporte</option>
-                            </select>
+                            <asp:DropDownList ID="ddlTipDocumentoAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>N° de documento</label>
-                            <input class="form-control" placeholder="Ingrese el N° de documento">
+                            <asp:TextBox ID="txtNumDocumentoAC" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>N° de licencia</label>
-                            <input class="form-control" placeholder="Ingrese el N° de licencia">
+                            <asp:TextBox ID="txtNumLicenciaAC" runat="server" class="form-control" placeholder="Ingrese el N° de licencia"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Municipio licencia</label>
-                            <select class="form-control">
-                                <option>Morón</option>
-                                <option>Ituzaingó</option>
-                            </select>
+                            <asp:DropDownList ID="ddlMuniLicenciaAC" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Categoría licencia</label>
-                            <select class="form-control">
-                                <option>Profesional</option>
-                                <option>Profesional</option>
-                            </select>
+                            <asp:DropDownList ID="ddlCatLicencia" runat="server" class="form-control"></asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <label>Detalle de la documentación retenida</label>
-                            <textarea class="form-control" rows="3" placeholder="Ingrese el detalle de la documentación retenida"></textarea>
+                            <asp:TextBox ID="txtDocuRetenidaAC" rows="3" runat="server" class="form-control" placeholder="Ingrese el detalle de la documentación retenida"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Vehículo retenido en</label>
-                            <input class="form-control" placeholder="Ingrese en dónde de encuantra retenido el vehículo">
+                            <asp:TextBox ID="txtLugarDetenVehiAC" runat="server" class="form-control" placeholder="Ingrese en dónde de encuantra retenido el vehículo"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>N° agente / inspector</label>
-                            <input class="form-control" placeholder="Ingrese el N° agente / inspector">
+                            <asp:TextBox ID="txtNumAgenteAC" runat="server" class="form-control" placeholder="Ingrese el N° agente / inspector"></asp:TextBox>
                         </div>
                         <br />
-                        <button type="submit" class="btn btn-default">Aceptar</button>
+                        <asp:Button ID="btnAceptarAC" runat="server" class="btn btn-default" Text="Modificar" />
                     </div>
                  </div>
             </div>  

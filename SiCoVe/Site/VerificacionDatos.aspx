@@ -230,8 +230,8 @@
                             </div>
                         </div>
                         <br />
-                        <button type="submit" class="btn btn-default" ID="btnAprobar">Aprobar</button>
-                        <button type="submit" class="btn btn-default" ID="btnModificar">Modificar</button>
+                        <asp:Button ID="btnAprobarVD" runat="server" class="btn btn-default" Text="Aprobar" />
+                        <asp:Button ID="btnModificarVD" runat="server" class="btn btn-default" Text="Modificar" />
                     </div>
                 </div>
             </div>
