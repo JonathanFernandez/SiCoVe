@@ -6,3 +6,4 @@ SiCoVe/csharp/src/OpenAlprApi.Test/bin
 */.vs/
 .vs/
 .vs
+.vs/config/applicationhost.config
