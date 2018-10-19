@@ -4,7 +4,4 @@ SiCoVe/csharp/bin
 SiCoVe/csharp/src/OpenAlprApi/bin
 SiCoVe/csharp/src/OpenAlprApi.Test/bin
 .vs/
-.vs/SiCoVe/DesignTimeBuild/.dtbcache
-.vs/SiCoVe/DesignTimeBuild/.dtbcache
-.vs/SiCoVe/v15/.suo
-.vs/SiCoVe/v15/Server/sqlite3/storage.ide-wal
+.vs
