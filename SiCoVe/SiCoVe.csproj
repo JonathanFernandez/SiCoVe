@@ -326,6 +326,9 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="Site\AltaAutoridad.aspx" />
+    <Content Include="Site\ModificarAutoridad.aspx" />
+    <Content Include="Site\ListarAutoridad.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -499,6 +502,27 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\AltaAutoridad.aspx.cs">
+      <DependentUpon>AltaAutoridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AltaAutoridad.aspx.designer.cs">
+      <DependentUpon>AltaAutoridad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ModificarAutoridad.aspx.cs">
+      <DependentUpon>ModificarAutoridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ModificarAutoridad.aspx.designer.cs">
+      <DependentUpon>ModificarAutoridad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ListarAutoridad.aspx.cs">
+      <DependentUpon>ListarAutoridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ListarAutoridad.aspx.designer.cs">
+      <DependentUpon>ListarAutoridad.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
