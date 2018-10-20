@@ -357,6 +357,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Site\ActaComprobacion.aspx" />
+    <Content Include="Site\AltaRemolque.aspx" />
     <Content Include="Site\AltaUsuarios.aspx" />
     <Content Include="Site\HistorialDenuncias.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
@@ -442,6 +443,13 @@
     <Compile Include="Site\ActaComprobacion.aspx.designer.cs">
       <DependentUpon>ActaComprobacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AltaRemolque.aspx.cs">
+      <DependentUpon>AltaRemolque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AltaRemolque.aspx.designer.cs">
+      <DependentUpon>AltaRemolque.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\AltaUsuarios.aspx.cs">
       <DependentUpon>AltaUsuarios.aspx</DependentUpon>
