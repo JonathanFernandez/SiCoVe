@@ -358,6 +358,7 @@
     <Content Include="Site.Master" />
     <Content Include="Site\ActaComprobacion.aspx" />
     <Content Include="Site\AltaUsuarios.aspx" />
+    <Content Include="Site\SolicitudModificacion.aspx" />
     <Content Include="Site\HistorialDenuncias.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
     <Content Include="Site\RealizarControl.aspx" />
@@ -449,6 +450,13 @@
     </Compile>
     <Compile Include="Site\AltaUsuarios.aspx.designer.cs">
       <DependentUpon>AltaUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\SolicitudModificacion.aspx.cs">
+      <DependentUpon>SolicitudModificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\SolicitudModificacion.aspx.designer.cs">
+      <DependentUpon>SolicitudModificacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\HistorialDenuncias.aspx.cs">
       <DependentUpon>HistorialDenuncias.aspx</DependentUpon>
