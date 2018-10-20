@@ -318,7 +318,8 @@
                             </li>
                             <!--Usuario Autoridad de Tránsito-->
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Realizar control</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarControl.aspx"><i class="fa fa-dashboard fa-fw"></i> Realizar control </asp:HyperLink>
+                                <!--a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Realizar control</!--a-->
                             </li>
                             <li>
                                 <a href="index.html"><i class="fa fa-edit fa-fw"></i> Generar infracción</a>
