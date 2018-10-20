@@ -251,24 +251,122 @@
                                     </button>
                                 </span>
                                 </div>
-                                <!-- /input-group -->
+                            </li>
+
+                            <!--Usuario Administrador-->
+                            <li>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i> Remolque<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="~\Site\index.aspx">Alta usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="~\Site\index.aspx">Baja usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="~\Site\index.aspx">Modificar usuario</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Realizar Control</a>
+                                <a href="#"><i class="fa fa-edit fa-fw"></i> Autoridad de Tránsito<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="~\Site\index.aspx">Alta usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="~\Site\index.aspx">Baja usuario</a>
+                                    </li>
+                                    <li>
+                                        <a href="~\Site\index.aspx">Modificar usuario</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Generar Infracción</a>
+                                <a href="#"><i class="fa fa-table fa-fw"></i> Conductor<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="~\Site\index.aspx">Listar usuarios</a>
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Alta Conductor</a>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas y reportes<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="~\Site\index.aspx">Controles por zona</a>
+                                    </li>
+                                    <li>
+                                        <a href="~\Site\index.aspx">Infracciones por zona</a>
+                                    </li>
+                                    <li>
+                                        <a href="~\Site\index.aspx">Alta de usuarios por zona</a>
+                                    </li>
+                                     <li>
+                                        <a href="~\Site\index.aspx">...</a>
+                                    </li>
+                                     <li>
+                                        <a href="~\Site\index.aspx">...</a>
+                                    </li>
+                                     <li>
+                                        <a href="~\Site\index.aspx">...</a>
+                                    </li>
+                                     <li>
+                                        <a href="~\Site\index.aspx">...</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Usuario Autoridad de Tránsito-->
+                            <li>
+                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Realizar control</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Modificar Conductor</a>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Generar infracción</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Historial Controles</a>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Alta de conductor</a>
                             </li>
-                                                        <li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Modificar conductor</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Historial Controles</a>
+                            </li>
+                            <!--Usuario Remolque-->
+                            <li>
+                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Buscar vehículo</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Historial de remolques</a>
+                            </li>
+                            <!--Usuario Conductor-->
+                            <li>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Crear usuario</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Visualizar datos</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Denunciar infracción</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias</a>
+                            </li>
+                            <li>
+                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Solicitar modificar datos</a>
+                            </li>
+
+
+
+
+
+
+
+
+                            
+                            
+                            <!--
+                            <li>
                                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Denuncias<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -278,7 +376,6 @@
                                         <a href="~\Site\HistorialDenuncias.aspx">Historial Denuncias</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
                             </li>
                             <li>
                                 <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
@@ -293,7 +390,6 @@
                                         <a href="morris.html">Morris.js Charts</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
                             </li>
                             <li>
                                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -323,7 +419,6 @@
                                         <a href="grid.html">Grid</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -350,10 +445,8 @@
                                                 <a href="#">Third Level Item</a>
                                             </li>
                                         </ul>
-                                        <!-- /.nav-third-level -->
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
@@ -365,8 +458,8 @@
                                         <a href="login.html">Login Page</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
                             </li>
+                            -->
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
