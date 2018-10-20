@@ -13,93 +13,66 @@ namespace SiCoVe.Site {
     public partial class AltaUsuarios {
         
         /// <summary>
-        /// Control ddlTipUsuarioAU.
+        /// Control txtGeolocalizacionCI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipUsuarioAU;
+        protected global::System.Web.UI.WebControls.TextBox txtGeolocalizacionCI;
         
         /// <summary>
-        /// Control ddlTipDocumentoAU.
+        /// Control txtDetalleInfracciónCI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipDocumentoAU;
+        protected global::System.Web.UI.WebControls.TextBox txtDetalleInfracciónCI;
         
         /// <summary>
-        /// Control txtNumDocumentoAU.
+        /// Control txtCargaFotoCI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumDocumentoAU;
+        protected global::System.Web.UI.WebControls.TextBox txtCargaFotoCI;
         
         /// <summary>
-        /// Control txtApellido.
+        /// Control txtFechaCI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellido;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaCI;
         
         /// <summary>
-        /// Control txtNombre.
+        /// Control txtPatente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtPatente;
         
         /// <summary>
-        /// Control txtEmpresaAU.
+        /// Control btnAceptarCI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpresaAU;
+        protected global::System.Web.UI.WebControls.Button btnAceptarCI;
         
         /// <summary>
-        /// Control txtMailAU.
+        /// Control btnSalir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMailAU;
-        
-        /// <summary>
-        /// Control txtContraseñaAU.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseñaAU;
-        
-        /// <summary>
-        /// Control txtConContraseñaAU.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConContraseñaAU;
-        
-        /// <summary>
-        /// Control btnAceptarAC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAceptarAC;
+        protected global::System.Web.UI.WebControls.Button btnSalir;
     }
 }
