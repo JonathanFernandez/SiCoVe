@@ -53,6 +53,9 @@ namespace SiCoVe
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/metisMenu/metisMenu.min.js");
             scriptLink.IncludeOn(Page.Header);
 
+            scriptLink = new HtmlHeaderJSLink("~/Content/dist/js/sb-admin-2.js");
+            scriptLink.IncludeOn(Page.Header);
+
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/raphael/raphael.min.js");
             scriptLink.IncludeOn(Page.Header);
 
@@ -61,12 +64,8 @@ namespace SiCoVe
 
             scriptLink = new HtmlHeaderJSLink("~/Content/data/morris-data.js");
             scriptLink.IncludeOn(Page.Header);
-
-            scriptLink = new HtmlHeaderJSLink("~/Content/js/plugins/jquery-validation-1.14.0/localization/messages_es.min.js");
-            scriptLink.IncludeOn(Page.Header);
-
-            scriptLink = new HtmlHeaderJSLink("~/Content/dist/js/sb-admin-2.js");
-            scriptLink.IncludeOn(Page.Header);
+            
+            
 
             //scriptLink = new HtmlHeaderJSLink("~/Content/js/masterPage.js");
             //scriptLink.IncludeOn(Page.Header);
