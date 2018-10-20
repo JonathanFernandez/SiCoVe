@@ -359,7 +359,7 @@
     <Content Include="Site\ActaComprobacion.aspx" />
     <Content Include="Site\HistorialDenuncias.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
-    <Content Include="Site\TestCamera.aspx" />
+    <Content Include="Site\RealizarControl.aspx" />
     <Content Include="Site\VerificacionDatos.aspx" />
     <Content Include="testCamera.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -456,12 +456,12 @@
     <Compile Include="Site\RealizarDenuncia.aspx.designer.cs">
       <DependentUpon>RealizarDenuncia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site\TestCamera.aspx.cs">
-      <DependentUpon>TestCamera.aspx</DependentUpon>
+    <Compile Include="Site\RealizarControl.aspx.cs">
+      <DependentUpon>RealizarControl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site\TestCamera.aspx.designer.cs">
-      <DependentUpon>TestCamera.aspx</DependentUpon>
+    <Compile Include="Site\RealizarControl.aspx.designer.cs">
+      <DependentUpon>RealizarControl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\VerificacionDatos.aspx.cs">
       <DependentUpon>VerificacionDatos.aspx</DependentUpon>
