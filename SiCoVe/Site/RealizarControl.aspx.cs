@@ -25,7 +25,7 @@ namespace SiCoVe.Site
 
             //var Result = Ocr.Read(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
 
-            imgFoto.ImageUrl = "~/Temp/" + FileUploadFoto.FileName;
+            imgFoto.ImageUrl = "Temp/" + FileUploadFoto.FileName;
 
             //string extractText = this.ExtractTextFromImage(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
 
@@ -37,7 +37,8 @@ namespace SiCoVe.Site
         private void leer()
         {
             var apiInstance = new DefaultApi();
-            byte[] imageArray = System.IO.File.ReadAllBytes(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
+            //byte[] imageArray = System.IO.File.ReadAllBytes(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
+            byte[] imageArray = System.IO.File.ReadAllBytes(Server.MapPath("Temp//" + FileUploadFoto.FileName));
             string base64ImageRepresentation = Convert.ToBase64String(imageArray);
 
             var imageBytes = base64ImageRepresentation;//imageBytes_example;  // string | The image file that you wish to analyze encoded in base64 

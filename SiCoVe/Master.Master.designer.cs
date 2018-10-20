@@ -22,16 +22,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder IncludeCssSection;
         
         /// <summary>
-        /// Control includeJsSection.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder includeJsSection;
-        
-        /// <summary>
-        /// Control head.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -40,7 +31,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// Control frmMaster.
+        /// frmMaster control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -49,12 +40,22 @@ namespace SiCoVe {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmMaster;
         
         /// <summary>
-        /// Control PaginaCentral_ContentPlaceHolder.
+        /// PaginaCentral_ContentPlaceHolder control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder PaginaCentral_ContentPlaceHolder;
+        
+        /// <summary>
+        /// Control PaginaCentral_ContentPlaceHolder.
+        /// includeJsSection control.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder includeJsSection;
     }
 }
