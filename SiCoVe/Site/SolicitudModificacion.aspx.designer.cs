@@ -13,9 +13,16 @@ namespace SiCoVe.Site {
     public partial class AltaUsuarios {
         
         /// <summary>
-
-        /// Control ddlTipDocumentoAU.
-
+        /// Control txtGeolocalizacionCI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGeolocalizacionCI;
+        
+        /// <summary>
+        /// Control txtDetalleInfracciónCI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -58,14 +65,5 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptarCI;
-        
-        /// <summary>
-        /// Control btnSalir.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalir;
     }
 }
