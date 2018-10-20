@@ -10,7 +10,7 @@
 namespace SiCoVe.Site {
     
     
-    public partial class TestCamera {
+    public partial class RealizarControl {
         
         /// <summary>
         /// imgFoto control.
