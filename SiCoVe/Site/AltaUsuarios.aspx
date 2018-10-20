@@ -18,10 +18,6 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
-                            <label>Tipo de Usuario</label>
-                            <asp:DropDownList ID="ddlTipUsuarioAU" runat="server" class="form-control"></asp:DropDownList>
-                        </div>
-                        <div class="form-group">
                             <label>Tipo de documento</label>
                             <asp:DropDownList ID="ddlTipDocumentoAU" runat="server" class="form-control"></asp:DropDownList>
                         </div>
