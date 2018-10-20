@@ -4,10 +4,14 @@
 
 <html>
 <head runat="server">
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title></title>
     
     <asp:ContentPlaceHolder ID="IncludeCssSection" runat="server"></asp:ContentPlaceHolder>
-    <asp:ContentPlaceHolder ID="includeJsSection" runat="server"></asp:ContentPlaceHolder>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -319,10 +323,9 @@
                             <!--Usuario Autoridad de Tránsito-->
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarControl.aspx"><i class="fa fa-dashboard fa-fw"></i> Realizar control </asp:HyperLink>
-                                <!--a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Realizar control</!--a-->
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Generar infracción</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ActaComprobacion.aspx"><i class="fa fa-edit fa-fw"></i> Generar infracción </asp:HyperLink>
                             </li>
                             <li>
                                 <a href="index.html"><i class="fa fa-edit fa-fw"></i> Alta de conductor</a>
@@ -484,5 +487,7 @@
            
         
     </form>
+    <asp:ContentPlaceHolder ID="includeJsSection" runat="server"></asp:ContentPlaceHolder>
+
 </body>
 </html>
