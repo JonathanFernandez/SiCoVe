@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="TestCamera.aspx.cs" Inherits="SiCoVe.Site.TestCamera" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RealizarControl.aspx.cs" Inherits="SiCoVe.Site.RealizarControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
