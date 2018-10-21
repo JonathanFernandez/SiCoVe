@@ -22,7 +22,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder IncludeCssSection;
         
         /// <summary>
-        /// head control.
+        /// Control head.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -31,7 +31,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// frmMaster control.
+        /// Control frmMaster.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -40,7 +40,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmMaster;
         
         /// <summary>
-        /// PaginaCentral_ContentPlaceHolder control.
+        /// Control PaginaCentral_ContentPlaceHolder.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -49,8 +49,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder PaginaCentral_ContentPlaceHolder;
         
         /// <summary>
-        /// Control PaginaCentral_ContentPlaceHolder.
-        /// includeJsSection control.
+        /// Control includeJsSection.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
