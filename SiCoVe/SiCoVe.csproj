@@ -326,6 +326,8 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="Site\AltaAutoridad.aspx" />
+    <Content Include="Site\ModificarAutoridad.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -358,6 +360,7 @@
     <Content Include="Site.Master" />
     <Content Include="Site\ActaComprobacion.aspx" />
     <Content Include="Site\AltaConductorNoConductor.aspx" />
+    <Content Include="Site\AltaRemolque.aspx" />
     <Content Include="Site\AltaUsuarios.aspx" />
     <Content Include="Site\HistorialDenuncias.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
@@ -451,6 +454,13 @@
     <Compile Include="Site\AltaConductorNoConductor.aspx.designer.cs">
       <DependentUpon>AltaConductorNoConductor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\AltaRemolque.aspx.cs">
+      <DependentUpon>AltaRemolque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AltaRemolque.aspx.designer.cs">
+      <DependentUpon>AltaRemolque.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\AltaUsuarios.aspx.cs">
       <DependentUpon>AltaUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -500,9 +510,24 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Site\AltaAutoridad.aspx.cs">
+      <DependentUpon>AltaAutoridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AltaAutoridad.aspx.designer.cs">
+      <DependentUpon>AltaAutoridad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ModificarAutoridad.aspx.cs">
+      <DependentUpon>ModificarAutoridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ModificarAutoridad.aspx.designer.cs">
+      <DependentUpon>ModificarAutoridad.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Site\Temp\" />
     <Folder Include="Temp\" />
   </ItemGroup>
   <ItemGroup>
