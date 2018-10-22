@@ -10,7 +10,8 @@
 namespace SiCoVe.Site {
     
     
-    public partial class SolicitarModifDatos {
+    public partial class SolicitarModifDatos
+    {
         
         /// <summary>
         /// Control txtNumDocumentoACNC.
