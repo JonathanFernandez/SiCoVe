@@ -276,7 +276,8 @@
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Autoridad de Tránsito<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="~\Site\index.aspx">Alta usuario</a>
+                                        <!--<a href="~\Site\index.aspx">Alta usuario</a>-->
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaAutoridad.aspx">Alta usuario </asp:HyperLink>
                                     </li>
                                     <li>
                                         <a href="~\Site\index.aspx">Baja usuario</a>
