@@ -8,7 +8,7 @@ using System.Data;
 
 namespace SiCoVe
 {
-    public partial class ListarAutoridad : System.Web.UI.Page
+    public partial class ListarRemolque : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,8 +25,8 @@ namespace SiCoVe
                     DataRow dr = dt.NewRow();
                     dt.Rows.Add(dr);
                 }
-                GvAutoridad.DataSource = dt;
-                GvAutoridad.DataBind();
+                GvRemolque.DataSource = dt;
+                GvRemolque.DataBind();
             }
         }
     }

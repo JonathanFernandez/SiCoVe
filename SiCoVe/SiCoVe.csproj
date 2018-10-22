@@ -328,6 +328,8 @@
     <Content Include="Master.Master" />
     <Content Include="Site\AltaAutoridad.aspx" />
     <Content Include="Site\ModificarAutoridad.aspx" />
+    <Content Include="Site\ListarAutoridad.aspx" />
+    <Content Include="Site\ListarRemolque.aspx" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -524,6 +526,20 @@
     <Compile Include="Site\ModificarAutoridad.aspx.designer.cs">
       <DependentUpon>ModificarAutoridad.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\ListarAutoridad.aspx.cs">
+      <DependentUpon>ListarAutoridad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ListarAutoridad.aspx.designer.cs">
+      <DependentUpon>ListarAutoridad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ListarRemolque.aspx.cs">
+      <DependentUpon>ListarRemolque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ListarRemolque.aspx.designer.cs">
+      <DependentUpon>ListarRemolque.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -557,6 +573,9 @@
       <Project>{28674e2c-c26d-4e6d-a26c-efb062e9348e}</Project>
       <Name>OpenAlprApi</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
