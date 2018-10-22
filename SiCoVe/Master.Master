@@ -262,7 +262,7 @@
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Remolque<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="~\Site\index.aspx">Alta usuario</a>
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaRemolque.aspx">Alta usuario </asp:HyperLink>
                                     </li>
                                     <li>
                                         <a href="~\Site\index.aspx">Baja usuario</a>
@@ -276,7 +276,6 @@
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Autoridad de Tránsito<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <!--<a href="~\Site\index.aspx">Alta usuario</a>-->
                                         <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaAutoridad.aspx">Alta usuario </asp:HyperLink>
                                     </li>
                                     <li>
@@ -355,10 +354,9 @@
                                 <a href="index.html"><i class="fa fa-edit fa-fw"></i> Denunciar infracción</a>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias </asp:HyperLink>
                             </li>
                             <li>
-                                <!--<a href="index.html"><i class="fa fa-edit fa-fw"></i> Solicitar modificar datos</a>-->
                                  <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModifDatos.aspx"><i class="fa fa-dashboard fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
                             </li>
 
