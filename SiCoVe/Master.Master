@@ -264,11 +264,11 @@
                                     <li>
                                         <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaRemolque.aspx">Alta usuario </asp:HyperLink>
                                     </li>
-                                    <li>
+                                    <!--<li>
                                         <a href="~\Site\index.aspx">Baja usuario</a>
-                                    </li>
+                                    </li>-->
                                     <li>
-                                        <a href="~\Site\index.aspx">Modificar usuario</a>
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarRemolque.aspx">Modificar / Eliminar usuario </asp:HyperLink>
                                     </li>
                                 </ul>
                             </li>
@@ -278,11 +278,11 @@
                                     <li>
                                         <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaAutoridad.aspx">Alta usuario </asp:HyperLink>
                                     </li>
-                                    <li>
+                                    <!--<li>
                                         <a href="~\Site\index.aspx">Baja usuario</a>
-                                    </li>
+                                    </li>-->
                                     <li>
-                                        <a href="~\Site\index.aspx">Modificar usuario</a>
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarAutoridad.aspx">Modificar / Eliminar usuario </asp:HyperLink>
                                     </li>
                                 </ul>
                             </li>
@@ -331,7 +331,7 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Alta de conductor </asp:HyperLink>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Modificar conductor</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Modificar conductor </asp:HyperLink>
                             </li>
                             <li>
                                 <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Historial Controles</a>
@@ -348,27 +348,17 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Crear usuario </asp:HyperLink>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Visualizar datos</a>
-                            </li>
-                            <li>
-                                <a href="index.html"><i class="fa fa-edit fa-fw"></i> Denunciar infracción</a>
-                            </li>
-                            <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias </asp:HyperLink>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Visualizar datos </asp:HyperLink>
                             </li>
                             <li>
                                  <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModifDatos.aspx"><i class="fa fa-dashboard fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
                             </li>
-
-
-
-
-
-
-
-
-                            
-                            
+                            <li>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarDenuncia.aspx"><i class="fa fa-edit fa-fw"></i> Realizar denuncia </asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias </asp:HyperLink>
+                            </li>
                             <!--
                             <li>
                                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Denuncias<span class="fa arrow"></span></a>
