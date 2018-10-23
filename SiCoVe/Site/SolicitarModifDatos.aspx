@@ -35,7 +35,7 @@
                             <div class="tab-pane fade in active" id="datosusuario">
                                 <div class="form-group">
                                     <label>N° de documento</label>
-                                    <asp:TextBox ID="txtNumDocumentoACNC" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
+                                    <asp:TextBox ID="txtNumDocumentoSM" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                                 <label>Cargar Foto DNI</label>
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Apellido</label>
-                                    <asp:TextBox ID="txtApellidoACNC" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
+                                    <asp:TextBox ID="txtApellidoSM" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Nombres</label>
@@ -71,15 +71,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Mail</label>
-                                    <asp:TextBox ID="txtMailACNC" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
+                                    <asp:TextBox ID="txtMailSM" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Contraseña</label>
-                                    <asp:TextBox ID="txtContraseñaACNC" runat="server" class="form-control" type="password"></asp:TextBox>
+                                    <asp:TextBox ID="txtContraseñaSM" runat="server" class="form-control" type="password"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Confirmar Contraseña</label>
-                                    <asp:TextBox ID="txtConContraseñaACNC" runat="server" class="form-control" type="password"></asp:TextBox>
+                                    <asp:TextBox ID="txtConContraseñaSM" runat="server" class="form-control" type="password"></asp:TextBox>
                                 </div>
                                     <label>Usuario Conductor?</label>
                                     <asp:CheckBox ID="CheckBox1" runat="server"></asp:CheckBox>
@@ -301,7 +301,7 @@
                             </div>
                         </div>
                         <br />
-                        <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" />
+                        <asp:Button ID="btnRegistrarSM" runat="server" class="btn btn-default" Text="Registrar" />
                     </div>
                 </div>
             </div>

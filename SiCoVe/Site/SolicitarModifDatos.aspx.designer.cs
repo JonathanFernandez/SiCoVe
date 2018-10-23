@@ -14,22 +14,22 @@ namespace SiCoVe.Site {
     {
         
         /// <summary>
-        /// Control txtNumDocumentoACNC.
+        /// Control txtNumDocumentoSM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumDocumentoACNC;
+        protected global::System.Web.UI.WebControls.TextBox txtNumDocumentoSM;
         
         /// <summary>
-        /// Control txtApellidoACNC.
+        /// Control txtApellidoSM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoACNC;
+        protected global::System.Web.UI.WebControls.TextBox txtApellidoSM;
         
         /// <summary>
         /// Control txtNombre.
@@ -86,31 +86,31 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
         
         /// <summary>
-        /// Control txtMailACNC.
+        /// Control txtMailSM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMailACNC;
+        protected global::System.Web.UI.WebControls.TextBox txtMailSM;
         
         /// <summary>
-        /// Control txtContraseñaACNC.
+        /// Control txtContraseñaSM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContraseñaACNC;
+        protected global::System.Web.UI.WebControls.TextBox txtContraseñaSM;
         
         /// <summary>
-        /// Control txtConContraseñaACNC.
+        /// Control txtConContraseñaSM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConContraseñaACNC;
+        protected global::System.Web.UI.WebControls.TextBox txtConContraseñaSM;
         
         /// <summary>
         /// Control CheckBox1.
@@ -536,12 +536,12 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtFecHastaSEG;
         
         /// <summary>
-        /// Control btnRegistrarACNC.
+        /// Control btnRegistrarSM.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrarACNC;
+        protected global::System.Web.UI.WebControls.Button btnRegistrarSM;
     }
 }
