@@ -92,8 +92,8 @@
                                             <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
                                         </div>
                                         <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
+                                            <label>Imagen de evidencia</label>
+                                            <asp:Image ID="imgDNI" runat="server" Style="width: 500px; height: 300px"  />
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->
@@ -147,8 +147,8 @@
                                             <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
+                                            <label>Imagen de evidencia</label>
+                                            <asp:Image ID="imgLIC" runat="server" Style="width: 500px; height: 300px"  />
                                         </div>
                                     </div>
                                     <!-- Datos cédula -->
@@ -217,8 +217,8 @@
                                             <asp:TextBox ID="txtDomicilioCED" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                         </div>-->
                                         <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
+                                            <label>Imagen de evidencia</label>
+                                            <asp:Image ID="imgCED" runat="server" Style="width: 500px; height: 300px"  />
                                         </div>
                                     </div>
                                     <!-- Datos seguro -->
@@ -272,8 +272,8 @@
                                             <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
+                                            <label>Imagen de evidencia</label>
+                                            <asp:Image ID="imgSEG" runat="server" Style="width: 500px; height: 300px"  />
                                         </div>
                                     </div>
                                     <br />

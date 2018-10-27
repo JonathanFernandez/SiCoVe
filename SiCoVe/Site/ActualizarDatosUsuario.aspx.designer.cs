@@ -121,6 +121,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlLugNacimientoDNI;
         
         /// <summary>
+        /// Control imgDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgDNI;
+        
+        /// <summary>
         /// Control txtNumLicenciaLIC.
         /// </summary>
         /// <remarks>
@@ -227,6 +236,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
+        
+        /// <summary>
+        /// Control imgLIC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgLIC;
         
         /// <summary>
         /// Control txtNumCedulaCED.
@@ -364,6 +382,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtDomicilioCED;
         
         /// <summary>
+        /// Control imgCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCED;
+        
+        /// <summary>
         /// Control ddlAseguradoraSEG.
         /// </summary>
         /// <remarks>
@@ -470,6 +497,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFecHastaSEG;
+        
+        /// <summary>
+        /// Control imgSEG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSEG;
         
         /// <summary>
         /// Control btnEnviar.
