@@ -330,6 +330,7 @@
     <Content Include="Site\AltaAcarreo.aspx" />
     <Content Include="Site\AltaAutoridad.aspx" />
     <Content Include="Site\HistorialAcarreo.aspx" />
+    <Content Include="Site\HistorialControles.aspx" />
     <Content Include="Site\ListarUsuarios.aspx" />
     <Content Include="Site\ModificarAutoridad.aspx" />
     <Content Include="Site\ListarAutoridad.aspx" />
@@ -368,10 +369,12 @@
     <Content Include="Site\AltaConductorNoConductor.aspx" />
     <Content Include="Site\AltaRemolque.aspx" />
     <Content Include="Site\HistorialDenuncias.aspx" />
+    <Content Include="Site\ModificarDatosConductor.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
     <Content Include="Site\RealizarControl.aspx" />
     <Content Include="Site\SolicitarModificacionDatos.aspx" />
     <Content Include="Site\VerificacionDatos.aspx" />
+    <Content Include="Site\VisualizarDatosConductor.aspx" />
     <Content Include="testCamera.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -488,6 +491,13 @@
     <Compile Include="Site\HistorialAcarreo.aspx.designer.cs">
       <DependentUpon>HistorialAcarreo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\HistorialControles.aspx.cs">
+      <DependentUpon>HistorialControles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\HistorialControles.aspx.designer.cs">
+      <DependentUpon>HistorialControles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\HistorialDenuncias.aspx.cs">
       <DependentUpon>HistorialDenuncias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -501,6 +511,13 @@
     </Compile>
     <Compile Include="Site\ListarUsuarios.aspx.designer.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ModificarDatosConductor.aspx.cs">
+      <DependentUpon>ModificarDatosConductor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ModificarDatosConductor.aspx.designer.cs">
+      <DependentUpon>ModificarDatosConductor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\RealizarDenuncia.aspx.cs">
       <DependentUpon>RealizarDenuncia.aspx</DependentUpon>
@@ -529,6 +546,13 @@
     </Compile>
     <Compile Include="Site\VerificacionDatos.aspx.designer.cs">
       <DependentUpon>VerificacionDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\VisualizarDatosConductor.aspx.cs">
+      <DependentUpon>VisualizarDatosConductor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\VisualizarDatosConductor.aspx.designer.cs">
+      <DependentUpon>VisualizarDatosConductor.aspx</DependentUpon>
     </Compile>
     <Compile Include="testCamera.aspx.cs">
       <DependentUpon>testCamera.aspx</DependentUpon>

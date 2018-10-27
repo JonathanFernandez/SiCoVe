@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="SolicitarModificacionDatos.aspx.cs" Inherits="SiCoVe.Site.SolicitarModificacionDatos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ModificarDatosConductor.aspx.cs" Inherits="SiCoVe.Site.ModificarDatosConductor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 
@@ -10,20 +10,16 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
-
-        <!--INI-->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Solicitud de modificación de datos</h1>
+                <h1 class="page-header">Modificación de datos</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-            <!--FIN-->
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Solicitar actualización de datos
+                        Modificación de datos de conductor
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-tabs">
@@ -55,10 +51,6 @@
                                         <div class="form-group">
                                             <label>Confirmar Contraseña</label>
                                             <asp:TextBox ID="txtConContraseñaSM" runat="server" class="form-control" type="password"></asp:TextBox>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Es Conductor? </label>
-                                            <asp:CheckBox ID="CheckBox1" runat="server"></asp:CheckBox>
                                         </div>
                                     </div>
                                     <!-- Datos DNI -->
@@ -94,10 +86,6 @@
                                         <div class="form-group">
                                             <label>Lugar de nacimiento</label>
                                             <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->
@@ -149,10 +137,6 @@
                                         <div class="form-group">
                                             <label>Observaciones</label>
                                             <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
                                         </div>
                                     </div>
                                     <!-- Datos cédula -->
@@ -220,10 +204,6 @@
                                             <label>Domicilio</label>
                                             <asp:TextBox ID="txtDomicilioCED" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                         </div>-->
-                                        <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
-                                        </div>
                                     </div>
                                     <!-- Datos seguro -->
                                     <div class="tab-pane fade" id="seguro">
@@ -274,10 +254,6 @@
                                         <div class="form-group">
                                             <label>Fecha hasta</label>
                                             <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
-                                            <input type="file">
                                         </div>
                                     </div>
                                     <br />
