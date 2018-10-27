@@ -62,6 +62,23 @@
                                     </div>
                             </div>
 
+
+                              <div class="row">
+                                    <div class="col-lg-6">
+
+                                         
+                                         <div class="form-group">
+                                                <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Infracción" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
+                                                <asp:Button ID="btnAltaAcarreo" runat="server" Text="Alta Acarreo" OnClick="btnAltaAcarreo_Click" CssClass="btn btn-primary" />
+                                          
+                                            </div>
+                                    
+                                    
+                                    </div>
+                            </div>
+
+
+
                         </div>
 
                   </div>
