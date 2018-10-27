@@ -290,7 +290,7 @@
                                 <a href="#"><i class="fa fa-table fa-fw"></i> Conductor<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="~\Site\index.aspx">Listar usuarios</a>
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarUsuarios.aspx">Listar usuarios</asp:HyperLink>
                                     </li>
                                 </ul>
                             </li>
