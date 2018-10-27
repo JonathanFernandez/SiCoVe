@@ -329,6 +329,7 @@
     <Content Include="Site\AltaAcarreo.aspx" />
     <Content Include="Site\AltaAutoridad.aspx" />
     <Content Include="Site\HistorialAcarreo.aspx" />
+    <Content Include="Site\ListarUsuarios.aspx" />
     <Content Include="Site\ModificarAutoridad.aspx" />
     <Content Include="Site\ListarAutoridad.aspx" />
     <Content Include="Site\ListarRemolque.aspx" />
@@ -368,7 +369,7 @@
     <Content Include="Site\HistorialDenuncias.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
     <Content Include="Site\RealizarControl.aspx" />
-    <Content Include="Site\SolicitarModifDatos.aspx" />
+    <Content Include="Site\SolicitarModificacionDatos.aspx" />
     <Content Include="Site\VerificacionDatos.aspx" />
     <Content Include="testCamera.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -486,6 +487,13 @@
     <Compile Include="Site\HistorialDenuncias.aspx.designer.cs">
       <DependentUpon>HistorialDenuncias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Site\ListarUsuarios.aspx.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ListarUsuarios.aspx.designer.cs">
+      <DependentUpon>ListarUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\RealizarDenuncia.aspx.cs">
       <DependentUpon>RealizarDenuncia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -500,12 +508,12 @@
     <Compile Include="Site\RealizarControl.aspx.designer.cs">
       <DependentUpon>RealizarControl.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site\SolicitarModifDatos.aspx.cs">
-      <DependentUpon>SolicitarModifDatos.aspx</DependentUpon>
+    <Compile Include="Site\SolicitarModificacionDatos.aspx.cs">
+      <DependentUpon>SolicitarModificacionDatos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site\SolicitarModifDatos.aspx.designer.cs">
-      <DependentUpon>SolicitarModifDatos.aspx</DependentUpon>
+    <Compile Include="Site\SolicitarModificacionDatos.aspx.designer.cs">
+      <DependentUpon>SolicitarModificacionDatos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\VerificacionDatos.aspx.cs">
       <DependentUpon>VerificacionDatos.aspx</DependentUpon>
