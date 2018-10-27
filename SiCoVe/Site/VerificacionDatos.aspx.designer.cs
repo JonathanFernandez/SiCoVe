@@ -13,6 +13,15 @@ namespace SiCoVe.Site {
     public partial class VerificacionDatos {
         
         /// <summary>
+        /// Control ddlPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPersona;
+        
+        /// <summary>
         /// Control txtApellidoDNI.
         /// </summary>
         /// <remarks>
@@ -301,6 +310,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtTitularCED;
         
         /// <summary>
+        /// Control txtAutorizado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAutorizado;
+        
+        /// <summary>
         /// Control txtDocumentoCED.
         /// </summary>
         /// <remarks>
@@ -425,6 +443,24 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFecHastaSEG;
+        
+        /// <summary>
+        /// Control txtLugarControl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLugarControl;
+        
+        /// <summary>
+        /// Control txtObservacionesControl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionesControl;
         
         /// <summary>
         /// Control btnAprobarVD.
