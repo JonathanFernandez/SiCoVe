@@ -341,7 +341,8 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarControl.aspx"><i class="fa fa-dashboard fa-fw"></i> Buscar vehículo </asp:HyperLink>
                             </li>
                             <li>
-                                <a href="index.html"><i class="fa fa-files-o fa-fw"></i> Historial de acarreos</a>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialAcarreo.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de remolques </asp:HyperLink>
+
                             </li>
                             <!--Usuario Conductor-->
                             <li>
