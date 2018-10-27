@@ -20,6 +20,7 @@
             <div class="row">
                 <div class="col-lg-12">
                 <!--FIN-->
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Verificación de datos
@@ -44,7 +45,7 @@
                                         <!-- Datos DNI -->
                                         <div class="tab-pane fade in active" id="dni">
                                             <div class="form-group">
-                                                <label>Seleccione Persona</label>
+                                                <label>Seleccione persona</label>
                                                 <asp:DropDownList ID="ddlPersona" runat="server" class="form-control"></asp:DropDownList>
                                             </div>
                                             <div class="form-group">
