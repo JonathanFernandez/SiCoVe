@@ -69,7 +69,7 @@
                                                 <asp:TextBox ID="txtFecNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label>Documento</label>
+                                                <label>Número de documento</label>
                                                 <asp:TextBox ID="txtDocumentoDNI" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
