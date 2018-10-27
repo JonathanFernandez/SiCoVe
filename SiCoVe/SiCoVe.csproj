@@ -326,7 +326,9 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="Site\AltaAcarreo.aspx" />
     <Content Include="Site\AltaAutoridad.aspx" />
+    <Content Include="Site\HistorialAcarreo.aspx" />
     <Content Include="Site\ModificarAutoridad.aspx" />
     <Content Include="Site\ListarAutoridad.aspx" />
     <Content Include="Site\ListarRemolque.aspx" />
@@ -449,6 +451,13 @@
       <DependentUpon>ActaComprobacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Site\AltaAcarreo.aspx.cs">
+      <DependentUpon>AltaAcarreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\AltaAcarreo.aspx.designer.cs">
+      <DependentUpon>AltaAcarreo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site\AltaConductorNoConductor.aspx.cs">
       <DependentUpon>AltaConductorNoConductor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -462,6 +471,13 @@
     </Compile>
     <Compile Include="Site\AltaRemolque.aspx.designer.cs">
       <DependentUpon>AltaRemolque.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\HistorialAcarreo.aspx.cs">
+      <DependentUpon>HistorialAcarreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\HistorialAcarreo.aspx.designer.cs">
+      <DependentUpon>HistorialAcarreo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\HistorialDenuncias.aspx.cs">
       <DependentUpon>HistorialDenuncias.aspx</DependentUpon>
@@ -572,6 +588,10 @@
     <ProjectReference Include="..\csharp\src\OpenAlprApi\OpenAlprApi.csproj">
       <Project>{28674e2c-c26d-4e6d-a26c-efb062e9348e}</Project>
       <Name>OpenAlprApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBaseSiCoVe\DataBaseSiCoVe.csproj">
+      <Project>{9db95cb0-f333-481d-a037-180c1652d23e}</Project>
+      <Name>DataBaseSiCoVe</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

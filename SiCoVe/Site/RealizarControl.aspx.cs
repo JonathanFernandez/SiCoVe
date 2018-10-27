@@ -62,6 +62,18 @@ namespace SiCoVe.Site
                 //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
             }
         }
+
+        protected void btnGenerarInfraccion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        protected void btnAltaAcarreo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Site/AltaAcarreo.aspx", false);
+        }
         //private string ExtractTextFromImage(string filePath)
         //{
         //    Document modiDocument = new Document();
