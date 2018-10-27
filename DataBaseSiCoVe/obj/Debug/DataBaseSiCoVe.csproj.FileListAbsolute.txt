@@ -1,0 +1,12 @@
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\DataBaseSiCoVe.dll.config
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\DataBaseSiCoVe.dll
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\DataBaseSiCoVe.pdb
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.dll
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.xml
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csprojAssemblyReference.cache
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csproj.CoreCompileInputs.cache
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csproj.CopyComplete
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.dll
+C:\Users\fernajo003\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.pdb

@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sicoveModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="agente_transito">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="nro_legajo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_agente_transito_usuario" FromRole="agente_transito" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="aseguradora">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="polizas" Relationship="Self.FK_poliza_aseguradora" FromRole="aseguradora" ToRole="poliza" />
+  </EntityType>
+  <EntityType Name="categoria_infraccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="codigo_infraccion" Relationship="Self.FK_codigo_infraccion_categoria_infraccion" FromRole="categoria_infraccion" ToRole="codigo_infraccion" />
+  </EntityType>
+  <EntityType Name="categoria_licencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_categoria_licencia" FromRole="categoria_licencia" ToRole="licencia" />
+  </EntityType>
+  <EntityType Name="cedula">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nro_cedula" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="persona_id" Type="Int32" Nullable="false" />
+    <Property Name="uso_id" Type="Int32" Nullable="false" />
+    <Property Name="estado_id" Type="Int32" Nullable="false" />
+    <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+    <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="flag_autorizado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="estado_cedula" Relationship="Self.FK_cedula_estado_cedula" FromRole="cedula" ToRole="estado_cedula" />
+    <NavigationProperty Name="persona" Relationship="Self.FK_cedula_persona" FromRole="cedula" ToRole="persona" />
+    <NavigationProperty Name="uso_cedula" Relationship="Self.FK_cedula_uso_cedula" FromRole="cedula" ToRole="uso_cedula" />
+    <NavigationProperty Name="vehiculo" Relationship="Self.FK_cedula_vehiculo" FromRole="cedula" ToRole="vehiculo" />
+  </EntityType>
+  <EntityType Name="codigo_infraccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codigo_infraccion1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="categoria_id" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="categoria_infraccion" Relationship="Self.FK_codigo_infraccion_categoria_infraccion" FromRole="codigo_infraccion" ToRole="categoria_infraccion" />
+    <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_codigo_infraccion" FromRole="codigo_infraccion" ToRole="infraccion" />
+  </EntityType>
+  <EntityType Name="control">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agente_transito_id" Type="Int32" Nullable="false" />
+    <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+    <Property Name="persona_id" Type="Int32" Nullable="false" />
+    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="provincia_id" Type="Int32" Nullable="false" />
+    <Property Name="localidad_id" Type="Int32" Nullable="false" />
+    <Property Name="locacion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
+    <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_control" FromRole="control" ToRole="infraccion" />
+  </EntityType>
+  <EntityType Name="denuncia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="estado_id" Type="Int32" Nullable="false" />
+    <Property Name="infraccion_id" Type="Int32" Nullable="false" />
+    <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="adjunto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="estado_denuncia" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="denuncia" ToRole="estado_denuncia" />
+    <NavigationProperty Name="infraccion" Relationship="Self.FK_denuncia_infraccion" FromRole="denuncia" ToRole="infraccion" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_denuncia_usuario" FromRole="denuncia" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="estado_cedula">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_estado_cedula" FromRole="estado_cedula" ToRole="cedula" />
+  </EntityType>
+  <EntityType Name="estado_denuncia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="denuncias" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="estado_denuncia" ToRole="denuncia" />
+  </EntityType>
+  <EntityType Name="infraccion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agente_transito_id" Type="Int32" Nullable="false" />
+    <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+    <Property Name="licencia_id" Type="Int32" Nullable="false" />
+    <Property Name="codigo_infraccion_id" Type="Int32" Nullable="false" />
+    <Property Name="provincia_id" Type="Int32" Nullable="false" />
+    <Property Name="localidad_id" Type="Int32" Nullable="false" />
+    <Property Name="control_id" Type="Int32" Nullable="false" />
+    <Property Name="nro_acta" Type="Int64" Nullable="false" />
+    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="locacion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
+    <Property Name="documentacion_retenida" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="lugar_retencion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="codigo_infraccion" Relationship="Self.FK_infraccion_codigo_infraccion" FromRole="infraccion" ToRole="codigo_infraccion" />
+    <NavigationProperty Name="control" Relationship="Self.FK_infraccion_control" FromRole="infraccion" ToRole="control" />
+    <NavigationProperty Name="denuncias" Relationship="Self.FK_denuncia_infraccion" FromRole="infraccion" ToRole="denuncia" />
+    <NavigationProperty Name="licencia" Relationship="Self.FK_infraccion_licencia" FromRole="infraccion" ToRole="licencia" />
+    <NavigationProperty Name="localidad" Relationship="Self.FK_infraccion_localidad" FromRole="infraccion" ToRole="localidad" />
+    <NavigationProperty Name="vehiculo" Relationship="Self.FK_infraccion_vehiculo" FromRole="infraccion" ToRole="vehiculo" />
+  </EntityType>
+  <EntityType Name="licencia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nro_licencia" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="categoria_id" Type="Int32" Nullable="false" />
+    <Property Name="persona_id" Type="Int32" Nullable="false" />
+    <Property Name="municipio_id" Type="Int32" Nullable="false" />
+    <Property Name="clases" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="otorgamiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="categoria_licencia" Relationship="Self.FK_licencia_categoria_licencia" FromRole="licencia" ToRole="categoria_licencia" />
+    <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_licencia" FromRole="licencia" ToRole="infraccion" />
+    <NavigationProperty Name="municipio" Relationship="Self.FK_licencia_municipio" FromRole="licencia" ToRole="municipio" />
+    <NavigationProperty Name="persona" Relationship="Self.FK_licencia_persona" FromRole="licencia" ToRole="persona" />
+  </EntityType>
+  <EntityType Name="localidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="provincia_id" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_localidad" FromRole="localidad" ToRole="infraccion" />
+    <NavigationProperty Name="provincia" Relationship="Self.FK_localidad_provincia" FromRole="localidad" ToRole="provincia" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_persona_localidad" FromRole="localidad" ToRole="persona" />
+  </EntityType>
+  <EntityType Name="marca_vehiculo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="vehiculoes" Relationship="Self.FK_vehiculo_marca_vehiculo" FromRole="marca_vehiculo" ToRole="vehiculo" />
+  </EntityType>
+  <EntityType Name="municipio">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_municipio" FromRole="municipio" ToRole="licencia" />
+  </EntityType>
+  <EntityType Name="nacionalidad">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_persona_nacionalidad" FromRole="nacionalidad" ToRole="persona" />
+  </EntityType>
+  <EntityType Name="perfil_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_perfil_usuario" FromRole="perfil_usuario" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="persona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dni" Type="Int64" Nullable="false" />
+    <Property Name="sexo_id" Type="Int32" Nullable="false" />
+    <Property Name="nacionalidad_id" Type="Int32" Nullable="false" />
+    <Property Name="provincia_id" Type="Int32" Nullable="false" />
+    <Property Name="localidad_id" Type="Int32" Nullable="false" />
+    <Property Name="domicilio" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="piso" Type="Int16" Nullable="false" />
+    <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nro_puerta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="lugar_nacimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="flag_conductor" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_persona" FromRole="persona" ToRole="cedula" />
+    <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_persona" FromRole="persona" ToRole="licencia" />
+    <NavigationProperty Name="localidad" Relationship="Self.FK_persona_localidad" FromRole="persona" ToRole="localidad" />
+    <NavigationProperty Name="nacionalidad" Relationship="Self.FK_persona_nacionalidad" FromRole="persona" ToRole="nacionalidad" />
+    <NavigationProperty Name="provincia" Relationship="Self.FK_persona_provincia" FromRole="persona" ToRole="provincia" />
+    <NavigationProperty Name="sexo" Relationship="Self.FK_persona_sexo" FromRole="persona" ToRole="sexo" />
+    <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_persona" FromRole="persona" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="personal_remolque">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="nro_legajo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="usuario" Relationship="Self.FK_personal_remolque_usuario" FromRole="personal_remolque" ToRole="usuario" />
+    <NavigationProperty Name="remolques" Relationship="Self.FK_remolque_personal_remolque" FromRole="personal_remolque" ToRole="remolque" />
+  </EntityType>
+  <EntityType Name="playa_acarreo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="remolques" Relationship="Self.FK_remolque_playa_acarreo" FromRole="playa_acarreo" ToRole="remolque" />
+  </EntityType>
+  <EntityType Name="poliza">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nro_poliza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="aseguradora_id" Type="Int32" Nullable="false" />
+    <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+    <Property Name="vigencia_desde" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="vigencia_hasta" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="aseguradora" Relationship="Self.FK_poliza_aseguradora" FromRole="poliza" ToRole="aseguradora" />
+    <NavigationProperty Name="vehiculo" Relationship="Self.FK_poliza_vehiculo" FromRole="poliza" ToRole="vehiculo" />
+  </EntityType>
+  <EntityType Name="provincia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="localidads" Relationship="Self.FK_localidad_provincia" FromRole="provincia" ToRole="localidad" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_persona_provincia" FromRole="provincia" ToRole="persona" />
+    <NavigationProperty Name="provincia1" Relationship="Self.FK_provincia_provincia" FromRole="provincia" ToRole="provincia1" />
+    <NavigationProperty Name="provincia2" Relationship="Self.FK_provincia_provincia" FromRole="provincia1" ToRole="provincia" />
+  </EntityType>
+  <EntityType Name="remolque">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personal_remolque_id" Type="Int32" Nullable="false" />
+    <Property Name="playa_acarreo_id" Type="Int32" Nullable="false" />
+    <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="detalle_infraccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="personal_remolque" Relationship="Self.FK_remolque_personal_remolque" FromRole="remolque" ToRole="personal_remolque" />
+    <NavigationProperty Name="playa_acarreo" Relationship="Self.FK_remolque_playa_acarreo" FromRole="remolque" ToRole="playa_acarreo" />
+    <NavigationProperty Name="vehiculo" Relationship="Self.FK_remolque_vehiculo" FromRole="remolque" ToRole="vehiculo" />
+  </EntityType>
+  <EntityType Name="sexo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="personas" Relationship="Self.FK_persona_sexo" FromRole="sexo" ToRole="persona" />
+  </EntityType>
+  <EntityType Name="tipo_vehiculo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="vehiculoes" Relationship="Self.FK_vehiculo_tipo_vehiculo" FromRole="tipo_vehiculo" ToRole="vehiculo" />
+  </EntityType>
+  <EntityType Name="uso_cedula">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_uso_cedula" FromRole="uso_cedula" ToRole="cedula" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="persona_id" Type="Int32" Nullable="false" />
+    <Property Name="perfil_usuario_id" Type="Int32" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="agente_transito" Relationship="Self.FK_agente_transito_usuario" FromRole="usuario" ToRole="agente_transito" />
+    <NavigationProperty Name="denuncias" Relationship="Self.FK_denuncia_usuario" FromRole="usuario" ToRole="denuncia" />
+    <NavigationProperty Name="perfil_usuario" Relationship="Self.FK_usuario_perfil_usuario" FromRole="usuario" ToRole="perfil_usuario" />
+    <NavigationProperty Name="persona" Relationship="Self.FK_usuario_persona" FromRole="usuario" ToRole="persona" />
+    <NavigationProperty Name="personal_remolque" Relationship="Self.FK_personal_remolque_usuario" FromRole="usuario" ToRole="personal_remolque" />
+  </EntityType>
+  <EntityType Name="vehiculo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_id" Type="Int32" Nullable="false" />
+    <Property Name="marca_id" Type="Int32" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="año" Type="Int32" Nullable="false" />
+    <Property Name="cilindrada" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="motor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="chasis_cuadro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_vehiculo" FromRole="vehiculo" ToRole="cedula" />
+    <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_vehiculo" FromRole="vehiculo" ToRole="infraccion" />
+    <NavigationProperty Name="marca_vehiculo" Relationship="Self.FK_vehiculo_marca_vehiculo" FromRole="vehiculo" ToRole="marca_vehiculo" />
+    <NavigationProperty Name="polizas" Relationship="Self.FK_poliza_vehiculo" FromRole="vehiculo" ToRole="poliza" />
+    <NavigationProperty Name="remolques" Relationship="Self.FK_remolque_vehiculo" FromRole="vehiculo" ToRole="remolque" />
+    <NavigationProperty Name="tipo_vehiculo" Relationship="Self.FK_vehiculo_tipo_vehiculo" FromRole="vehiculo" ToRole="tipo_vehiculo" />
+  </EntityType>
+  <Association Name="FK_agente_transito_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="agente_transito" Type="Self.agente_transito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="agente_transito">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_poliza_aseguradora">
+    <End Role="aseguradora" Type="Self.aseguradora" Multiplicity="1" />
+    <End Role="poliza" Type="Self.poliza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aseguradora">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="poliza">
+        <PropertyRef Name="aseguradora_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_codigo_infraccion_categoria_infraccion">
+    <End Role="categoria_infraccion" Type="Self.categoria_infraccion" Multiplicity="1" />
+    <End Role="codigo_infraccion" Type="Self.codigo_infraccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria_infraccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="codigo_infraccion">
+        <PropertyRef Name="categoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_licencia_categoria_licencia">
+    <End Role="categoria_licencia" Type="Self.categoria_licencia" Multiplicity="1" />
+    <End Role="licencia" Type="Self.licencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria_licencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="licencia">
+        <PropertyRef Name="categoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cedula_estado_cedula">
+    <End Role="estado_cedula" Type="Self.estado_cedula" Multiplicity="1" />
+    <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado_cedula">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cedula">
+        <PropertyRef Name="estado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cedula_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="1" />
+    <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cedula">
+        <PropertyRef Name="persona_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cedula_uso_cedula">
+    <End Role="uso_cedula" Type="Self.uso_cedula" Multiplicity="1" />
+    <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="uso_cedula">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cedula">
+        <PropertyRef Name="uso_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cedula_vehiculo">
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
+    <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cedula">
+        <PropertyRef Name="vehiculo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infraccion_codigo_infraccion">
+    <End Role="codigo_infraccion" Type="Self.codigo_infraccion" Multiplicity="1" />
+    <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="codigo_infraccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="infraccion">
+        <PropertyRef Name="codigo_infraccion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infraccion_control">
+    <End Role="control" Type="Self.control" Multiplicity="1" />
+    <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="control">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="infraccion">
+        <PropertyRef Name="control_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_denuncia_estado_denuncia">
+    <End Role="estado_denuncia" Type="Self.estado_denuncia" Multiplicity="1" />
+    <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="estado_denuncia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="denuncia">
+        <PropertyRef Name="estado_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_denuncia_infraccion">
+    <End Role="infraccion" Type="Self.infraccion" Multiplicity="1" />
+    <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="infraccion">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="denuncia">
+        <PropertyRef Name="infraccion_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_denuncia_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="denuncia">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infraccion_licencia">
+    <End Role="licencia" Type="Self.licencia" Multiplicity="1" />
+    <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="licencia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="infraccion">
+        <PropertyRef Name="licencia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infraccion_localidad">
+    <End Role="localidad" Type="Self.localidad" Multiplicity="1" />
+    <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="infraccion">
+        <PropertyRef Name="localidad_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_infraccion_vehiculo">
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
+    <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="infraccion">
+        <PropertyRef Name="vehiculo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_licencia_municipio">
+    <End Role="municipio" Type="Self.municipio" Multiplicity="1" />
+    <End Role="licencia" Type="Self.licencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="municipio">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="licencia">
+        <PropertyRef Name="municipio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_licencia_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="1" />
+    <End Role="licencia" Type="Self.licencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="licencia">
+        <PropertyRef Name="persona_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_localidad_provincia">
+    <End Role="provincia" Type="Self.provincia" Multiplicity="1" />
+    <End Role="localidad" Type="Self.localidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="localidad">
+        <PropertyRef Name="provincia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persona_localidad">
+    <End Role="localidad" Type="Self.localidad" Multiplicity="1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="localidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="localidad_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiculo_marca_vehiculo">
+    <End Role="marca_vehiculo" Type="Self.marca_vehiculo" Multiplicity="1" />
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marca_vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vehiculo">
+        <PropertyRef Name="marca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persona_nacionalidad">
+    <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="nacionalidad">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="nacionalidad_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_perfil_usuario">
+    <End Role="perfil_usuario" Type="Self.perfil_usuario" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="perfil_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="perfil_usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persona_provincia">
+    <End Role="provincia" Type="Self.provincia" Multiplicity="1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="provincia_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_persona_sexo">
+    <End Role="sexo" Type="Self.sexo" Multiplicity="1" />
+    <End Role="persona" Type="Self.persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sexo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="persona">
+        <PropertyRef Name="sexo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_usuario_persona">
+    <End Role="persona" Type="Self.persona" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="persona">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="persona_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_personal_remolque_usuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="personal_remolque" Type="Self.personal_remolque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="personal_remolque">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_remolque_personal_remolque">
+    <End Role="personal_remolque" Type="Self.personal_remolque" Multiplicity="1" />
+    <End Role="remolque" Type="Self.remolque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personal_remolque">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="remolque">
+        <PropertyRef Name="personal_remolque_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_remolque_playa_acarreo">
+    <End Role="playa_acarreo" Type="Self.playa_acarreo" Multiplicity="1" />
+    <End Role="remolque" Type="Self.remolque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="playa_acarreo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="remolque">
+        <PropertyRef Name="playa_acarreo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_poliza_vehiculo">
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
+    <End Role="poliza" Type="Self.poliza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="poliza">
+        <PropertyRef Name="vehiculo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_provincia_provincia">
+    <End Role="provincia" Type="Self.provincia" Multiplicity="1" />
+    <End Role="provincia1" Type="Self.provincia" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="provincia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="provincia1">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_remolque_vehiculo">
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
+    <End Role="remolque" Type="Self.remolque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="remolque">
+        <PropertyRef Name="vehiculo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vehiculo_tipo_vehiculo">
+    <End Role="tipo_vehiculo" Type="Self.tipo_vehiculo" Multiplicity="1" />
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_vehiculo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vehiculo">
+        <PropertyRef Name="tipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sicoveEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="agente_transito" EntityType="Self.agente_transito" />
+    <EntitySet Name="aseguradoras" EntityType="Self.aseguradora" />
+    <EntitySet Name="categoria_infraccion" EntityType="Self.categoria_infraccion" />
+    <EntitySet Name="categoria_licencia" EntityType="Self.categoria_licencia" />
+    <EntitySet Name="cedulas" EntityType="Self.cedula" />
+    <EntitySet Name="codigo_infraccion" EntityType="Self.codigo_infraccion" />
+    <EntitySet Name="controls" EntityType="Self.control" />
+    <EntitySet Name="denuncias" EntityType="Self.denuncia" />
+    <EntitySet Name="estado_cedula" EntityType="Self.estado_cedula" />
+    <EntitySet Name="estado_denuncia" EntityType="Self.estado_denuncia" />
+    <EntitySet Name="infraccions" EntityType="Self.infraccion" />
+    <EntitySet Name="licencias" EntityType="Self.licencia" />
+    <EntitySet Name="localidads" EntityType="Self.localidad" />
+    <EntitySet Name="marca_vehiculo" EntityType="Self.marca_vehiculo" />
+    <EntitySet Name="municipios" EntityType="Self.municipio" />
+    <EntitySet Name="nacionalidads" EntityType="Self.nacionalidad" />
+    <EntitySet Name="perfil_usuario" EntityType="Self.perfil_usuario" />
+    <EntitySet Name="personas" EntityType="Self.persona" />
+    <EntitySet Name="personal_remolque" EntityType="Self.personal_remolque" />
+    <EntitySet Name="playa_acarreo" EntityType="Self.playa_acarreo" />
+    <EntitySet Name="polizas" EntityType="Self.poliza" />
+    <EntitySet Name="provincias" EntityType="Self.provincia" />
+    <EntitySet Name="remolques" EntityType="Self.remolque" />
+    <EntitySet Name="sexoes" EntityType="Self.sexo" />
+    <EntitySet Name="tipo_vehiculo" EntityType="Self.tipo_vehiculo" />
+    <EntitySet Name="uso_cedula" EntityType="Self.uso_cedula" />
+    <EntitySet Name="usuarios" EntityType="Self.usuario" />
+    <EntitySet Name="vehiculoes" EntityType="Self.vehiculo" />
+    <AssociationSet Name="FK_agente_transito_usuario" Association="Self.FK_agente_transito_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="agente_transito" EntitySet="agente_transito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_poliza_aseguradora" Association="Self.FK_poliza_aseguradora">
+      <End Role="aseguradora" EntitySet="aseguradoras" />
+      <End Role="poliza" EntitySet="polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_codigo_infraccion_categoria_infraccion" Association="Self.FK_codigo_infraccion_categoria_infraccion">
+      <End Role="categoria_infraccion" EntitySet="categoria_infraccion" />
+      <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_licencia_categoria_licencia" Association="Self.FK_licencia_categoria_licencia">
+      <End Role="categoria_licencia" EntitySet="categoria_licencia" />
+      <End Role="licencia" EntitySet="licencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cedula_estado_cedula" Association="Self.FK_cedula_estado_cedula">
+      <End Role="estado_cedula" EntitySet="estado_cedula" />
+      <End Role="cedula" EntitySet="cedulas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cedula_persona" Association="Self.FK_cedula_persona">
+      <End Role="persona" EntitySet="personas" />
+      <End Role="cedula" EntitySet="cedulas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cedula_uso_cedula" Association="Self.FK_cedula_uso_cedula">
+      <End Role="uso_cedula" EntitySet="uso_cedula" />
+      <End Role="cedula" EntitySet="cedulas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cedula_vehiculo" Association="Self.FK_cedula_vehiculo">
+      <End Role="vehiculo" EntitySet="vehiculoes" />
+      <End Role="cedula" EntitySet="cedulas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infraccion_codigo_infraccion" Association="Self.FK_infraccion_codigo_infraccion">
+      <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
+      <End Role="infraccion" EntitySet="infraccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infraccion_control" Association="Self.FK_infraccion_control">
+      <End Role="control" EntitySet="controls" />
+      <End Role="infraccion" EntitySet="infraccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_denuncia_estado_denuncia" Association="Self.FK_denuncia_estado_denuncia">
+      <End Role="estado_denuncia" EntitySet="estado_denuncia" />
+      <End Role="denuncia" EntitySet="denuncias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_denuncia_infraccion" Association="Self.FK_denuncia_infraccion">
+      <End Role="infraccion" EntitySet="infraccions" />
+      <End Role="denuncia" EntitySet="denuncias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_denuncia_usuario" Association="Self.FK_denuncia_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="denuncia" EntitySet="denuncias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infraccion_licencia" Association="Self.FK_infraccion_licencia">
+      <End Role="licencia" EntitySet="licencias" />
+      <End Role="infraccion" EntitySet="infraccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infraccion_localidad" Association="Self.FK_infraccion_localidad">
+      <End Role="localidad" EntitySet="localidads" />
+      <End Role="infraccion" EntitySet="infraccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_infraccion_vehiculo" Association="Self.FK_infraccion_vehiculo">
+      <End Role="vehiculo" EntitySet="vehiculoes" />
+      <End Role="infraccion" EntitySet="infraccions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_licencia_municipio" Association="Self.FK_licencia_municipio">
+      <End Role="municipio" EntitySet="municipios" />
+      <End Role="licencia" EntitySet="licencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_licencia_persona" Association="Self.FK_licencia_persona">
+      <End Role="persona" EntitySet="personas" />
+      <End Role="licencia" EntitySet="licencias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_localidad_provincia" Association="Self.FK_localidad_provincia">
+      <End Role="provincia" EntitySet="provincias" />
+      <End Role="localidad" EntitySet="localidads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persona_localidad" Association="Self.FK_persona_localidad">
+      <End Role="localidad" EntitySet="localidads" />
+      <End Role="persona" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiculo_marca_vehiculo" Association="Self.FK_vehiculo_marca_vehiculo">
+      <End Role="marca_vehiculo" EntitySet="marca_vehiculo" />
+      <End Role="vehiculo" EntitySet="vehiculoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persona_nacionalidad" Association="Self.FK_persona_nacionalidad">
+      <End Role="nacionalidad" EntitySet="nacionalidads" />
+      <End Role="persona" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_perfil_usuario" Association="Self.FK_usuario_perfil_usuario">
+      <End Role="perfil_usuario" EntitySet="perfil_usuario" />
+      <End Role="usuario" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persona_provincia" Association="Self.FK_persona_provincia">
+      <End Role="provincia" EntitySet="provincias" />
+      <End Role="persona" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_persona_sexo" Association="Self.FK_persona_sexo">
+      <End Role="sexo" EntitySet="sexoes" />
+      <End Role="persona" EntitySet="personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_usuario_persona" Association="Self.FK_usuario_persona">
+      <End Role="persona" EntitySet="personas" />
+      <End Role="usuario" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_personal_remolque_usuario" Association="Self.FK_personal_remolque_usuario">
+      <End Role="usuario" EntitySet="usuarios" />
+      <End Role="personal_remolque" EntitySet="personal_remolque" />
+    </AssociationSet>
+    <AssociationSet Name="FK_remolque_personal_remolque" Association="Self.FK_remolque_personal_remolque">
+      <End Role="personal_remolque" EntitySet="personal_remolque" />
+      <End Role="remolque" EntitySet="remolques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_remolque_playa_acarreo" Association="Self.FK_remolque_playa_acarreo">
+      <End Role="playa_acarreo" EntitySet="playa_acarreo" />
+      <End Role="remolque" EntitySet="remolques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_poliza_vehiculo" Association="Self.FK_poliza_vehiculo">
+      <End Role="vehiculo" EntitySet="vehiculoes" />
+      <End Role="poliza" EntitySet="polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_provincia_provincia" Association="Self.FK_provincia_provincia">
+      <End Role="provincia" EntitySet="provincias" />
+      <End Role="provincia1" EntitySet="provincias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_remolque_vehiculo" Association="Self.FK_remolque_vehiculo">
+      <End Role="vehiculo" EntitySet="vehiculoes" />
+      <End Role="remolque" EntitySet="remolques" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vehiculo_tipo_vehiculo" Association="Self.FK_vehiculo_tipo_vehiculo">
+      <End Role="tipo_vehiculo" EntitySet="tipo_vehiculo" />
+      <End Role="vehiculo" EntitySet="vehiculoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

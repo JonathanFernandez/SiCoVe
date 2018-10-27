@@ -597,6 +597,10 @@
       <Project>{28674e2c-c26d-4e6d-a26c-efb062e9348e}</Project>
       <Name>OpenAlprApi</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataBaseSiCoVe\DataBaseSiCoVe.csproj">
+      <Project>{9db95cb0-f333-481d-a037-180c1652d23e}</Project>
+      <Name>DataBaseSiCoVe</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

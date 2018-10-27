@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiCoVe", "SiCoVe\SiCoVe.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAlprApi", "csharp\src\OpenAlprApi\OpenAlprApi.csproj", "{28674E2C-C26D-4E6D-A26C-EFB062E9348E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseSiCoVe", "DataBaseSiCoVe\DataBaseSiCoVe.csproj", "{9DB95CB0-F333-481D-A037-180C1652D23E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{28674E2C-C26D-4E6D-A26C-EFB062E9348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28674E2C-C26D-4E6D-A26C-EFB062E9348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28674E2C-C26D-4E6D-A26C-EFB062E9348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB95CB0-F333-481D-A037-180C1652D23E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB95CB0-F333-481D-A037-180C1652D23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB95CB0-F333-481D-A037-180C1652D23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB95CB0-F333-481D-A037-180C1652D23E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
