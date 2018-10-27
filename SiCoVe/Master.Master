@@ -351,7 +351,7 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Visualizar datos </asp:HyperLink>
                             </li>
                             <li>
-                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModifDatos.aspx"><i class="fa fa-dashboard fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
+                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModificacionDatos.aspx"><i class="fa fa-dashboard fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarDenuncia.aspx"><i class="fa fa-edit fa-fw"></i> Realizar denuncia </asp:HyperLink>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="SolicitarModificacionDatos.aspx.cs" Inherits="SiCoVe.Site.SolicitarModificacionDatos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarDatosUsuario.aspx.cs" Inherits="SiCoVe.Site.ActualizarDatosUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 
@@ -10,8 +10,6 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
-
-        <!--INI-->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Solicitud de modificacion de datos</h1>
@@ -19,8 +17,6 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-            <!--FIN-->
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Verificación de datos

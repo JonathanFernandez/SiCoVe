@@ -326,6 +326,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="Site\ActualizarDatosUsuario.aspx" />
     <Content Include="Site\AltaAcarreo.aspx" />
     <Content Include="Site\AltaAutoridad.aspx" />
     <Content Include="Site\HistorialAcarreo.aspx" />
@@ -451,6 +452,13 @@
     <Compile Include="Site\ActaComprobacion.aspx.designer.cs">
       <DependentUpon>ActaComprobacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizarDatosUsuario.aspx.cs">
+      <DependentUpon>ActualizarDatosUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ActualizarDatosUsuario.aspx.designer.cs">
+      <DependentUpon>ActualizarDatosUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\AltaAcarreo.aspx.cs">
       <DependentUpon>AltaAcarreo.aspx</DependentUpon>
