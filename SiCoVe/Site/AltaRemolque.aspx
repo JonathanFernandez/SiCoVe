@@ -12,72 +12,88 @@
     <div id="page-wrapper">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <label>Alta Remolque</label>
+                Alta Remolque
             </div>
             <div class="panel-body">
-                <div class="row">
+                                <div class="row">
                     <div class="col-lg-4">
-                        
                         <div class="form-group">
-                            <label>DNI</label>
-                            <asp:TextBox ID="txtDNI" runat="server" class="form-control"></asp:TextBox>
+                            <label>Legajo</label>
+                            <asp:TextBox ID="txtLegajo" runat="server" class="form-control" placeholder="Ingrese el Legajo"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de documento</label>
+                            <asp:DropDownList ID="ddlTipDocumento" runat="server" class="form-control"></asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <label>N° de documento</label>
+                            <asp:TextBox ID="txtNumDocumento" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Apellido</label>
-                            <asp:TextBox ID="txtApellido" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtApellido" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Nombres</label>
-                            <asp:TextBox ID="txtNombre" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre" runat="server" class="form-control" placeholder="Ingrese el nombre"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Provincia</label>
+                            <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control"></asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <label>Domicilio</label>
+                            <asp:TextBox ID="txtDomicilio" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Nacionalidad</label>
-                            <asp:TextBox ID="txtNacionalidad" runat="server" class="form-control"></asp:TextBox>
+                            <asp:DropDownList ID="ddlNacionalidad" runat="server" class="form-control" ></asp:DropDownList>
                         </div>
+                        <div class="form-group">
+                            <label>Fecha de nacimiento</label>
+                            <asp:TextBox ID="txtFechaNacimiento" runat="server" class="form-control" placeholder="Ingrese Fecha de Nacimiento" TextMode="Date"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label>Sexo</label>
-                            <asp:DropDownList ID="DropDownListSexo" runat="server" class="form-control"></asp:DropDownList>
-                        </div>
-                         <div class="form-group">
-                            <label>Fecha de Nacimiento</label>
-                            <asp:TextBox ID="txtFechaNac" runat="server" class="form-control"></asp:TextBox>
+                            <asp:DropDownList ID="ddlSexo" runat="server" class="form-control" ></asp:DropDownList>
                         </div>
                         <div class="form-group">
-                            <label>Lugar de Nacimiento</label>
-                            <asp:TextBox ID="txtLugarNac" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                         <div class="form-group">
-                            <label>Domicilio</label>
-                            <asp:TextBox ID="txtDomicilio" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                         <div class="form-group">
-                            <label>Piso</label>
-                            <asp:TextBox ID="txtPiso" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                         <div class="form-group">
-                            <label>Departamento</label>
-                            <asp:TextBox ID="txtDepto" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                         <div class="form-group">
                             <label>Localidad</label>
-                            <asp:TextBox ID="txtLocalidad" runat="server" class="form-control"></asp:TextBox>
+                            <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control" ></asp:DropDownList>
                         </div>
                         <div class="form-group">
-                            <label>Legajo</label>
-                            <asp:TextBox ID="txtLegajo" runat="server" class="form-control"></asp:TextBox>
+                            <label>Lugar de nacimiento</label>
+                            <asp:DropDownList ID="ddlLugarNacimiento" runat="server" class="form-control" ></asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <label>Piso</label>
+                            <asp:TextBox ID="txtPiso" runat="server" class="form-control" placeholder="Ingrese el piso"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Departamento</label>
+                            <asp:TextBox ID="txtDepartamento" runat="server" class="form-control" placeholder="Ingrese el departamento"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Nº de puerta</label>
+                            <asp:TextBox ID="txtPuerta" runat="server" class="form-control" placeholder="Ingrese el Nº de puerta"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <asp:TextBox ID="txtContraseñaAU" runat="server" class="form-control" type="password"></asp:TextBox>
+                            <asp:TextBox ID="txtContraseña" runat="server" class="form-control" type="password"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Confirmar Contraseña</label>
-                            <asp:TextBox ID="txtConContraseñaAU" runat="server" class="form-control" type="password"></asp:TextBox>
+                            <asp:TextBox ID="txtConContraseña" runat="server" class="form-control" type="password"></asp:TextBox>
                         </div>  
-                        <br />
-                        <asp:Button ID="btnAceptarAC" runat="server" class="btn btn-default" Text="Registrar" />
+
                     </div>
+
                  </div>
+
+                                                                            <br />
+                        <asp:Button ID="btnAceptarAC" runat="server" class="btn btn-default" Text="Registrar" />
             </div>  
         </div>         
     </div>
