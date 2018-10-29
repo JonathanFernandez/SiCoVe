@@ -40,7 +40,7 @@
                                   <asp:BoundField HeaderText="Apellido" />
                                   <asp:BoundField HeaderText="Nombres" />
                                   <asp:CommandField HeaderText="Eliminar Solicitud" ShowDeleteButton="True"></asp:CommandField>
-                                  <asp:CommandField ShowEditButton="True" EditText="Ver" HeaderText="Ver Datos" />
+                                  <asp:HyperLinkField HeaderText="Ver Datos" NavigateUrl="~/Site/ActualizarDatosUsuario.aspx" Text="Ver" />
                               </Columns>
                           </asp:GridView>
 
