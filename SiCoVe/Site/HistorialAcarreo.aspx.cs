@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class HistorialAcarreo : System.Web.UI.Page
+    public partial class HistorialAcarreo : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

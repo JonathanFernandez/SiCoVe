@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class ModificarDatosConductor : System.Web.UI.Page
+    public partial class ModificarDatosConductor : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

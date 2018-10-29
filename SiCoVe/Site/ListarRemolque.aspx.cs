@@ -8,7 +8,7 @@ using System.Data;
 
 namespace SiCoVe
 {
-    public partial class ListarRemolque : System.Web.UI.Page
+    public partial class ListarRemolque : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

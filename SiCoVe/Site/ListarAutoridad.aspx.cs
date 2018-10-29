@@ -8,7 +8,7 @@ using System.Data;
 
 namespace SiCoVe
 {
-    public partial class ListarAutoridad : System.Web.UI.Page
+    public partial class ListarAutoridad : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

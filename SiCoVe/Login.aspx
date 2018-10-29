@@ -44,23 +44,30 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <%--<form role="form">--%>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <%--<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>--%>
+                                    <asp:TextBox  runat="server" ID="txtEmail" CssClass="form-control" placeholder="E-mail" name="email" type="email" autofocus required="required" ></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <%--<input class="form-control" placeholder="Password" name="password" type="password" value="">--%>
+                                    <asp:TextBox runat="server" ID="txtPass"  TextMode="Password" class="form-control" placeholder="Password" name="password"   value="" required="required"></asp:TextBox>
                                 </div>
-                                <div class="checkbox">
+                                <%--<div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me">Remember Me
                                     </label>
-                                </div>
+                                </div>--%>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <%--<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>--%>
+                                 <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
+                             <div class="form-group">
+                                 <br />
+                                    <asp:Label ID="lblMensaje" runat="server" Text="E-Mail o Password Incorrecta!" Visible="false"></asp:Label>
+                                </div>
                             </fieldset>
-                        </form>
+                       <%-- </form>--%>
                     </div>
                 </div>
             </div>

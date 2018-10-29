@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using DataBaseSiCoVe;
 namespace SiCoVe.Site
 {
-    public partial class VerificacionDatos : System.Web.UI.Page
+    public partial class VerificacionDatos : SiCoVeMaster
     {
         sicoveEntities sicove = new sicoveEntities();
 

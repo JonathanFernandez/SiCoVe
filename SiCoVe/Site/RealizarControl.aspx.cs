@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class RealizarControl : System.Web.UI.Page
+    public partial class RealizarControl : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

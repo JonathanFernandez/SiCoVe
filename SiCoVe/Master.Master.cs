@@ -4,17 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataBaseSiCoVe;
 
 namespace SiCoVe
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+        public usuario userLog = new usuario();
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            if (Session["Usuario"] == null)
+                Response.Redirect("~/Login.aspx", true);
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (((usuario)Session["Usuario"]) != null)
+            {
+                userLog = ((usuario)Session["Usuario"]);
+                lblUsuario.Text = string.Format("{0} , {1}", userLog.persona.apellido, userLog.persona.nombre);
+                LoadScripts();
 
-            LoadScripts();
-
-            LoadStyles();
+                LoadStyles();
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx", false);
+                //Server.Transfer("~/Login.aspx");
+            }
         }
 
         private void LoadStyles()

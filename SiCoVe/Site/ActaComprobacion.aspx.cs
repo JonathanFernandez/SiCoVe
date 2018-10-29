@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class ActaComprobacion : System.Web.UI.Page
+    public partial class ActaComprobacion : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

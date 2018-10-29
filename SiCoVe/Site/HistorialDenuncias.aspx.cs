@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class HistorialDenuncias : System.Web.UI.Page
+    public partial class HistorialDenuncias : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

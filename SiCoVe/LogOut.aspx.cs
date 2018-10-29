@@ -5,13 +5,16 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SiCoVe.Site
+namespace SiCoVe
 {
-    public partial class HistorialControles : SiCoVeMaster
+    public partial class LogOut : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Login.aspx", false);
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
         }
     }
 }

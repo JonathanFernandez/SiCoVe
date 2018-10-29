@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class SolicitarModificacionDatos : System.Web.UI.Page
+    public partial class SolicitarModificacionDatos : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

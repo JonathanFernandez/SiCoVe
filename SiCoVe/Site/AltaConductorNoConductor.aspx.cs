@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class AltaConductorNoConductor : System.Web.UI.Page
+    public partial class AltaConductorNoConductor : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

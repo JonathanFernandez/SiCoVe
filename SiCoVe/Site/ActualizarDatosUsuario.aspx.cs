@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SiCoVe.Site
 {
-    public partial class ActualizarDatosUsuario : System.Web.UI.Page
+    public partial class ActualizarDatosUsuario : SiCoVeMaster
     {
         protected void Page_Load(object sender, EventArgs e)
         {

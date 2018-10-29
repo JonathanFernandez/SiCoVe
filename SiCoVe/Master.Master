@@ -32,8 +32,9 @@
                     <a class="navbar-brand" href="index.html">SB Admin v2.0</a>
                 </div>
                 <!-- /.navbar-header -->
-
+                <asp:Label runat="server" ID="lblUsuario"></asp:Label><b class="caret"></b>
                 <ul class="nav navbar-top-links navbar-right">
+                    
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -234,7 +235,9 @@
                             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li>
+                                <%--<a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>--%>
+                                 <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx"><i class="fa fa-fw fa-power-off"></i> Log Out </asp:HyperLink>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
