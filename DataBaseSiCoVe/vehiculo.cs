@@ -31,6 +31,7 @@ namespace DataBaseSiCoVe
         public string cilindrada { get; set; }
         public string motor { get; set; }
         public string chasis_cuadro { get; set; }
+        public string dominio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cedula> cedulas { get; set; }

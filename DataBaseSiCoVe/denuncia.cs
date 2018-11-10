@@ -21,7 +21,7 @@ namespace DataBaseSiCoVe
         public string dominio { get; set; }
         public string ubicacion { get; set; }
         public byte[] adjunto { get; set; }
-        public System.DateTime fecha_hora { get; set; }
+        public Nullable<System.DateTime> fecha_hora { get; set; }
         public string observaciones { get; set; }
     
         public virtual estado_denuncia estado_denuncia { get; set; }

@@ -31,10 +31,10 @@ namespace DataBaseSiCoVe
         public int provincia_id { get; set; }
         public int localidad_id { get; set; }
         public string domicilio { get; set; }
-        public short piso { get; set; }
+        public Nullable<short> piso { get; set; }
         public string departamento { get; set; }
         public string nro_puerta { get; set; }
-        public System.DateTime fecha_nacimiento { get; set; }
+        public Nullable<System.DateTime> fecha_nacimiento { get; set; }
         public string lugar_nacimiento { get; set; }
         public bool flag_conductor { get; set; }
     

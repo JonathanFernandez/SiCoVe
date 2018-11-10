@@ -28,8 +28,8 @@ namespace DataBaseSiCoVe
         public int provincia_id { get; set; }
         public int localidad_id { get; set; }
         public int control_id { get; set; }
-        public long nro_acta { get; set; }
-        public System.DateTime fecha_hora { get; set; }
+        public Nullable<long> nro_acta { get; set; }
+        public Nullable<System.DateTime> fecha_hora { get; set; }
         public string locacion { get; set; }
         public string observaciones { get; set; }
         public string documentacion_retenida { get; set; }

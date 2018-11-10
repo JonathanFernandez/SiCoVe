@@ -64,7 +64,7 @@ namespace SiCoVe
                     return false;
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }

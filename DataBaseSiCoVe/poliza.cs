@@ -18,8 +18,8 @@ namespace DataBaseSiCoVe
         public string nro_poliza { get; set; }
         public int aseguradora_id { get; set; }
         public int vehiculo_id { get; set; }
-        public System.DateTime vigencia_desde { get; set; }
-        public System.DateTime vigencia_hasta { get; set; }
+        public Nullable<System.DateTime> vigencia_desde { get; set; }
+        public Nullable<System.DateTime> vigencia_hasta { get; set; }
     
         public virtual aseguradora aseguradora { get; set; }
         public virtual vehiculo vehiculo { get; set; }

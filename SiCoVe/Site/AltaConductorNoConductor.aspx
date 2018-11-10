@@ -76,8 +76,16 @@
                                             <asp:DropDownList ID="ddlNacionalidadDNI" runat="server" class="form-control"></asp:DropDownList>
                                         </div> 
                                         <div class="form-group">
+                                            <label>Provincia</label>
+                                            <asp:DropDownList ID="ddlProvinciaDNI" runat="server" class="form-control"></asp:DropDownList>
+                                        </div> 
+                                        <div class="form-group">
+                                            <label>Localidad</label>
+                                            <asp:DropDownList ID="ddlLocalidadDNI" runat="server" class="form-control"></asp:DropDownList>
+                                        </div> 
+                                        <div class="form-group">
                                             <label>Fecha de nacimiento</label>
-                                            <asp:TextBox ID="txtFecNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecNacimientoDNI" TextMode="Date" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Número de documento</label>
@@ -87,9 +95,23 @@
                                             <label>Domicilio</label>
                                             <asp:TextBox ID="txtDomicilioDNI" runat="server" class="form-control"></asp:TextBox>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Piso</label>
+                                            <asp:TextBox ID="txtPisoDNI" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Departamento</label>
+                                            <asp:TextBox ID="txtDepartamentoDNI" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Puerta</label>
+                                            <asp:TextBox ID="txtPuertaDNI" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
                                         <div class="form-group">
                                             <label>Lugar de nacimiento</label>
-                                            <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
+                                         <%--   <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>--%>
+                                            <asp:TextBox ID="txtLugarNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->
@@ -98,41 +120,46 @@
                                             <label>N° de licencia</label>
                                             <asp:TextBox ID="txtNumLicenciaLIC" runat="server" class="form-control" placeholder="Ingrese el N° de licencia"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
+                                        <%--<div class="form-group">
                                             <label>Apellido</label>
                                             <asp:TextBox ID="txtApellidoLIC" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombres</label>
                                             <asp:TextBox ID="txtNombresLIC" runat="server" class="form-control" placeholder="Ingrese el/los nombre/s"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
+                                        </div>--%>
+                                        <%--<div class="form-group">
                                             <label>Fecha de nacimiento</label>
-                                            <asp:TextBox ID="txtFecNacimientoLIC" runat="server" class="form-control" placeholder="Ingrese la fecha de nacimiento"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
+                                            <asp:TextBox ID="txtFecNacimientoLIC" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha de nacimiento"></asp:TextBox>
+                                        </div>--%>
+                                       <%-- <div class="form-group">
                                             <label>Domicilio</label>
                                             <asp:TextBox ID="txtDomicilioLIC" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Nacionalidad</label>
                                             <asp:DropDownList ID="ddlNacionalidadLIC" runat="server" class="form-control"></asp:DropDownList>
-                                        </div> 
+                                        </div> --%>
                                         <div class="form-group">
+                                            <label>Municipio</label>
+                                            <asp:DropDownList ID="ddlMunicipio" runat="server" class="form-control"></asp:DropDownList>
+                                        </div> 
+                                     <%--   <div class="form-group">
                                             <label>Sexo</label>
                                             <asp:DropDownList ID="ddlSexoLIC" runat="server" class="form-control"></asp:DropDownList>
-                                        </div> 
+                                        </div> --%>
                                         <div class="form-group">
                                             <label>Fecha de otorgamiento</label>
-                                            <asp:TextBox ID="txtFecOtorgamientoLIC" runat="server" class="form-control" placeholder="Ingrese la fecha de otorgamiento"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecOtorgamientoLIC" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha de otorgamiento"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha de vencimiento</label>
-                                            <asp:TextBox ID="txtFecVencimientoLIC" runat="server" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecVencimientoLIC" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Categoría</label>
-                                            <asp:TextBox ID="txtcategoriLIC" runat="server" class="form-control" placeholder="Ingrese la categoría"></asp:TextBox>
+                                             <asp:DropDownList ID="ddlCategoriaLIC" runat="server" class="form-control"></asp:DropDownList>
+                                            <%--<asp:TextBox ID="txtcategoriLIC" runat="server" TextMode="Number" class="form-control" placeholder="Ingrese la categoría"></asp:TextBox>--%>
                                         </div>
                                         <div class="form-group">
                                             <label>Clases</label>
@@ -180,6 +207,10 @@
                                                 <option>Público</option>
                                                 <option>Oficial</option-->
                                         </div>
+                                          <div class="form-group">
+                                            <label>Año</label>
+                                            <asp:TextBox ID="txtAnioCED" runat="server" class="form-control" placeholder="Ingrese el año"></asp:TextBox>
+                                        </div>
                                         <div class="form-group">
                                             <label>Cuadro / Chasis</label>
                                             <asp:TextBox ID="txtChasisCED" runat="server" class="form-control" placeholder="Ingrese el cuadro / chasis"></asp:TextBox>
@@ -190,7 +221,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha de vencimiento</label>
-                                            <asp:TextBox ID="txtFecVencimientoCED" runat="server" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecVencimientoCED" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Cilindrada</label>
@@ -199,14 +230,6 @@
                                         <div class="form-group">
                                             <label>Titular</label>
                                             <asp:TextBox ID="txtTitularCED" runat="server" class="form-control" placeholder="Ingrese el titular"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Documento</label>
-                                            <asp:TextBox ID="txtDocumentoCED" runat="server" class="form-control" placeholder="Ingrese el documento"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Domicilio</label>
-                                            <asp:TextBox ID="txtDomicilioCED" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
                                         </div>
                                     </div>
                                     <!-- Datos seguro -->
@@ -223,7 +246,7 @@
                                             <label>Póliza</label>
                                             <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control" placeholder="Ingrese el póliza"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
+                                        <%--<div class="form-group">
                                             <label>Marca</label>
                                             <asp:DropDownList ID="ddlMarcaSEG" runat="server" class="form-control"></asp:DropDownList>
                                         </div>
@@ -240,29 +263,25 @@
                                             <asp:TextBox ID="txtDominioSEG" runat="server" class="form-control" placeholder="Ingrese el dominio"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Año</label>
-                                            <asp:TextBox ID="txtAnioSEG" runat="server" class="form-control" placeholder="Ingrese el año"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
                                             <label>N° de motor</label>
                                             <asp:TextBox ID="txtNumMotorSEG" runat="server" class="form-control" placeholder="Ingrese el N° de motor"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>N° de chasis</label>
                                             <asp:TextBox ID="txtNumChasisSEG" runat="server" class="form-control" placeholder="Ingrese el N° de chasis"></asp:TextBox>
-                                        </div>
+                                        </div>--%>
                                         <div class="form-group">
                                             <label>Fecha desde</label>
-                                            <asp:TextBox ID="txtFecDesdeSEG" runat="server" class="form-control" placeholder="Ingrese la fecha desde"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecDesdeSEG" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha desde"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha hasta</label>
-                                            <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control" placeholder="Ingrese la fecha hasta"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecHastaSEG" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha hasta"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                                 <br />
-                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" />
+                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
                             </div>
                         </div>
                     </div>

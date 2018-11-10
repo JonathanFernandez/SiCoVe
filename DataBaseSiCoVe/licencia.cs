@@ -26,8 +26,8 @@ namespace DataBaseSiCoVe
         public int persona_id { get; set; }
         public int municipio_id { get; set; }
         public string clases { get; set; }
-        public System.DateTime otorgamiento { get; set; }
-        public System.DateTime vencimiento { get; set; }
+        public Nullable<System.DateTime> otorgamiento { get; set; }
+        public Nullable<System.DateTime> vencimiento { get; set; }
         public string observaciones { get; set; }
     
         public virtual categoria_licencia categoria_licencia { get; set; }

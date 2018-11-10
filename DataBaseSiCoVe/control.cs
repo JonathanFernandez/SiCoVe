@@ -24,7 +24,7 @@ namespace DataBaseSiCoVe
         public int agente_transito_id { get; set; }
         public int vehiculo_id { get; set; }
         public int persona_id { get; set; }
-        public System.DateTime fecha_hora { get; set; }
+        public Nullable<System.DateTime> fecha_hora { get; set; }
         public int provincia_id { get; set; }
         public int localidad_id { get; set; }
         public string locacion { get; set; }
