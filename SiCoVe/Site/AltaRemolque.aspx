@@ -22,10 +22,6 @@
                             <asp:TextBox ID="txtLegajo" runat="server" class="form-control" placeholder="Ingrese el Legajo"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <label>Tipo de documento</label>
-                            <asp:DropDownList ID="ddlTipDocumento" runat="server" class="form-control"></asp:DropDownList>
-                        </div>
-                        <div class="form-group">
                             <label>N° de documento</label>
                             <asp:TextBox ID="txtNumDocumento" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
                         </div>
@@ -43,7 +39,7 @@
                         </div>
                         <div class="form-group">
                             <label>Domicilio</label>
-                            <asp:TextBox ID="txtDomicilio" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
+                            <asp:TextBox ID="txtDomicilio" runat="server" class="form-control" placeholder="Ingrese Domicilio"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Nacionalidad</label>
@@ -65,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label>Lugar de nacimiento</label>
-                            <asp:DropDownList ID="ddlLugarNacimiento" runat="server" class="form-control" ></asp:DropDownList>
+                            <asp:TextBox ID="txtLugarNacimiento" runat="server" class="form-control"  placeholder="Ingrese lugar de nacimiento"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Piso</label>
@@ -76,8 +72,12 @@
                             <asp:TextBox ID="txtDepartamento" runat="server" class="form-control" placeholder="Ingrese el departamento"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <label>Nº de puerta</label>
-                            <asp:TextBox ID="txtPuerta" runat="server" class="form-control" placeholder="Ingrese el Nº de puerta"></asp:TextBox>
+                            <label>Nro De Puerta</label>
+                            <asp:TextBox ID="txtNumPuerta" runat="server" class="form-control" placeholder="Ingrese N° de Puerta"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <asp:TextBox ID="txtEMail" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
@@ -91,9 +91,9 @@
                     </div>
 
                  </div>
-
+                                                            <asp:CheckBox hidden = False ID="cckremolque" runat="server"></asp:CheckBox>
                                                                             <br />
-                        <asp:Button ID="btnAceptarAC" runat="server" class="btn btn-default" Text="Registrar" />
+                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
             </div>  
         </div>         
     </div>
