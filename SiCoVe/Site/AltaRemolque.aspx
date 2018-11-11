@@ -14,13 +14,39 @@
             <div class="panel-heading">
                 Alta Remolque
             </div>
+
             <div class="panel-body">
-                                <div class="row">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#datosusuario" data-toggle="tab">Datos Usuario</a>
+                            </li>
+                            <li><a href="#dni" data-toggle="tab">Datos Personales</a>
+                            </li>
+                        </ul>
+                        <br />
+                  <div class="row">
                     <div class="col-lg-4">
+                        <div class="tab-content">
+                     <div class="tab-pane fade in active" id="datosusuario">
                         <div class="form-group">
                             <label>Legajo</label>
                             <asp:TextBox ID="txtLegajo" runat="server" class="form-control" placeholder="Ingrese el Legajo"></asp:TextBox>
                         </div>
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <asp:TextBox ID="txtEMail" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <asp:TextBox ID="txtContraseña" runat="server" class="form-control" type="password" placeholder="Ingrese Contraseña"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar Contraseña</label>
+                            <asp:TextBox ID="txtConContraseña" runat="server" class="form-control" type="password" placeholder="Confirme Contraseña"></asp:TextBox>
+                        </div>
+                         <asp:CheckBox hidden = False ID="cckremolque" runat="server"></asp:CheckBox>
+                          </div>
+                      
+                        <div class="tab-pane fade" id="dni">
                         <div class="form-group">
                             <label>N° de documento</label>
                             <asp:TextBox ID="txtNumDocumento" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
@@ -49,8 +75,6 @@
                             <label>Fecha de nacimiento</label>
                             <asp:TextBox ID="txtFechaNacimiento" runat="server" class="form-control" placeholder="Ingrese Fecha de Nacimiento" TextMode="Date"></asp:TextBox>
                         </div>
-                    </div>
-                    <div class="col-lg-4">
                         <div class="form-group">
                             <label>Sexo</label>
                             <asp:DropDownList ID="ddlSexo" runat="server" class="form-control" ></asp:DropDownList>
@@ -75,26 +99,13 @@
                             <label>Nro De Puerta</label>
                             <asp:TextBox ID="txtNumPuerta" runat="server" class="form-control" placeholder="Ingrese N° de Puerta"></asp:TextBox>
                         </div>
-                        <div class="form-group">
-                            <label>E-Mail</label>
-                            <asp:TextBox ID="txtEMail" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label>Contraseña</label>
-                            <asp:TextBox ID="txtContraseña" runat="server" class="form-control" type="password"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label>Confirmar Contraseña</label>
-                            <asp:TextBox ID="txtConContraseña" runat="server" class="form-control" type="password"></asp:TextBox>
-                        </div>  
+                       </div>
+                     </div>
+                        <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
+                  </div>
+                </div>
+              </div>
 
-                    </div>
-
-                 </div>
-                                                            <asp:CheckBox hidden = False ID="cckremolque" runat="server"></asp:CheckBox>
-                                                                            <br />
-                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
-            </div>  
         </div>         
     </div>
 </asp:Content>
