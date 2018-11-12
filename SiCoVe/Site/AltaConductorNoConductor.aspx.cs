@@ -156,7 +156,6 @@ namespace SiCoVe.Site
 
         private void CargarSexo()
         {
-
             var sexo = sicove.sexoes.ToList();
 
             ddlSexoDNI.DataTextField = "descripcion";
@@ -172,92 +171,85 @@ namespace SiCoVe.Site
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
-            persona per = new persona();
-            per.apellido = txtApellidoDNI.Text;
-            per.nombre = txtNombreDNI.Text;
-            per.dni = Convert.ToInt32(txtDocumentoDNI.Text);
-            per.sexo_id = Convert.ToInt32(ddlSexoDNI.SelectedValue);
-            per.nacionalidad_id = Convert.ToInt32(ddlNacionalidadDNI.SelectedValue);
-            per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
-            per.localidad_id = Convert.ToInt32(ddlLocalidadDNI.SelectedValue);
-            per.domicilio = txtDomicilioDNI.Text;
-            per.piso = Convert.ToInt16(txtPisoDNI.Text);
-            per.nro_puerta = txtPuertaDNI.Text;
-            per.departamento = txtDepartamentoDNI.Text;
-            per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
-            per.lugar_nacimiento = txtLugarNacimientoDNI.Text;
-            per.flag_conductor = cckAutorizado.Checked;
+            try
+            {
+                persona per = new persona();
+                per.apellido = txtApellidoDNI.Text;
+                per.nombre = txtNombreDNI.Text;
+                per.dni = Convert.ToInt32(txtDocumentoDNI.Text);
+                per.sexo_id = Convert.ToInt32(ddlSexoDNI.SelectedValue);
+                per.nacionalidad_id = Convert.ToInt32(ddlNacionalidadDNI.SelectedValue);
+                per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
+                per.localidad_id = Convert.ToInt32(ddlLocalidadDNI.SelectedValue);
+                per.domicilio = txtDomicilioDNI.Text;
+                per.piso = Convert.ToInt16(txtPisoDNI.Text);
+                per.nro_puerta = txtPuertaDNI.Text;
+                per.departamento = txtDepartamentoDNI.Text;
+                per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
+                per.lugar_nacimiento = txtLugarNacimientoDNI.Text;
+                per.flag_conductor = cckAutorizado.Checked;
 
-            sicove.personas.Add(per);
+                sicove.personas.Add(per);
 
-            usuario usu = new usuario();
-            usu.persona = per;
-            usu.perfil_usuario_id = 2;
-            usu.email = txtMailACNC.Text;
-            usu.contraseña = txtContraseñaACNC.Text;
+                usuario usu = new usuario();
+                usu.persona = per;
+                usu.perfil_usuario_id = 2;
+                usu.email = txtMailACNC.Text;
+                usu.contraseña = txtContraseñaACNC.Text;
 
-            sicove.usuarios.Add(usu);
+                sicove.usuarios.Add(usu);
 
-            licencia lic = new licencia();
-            lic.persona = per;
-            lic.nro_licencia = txtNumLicenciaLIC.Text;
-            lic.categoria_id = Convert.ToInt32(ddlCategoriaLIC.SelectedValue);
-            lic.municipio_id = Convert.ToInt32(ddlMunicipio.SelectedValue);
-            lic.clases = txtClasesLIC.Text;
-            lic.otorgamiento = Convert.ToDateTime(txtFecOtorgamientoLIC.Text);
-            lic.vencimiento = Convert.ToDateTime(txtFecVencimientoLIC.Text);
-            lic.observaciones = txtObservaciones.Text;
+                licencia lic = new licencia();
+                lic.persona = per;
+                lic.nro_licencia = txtNumLicenciaLIC.Text;
+                lic.categoria_id = Convert.ToInt32(ddlCategoriaLIC.SelectedValue);
+                lic.municipio_id = Convert.ToInt32(ddlMunicipio.SelectedValue);
+                lic.clases = txtClasesLIC.Text;
+                lic.otorgamiento = Convert.ToDateTime(txtFecOtorgamientoLIC.Text);
+                lic.vencimiento = Convert.ToDateTime(txtFecVencimientoLIC.Text);
+                lic.observaciones = txtObservaciones.Text;
 
-            sicove.licencias.Add(lic);
+                sicove.licencias.Add(lic);
 
-            vehiculo ve = new vehiculo();
-            ve.tipo_id = Convert.ToInt32(ddlTipoCED.Text);
-            ve.marca_id = Convert.ToInt32(ddlMarcaCED.Text);
-            ve.modelo = txtModeloCED.Text;
-            ve.año = Convert.ToInt32(txtAnioCED.Text);
-            ve.cilindrada = txtCilindradaCED.Text;
-            ve.motor = txtNumMotorCED.Text;
-            ve.chasis_cuadro = txtChasisCED.Text;
-            ve.dominio = txtDominioCED.Text;
+                vehiculo ve = new vehiculo();
+                ve.tipo_id = Convert.ToInt32(ddlTipoCED.Text);
+                ve.marca_id = Convert.ToInt32(ddlMarcaCED.Text);
+                ve.modelo = txtModeloCED.Text;
+                ve.año = Convert.ToInt32(txtAnioCED.Text);
+                ve.cilindrada = txtCilindradaCED.Text;
+                ve.motor = txtNumMotorCED.Text;
+                ve.chasis_cuadro = txtChasisCED.Text;
+                ve.dominio = txtDominioCED.Text;
 
-            sicove.vehiculoes.Add(ve);
+                sicove.vehiculoes.Add(ve);
 
-            cedula ced = new cedula();
-            ced.nro_cedula = txtNumCedulaCED.Text;
-            ced.persona = per;
-            ced.uso_id = Convert.ToInt32(ddlUsoCED.SelectedValue);
-            ced.estado_id = Convert.ToInt32(ddlEstadoCED.SelectedValue);
-            ced.vehiculo = ve;
-            ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
-            ced.flag_autorizado = cckAutorizado.Checked;
+                cedula ced = new cedula();
+                ced.nro_cedula = txtNumCedulaCED.Text;
+                ced.persona = per;
+                ced.uso_id = Convert.ToInt32(ddlUsoCED.SelectedValue);
+                ced.estado_id = Convert.ToInt32(ddlEstadoCED.SelectedValue);
+                ced.vehiculo = ve;
+                ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
+                ced.flag_autorizado = cckAutorizado.Checked;
 
-            sicove.cedulas.Add(ced);
+                sicove.cedulas.Add(ced);
 
-            poliza pol = new poliza();
-            pol.nro_poliza = txtPolizaSEG.Text;
-            pol.aseguradora_id = Convert.ToInt32(ddlAseguradoraSEG.SelectedValue);
-            pol.vehiculo = ve;
-            pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
-            pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
+                poliza pol = new poliza();
+                pol.nro_poliza = txtPolizaSEG.Text;
+                pol.aseguradora_id = Convert.ToInt32(ddlAseguradoraSEG.SelectedValue);
+                pol.vehiculo = ve;
+                pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
+                pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
 
-            sicove.polizas.Add(pol);
+                sicove.polizas.Add(pol);
 
-            sicove.SaveChanges();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                sicove.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                LblError.Text = Convert.ToString(ex);
+            }
         }
     }
 }
+   
