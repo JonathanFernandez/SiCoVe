@@ -13,21 +13,21 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="categoria_infraccion">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="categoria_licencia">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="cedula">
     <Key>
@@ -47,9 +47,9 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="codigo_infraccion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigo_infraccion" Type="nvarchar" MaxLength="50" />
     <Property Name="categoria_id" Type="int" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="control">
     <Key>
@@ -59,10 +59,10 @@
     <Property Name="agente_transito_id" Type="int" Nullable="false" />
     <Property Name="vehiculo_id" Type="int" Nullable="false" />
     <Property Name="persona_id" Type="int" Nullable="false" />
-    <Property Name="fecha_hora" Type="date" Nullable="false" />
+    <Property Name="fecha_hora" Type="date" />
     <Property Name="provincia_id" Type="int" Nullable="false" />
     <Property Name="localidad_id" Type="int" Nullable="false" />
-    <Property Name="locacion" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="locacion" Type="nchar" MaxLength="200" />
     <Property Name="observaciones" Type="nchar" MaxLength="300" />
     <Property Name="dominio" Type="nchar" MaxLength="10" />
   </EntityType>
@@ -74,25 +74,25 @@
     <Property Name="usuario_id" Type="int" Nullable="false" />
     <Property Name="estado_id" Type="int" Nullable="false" />
     <Property Name="infraccion_id" Type="int" Nullable="false" />
-    <Property Name="dominio" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="ubicacion" Type="nchar" MaxLength="100" Nullable="false" />
-    <Property Name="adjunto" Type="image" Nullable="false" />
-    <Property Name="fecha_hora" Type="date" Nullable="false" />
-    <Property Name="observaciones" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="dominio" Type="nchar" MaxLength="10" />
+    <Property Name="ubicacion" Type="nchar" MaxLength="100" />
+    <Property Name="adjunto" Type="image" />
+    <Property Name="fecha_hora" Type="date" />
+    <Property Name="observaciones" Type="nchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="estado_cedula">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="estado_denuncia">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="infraccion">
     <Key>
@@ -106,12 +106,12 @@
     <Property Name="provincia_id" Type="int" Nullable="false" />
     <Property Name="localidad_id" Type="int" Nullable="false" />
     <Property Name="control_id" Type="int" Nullable="false" />
-    <Property Name="nro_acta" Type="bigint" Nullable="false" />
-    <Property Name="fecha_hora" Type="date" Nullable="false" />
-    <Property Name="locacion" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="nro_acta" Type="bigint" />
+    <Property Name="fecha_hora" Type="date" />
+    <Property Name="locacion" Type="nchar" MaxLength="200" />
     <Property Name="observaciones" Type="nchar" MaxLength="300" />
     <Property Name="documentacion_retenida" Type="nchar" MaxLength="100" />
-    <Property Name="lugar_retencion" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="lugar_retencion" Type="nchar" MaxLength="200" />
     <Property Name="dominio" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="licencia">
@@ -123,10 +123,10 @@
     <Property Name="categoria_id" Type="int" Nullable="false" />
     <Property Name="persona_id" Type="int" Nullable="false" />
     <Property Name="municipio_id" Type="int" Nullable="false" />
-    <Property Name="clases" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="otorgamiento" Type="date" Nullable="false" />
-    <Property Name="vencimiento" Type="date" Nullable="false" />
-    <Property Name="observaciones" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="clases" Type="nvarchar" MaxLength="20" />
+    <Property Name="otorgamiento" Type="date" />
+    <Property Name="vencimiento" Type="date" />
+    <Property Name="observaciones" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="localidad">
     <Key>
@@ -134,54 +134,54 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="provincia_id" Type="int" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="60" />
   </EntityType>
   <EntityType Name="marca_vehiculo">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="municipio">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="nacionalidad">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="perfil_usuario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="persona">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
     <Property Name="dni" Type="bigint" Nullable="false" />
     <Property Name="sexo_id" Type="int" Nullable="false" />
     <Property Name="nacionalidad_id" Type="int" Nullable="false" />
     <Property Name="provincia_id" Type="int" Nullable="false" />
     <Property Name="localidad_id" Type="int" Nullable="false" />
-    <Property Name="domicilio" Type="nvarchar" MaxLength="80" Nullable="false" />
-    <Property Name="piso" Type="smallint" Nullable="false" />
-    <Property Name="departamento" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="nro_puerta" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
-    <Property Name="lugar_nacimiento" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="domicilio" Type="nvarchar" MaxLength="80" />
+    <Property Name="piso" Type="smallint" />
+    <Property Name="departamento" Type="nvarchar" MaxLength="50" />
+    <Property Name="nro_puerta" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_nacimiento" Type="date" />
+    <Property Name="lugar_nacimiento" Type="nvarchar" MaxLength="100" />
     <Property Name="flag_conductor" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="personal_remolque">
@@ -197,25 +197,25 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="poliza">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nro_poliza" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="nro_poliza" Type="nvarchar" MaxLength="50" />
     <Property Name="aseguradora_id" Type="int" Nullable="false" />
     <Property Name="vehiculo_id" Type="int" Nullable="false" />
-    <Property Name="vigencia_desde" Type="date" Nullable="false" />
-    <Property Name="vigencia_hasta" Type="date" Nullable="false" />
+    <Property Name="vigencia_desde" Type="date" />
+    <Property Name="vigencia_hasta" Type="date" />
   </EntityType>
   <EntityType Name="provincia">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="remolque">
     <Key>
@@ -225,30 +225,30 @@
     <Property Name="personal_remolque_id" Type="int" Nullable="false" />
     <Property Name="playa_acarreo_id" Type="int" Nullable="false" />
     <Property Name="vehiculo_id" Type="int" Nullable="false" />
-    <Property Name="fecha_hora" Type="datetime" Nullable="false" />
-    <Property Name="ubicacion" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="detalle_infraccion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="fecha_hora" Type="datetime" />
+    <Property Name="ubicacion" Type="nvarchar" MaxLength="100" />
+    <Property Name="detalle_infraccion" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="sexo">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tipo_vehiculo">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="uso_cedula">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="usuario">
     <Key>
@@ -257,8 +257,8 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="persona_id" Type="int" Nullable="false" />
     <Property Name="perfil_usuario_id" Type="int" Nullable="false" />
-    <Property Name="email" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="contraseña" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="contraseña" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="vehiculo">
     <Key>
@@ -267,11 +267,12 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="tipo_id" Type="int" Nullable="false" />
     <Property Name="marca_id" Type="int" Nullable="false" />
-    <Property Name="modelo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="modelo" Type="nvarchar" MaxLength="50" />
     <Property Name="año" Type="int" Nullable="false" />
-    <Property Name="cilindrada" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="motor" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="chasis_cuadro" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="cilindrada" Type="nvarchar" MaxLength="50" />
+    <Property Name="motor" Type="nvarchar" MaxLength="50" />
+    <Property Name="chasis_cuadro" Type="nvarchar" MaxLength="50" />
+    <Property Name="dominio" Type="nchar" MaxLength="10" />
   </EntityType>
   <Association Name="FK_agente_transito_usuario">
     <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
@@ -381,9 +382,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_infraccion_agente_transito' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_infraccion_agente_transito" />-->
   <Association Name="FK_infraccion_codigo_infraccion">
     <End Role="codigo_infraccion" Type="Self.codigo_infraccion" Multiplicity="1" />
     <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />
@@ -432,9 +430,6 @@ warning 6035: The relationship 'FK_infraccion_agente_transito' has columns that 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <!--Errors Found During Generation:
-warning 6035: The relationship 'FK_infraccion_provincia' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="FK_infraccion_provincia" />-->
   <Association Name="FK_infraccion_vehiculo">
     <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
     <End Role="infraccion" Type="Self.infraccion" Multiplicity="*" />

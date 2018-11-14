@@ -291,6 +291,7 @@
     <EntitySetMapping Name="vehiculoes">
       <EntityTypeMapping TypeName="sicoveModel.vehiculo">
         <MappingFragment StoreEntitySet="vehiculo">
+          <ScalarProperty Name="dominio" ColumnName="dominio" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
           <ScalarProperty Name="marca_id" ColumnName="marca_id" />

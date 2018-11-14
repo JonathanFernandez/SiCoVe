@@ -14,7 +14,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="polizas" Relationship="Self.FK_poliza_aseguradora" FromRole="aseguradora" ToRole="poliza" />
   </EntityType>
   <EntityType Name="categoria_infraccion">
@@ -22,7 +22,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="codigo_infraccion" Relationship="Self.FK_codigo_infraccion_categoria_infraccion" FromRole="categoria_infraccion" ToRole="codigo_infraccion" />
   </EntityType>
   <EntityType Name="categoria_licencia">
@@ -30,7 +30,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_categoria_licencia" FromRole="categoria_licencia" ToRole="licencia" />
   </EntityType>
   <EntityType Name="cedula">
@@ -55,9 +55,9 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="codigo_infraccion1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codigo_infraccion1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="categoria_id" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="categoria_infraccion" Relationship="Self.FK_codigo_infraccion_categoria_infraccion" FromRole="codigo_infraccion" ToRole="categoria_infraccion" />
     <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_codigo_infraccion" FromRole="codigo_infraccion" ToRole="infraccion" />
   </EntityType>
@@ -69,10 +69,10 @@
     <Property Name="agente_transito_id" Type="Int32" Nullable="false" />
     <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
     <Property Name="persona_id" Type="Int32" Nullable="false" />
-    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_hora" Type="DateTime" Precision="0" />
     <Property Name="provincia_id" Type="Int32" Nullable="false" />
     <Property Name="localidad_id" Type="Int32" Nullable="false" />
-    <Property Name="locacion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="locacion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
     <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
     <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_control" FromRole="control" ToRole="infraccion" />
@@ -85,11 +85,11 @@
     <Property Name="usuario_id" Type="Int32" Nullable="false" />
     <Property Name="estado_id" Type="Int32" Nullable="false" />
     <Property Name="infraccion_id" Type="Int32" Nullable="false" />
-    <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="adjunto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="adjunto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="fecha_hora" Type="DateTime" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="estado_denuncia" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="denuncia" ToRole="estado_denuncia" />
     <NavigationProperty Name="infraccion" Relationship="Self.FK_denuncia_infraccion" FromRole="denuncia" ToRole="infraccion" />
     <NavigationProperty Name="usuario" Relationship="Self.FK_denuncia_usuario" FromRole="denuncia" ToRole="usuario" />
@@ -99,7 +99,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_estado_cedula" FromRole="estado_cedula" ToRole="cedula" />
   </EntityType>
   <EntityType Name="estado_denuncia">
@@ -107,7 +107,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="denuncias" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="estado_denuncia" ToRole="denuncia" />
   </EntityType>
   <EntityType Name="infraccion">
@@ -122,12 +122,12 @@
     <Property Name="provincia_id" Type="Int32" Nullable="false" />
     <Property Name="localidad_id" Type="Int32" Nullable="false" />
     <Property Name="control_id" Type="Int32" Nullable="false" />
-    <Property Name="nro_acta" Type="Int64" Nullable="false" />
-    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="locacion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="nro_acta" Type="Int64" />
+    <Property Name="fecha_hora" Type="DateTime" Precision="0" />
+    <Property Name="locacion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
     <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="true" Unicode="true" />
     <Property Name="documentacion_retenida" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-    <Property Name="lugar_retencion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="lugar_retencion" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
     <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="codigo_infraccion" Relationship="Self.FK_infraccion_codigo_infraccion" FromRole="infraccion" ToRole="codigo_infraccion" />
     <NavigationProperty Name="control" Relationship="Self.FK_infraccion_control" FromRole="infraccion" ToRole="control" />
@@ -145,10 +145,10 @@
     <Property Name="categoria_id" Type="Int32" Nullable="false" />
     <Property Name="persona_id" Type="Int32" Nullable="false" />
     <Property Name="municipio_id" Type="Int32" Nullable="false" />
-    <Property Name="clases" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="otorgamiento" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="clases" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="otorgamiento" Type="DateTime" Precision="0" />
+    <Property Name="vencimiento" Type="DateTime" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="categoria_licencia" Relationship="Self.FK_licencia_categoria_licencia" FromRole="licencia" ToRole="categoria_licencia" />
     <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_licencia" FromRole="licencia" ToRole="infraccion" />
     <NavigationProperty Name="municipio" Relationship="Self.FK_licencia_municipio" FromRole="licencia" ToRole="municipio" />
@@ -160,7 +160,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="provincia_id" Type="Int32" Nullable="false" />
-    <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_localidad" FromRole="localidad" ToRole="infraccion" />
     <NavigationProperty Name="provincia" Relationship="Self.FK_localidad_provincia" FromRole="localidad" ToRole="provincia" />
     <NavigationProperty Name="personas" Relationship="Self.FK_persona_localidad" FromRole="localidad" ToRole="persona" />
@@ -170,7 +170,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="vehiculoes" Relationship="Self.FK_vehiculo_marca_vehiculo" FromRole="marca_vehiculo" ToRole="vehiculo" />
   </EntityType>
   <EntityType Name="municipio">
@@ -178,7 +178,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_municipio" FromRole="municipio" ToRole="licencia" />
   </EntityType>
   <EntityType Name="nacionalidad">
@@ -186,7 +186,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="personas" Relationship="Self.FK_persona_nacionalidad" FromRole="nacionalidad" ToRole="persona" />
   </EntityType>
   <EntityType Name="perfil_usuario">
@@ -194,7 +194,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_perfil_usuario" FromRole="perfil_usuario" ToRole="usuario" />
   </EntityType>
   <EntityType Name="persona">
@@ -202,19 +202,19 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="dni" Type="Int64" Nullable="false" />
     <Property Name="sexo_id" Type="Int32" Nullable="false" />
     <Property Name="nacionalidad_id" Type="Int32" Nullable="false" />
     <Property Name="provincia_id" Type="Int32" Nullable="false" />
     <Property Name="localidad_id" Type="Int32" Nullable="false" />
-    <Property Name="domicilio" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="piso" Type="Int16" Nullable="false" />
-    <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="nro_puerta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="lugar_nacimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="domicilio" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="piso" Type="Int16" />
+    <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nro_puerta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+    <Property Name="lugar_nacimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="flag_conductor" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_persona" FromRole="persona" ToRole="cedula" />
     <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_persona" FromRole="persona" ToRole="licencia" />
@@ -239,7 +239,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="remolques" Relationship="Self.FK_remolque_playa_acarreo" FromRole="playa_acarreo" ToRole="remolque" />
   </EntityType>
   <EntityType Name="poliza">
@@ -247,11 +247,11 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nro_poliza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nro_poliza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="aseguradora_id" Type="Int32" Nullable="false" />
     <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
-    <Property Name="vigencia_desde" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="vigencia_hasta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="vigencia_desde" Type="DateTime" Precision="0" />
+    <Property Name="vigencia_hasta" Type="DateTime" Precision="0" />
     <NavigationProperty Name="aseguradora" Relationship="Self.FK_poliza_aseguradora" FromRole="poliza" ToRole="aseguradora" />
     <NavigationProperty Name="vehiculo" Relationship="Self.FK_poliza_vehiculo" FromRole="poliza" ToRole="vehiculo" />
   </EntityType>
@@ -260,7 +260,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="localidads" Relationship="Self.FK_localidad_provincia" FromRole="provincia" ToRole="localidad" />
     <NavigationProperty Name="personas" Relationship="Self.FK_persona_provincia" FromRole="provincia" ToRole="persona" />
     <NavigationProperty Name="provincia1" Relationship="Self.FK_provincia_provincia" FromRole="provincia" ToRole="provincia1" />
@@ -274,9 +274,9 @@
     <Property Name="personal_remolque_id" Type="Int32" Nullable="false" />
     <Property Name="playa_acarreo_id" Type="Int32" Nullable="false" />
     <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
-    <Property Name="fecha_hora" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="detalle_infraccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha_hora" Type="DateTime" Precision="3" />
+    <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="detalle_infraccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="personal_remolque" Relationship="Self.FK_remolque_personal_remolque" FromRole="remolque" ToRole="personal_remolque" />
     <NavigationProperty Name="playa_acarreo" Relationship="Self.FK_remolque_playa_acarreo" FromRole="remolque" ToRole="playa_acarreo" />
     <NavigationProperty Name="vehiculo" Relationship="Self.FK_remolque_vehiculo" FromRole="remolque" ToRole="vehiculo" />
@@ -286,7 +286,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="personas" Relationship="Self.FK_persona_sexo" FromRole="sexo" ToRole="persona" />
   </EntityType>
   <EntityType Name="tipo_vehiculo">
@@ -294,7 +294,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="vehiculoes" Relationship="Self.FK_vehiculo_tipo_vehiculo" FromRole="tipo_vehiculo" ToRole="vehiculo" />
   </EntityType>
   <EntityType Name="uso_cedula">
@@ -302,7 +302,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_uso_cedula" FromRole="uso_cedula" ToRole="cedula" />
   </EntityType>
   <EntityType Name="usuario">
@@ -312,8 +312,8 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="persona_id" Type="Int32" Nullable="false" />
     <Property Name="perfil_usuario_id" Type="Int32" Nullable="false" />
-    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="contraseña" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="agente_transito" Relationship="Self.FK_agente_transito_usuario" FromRole="usuario" ToRole="agente_transito" />
     <NavigationProperty Name="denuncias" Relationship="Self.FK_denuncia_usuario" FromRole="usuario" ToRole="denuncia" />
     <NavigationProperty Name="perfil_usuario" Relationship="Self.FK_usuario_perfil_usuario" FromRole="usuario" ToRole="perfil_usuario" />
@@ -327,17 +327,18 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tipo_id" Type="Int32" Nullable="false" />
     <Property Name="marca_id" Type="Int32" Nullable="false" />
-    <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="año" Type="Int32" Nullable="false" />
-    <Property Name="cilindrada" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="motor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="chasis_cuadro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cilindrada" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="motor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chasis_cuadro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_vehiculo" FromRole="vehiculo" ToRole="cedula" />
     <NavigationProperty Name="infraccions" Relationship="Self.FK_infraccion_vehiculo" FromRole="vehiculo" ToRole="infraccion" />
     <NavigationProperty Name="marca_vehiculo" Relationship="Self.FK_vehiculo_marca_vehiculo" FromRole="vehiculo" ToRole="marca_vehiculo" />
     <NavigationProperty Name="polizas" Relationship="Self.FK_poliza_vehiculo" FromRole="vehiculo" ToRole="poliza" />
     <NavigationProperty Name="remolques" Relationship="Self.FK_remolque_vehiculo" FromRole="vehiculo" ToRole="remolque" />
     <NavigationProperty Name="tipo_vehiculo" Relationship="Self.FK_vehiculo_tipo_vehiculo" FromRole="vehiculo" ToRole="tipo_vehiculo" />
+    <Property Name="dominio" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <Association Name="FK_agente_transito_usuario">
     <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
