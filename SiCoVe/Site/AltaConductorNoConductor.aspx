@@ -111,7 +111,7 @@
                                         <div class="form-group">
                                             <label>Piso</label>
                                             <asp:TextBox ID="txtPisoDNI" runat="server" class="form-control" placeholder="Ingresar Piso"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ForeColor="red" ControlToValidate="txtPisoDNI" runat="server" ErrorMessage="* Debe Ingresar Piso"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" ForeColor="red" ControlToValidate="txtPisoDNI" runat="server" ErrorMessage="* Debe Ingresar Piso"></asp:RequiredFieldValidator>--%>
                                         </div>
                                         <div class="form-group">
                                             <label>Departamento</label>
@@ -207,22 +207,27 @@
                                         <div class="form-group">
                                             <label>Dominio</label>
                                             <asp:TextBox ID="txtDominioCED" runat="server" class="form-control" placeholder="Ingrese el dominio"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator25" ForeColor="red" ControlToValidate="txtDominioCED" runat="server" ErrorMessage="* Debe ingresar Dominio"></asp:RequiredFieldValidator> 
                                         </div>
                                         <div class="form-group">
                                             <label>Estado</label>
                                             <asp:DropDownList ID="ddlEstadoCED" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator26" ForeColor="red" ControlToValidate="ddlEstadoCED" runat="server" ErrorMessage="* Debe Seleccinar Estado"></asp:RequiredFieldValidator> 
                                         </div>
                                         <div class="form-group">
                                             <label>Marca</label>
                                             <asp:DropDownList ID="ddlMarcaCED" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator27" ForeColor="red" ControlToValidate="ddlMarcaCED" runat="server" ErrorMessage="* Debe seleccionar Marca"></asp:RequiredFieldValidator> 
                                         </div>
                                         <div class="form-group">
                                             <label>Modelo</label>
                                             <asp:TextBox ID="txtModeloCED" runat="server" class="form-control" placeholder="Ingrese el modelo"></asp:TextBox>
-                                        </div>
+                                       <asp:RequiredFieldValidator ID="RequiredFieldValidator28" ForeColor="red" ControlToValidate="txtDominioCED" runat="server" ErrorMessage="* Debe ingresar Modelo"></asp:RequiredFieldValidator>
+                                            </div>
                                         <div class="form-group">
                                             <label>Tipo</label>
                                             <asp:DropDownList ID="ddlTipoCED" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator29" ForeColor="red" ControlToValidate="ddlTipoCED" runat="server" ErrorMessage="* Debe ingresar Tipo"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Uso</label>
@@ -234,26 +239,32 @@
                                           <div class="form-group">
                                             <label>Año</label>
                                             <asp:TextBox ID="txtAnioCED" runat="server" class="form-control" placeholder="Ingrese el año"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator30" ForeColor="red" ControlToValidate="txtAnioCED" runat="server" ErrorMessage="* Debe ingresar Año"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Cuadro / Chasis</label>
                                             <asp:TextBox ID="txtChasisCED" runat="server" class="form-control" placeholder="Ingrese el cuadro / chasis"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator31" ForeColor="red" ControlToValidate="txtChasisCED" runat="server" ErrorMessage="* Debe ingresar Chasis"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>N° de motor</label>
                                             <asp:TextBox ID="txtNumMotorCED" runat="server" class="form-control" placeholder="Ingrese el N° de motor"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator32" ForeColor="red" ControlToValidate="txtNumMotorCED" runat="server" ErrorMessage="* Debe ingresar Motor"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha de vencimiento</label>
                                             <asp:TextBox ID="txtFecVencimientoCED" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha de vencimiento"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator33" ForeColor="red" ControlToValidate="txtFecVencimientoCED" runat="server" ErrorMessage="* Debe ingresar Vencimiento"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Cilindrada</label>
                                             <asp:TextBox ID="txtCilindradaCED" runat="server" class="form-control" placeholder="Ingrese la la cilindrada"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator34" ForeColor="red" ControlToValidate="txtCilindradaCED" runat="server" ErrorMessage="* Debe ingresar Cilindrada"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Titular</label>
                                             <asp:TextBox ID="txtTitularCED" runat="server" class="form-control" placeholder="Ingrese el titular"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator35" ForeColor="red" ControlToValidate="txtTitularCED" runat="server" ErrorMessage="* Debe ingresar Titular"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <!-- Datos seguro -->
@@ -261,14 +272,17 @@
                                         <div class="form-group">
                                             <label>Aseguradora</label>
                                             <asp:DropDownList ID="ddlAseguradoraSEG" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator36" ForeColor="red" ControlToValidate="ddlAseguradoraSEG" runat="server" ErrorMessage="* Debe ingresar Aseguradora"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Asegurado</label>
                                             <asp:TextBox ID="txtAseguradoSEG" runat="server" class="form-control" placeholder="Ingrese el asegurado"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator37" ForeColor="red" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Póliza</label>
                                             <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control" placeholder="Ingrese el póliza"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ForeColor="red" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado"></asp:RequiredFieldValidator>
                                         </div>
                                         <%--<div class="form-group">
                                             <label>Marca</label>
@@ -297,13 +311,15 @@
                                         <div class="form-group">
                                             <label>Fecha desde</label>
                                             <asp:TextBox ID="txtFecDesdeSEG" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha desde"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator39" ForeColor="red" ControlToValidate="txtFecDesdeSEG" runat="server" ErrorMessage="* Debe ingresar Fecha desde"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha hasta</label>
                                             <asp:TextBox ID="txtFecHastaSEG" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha hasta"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator40" ForeColor="red" ControlToValidate="txtFecHastaSEG" runat="server" ErrorMessage="* Debe ingresar Fecha hasta"></asp:RequiredFieldValidator>                                        
                                         </div>
                                     </div>
-                                </div>
+                                </div
                                 <br />
                                 <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
                             </div>
