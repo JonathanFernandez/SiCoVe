@@ -44,7 +44,7 @@
                                             <label>Mail</label>
                                             <asp:TextBox ID="txtMailACNC" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="red" ControlToValidate="txtMailACNC" runat="server" ErrorMessage="* Debe ingresar Email"></asp:RequiredFieldValidator>
-                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="red" ControlToValidate="txtMailACNC" runat="server" ErrorMessage="* Debe ingresar un Email válido." ValidationExpression="[@]"></asp:RegularExpressionValidator>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="red" ControlToValidate="txtMailACNC" runat="server" ErrorMessage="* Debe ingresar un Email válido." ValidationExpression="[@]"></asp:RegularExpressionValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña</label>
@@ -55,7 +55,7 @@
                                             <label>Confirmar Contraseña</label>
                                             <asp:TextBox ID="txtConContraseñaACNC" runat="server" class="form-control" type="password" placeholder="Reingresar Contraseña"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="red" ControlToValidate="txtConContraseñaACNC" runat="server" ErrorMessage="* Debe Reingresar Contraseña"></asp:RequiredFieldValidator>
-                                             <asp:CompareValidator ID="CompareValidator1" ForeColor="red"  ControlToValidate="txtConContraseñaACNC" ControlToCompare="txtContraseñaACNC" runat="server" ErrorMessage="* Las contraseñas no coinciden"></asp:CompareValidator>
+                                            <asp:CompareValidator ID="CompareValidator1" ForeColor="red"  ControlToValidate="txtConContraseñaACNC" ControlToCompare="txtContraseñaACNC" runat="server" ErrorMessage="* Las contraseñas no coinciden"></asp:CompareValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Es conductor?
