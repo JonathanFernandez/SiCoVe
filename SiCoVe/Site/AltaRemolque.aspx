@@ -29,7 +29,7 @@
                      <div class="tab-pane fade in active" id="datosusuario">
                         <div class="form-group">
                             <label>Legajo</label>
-                            <asp:TextBox ID="txtLegajo" runat="server" class="form-control" placeholder="Ingrese el Legajo"></asp:TextBox>
+                            <asp:TextBox type="number" ID="txtLegajo" runat="server" class="form-control" placeholder="Ingrese el Legajo"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="red" ControlToValidate="txtLegajo" runat="server" ErrorMessage="* Debe ingresar Legajo"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
@@ -53,7 +53,7 @@
                         <div class="tab-pane fade" id="dni">
                         <div class="form-group">
                             <label>N° de documento</label>
-                            <asp:TextBox ID="txtNumDocumento" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
+                            <asp:TextBox type="number" ID="txtNumDocumento" runat="server" class="form-control" placeholder="Ingrese el N° de documento"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ForeColor="red" ControlToValidate="txtNumDocumento" runat="server" ErrorMessage="* Debe ingresar número de Documento"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
@@ -83,7 +83,7 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
-                            <asp:TextBox ID="txtFechaNacimiento" runat="server" class="form-control" placeholder="Ingrese Fecha de Nacimiento" TextMode="Date"></asp:TextBox>
+                            <asp:TextBox type="number" ID="txtFechaNacimiento" runat="server" class="form-control" placeholder="Ingrese Fecha de Nacimiento" TextMode="Date"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ForeColor="red" ControlToValidate="txtFechaNacimiento" runat="server" ErrorMessage="* Debe ingresar Fecha Nacimiento"></asp:RequiredFieldValidator>
                             </div>
                         <div class="form-group">
@@ -103,7 +103,7 @@
                         </div>
                         <div class="form-group">
                             <label>Piso</label>
-                            <asp:TextBox ID="txtPiso" runat="server" class="form-control" placeholder="Ingrese el piso"></asp:TextBox>
+                            <asp:TextBox type="number" ID="txtPiso" runat="server" class="form-control" placeholder="Ingrese el piso"></asp:TextBox>
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator15" ForeColor="red" ControlToValidate="txtPiso" runat="server" ErrorMessage="* Debe ingresar Piso"></asp:RequiredFieldValidator>--%>
                         </div>
                         <div class="form-group">
@@ -113,7 +113,7 @@
                         </div>
                         <div class="form-group">
                             <label>Nro De Puerta</label>
-                            <asp:TextBox ID="txtNumPuerta" runat="server" class="form-control" placeholder="Ingrese N° de Puerta"></asp:TextBox>
+                            <asp:TextBox type="number" ID="txtNumPuerta" runat="server" class="form-control" placeholder="Ingrese N° de Puerta"></asp:TextBox>
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumPuerta" runat="server" ErrorMessage="* Debe ingresar Numero de Puerta"></asp:RequiredFieldValidator>--%>
                         </div>
                        </div>
