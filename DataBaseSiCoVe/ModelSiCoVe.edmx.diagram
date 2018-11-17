@@ -66,6 +66,7 @@
         <AssociationConnector Association="sicoveModel.FK_provincia_provincia" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_remolque_vehiculo" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_vehiculo_tipo_vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="sicoveModel.FK_infraccion_persona" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
