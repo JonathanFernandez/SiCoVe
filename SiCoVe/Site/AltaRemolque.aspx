@@ -34,9 +34,8 @@
                         </div>
                         <div class="form-group">
                             <label>E-Mail</label>
-                            <asp:TextBox ID="txtEMail" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="red" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar E-Mail"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="red" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar un Email válido." ValidationExpression="[@]"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtEMail" runat="server" class="form-control" placeholder="Ingrese E-Mail" name="email" type="email" required="required"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="red" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar un Email válido." ValidationExpression="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"></asp:RegularExpressionValidator>
                             </div>
                         <div class="form-group">
                             <label>Contraseña</label>
