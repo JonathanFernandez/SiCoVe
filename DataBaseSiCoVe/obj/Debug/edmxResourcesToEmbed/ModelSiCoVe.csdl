@@ -897,5 +897,21 @@
       <End Role="tipo_vehiculo" EntitySet="tipo_vehiculo" />
       <End Role="vehiculo" EntitySet="vehiculoes" />
     </AssociationSet>
+    <FunctionImport Name="SP_LISTADO_PERSONAL_REMOLQUE" ReturnType="Collection(sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result)">
+      <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
+      <Parameter Name="APELLIDO" Mode="In" Type="String" />
+      <Parameter Name="NOMBRE" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="SP_LISTADO_PERSONAL_REMOLQUE_Result">
+    <Property Type="Int64" Name="DNI" Nullable="false" />
+    <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
+    <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
+  </ComplexType>
 </Schema>

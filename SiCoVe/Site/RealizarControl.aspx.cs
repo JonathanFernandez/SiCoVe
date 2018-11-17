@@ -15,7 +15,8 @@ namespace SiCoVe.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            btnGenerarInfraccion.Enabled = false;
+            btnVerificarDatos.Enabled    = false;
         }
 
         protected void btnTraerPatente_Click(object sender, EventArgs e)
@@ -53,7 +54,12 @@ namespace SiCoVe.Site
             try
             {
                 InlineResponse200 result = apiInstance.RecognizeBytes(imageBytes, secretKey, country, recognizeVehicle, state, returnImage, topn, prewarp);
-                lblPatente3.Text = result.Results[0].Plate;
+                //lblPatente3.Text = result.Results[0].Plate;
+
+                Session["dominio"] = result.Results[0].Plate;
+
+                btnGenerarInfraccion.Enabled = true;
+                btnVerificarDatos.Enabled = true;
                 //Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -72,9 +78,9 @@ namespace SiCoVe.Site
 
         protected void btnVerificarDatos_Click(object sender, EventArgs e)
         {
-            String dominio = "ADC123";
+            String dominio = Convert.ToString(Session["dominio"]);
 
-            Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio + ", false");
+            Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio, false);
         }
     }
 }

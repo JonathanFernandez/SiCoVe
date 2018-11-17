@@ -21,3 +21,15 @@ C:\Users\Fabian\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.
 C:\Users\Fabian\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csproj.CopyComplete
 C:\Users\Fabian\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.dll
 C:\Users\Fabian\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.pdb
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\DataBaseSiCoVe.dll.config
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\DataBaseSiCoVe.dll
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\DataBaseSiCoVe.pdb
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.dll
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.xml
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csprojAssemblyReference.cache
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csproj.CoreCompileInputs.cache
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.csproj.CopyComplete
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.dll
+C:\Users\juan_\Documents\GitHub\SiCoVe\DataBaseSiCoVe\obj\Debug\DataBaseSiCoVe.pdb
