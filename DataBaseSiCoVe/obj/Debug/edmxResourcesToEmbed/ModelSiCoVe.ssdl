@@ -670,6 +670,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_LISTADO_PERSONAL_REMOLQUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
+    <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
+    <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="sicoveModelStoreContainer">
     <EntitySet Name="agente_transito" EntityType="Self.agente_transito" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aseguradora" EntityType="Self.aseguradora" Schema="dbo" store:Type="Tables" />

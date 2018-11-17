@@ -121,13 +121,13 @@
                                         <div class="form-group">
                                             <label>Puerta</label>
                                             <asp:TextBox ID="txtPuertaDNI" runat="server" class="form-control" placeholder="Ingresar Puerta"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator15" ForeColor="red" ControlToValidate="txtPuertaDNI" runat="server" ErrorMessage="* Debe Ingresar Puerta"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator15" ForeColor="red" ControlToValidate="txtPuertaDNI" runat="server" ErrorMessage="* Debe Ingresar Puerta"></asp:RequiredFieldValidator>--%>
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar de nacimiento</label>
                                          <%--   <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>--%>
                                             <asp:TextBox ID="txtLugarNacimientoDNI" runat="server" class="form-control" placeholder="Ingresar Lugar Nacimiento"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator16" ForeColor="red" ControlToValidate="txtLugarNacimientoDNI" runat="server" ErrorMessage="* Debe Ingresar Lugar Nacimiento"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator16" ForeColor="red" ControlToValidate="txtLugarNacimientoDNI" runat="server" ErrorMessage="* Debe Ingresar Lugar Nacimiento"></asp:RequiredFieldValidator>--%>
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->

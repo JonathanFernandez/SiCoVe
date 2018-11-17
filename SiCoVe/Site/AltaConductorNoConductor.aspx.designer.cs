@@ -256,15 +256,6 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtPuertaDNI;
         
         /// <summary>
-        /// Control RequiredFieldValidator15.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
-        
-        /// <summary>
         /// Control txtLugarNacimientoDNI.
         /// </summary>
         /// <remarks>
@@ -272,15 +263,6 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLugarNacimientoDNI;
-        
-        /// <summary>
-        /// Control RequiredFieldValidator16.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator16;
         
         /// <summary>
         /// Control txtNumLicenciaLIC.
