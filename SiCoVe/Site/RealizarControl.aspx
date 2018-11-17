@@ -17,96 +17,50 @@
                  reader.readAsDataURL(input.files[0]);  
              }  
         }  
-
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
-          <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Realizar Control</h1>
-                </div>
-                <!-- /.col-lg-12 -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Realizar Control</h1>
             </div>
-            <!-- /.row -->
-
-         <div class="row">
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            OCR - Patentes
-                        </div>
-                          <div class="panel-body">
-                            <div class="row">
-                                    <div class="col-lg-6">
-
-                                         <div class="form-group">
-                                                <label>Selección de Patente</label>
-                                              <asp:Image ID="imgFoto" runat="server" Style="width: 500px; height: 300px"  />
-                                               
-                                        
-                                            </div>
-                                         <div class="form-group">
-                                            <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-primary" />
-                                            
-                                            </div>
-                                         <div class="form-group">
-                                                <asp:Button ID="btnTraerPatente" runat="server" Text="Verificar Patente" OnClick="btnTraerPatente_Click" CssClass="btn btn-success" />
-                                          
-                                            </div>
-                                         <div class="form-group">
-                                               <asp:Label ID="lblPatente3" runat="server" Text=""></asp:Label>
-                                            
-                                            </div>
-                                         
-                                    </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        OCR - Patentes
+                    </div>
+                        <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Selección de Patente</label>
+                                    <asp:Image ID="imgFoto" runat="server" Style="width: 500px; height: 300px"  />
+                                </div>
+                                <div class="form-group">
+                                    <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-primary" />    
+                                </div>
+                                <div class="form-group">
+                                    <asp:Button ID="btnTraerPatente" runat="server" Text="Verificar Datos" OnClick="btnTraerPatente_Click" CssClass="btn btn-success" />
+                                </div>
+                                <div class="form-group">
+                                    <asp:Label ID="lblPatente3" runat="server" Text=""></asp:Label>     
+                                </div>
                             </div>
-
-
-                              <div class="row">
-                                    <div class="col-lg-6">
-
-                                         
-                                         <div class="form-group">
-                                                <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Infracción" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
-                                                <asp:Button ID="btnVerificarDatos" runat="server" Text="Verificar Datos" OnClick="btnVerificarDatos_Click" CssClass="btn btn-primary" />
-                                          
-                                            </div>
-                                    
-                                    
-                                    </div>
-                            </div>
-
-
-
                         </div>
-
-                  </div>
-                    <!-- /.panel -->
+                        <%--<div class="row">
+                            <div class="col-lg-6">                                      
+                                <div class="form-group">
+                                    <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Infracción" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
+                                    <asp:Button ID="btnVerificarDatos" runat="server" Text="Verificar Datos" OnClick="btnVerificarDatos_Click" CssClass="btn btn-primary" /> 
+                                </div>
+                            </div>
+                        </div>--%>
+                    </div>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+        </div>
     </div>
-    <!-- /#page-wrapper --> 
-  <%--  <div id="page-wrapper">
-         
-  
-       
-             
-               <asp:Image ID="imgFoto" runat="server" Style="width: 500px; height: 300px"  />
-            <br />      
-                    <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" />
-            <br />
-            <asp:Button ID="btnTraerPatente" runat="server" Text="LeerPatente" OnClick="btnTraerPatente_Click" />
-
-             <br />
-            <asp:Label ID="lblPatente" runat="server" Text=""></asp:Label>
-
-            
-             <br />
-            <asp:Label ID="lblPatente2" runat="server" Text=""></asp:Label>
-              <br />
-            <asp:Label ID="lblPatente3" runat="server" Text=""></asp:Label>
-        </div>--%>
 </asp:Content>

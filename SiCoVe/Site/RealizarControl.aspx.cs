@@ -15,8 +15,8 @@ namespace SiCoVe.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnGenerarInfraccion.Enabled = false;
-            btnVerificarDatos.Enabled    = false;
+            //btnGenerarInfraccion.Enabled = false;
+            //btnVerificarDatos.Enabled    = false;
         }
 
         protected void btnTraerPatente_Click(object sender, EventArgs e)
@@ -35,6 +35,7 @@ namespace SiCoVe.Site
             //lblPatente.Text = extractText;
             leer();
         }
+
         private void leer()
         {
             var apiInstance = new DefaultApi();
@@ -58,8 +59,8 @@ namespace SiCoVe.Site
 
                 Session["dominio"] = result.Results[0].Plate;
 
-                btnGenerarInfraccion.Enabled = true;
-                btnVerificarDatos.Enabled = true;
+                //btnGenerarInfraccion.Enabled = true;
+                //btnVerificarDatos.Enabled = true;
                 //Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -67,20 +68,28 @@ namespace SiCoVe.Site
                 lblPatente3.Text = "Exception when calling DefaultApi.RecognizeBytes: " + e.Message;
                 //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
             }
+
+            abirPantalla();
         }
 
-        protected void btnGenerarInfraccion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-      
-
-        protected void btnVerificarDatos_Click(object sender, EventArgs e)
+        private void abirPantalla()
         {
             String dominio = Convert.ToString(Session["dominio"]);
 
             Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio, false);
         }
-    }
+            //protected void btnGenerarInfraccion_Click(object sender, EventArgs e)
+            //{
+            //    String dominio = Convert.ToString(Session["dominio"]);
+
+            //    Response.Redirect("~/Site/ActaComprobacion.aspx?dominio=" + dominio, false);
+            //}
+
+            //protected void btnVerificarDatos_Click(object sender, EventArgs e)
+            //{
+            //    String dominio = Convert.ToString(Session["dominio"]);
+
+            //    Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio, false);
+            //}
+        }
 }
