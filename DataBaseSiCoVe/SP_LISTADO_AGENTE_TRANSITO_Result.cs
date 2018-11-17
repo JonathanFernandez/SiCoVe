@@ -11,7 +11,7 @@ namespace DataBaseSiCoVe
 {
     using System;
     
-    public partial class SP_LISTADO_PERSONAL_REMOLQUE_Result
+    public partial class SP_LISTADO_AGENTE_TRANSITO_Result
     {
         public long DNI { get; set; }
         public string APELLIDO { get; set; }
