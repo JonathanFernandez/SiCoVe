@@ -105,7 +105,7 @@
                                         <div class="form-group">
                                             <label>Domicilio</label>
                                             <asp:TextBox ID="txtDomicilioDNI" runat="server" class="form-control" placeholder="Ingresar Domicilio"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ForeColor="red" ControlToValidate="txtDomicilioDNI" runat="server" ErrorMessage="* Debe Ingresar Domicilio"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" ForeColor="red" ControlToValidate="txtDomicilioDNI" runat="server" ErrorMessage="* Debe Ingresar Domicilio"></asp:RequiredFieldValidator>--%>
                                         </div>
 
                                         <div class="form-group">
@@ -116,7 +116,7 @@
                                         <div class="form-group">
                                             <label>Departamento</label>
                                             <asp:TextBox ID="txtDepartamentoDNI" runat="server" class="form-control" placeholder="Ingresar Departamento"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator14" ForeColor="red" ControlToValidate="txtDepartamentoDNI" runat="server" ErrorMessage="* Debe Ingresar Departamento"></asp:RequiredFieldValidator>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator14" ForeColor="red" ControlToValidate="txtDepartamentoDNI" runat="server" ErrorMessage="* Debe Ingresar Departamento"></asp:RequiredFieldValidator>--%>
                                         </div>
                                         <div class="form-group">
                                             <label>Puerta</label>
@@ -190,7 +190,7 @@
                                         <div class="form-group">
                                             <label>Observaciones</label>
                                             <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine" placeholder="Ingrese las observaciones"></asp:textbox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator23" ForeColor="red" ControlToValidate="txtObservaciones" runat="server" ErrorMessage="* Debe ingresar las observaciones"></asp:RequiredFieldValidator> 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator23" ForeColor="red" ControlToValidate="txtObservaciones" runat="server" ErrorMessage="* Debe ingresar las observaciones"></asp:RequiredFieldValidator>--%> 
                                         </div>
                                     </div>
                                     <!-- Datos cédula -->
