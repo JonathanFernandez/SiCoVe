@@ -81,7 +81,7 @@
                         <div class="form-group">
                             <label>Nacionalidad</label>
                             <asp:DropDownList ID="ddlNacionalidad" runat="server" class="form-control" ></asp:DropDownList>
-                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" ForeColor="red" ControlToValidate="ddlNacionalidad" runat="server" ErrorMessage="* Debe seleccionar Nacionalidad"></asp:RequiredFieldValidator>--%>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ForeColor="red" ControlToValidate="ddlNacionalidad" runat="server" ErrorMessage="* Debe seleccionar Nacionalidad"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
@@ -96,7 +96,7 @@
                         <div class="form-group">
                             <label>Localidad</label>
                             <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
-                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" ForeColor="red" ControlToValidate="ddlLocalidad" runat="server" ErrorMessage="* Debe seleccionar Localidad"></asp:RequiredFieldValidator>--%>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ForeColor="red" ControlToValidate="ddlLocalidad" runat="server" ErrorMessage="* Debe seleccionar Localidad"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label>Lugar de nacimiento</label>
