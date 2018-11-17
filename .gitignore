@@ -5,5 +5,6 @@ SiCoVe/csharp/src/OpenAlprApi/bin
 SiCoVe/csharp/src/OpenAlprApi.Test/bin
 .vs/
 .vs/config/applicationhost.config
-SiCoVe/DataBaseSiCoVe/bin
-SiCoVe/DataBaseSiCoVe/obj
+
+DataBaseSiCoVe/bin/
+DataBaseSiCoVe/obj/
