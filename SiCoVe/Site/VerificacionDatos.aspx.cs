@@ -13,6 +13,9 @@ namespace SiCoVe.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string valor = Convert.ToString(Request.QueryString["dominio"]);
+
+
 
         }
     }
