@@ -52,12 +52,15 @@ namespace SiCoVe.Site
             var topn = 56;  // int? | The number of results you would like to be returned for plate  candidates and vehicle classifications  (optional)  (default to 10)
             var prewarp = "";// prewarp_example;  // string | Prewarp configuration is used to calibrate the analyses for the  angle of a particular camera.  More information is available here http://doc.openalpr.com/accuracy_improvements.html#calibration  (optional)  (default to )
 
+            String dominio = "";
+
             try
             {
                 InlineResponse200 result = apiInstance.RecognizeBytes(imageBytes, secretKey, country, recognizeVehicle, state, returnImage, topn, prewarp);
                 //lblPatente3.Text = result.Results[0].Plate;
 
-                Session["dominio"] = result.Results[0].Plate;
+                //Session["dominio"] = result.Results[0].Plate;
+                dominio = result.Results[0].Plate;
 
                 //btnGenerarInfraccion.Enabled = true;
                 //btnVerificarDatos.Enabled = true;
@@ -69,12 +72,12 @@ namespace SiCoVe.Site
                 //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
             }
 
-            abirPantalla();
+            abirPantalla(dominio);
         }
 
-        private void abirPantalla()
+        private void abirPantalla(String dominio)
         {
-            String dominio = Convert.ToString(Session["dominio"]);
+            //String dominio = Convert.ToString(Session["dominio"]);
 
             Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio, false);
         }
