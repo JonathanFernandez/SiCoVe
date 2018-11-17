@@ -72,5 +72,21 @@ namespace DataBaseSiCoVe
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_PERSONAL_REMOLQUE_Result>("SP_LISTADO_PERSONAL_REMOLQUE", nRO_LEGAJOParameter, aPELLIDOParameter, nOMBREParameter);
         }
+        public virtual ObjectResult<SP_LISTADO_AGENTE_TRANSITO_Result> SP_LISTADO_AGENTE_TRANSITO(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
+        {
+            var nRO_LEGAJOParameter = nRO_LEGAJO.HasValue ?
+                new ObjectParameter("NRO_LEGAJO", nRO_LEGAJO) :
+                new ObjectParameter("NRO_LEGAJO", typeof(int));
+
+            var aPELLIDOParameter = aPELLIDO != null ?
+                new ObjectParameter("APELLIDO", aPELLIDO) :
+                new ObjectParameter("APELLIDO", typeof(string));
+
+            var nOMBREParameter = nOMBRE != null ?
+                new ObjectParameter("NOMBRE", nOMBRE) :
+                new ObjectParameter("NOMBRE", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_AGENTE_TRANSITO_Result>("SP_LISTADO_AGENTE_TRANSITO", nRO_LEGAJOParameter, aPELLIDOParameter, nOMBREParameter);
+        }
     }
 }

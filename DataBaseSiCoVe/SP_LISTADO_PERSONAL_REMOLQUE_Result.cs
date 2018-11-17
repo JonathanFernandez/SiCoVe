@@ -23,4 +23,16 @@ namespace DataBaseSiCoVe
         public int ID { get; set; }
         public int NRO_LEGAJO { get; set; }
     }
+    public partial class SP_LISTADO_AGENTE_TRANSITO_Result
+    {
+        public long DNI { get; set; }
+        public string APELLIDO { get; set; }
+        public string NOMBRE { get; set; }
+        public string SEXO { get; set; }
+        public Nullable<System.DateTime> FECHA_NACIMIENTO { get; set; }
+        public string NACIONALIDAD { get; set; }
+        public string DOMICILIO { get; set; }
+        public int ID { get; set; }
+        public int NRO_LEGAJO { get; set; }
+    }
 }
