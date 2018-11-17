@@ -675,6 +675,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_LISTADO_PERSONAL_REMOLQUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
+          <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="sicoveModelStoreContainer">
           <EntitySet Name="agente_transito" EntityType="Self.agente_transito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aseguradora" EntityType="Self.aseguradora" Schema="dbo" store:Type="Tables" />
@@ -1738,7 +1743,23 @@
             <End Role="tipo_vehiculo" EntitySet="tipo_vehiculo" />
             <End Role="vehiculo" EntitySet="vehiculoes" />
           </AssociationSet>
+          <FunctionImport Name="SP_LISTADO_PERSONAL_REMOLQUE" ReturnType="Collection(sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result)">
+            <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
+            <Parameter Name="APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="SP_LISTADO_PERSONAL_REMOLQUE_Result">
+          <Property Type="Int64" Name="DNI" Nullable="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
+          <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2047,6 +2068,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_PERSONAL_REMOLQUE" FunctionName="sicoveModel.Store.SP_LISTADO_PERSONAL_REMOLQUE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
