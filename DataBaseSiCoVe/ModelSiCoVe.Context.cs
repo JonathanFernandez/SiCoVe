@@ -12,6 +12,8 @@ namespace DataBaseSiCoVe
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class sicoveEntities : DbContext
     {
@@ -53,5 +55,22 @@ namespace DataBaseSiCoVe
         public virtual DbSet<uso_cedula> uso_cedula { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<vehiculo> vehiculoes { get; set; }
+    
+        public virtual ObjectResult<SP_LISTADO_PERSONAL_REMOLQUE_Result> SP_LISTADO_PERSONAL_REMOLQUE(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
+        {
+            var nRO_LEGAJOParameter = nRO_LEGAJO.HasValue ?
+                new ObjectParameter("NRO_LEGAJO", nRO_LEGAJO) :
+                new ObjectParameter("NRO_LEGAJO", typeof(int));
+    
+            var aPELLIDOParameter = aPELLIDO != null ?
+                new ObjectParameter("APELLIDO", aPELLIDO) :
+                new ObjectParameter("APELLIDO", typeof(string));
+    
+            var nOMBREParameter = nOMBRE != null ?
+                new ObjectParameter("NOMBRE", nOMBRE) :
+                new ObjectParameter("NOMBRE", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_PERSONAL_REMOLQUE_Result>("SP_LISTADO_PERSONAL_REMOLQUE", nRO_LEGAJOParameter, aPELLIDOParameter, nOMBREParameter);
+        }
     }
 }
