@@ -138,7 +138,13 @@
     <Compile Include="sexo.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LISTADO_AGENTE_TRANSITO_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LISTADO_PERSONAL_REMOLQUE_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LISTAR_PERSONAS_AUTORIZADAS_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
     <Compile Include="tipo_vehiculo.cs">

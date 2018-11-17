@@ -252,12 +252,20 @@
                                     <!-- Finalizar control -->
                                     <div class="tab-pane fade" id="control">
                                         <div class="form-group">
+                                            <label>Provincia</label>
+                                            <asp:DropDownList ID="ddlProvinciaFC" runat="server" class="form-control"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Localidad</label>
+                                            <asp:DropDownList ID="ddlLocalidadFC" runat="server" class="form-control"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Lugar control</label>
-                                            <asp:TextBox ID="txtLugarControl" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtLugarControlFC" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Observaciones</label>
-                                            <asp:textbox id="txtObservacionesControl" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
+                                            <asp:textbox id="txtObservacionesControlFC" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
                                         </div>
                                         <br />
                                         <asp:Button ID="btnAprobarVD" runat="server" class="btn btn-default" Text="Finalizar" />

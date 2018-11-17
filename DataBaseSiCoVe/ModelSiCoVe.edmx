@@ -685,6 +685,9 @@
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_LISTAR_PERSONAS_AUTORIZADAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Dominio" Type="nchar" Mode="In" />
+        </Function>
         <EntityContainer Name="sicoveModelStoreContainer">
           <EntitySet Name="agente_transito" EntityType="Self.agente_transito" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aseguradora" EntityType="Self.aseguradora" Schema="dbo" store:Type="Tables" />
@@ -1758,6 +1761,9 @@
             <Parameter Name="APELLIDO" Mode="In" Type="String" />
             <Parameter Name="NOMBRE" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_PERSONAS_AUTORIZADAS" ReturnType="Collection(sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result)">
+            <Parameter Name="Dominio" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="SP_LISTADO_PERSONAL_REMOLQUE_Result">
           <Property Type="Int64" Name="DNI" Nullable="false" />
@@ -1780,6 +1786,11 @@
           <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2116,6 +2127,15 @@
                 <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_PERSONAS_AUTORIZADAS" FunctionName="sicoveModel.Store.SP_LISTAR_PERSONAS_AUTORIZADAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

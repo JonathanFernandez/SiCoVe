@@ -10,20 +10,11 @@
 namespace DataBaseSiCoVe
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class uso_cedula
+    public partial class SP_LISTAR_PERSONAS_AUTORIZADAS_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public uso_cedula()
-        {
-            this.cedulas = new HashSet<cedula>();
-        }
-    
         public int id { get; set; }
-        public string descripcion { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cedula> cedulas { get; set; }
+        public string apellido { get; set; }
+        public string nombre { get; set; }
     }
 }

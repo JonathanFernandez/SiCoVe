@@ -20,11 +20,12 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                var per = sicove.personas.ToList();
+                //var per = sicove.personas.ToList();
+                var per = sicove.SP_LISTAR_PERSONAS_AUTORIZADAS(dominio).ToList();
 
                 ddlPersona.Items.Insert(0, new ListItem("Seleccione persona...", "0"));
 
-                foreach (persona j in per)
+                foreach (SP_LISTAR_PERSONAS_AUTORIZADAS_Result j in per)
                 {
                     ListItem item = new ListItem(String.Concat(j.nombre, ' ', j.apellido), Convert.ToString(j.id));
 
@@ -56,15 +57,33 @@ namespace SiCoVe.Site
                 var loc = sicove.municipios.ToList();
 
                 ddlLugNacimientoDNI.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
+                ddlLocalidadFC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
                 foreach (municipio p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
                     ddlLugNacimientoDNI.Items.Add(item);
+                    ddlLocalidadFC.Items.Add(item);
                 }
 
                 ddlLugNacimientoDNI.SelectedIndex = 0;
+                ddlLocalidadFC.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+
+                var pro = sicove.provincias.ToList();
+
+                ddlProvinciaFC.Items.Insert(0, new ListItem("Seleccione provincia...", "0"));
+
+                foreach (provincia p in pro)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlProvinciaFC.Items.Add(item);
+                }
+
+                ddlProvinciaFC.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
 

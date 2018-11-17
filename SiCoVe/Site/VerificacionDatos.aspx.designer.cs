@@ -445,22 +445,40 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtFecHastaSEG;
         
         /// <summary>
-        /// Control txtLugarControl.
+        /// Control ddlProvinciaFC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLugarControl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaFC;
         
         /// <summary>
-        /// Control txtObservacionesControl.
+        /// Control ddlLocalidadFC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtObservacionesControl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocalidadFC;
+        
+        /// <summary>
+        /// Control txtLugarControlFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLugarControlFC;
+        
+        /// <summary>
+        /// Control txtObservacionesControlFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtObservacionesControlFC;
         
         /// <summary>
         /// Control btnAprobarVD.
