@@ -16,26 +16,54 @@ namespace SiCoVe
         {
             if (!Page.IsPostBack)
             {
-                GvAutoridad.DataSource = sicove.SP_LISTADO_AGENTE_TRANSITO(null, null, null).ToList();
-                GvAutoridad.DataBind();
-
-                //    DataTable dt = new DataTable();
-                //    dt.Columns.Add(new DataColumn("col1"));
-                //    dt.Columns.Add(new DataColumn("col2"));
-                //    dt.Columns.Add(new DataColumn("col3"));
-
-                //    for (int i = 0; i < 10; i++)
-                //    {
-                //        DataRow dr = dt.NewRow();
-                //        dt.Rows.Add(dr);
-                //    }
-                //    GvRemolque.DataSource = dt;
-                //    GvRemolque.DataBind();
+                
+                ListadoAutoridad();
             }
+        }
+
+        protected void ListadoAutoridad() {
+            GvAutoridad.DataSource = sicove.SP_LISTADO_AGENTE_TRANSITO(null, null, null).ToList();
+            GvAutoridad.DataBind();
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
 
         }
+
+
+        protected void GvAutoridad_delete(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = (int)GvAutoridad.DataKeys[e.RowIndex].Values["id"];
+
+            persona per = (from p in sicove.personas where p.id == id select p).FirstOrDefault();
+            //borro los usuarios relacionados a la persona
+            foreach (var u in sicove.usuarios.Where(u => u.persona_id == per.id))
+            {
+                //borro los agentes de transito relacionados a la persona
+                foreach (var a in sicove.agente_transito.Where(a => a.usuario_id == u.id))
+                {
+                    sicove.agente_transito.Remove(a);
+                }
+                sicove.usuarios.Remove(u);
+
+            }
+           
+            sicove.personas.Remove(per);
+            sicove.SaveChanges();
+
+            ListadoAutoridad();
+        }
+
+        protected void GvAutoridad_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+
+                int index = Convert.ToInt32(e.CommandArgument);
+                int id = Convert.ToInt32(GvAutoridad.DataKeys[index].Value);
+
+            }
+        }
+
     }
 }
