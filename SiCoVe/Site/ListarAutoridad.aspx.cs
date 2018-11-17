@@ -29,7 +29,14 @@ namespace SiCoVe
         {
 
         }
+        protected void GvAutoridad_edit(object sender, GridViewEditEventArgs e)
+        {
+            int id = (int)GvAutoridad.DataKeys[e.NewEditIndex].Values["id"];
 
+            Session["id"] = id;
+
+            Response.Redirect("ModificarAutoridad.aspx");
+        }
 
         protected void GvAutoridad_delete(object sender, GridViewDeleteEventArgs e)
         {
