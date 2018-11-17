@@ -70,19 +70,11 @@ namespace SiCoVe.Site
 
       
 
-        protected void btnAltaAcarreo_Click(object sender, EventArgs e)
+        protected void btnVerificarDatos_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Site/AltaAcarreo.aspx", false);
+            String dominio = "ADC123";
+
+            Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio + ", false");
         }
-        //private string ExtractTextFromImage(string filePath)
-        //{
-        //    Document modiDocument = new Document();
-        //    modiDocument.Create(filePath);
-        //    modiDocument.OCR(MiLANGUAGES.miLANG_ENGLISH);
-        //    MODI.Image modiImage = (modiDocument.Images[0] as MODI.Image);
-        //    string extractedText = modiImage.Layout.Text;
-        //    modiDocument.Close();
-        //    return extractedText;
-        //}
     }
 }
