@@ -36,7 +36,7 @@ namespace SiCoVe
                 txtPiso.Text = Convert.ToString(per.piso);
                 txtDepartamento.Text = per.departamento;
                 txtNumPuerta.Text = per.nro_puerta;
-                txtFechaNacimiento.Text = Convert.ToString(per.fecha_nacimiento);
+                txtFechaNacimiento.Text = string.Format("{0:MM/dd/yyyy}", per.fecha_nacimiento);
                 txtLugarNacimiento.Text = per.lugar_nacimiento;
                 cckrautoridad.Checked = per.flag_conductor;
 

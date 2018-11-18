@@ -11,7 +11,7 @@
              <!--INI-->
             <div class="row">
                 <div class="col-lg-12">
-                <h1 class="page-header">Verificación</h1>
+                <h1 class="page-header">Modificar Usuario</h1>
             </div>
         </div>
         <div class="row">
@@ -74,7 +74,7 @@
                         <div class="form-group">
                             <label>Provincia</label>
                             <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control" ></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="red" ControlToValidate="ddlProvincia" runat="server" ErrorMessage="* Debe seleccionar Provincia"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="red" ControlToValidate="ddlProvincia" runat="server" ErrorMessage="* Debe seleccionar Provincia" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <label>Domicilio</label>
