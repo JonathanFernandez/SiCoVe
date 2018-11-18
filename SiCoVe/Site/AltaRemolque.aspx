@@ -10,6 +10,17 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
+
+                <!--INI-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Alta Usuario</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            <!--FIN-->
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 Alta Personal Remolque

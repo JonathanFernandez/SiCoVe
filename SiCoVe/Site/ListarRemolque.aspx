@@ -5,9 +5,20 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
             <div id="page-wrapper">
+
+         <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Modificar / Eliminar Usuario</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+
+
         <div class="panel panel-default">
             <div class="panel-heading">
-               Listado Personal Remolque
+               Listado de Personal Remolque
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
