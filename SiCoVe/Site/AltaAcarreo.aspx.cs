@@ -45,7 +45,7 @@ namespace SiCoVe.Site
 
             if (auto != null)
                 remol.vehiculo_id = auto.id;
-            remol.personal_remolque_id == UserSession.id
+            //remol.personal_remolque_id == UserSession.id
 
 
 

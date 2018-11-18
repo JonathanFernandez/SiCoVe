@@ -244,7 +244,7 @@ namespace SiCoVe.Site
                     ac.locacion = txtLugarInfraccionAC.Text;
                     ac.observaciones = txtDescInfraccionAC.Text;
 
-                    ac.dominio = txtDominioAC.Text;
+                    ac.vehiculo_dominio = txtDominioAC.Text;
 
 
 
