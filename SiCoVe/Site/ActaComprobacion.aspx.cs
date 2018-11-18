@@ -145,18 +145,14 @@ namespace SiCoVe.Site
                 try
                 {
                     int? id_agente = null;
-                    int? id_persona = null;
                     int? id_vehiculo = null;
                     int? id_licencia = null;
                     int? id_control = null;
+                    int? id_persona = null;
 
                     id_agente = (from ag in sicove.agente_transito
                                  where ag.nro_legajo == int.Parse(txtNumAgenteAC.Text)
                                  select ag.id).First();
-
-                    id_persona = (from pe in sicove.personas
-                                  where pe.dni == int.Parse(txtNumDocumentoAC.Text)
-                                  select pe.id).First();
 
                     id_vehiculo = (from ve in sicove.vehiculoes
                                    where ve.dominio == txtDominioAC.Text
@@ -170,6 +166,10 @@ namespace SiCoVe.Site
                                   where co.agente_transito_id == id_agente &&
                                         co.persona_id == id_persona
                                   select co.id).Max();
+
+                    id_persona = (from pe in sicove.personas
+                                  where pe.dni == int.Parse(txtNumDocumentoAC.Text)
+                                  select pe.id).First();
 
                     infraccion ac = new infraccion();
 

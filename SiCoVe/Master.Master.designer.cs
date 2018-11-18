@@ -40,13 +40,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmMaster;
         
         /// <summary>
-        /// Control lblUsuario.
+        /// Control imgLogo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsuario;
+        protected global::System.Web.UI.WebControls.Image imgLogo;
         
         /// <summary>
         /// Control PaginaCentral_ContentPlaceHolder.
