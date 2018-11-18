@@ -7,6 +7,17 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
      <div id="page-wrapper">
+
+             <!--INI-->
+            <div class="row">
+                <div class="col-lg-12">
+                <h1 class="page-header">Verificación</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            <!--FIN-->
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 Modificar datos de Autoridad de Transito
@@ -110,12 +121,13 @@
                             <asp:TextBox type="number" ID="txtNumPuerta" runat="server" class="form-control"></asp:TextBox>
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumPuerta" runat="server" ErrorMessage="* Debe ingresar Numero de Puerta"></asp:RequiredFieldValidator>--%>
                         </div>
+                            <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Modificar" OnClick="btnRegistrarACNC_Click" />
                        </div>
                      </div>
-                         <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Modificar" OnClick="btnRegistrarACNC_Click" />
-
+                  </div>
                   </div>
                 </div>
+               </div>
               </div>
               <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
         </div>         
