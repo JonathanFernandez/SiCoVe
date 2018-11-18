@@ -49,49 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="agente_transito.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="aseguradora.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="categoria_infraccion.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="categoria_licencia.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="cedula.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="codigo_infraccion.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="control.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="denuncia.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="estado_cedula.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="estado_denuncia.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="infraccion.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="licencia.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="localidad.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="marca_vehiculo.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModelSiCoVe.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,58 +65,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelSiCoVe.edmx</DependentUpon>
     </Compile>
-    <Compile Include="municipio.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="nacionalidad.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="perfil_usuario.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="persona.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="personal_remolque.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="playa_acarreo.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="poliza.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="provincia.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="remolque.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sexo.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_LISTADO_AGENTE_TRANSITO_Result.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_LISTADO_PERSONAL_REMOLQUE_Result.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SP_LISTAR_PERSONAS_AUTORIZADAS_Result.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tipo_vehiculo.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="uso_cedula.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="usuario.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vehiculo.cs">
-      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ModelSiCoVe.edmx">
