@@ -107,10 +107,36 @@ namespace SiCoVe.Site
 
 
                 sicove.SaveChanges();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario dado de alta con éxito');", true);
+                CleanControl(this.Controls);
+
             }
             catch (Exception ex)
             {
-                LblError.Text = Convert.ToString(ex);
+                LblError.Text = "No se pudieron registrar los datos del remolque, verifique los datos ingresados.";
+                //LblError.Text = Convert.ToString(ex);
+            }
+        }
+        public void CleanControl(ControlCollection controles)
+        {
+            foreach (Control control in controles)
+            {
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is DropDownList)
+                    ((DropDownList)control).ClearSelection();
+                else if (control is RadioButtonList)
+                    ((RadioButtonList)control).ClearSelection();
+                else if (control is CheckBoxList)
+                    ((CheckBoxList)control).ClearSelection();
+                else if (control is RadioButton)
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
+                else if (control.HasControls())
+                    //Esta linea detécta un Control que contenga otros Controles
+                    //Así ningún control se quedará sin ser limpiado.
+                    CleanControl(control.Controls);
             }
         }
     }

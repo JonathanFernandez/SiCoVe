@@ -7,7 +7,7 @@
             <div id="page-wrapper">
         <div class="panel panel-default">
             <div class="panel-heading">
-               Remolques
+               Listado Autoridad de Tránsito
             </div>
             <div class="panel-body">
                 <div class="table-responsive">

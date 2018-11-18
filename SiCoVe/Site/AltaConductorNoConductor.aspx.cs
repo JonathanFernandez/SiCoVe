@@ -247,7 +247,8 @@ namespace SiCoVe.Site
             }
             catch (Exception ex)
             {
-                LblError.Text = Convert.ToString(ex);
+                LblError.Text = "No se pudieron registrar los datos del Usuario, verifique los datos ingresados.";
+                //LblError.Text = Convert.ToString(ex);
             }
         }
     }
