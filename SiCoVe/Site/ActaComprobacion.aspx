@@ -73,6 +73,14 @@
                                     <asp:textbox id="txtDescInfraccionAC" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
                                 </div>
                                 <div class="form-group">
+                                    <label>Provincia</label>
+                                    <asp:DropDownList ID="ddlProvinciaINF" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <label>Localidad</label>
+                                    <asp:DropDownList ID="ddlLocalidadINF" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
                                     <label>Lugar de la infracción</label>
                                     <asp:TextBox ID="txtLugarInfraccionAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>

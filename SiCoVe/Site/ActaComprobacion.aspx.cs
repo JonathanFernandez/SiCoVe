@@ -79,30 +79,36 @@ namespace SiCoVe.Site
                 var pro = sicove.provincias.ToList();
 
                 ddlProvinciaAC.Items.Insert(0, new ListItem("Seleccione provincia...", "0"));
+                ddlProvinciaINF.Items.Insert(0, new ListItem("Seleccione provincia...", "0"));
 
                 foreach (provincia p in pro)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
                     ddlProvinciaAC.Items.Add(item);
+                    ddlProvinciaINF.Items.Add(item);
                 }
 
                 ddlProvinciaAC.SelectedIndex = 0;
+                ddlProvinciaINF.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
 
                 var loc = sicove.municipios.ToList();
 
                 ddlLocalidadAC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
+                ddlLocalidadINF.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
                 foreach (municipio p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
                     ddlLocalidadAC.Items.Add(item);
+                    ddlLocalidadINF.Items.Add(item);
                 }
 
                 ddlLocalidadAC.SelectedIndex = 0;
+                ddlLocalidadINF.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
 
@@ -149,27 +155,58 @@ namespace SiCoVe.Site
                     int? id_licencia = null;
                     int? id_control = null;
                     int? id_persona = null;
+                    int numAgente = Convert.ToInt32(txtNumAgenteAC.Text);
+                    int numDocumento = Convert.ToInt32(txtNumDocumentoAC.Text);
+
 
                     id_agente = (from ag in sicove.agente_transito
-                                 where ag.nro_legajo == int.Parse(txtNumAgenteAC.Text)
+                                 where ag.nro_legajo == numAgente
                                  select ag.id).First();
 
-                    id_vehiculo = (from ve in sicove.vehiculoes
-                                   where ve.dominio == txtDominioAC.Text
-                                   select ve.id).First();
+                    try
+                    {
+                        id_persona = (from pe in sicove.personas
+                                      where pe.dni == numDocumento
+                                      select pe.id).First();
+                    }
+                    catch (Exception ex)
+                    {
+                        id_persona = null;
+                    }
 
-                    id_licencia = (from li in sicove.licencias
+                    try
+                    {
+                        id_vehiculo = (from ve in sicove.vehiculoes
+                                       where ve.dominio == txtDominioAC.Text
+                                       select ve.id).First();
+                    }
+                    catch (Exception ex)
+                    {
+                        id_vehiculo = null;
+                    }
+
+                    try
+                    {
+                        id_licencia = (from li in sicove.licencias
                                    where li.nro_licencia == txtNumLicenciaAC.Text
                                    select li.id).First();
+                    }
+                    catch (Exception ex)
+                    {
+                        id_licencia = null;
+                    }
 
-                    id_control = (from co in sicove.controls
-                                  where co.agente_transito_id == id_agente &&
-                                        co.persona_id == id_persona
-                                  select co.id).Max();
-
-                    id_persona = (from pe in sicove.personas
-                                  where pe.dni == int.Parse(txtNumDocumentoAC.Text)
-                                  select pe.id).First();
+                    try
+                    {
+                        id_control = (from co in sicove.controls
+                                      where co.agente_transito_id == id_agente &&
+                                            co.persona_id == id_persona
+                                      select co.id).Max();
+                    }
+                    catch (Exception ex)
+                    {
+                        id_control = null;
+                    }
 
                     infraccion ac = new infraccion();
 
@@ -181,10 +218,10 @@ namespace SiCoVe.Site
                     }
                     else
                     {
-                        //ddlTipoVehiculoAC
+                        ac.vehiculo_tipo_id = Convert.ToInt16(ddlTipoVehiculoAC.SelectedValue);
                         //txtOtrosTipVehAC
-                        //ddlMarcaAC
-                        //txtModeloAC
+                        ac.vehiculo_marca_id = Convert.ToInt16(ddlMarcaAC.SelectedValue);
+                        ac.vehiculo_modelo = txtModeloAC.Text;
                     }
 
                     if (id_licencia != null)
@@ -193,95 +230,50 @@ namespace SiCoVe.Site
                     }
                     else
                     {
-                       //txtNumLicenciaAC
-                       //ddlMuniLicenciaAC
-                       //ddlCatLicencia
+                        ac.imputado_licencia_nro = txtNumLicenciaAC.Text;
+                        ac.imputado_licencia_municipio_id = Convert.ToInt16(ddlMuniLicenciaAC.SelectedValue);
+                        ac.imputado_licencia_categoria_id = Convert.ToInt16(ddlCatLicencia.SelectedValue);
                     }
 
                     //ddlCatInfraccionAC
                     ac.codigo_infraccion_id = Convert.ToInt16(ddlInfraccionAC.SelectedValue);
 
-                    //    ddlProvinciaAC
-                    //    ddlLocalidadAC
-
                     if (id_control != null)
                         ac.control_id = (int)id_control;
 
-                    //if (id_persona != null)
-                    //{
-                    //    ac.persona_id = (int)id_persona;
-                    //}
-                    //else
-                    //{
-                    //    txtApellido
-                    //    txtNombre
-                    //    txtNumDocumentoAC
-
-                    //    txtDomicilio
-                    //    txtNumPuertaAC
-                    //    txtPisoAC
-                    //    txtDepartamentoAC
-                    //}
-
-
-                    //txtDocuRetenidaAC
-                    //txtLugarDetenVehiAC
-                    //txtNumAgenteAC
-
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    ac.nro_acta = int.Parse(txtNumActaAC.Text);
+                    ac.nro_acta = Convert.ToInt64(txtNumActaAC.Text);
                     ac.fecha_hora = DateTime.Parse(String.Concat(txtFecActaAC.Text, " ", txtHoraActaAC.Text));
+                    ac.provincia_id = Convert.ToInt16(ddlProvinciaINF.SelectedValue);
+                    ac.localidad_id = Convert.ToInt16(ddlLocalidadINF.SelectedValue);
                     ac.locacion = txtLugarInfraccionAC.Text;
                     ac.observaciones = txtDescInfraccionAC.Text;
+                    ac.documentacion_retenida = txtDocuRetenidaAC.Text;
+                    ac.lugar_retencion = txtLugarDetenVehiAC.Text;
+
+                    if (id_persona != null)
+                    {
+                        ac.persona_id = (int)id_persona;
+                    }
+                    else
+                    {
+                        ac.imputado_apellido = txtApellido.Text;
+                        ac.imputado_nombre = txtNombre.Text;
+                        ac.imputado_dni = Convert.ToInt64(txtNumDocumentoAC.Text);
+
+                        ac.imputado_provincia_id = Convert.ToInt16(ddlProvinciaAC.SelectedValue);
+                        ac.imputado_localidad_id = Convert.ToInt16(ddlLocalidadAC.SelectedValue);
+                        ac.imputado_domicilio = txtDomicilio.Text;
+                        ac.imputado_nropuerta = txtNumPuertaAC.Text;
+
+                        if (txtPisoAC.Text != "")
+                            ac.imputado_piso = Convert.ToSByte(txtPisoAC.Text);
+                        else
+                            ac.imputado_piso = null;
+
+                        ac.imputado_departamento = txtDepartamentoAC.Text;
+                    }
 
                     ac.vehiculo_dominio = txtDominioAC.Text;
-
-
-
-                    /*
-                        txtNumActaAC
-                        txtFecActaAC
-                        txtHoraActaAC
-                        txtDominioAC
-
-                    ddlTipoVehiculoAC
-                    txtOtrosTipVehAC
-                    ddlMarcaAC
-                    txtModeloAC
-
-                        ddlCatInfraccionAC
-                        ddlInfraccionAC
-                        txtDescInfraccionAC
-                        txtLugarInfraccionAC
-
-                    txtApellido
-                    txtNombre
-                    txtNumDocumentoAC
-                    ddlProvinciaAC
-                    ddlLocalidadAC
-                    txtDomicilio
-                    txtNumPuertaAC
-                    txtPisoAC
-                    txtDepartamentoAC
-
-                    txtNumLicenciaAC
-                    ddlMuniLicenciaAC
-                    ddlCatLicencia
-
-                    txtDocuRetenidaAC
-                    txtLugarDetenVehiAC
-                    txtNumAgenteAC 
-                    */
 
                     sicove.infraccions.Add(ac);
                     sicove.SaveChanges();
