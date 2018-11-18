@@ -100,7 +100,59 @@ namespace SiCoVe
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
+            var id = 0;
+            if (Session["id"] != null)
+                id = Convert.ToInt32(Session["id"].ToString());
 
+            bool result = ActualizarAutoridad(id);
+
+            if (result)
+                Response.Redirect("ListarAutoridad.aspx");
+
+        }
+
+        public bool ActualizarAutoridad(int id)
+        {
+            bool result = false;
+
+            try
+            {
+
+                persona per = (from a in sicove.personas where a.id == id select a).First();
+
+                per.apellido = txtApellido.Text;
+                per.nombre = txtNombre.Text;
+                per.dni = Convert.ToInt32(txtNumDocumento.Text);
+                per.sexo_id = Convert.ToInt32(ddlSexo.SelectedValue);
+                per.nacionalidad_id = Convert.ToInt32(ddlNacionalidad.SelectedValue);
+                per.provincia_id = Convert.ToInt32(ddlProvincia.SelectedValue);
+                ddlLocalidad.SelectedValue = Convert.ToString(per.localidad_id);
+                per.domicilio = txtDomicilio.Text;
+                per.piso =Convert.ToInt16(txtPiso.Text);
+                per.departamento = txtDepartamento.Text;
+                per.nro_puerta = txtNumPuerta.Text;
+                per.fecha_nacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+                per.lugar_nacimiento = txtLugarNacimiento.Text;
+                per.flag_conductor = cckrautoridad.Checked;
+
+                usuario usu = (from u in sicove.usuarios where u.persona_id == per.id select u).First();
+
+                usu.email = txtEMail.Text;
+                usu.contraseña = txtContraseña.Text;
+
+                agente_transito at = (from t in sicove.agente_transito where t.usuario_id == usu.id select t).First();
+
+                 at.nro_legajo = Convert.ToInt32(txtLegajo.Text);
+
+                sicove.SaveChanges();
+
+                return result = true;
+            }
+            catch (Exception ex)
+            {
+                LblError.Text = "No se pudieron actualizar los datos del agente de transito, verifique los datos ingresados.";
+            }
+            return result;
         }
     }
 }
