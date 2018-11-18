@@ -48,7 +48,7 @@
                             <fieldset>
                                 <div class="form-group">
                                     <%--<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>--%>
-                                    <asp:TextBox  runat="server" ID="txtEmail" CssClass="form-control" placeholder="E-mail" name="email" type="email" autofocus required="required" ></asp:TextBox>
+                                    <asp:TextBox  runat="server" ID="txtEmail" CssClass="form-control" placeholder="E-mail" name="email" type="email" required="required" ></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <%--<input class="form-control" placeholder="Password" name="password" type="password" value="">--%>
