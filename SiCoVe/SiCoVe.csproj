@@ -373,6 +373,7 @@
     <Content Include="Site\AltaRemolque.aspx" />
     <Content Include="Site\HistorialDenuncias.aspx" />
     <Content Include="Site\ModificarDatosConductor.aspx" />
+    <Content Include="Site\ModificarRemolque.aspx" />
     <Content Include="Site\RealizarDenuncia.aspx" />
     <Content Include="Site\RealizarControl.aspx" />
     <Content Include="Site\SolicitarModificacionDatos.aspx" />
@@ -531,6 +532,13 @@
     </Compile>
     <Compile Include="Site\ModificarDatosConductor.aspx.designer.cs">
       <DependentUpon>ModificarDatosConductor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ModificarRemolque.aspx.cs">
+      <DependentUpon>ModificarRemolque.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ModificarRemolque.aspx.designer.cs">
+      <DependentUpon>ModificarRemolque.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\RealizarDenuncia.aspx.cs">
       <DependentUpon>RealizarDenuncia.aspx</DependentUpon>
