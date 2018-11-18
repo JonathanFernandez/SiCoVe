@@ -21,7 +21,7 @@ namespace SiCoVe
             if (((usuario)Session["Usuario"]) != null)
             {
                 userLog = ((usuario)Session["Usuario"]);
-                lblUsuario.Text = string.Format("{0} , {1}", userLog.persona.apellido, userLog.persona.nombre);
+                //lblUsuario.Text = string.Format("{0} , {1}", userLog.persona.apellido, userLog.persona.nombre);
                 LoadScripts();
 
                 LoadStyles();

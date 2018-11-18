@@ -144,29 +144,126 @@ namespace SiCoVe.Site
             {
                 try
                 {
+                    int? id_agente = null;
+                    int? id_persona = null;
+                    int? id_vehiculo = null;
+                    int? id_licencia = null;
+                    int? id_control = null;
+
+                    id_agente = (from ag in sicove.agente_transito
+                                 where ag.nro_legajo == int.Parse(txtNumAgenteAC.Text)
+                                 select ag.id).First();
+
+                    id_persona = (from pe in sicove.personas
+                                  where pe.dni == int.Parse(txtNumDocumentoAC.Text)
+                                  select pe.id).First();
+
+                    id_vehiculo = (from ve in sicove.vehiculoes
+                                   where ve.dominio == txtDominioAC.Text
+                                   select ve.id).First();
+
+                    id_licencia = (from li in sicove.licencias
+                                   where li.nro_licencia == txtNumLicenciaAC.Text
+                                   select li.id).First();
+
+                    id_control = (from co in sicove.controls
+                                  where co.agente_transito_id == id_agente &&
+                                        co.persona_id == id_persona
+                                  select co.id).Max();
+
                     infraccion ac = new infraccion();
+
+                    ac.agente_transito_id = (int)id_agente;
+
+                    if (id_vehiculo != null)
+                    {
+                        ac.vehiculo_id = (int)id_vehiculo;
+                    }
+                    else
+                    {
+                        //ddlTipoVehiculoAC
+                        //txtOtrosTipVehAC
+                        //ddlMarcaAC
+                        //txtModeloAC
+                    }
+
+                    if (id_licencia != null)
+                    {
+                        ac.licencia_id = (int)id_licencia;
+                    }
+                    else
+                    {
+                       //txtNumLicenciaAC
+                       //ddlMuniLicenciaAC
+                       //ddlCatLicencia
+                    }
+
+                    //ddlCatInfraccionAC
+                    ac.codigo_infraccion_id = Convert.ToInt16(ddlInfraccionAC.SelectedValue);
+
+                    //    ddlProvinciaAC
+                    //    ddlLocalidadAC
+
+                    if (id_control != null)
+                        ac.control_id = (int)id_control;
+
+                    //if (id_persona != null)
+                    //{
+                    //    ac.persona_id = (int)id_persona;
+                    //}
+                    //else
+                    //{
+                    //    txtApellido
+                    //    txtNombre
+                    //    txtNumDocumentoAC
+
+                    //    txtDomicilio
+                    //    txtNumPuertaAC
+                    //    txtPisoAC
+                    //    txtDepartamentoAC
+                    //}
+
+
+                    //txtDocuRetenidaAC
+                    //txtLugarDetenVehiAC
+                    //txtNumAgenteAC
+
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
 
                     ac.nro_acta = int.Parse(txtNumActaAC.Text);
                     ac.fecha_hora = DateTime.Parse(String.Concat(txtFecActaAC.Text, " ", txtHoraActaAC.Text));
-                    ac.dominio = txtDominioAC.Text;
-                    //ddlCatInfraccionAC
-                    ac.codigo_infraccion_id = Convert.ToInt16(ddlInfraccionAC.SelectedValue);
-                    ac.observaciones = txtDescInfraccionAC.Text;
                     ac.locacion = txtLugarInfraccionAC.Text;
+                    ac.observaciones = txtDescInfraccionAC.Text;
+
+                    ac.dominio = txtDominioAC.Text;
+
+
 
                     /*
                         txtNumActaAC
                         txtFecActaAC
                         txtHoraActaAC
                         txtDominioAC
+
                     ddlTipoVehiculoAC
                     txtOtrosTipVehAC
                     ddlMarcaAC
                     txtModeloAC
-                    ddlCatInfraccionAC
+
+                        ddlCatInfraccionAC
                         ddlInfraccionAC
                         txtDescInfraccionAC
                         txtLugarInfraccionAC
+
                     txtApellido
                     txtNombre
                     txtNumDocumentoAC
@@ -176,9 +273,11 @@ namespace SiCoVe.Site
                     txtNumPuertaAC
                     txtPisoAC
                     txtDepartamentoAC
+
                     txtNumLicenciaAC
                     ddlMuniLicenciaAC
                     ddlCatLicencia
+
                     txtDocuRetenidaAC
                     txtLugarDetenVehiAC
                     txtNumAgenteAC 
