@@ -43,10 +43,20 @@ namespace SiCoVe.Site
 
             var auto = (from au in sicove.vehiculoes where au.dominio == dominio select au).FirstOrDefault();
 
+            
             if (auto != null)
                 remol.vehiculo_id = auto.id;
             //remol.personal_remolque_id == UserSession.id
+            //else
+            //    remol.vehiculo_id
 
+            var personal = (from r in sicove.personal_remolque where r.usuario_id == UserSession.id select r).FirstOrDefault();
+            remol.personal_remolque_id = personal.id;
+
+
+            sicove.remolques.Add(remol);
+
+            sicove.SaveChanges();
 
 
         }

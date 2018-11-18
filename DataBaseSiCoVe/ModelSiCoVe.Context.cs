@@ -37,7 +37,6 @@ namespace DataBaseSiCoVe
         public virtual DbSet<denuncia> denuncias { get; set; }
         public virtual DbSet<estado_cedula> estado_cedula { get; set; }
         public virtual DbSet<estado_denuncia> estado_denuncia { get; set; }
-        public virtual DbSet<infraccion> infraccions { get; set; }
         public virtual DbSet<licencia> licencias { get; set; }
         public virtual DbSet<localidad> localidads { get; set; }
         public virtual DbSet<marca_vehiculo> marca_vehiculo { get; set; }
@@ -49,13 +48,14 @@ namespace DataBaseSiCoVe
         public virtual DbSet<playa_acarreo> playa_acarreo { get; set; }
         public virtual DbSet<poliza> polizas { get; set; }
         public virtual DbSet<provincia> provincias { get; set; }
-        public virtual DbSet<remolque> remolques { get; set; }
         public virtual DbSet<sexo> sexoes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tipo_vehiculo> tipo_vehiculo { get; set; }
         public virtual DbSet<uso_cedula> uso_cedula { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<vehiculo> vehiculoes { get; set; }
+        public virtual DbSet<infraccion> infraccions { get; set; }
+        public virtual DbSet<remolque> remolques { get; set; }
     
         public virtual ObjectResult<SP_LISTADO_AGENTE_TRANSITO_Result> SP_LISTADO_AGENTE_TRANSITO(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
         {

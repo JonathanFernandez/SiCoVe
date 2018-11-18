@@ -17,21 +17,21 @@ namespace DataBaseSiCoVe
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public localidad()
         {
+            this.personas = new HashSet<persona>();
             this.infraccions = new HashSet<infraccion>();
             this.infraccions1 = new HashSet<infraccion>();
-            this.personas = new HashSet<persona>();
         }
     
         public int id { get; set; }
         public int provincia_id { get; set; }
         public string descripcion { get; set; }
     
+        public virtual provincia provincia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<persona> personas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<infraccion> infraccions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<infraccion> infraccions1 { get; set; }
-        public virtual provincia provincia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<persona> personas { get; set; }
     }
 }

@@ -31,9 +31,9 @@ namespace DataBaseSiCoVe
         public string observaciones { get; set; }
     
         public virtual categoria_licencia categoria_licencia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<infraccion> infraccions { get; set; }
         public virtual municipio municipio { get; set; }
         public virtual persona persona { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<infraccion> infraccions { get; set; }
     }
 }

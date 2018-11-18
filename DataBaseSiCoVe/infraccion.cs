@@ -35,7 +35,6 @@ namespace DataBaseSiCoVe
         public string documentacion_retenida { get; set; }
         public string lugar_retencion { get; set; }
         public Nullable<int> persona_id { get; set; }
-        public Nullable<long> dni { get; set; }
         public Nullable<int> vehiculo_tipo_id { get; set; }
         public Nullable<int> vehiculo_marca_id { get; set; }
         public string vehiculo_modelo { get; set; }

@@ -17,7 +17,7 @@ namespace DataBaseSiCoVe
         public int id { get; set; }
         public int personal_remolque_id { get; set; }
         public int playa_acarreo_id { get; set; }
-        public int vehiculo_id { get; set; }
+        public Nullable<int> vehiculo_id { get; set; }
         public Nullable<System.DateTime> fecha_hora { get; set; }
         public string ubicacion { get; set; }
         public string detalle_infraccion { get; set; }
