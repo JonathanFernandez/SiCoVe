@@ -112,6 +112,24 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtDescInfraccionAC;
         
         /// <summary>
+        /// Control ddlProvinciaINF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaINF;
+        
+        /// <summary>
+        /// Control ddlLocalidadINF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocalidadINF;
+        
+        /// <summary>
         /// Control txtLugarInfraccionAC.
         /// </summary>
         /// <remarks>
