@@ -4,8 +4,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
-</asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="includeJsSection" runat="server">
     <div id="page-wrapper">
           <div class="row">
                 <div class="col-lg-12">
@@ -27,12 +25,12 @@
 
                                         <div class="form-group">
                                                 <label>Detalle de infracción</label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                                 <asp:TextBox TextMode="MultiLine" ID="txtDetalleInfraccion" runat="server" class="form-control"></asp:TextBox>
                                             
                                             </div>
                                         <div class="form-group">
                                                 <label>Patente</label>
-                                                <input class="form-control">
+                                                 <asp:TextBox  ID="txtPatente" runat="server" class="form-control" required="required"></asp:TextBox>
                                     
                                             </div>
 
@@ -44,12 +42,13 @@
                                          
                                       <div class="form-group">
                                                 <label>Playa de Estacionamiento</label>
-                                                <input class="form-control">
+                                               <asp:DropDownList ID="ddlPlaya" runat="server" class="form-control"></asp:DropDownList>
                                     
                                             </div>
                                       
-                                        <button type="button" class="btn btn-success">Guardar Acarreo</button>
-                                        <button type="button" class="btn btn-danger">Cancelar</button>
+                                   
+                                        <asp:Button ID="btnGuardarAcarreo" runat="server" class="btn btn-success" Text="Guardar Acarreo" OnClick="btnGuardarAcarreo_Click" />
+                                        <%--<button type="button" class="btn btn-danger">Cancelar</button>--%>
 
                                     </div>
                             </div>
@@ -64,4 +63,6 @@
             <!-- /.row -->
     </div>
     <!-- /#page-wrapper -->
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>

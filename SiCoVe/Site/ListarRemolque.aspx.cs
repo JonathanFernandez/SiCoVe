@@ -14,37 +14,30 @@ namespace SiCoVe
         public sicoveEntities sicove = new sicoveEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //tabla a modo de muestra
             if (!Page.IsPostBack)
             {
-                GvRemolque.DataSource = sicove.SP_LISTADO_PERSONAL_REMOLQUE(null,null,null).ToList();
-                GvRemolque.DataBind();
 
-            //    DataTable dt = new DataTable();
-            //    dt.Columns.Add(new DataColumn("col1"));
-            //    dt.Columns.Add(new DataColumn("col2"));
-            //    dt.Columns.Add(new DataColumn("col3"));
-
-            //    for (int i = 0; i < 10; i++)
-            //    {
-            //        DataRow dr = dt.NewRow();
-            //        dt.Rows.Add(dr);
-            //    }
-            //    GvRemolque.DataSource = dt;
-            //    GvRemolque.DataBind();
+                ListadoRemolque();
             }
         }
 
+        protected void ListadoRemolque(){
+            GvRemolque.DataSource = sicove.SP_LISTADO_PERSONAL_REMOLQUE(null, null, null).ToList();
+            GvRemolque.DataBind();
+        }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
 
         }
-
-        protected void ListadoRemolque()
+        protected void GvRemolque_edit(object sender, GridViewEditEventArgs e)
         {
-            GvRemolque.DataSource = sicove.SP_LISTADO_PERSONAL_REMOLQUE(null, null, null).ToList();
-            GvRemolque.DataBind();
+            int id = (int)GvRemolque.DataKeys[e.NewEditIndex].Values["id"];
+
+            Session["id"] = id;
+
+            Response.Redirect("ModificarRemolque.aspx");
         }
+
         protected void GvRemolque_delete(object sender, GridViewDeleteEventArgs e)
         {
             int id = (int)GvRemolque.DataKeys[e.RowIndex].Values["id"];

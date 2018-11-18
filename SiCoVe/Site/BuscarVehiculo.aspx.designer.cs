@@ -10,42 +10,51 @@
 namespace SiCoVe.Site {
     
     
-    public partial class AltaAcarreo {
+    public partial class BuscarVehiculo {
         
         /// <summary>
-        /// txtDetalleInfraccion control.
+        /// imgFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDetalleInfraccion;
+        protected global::System.Web.UI.WebControls.Image imgFoto;
         
         /// <summary>
-        /// txtPatente control.
+        /// FileUploadFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatente;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadFoto;
         
         /// <summary>
-        /// ddlPlaya control.
+        /// btnTraerPatente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPlaya;
+        protected global::System.Web.UI.WebControls.Button btnTraerPatente;
         
         /// <summary>
-        /// btnGuardarAcarreo control.
+        /// lblPatente3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarAcarreo;
+        protected global::System.Web.UI.WebControls.Label lblPatente3;
+        
+        /// <summary>
+        /// btnGenerarInfraccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarInfraccion;
     }
 }
