@@ -797,6 +797,9 @@
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_LISTAR_DATOS_PERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="persona" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_LISTAR_PERSONAS_AUTORIZADAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dominio" Type="nchar" Mode="In" />
         </Function>
@@ -1198,6 +1201,9 @@
             <End Role="vehiculo" EntitySet="vehiculoes" />
             <End Role="remolque" EntitySet="remolques" />
           </AssociationSet>
+          <FunctionImport Name="SP_LISTAR_DATOS_PERSONA" ReturnType="Collection(sicoveModel.SP_LISTAR_DATOS_PERSONA_Result)">
+            <Parameter Name="persona" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="agente_transito">
           <Key>
@@ -2088,6 +2094,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SP_LISTAR_DATOS_PERSONA_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="sexo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nacionalidad" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha_nacimiento" Nullable="true" />
+          <Property Type="Int64" Name="dni" Nullable="false" />
+          <Property Type="String" Name="domicilio" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="lugar_nacimiento" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="nro_licencia" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="otorgamiento" Nullable="true" />
+          <Property Type="DateTime" Name="vencimiento" Nullable="true" />
+          <Property Type="String" Name="licencia_categoria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="clases" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="observaciones" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="nro_cedula" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="cedula_estado" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vehiculo_marca" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="modelo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="vehiculo_tipo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="cedula_uso" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="chasis_cuadro" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="motor" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="cedula_vencimiento" Nullable="false" />
+          <Property Type="String" Name="cilindrada" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="flag_autorizado" Nullable="false" />
+          <Property Type="String" Name="aseguradora" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nro_poliza" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="vigencia_desde" Nullable="true" />
+          <Property Type="DateTime" Name="vigencia_hasta" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2464,6 +2503,43 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_DATOS_PERSONA" FunctionName="sicoveModel.Store.SP_LISTAR_DATOS_PERSONA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_DATOS_PERSONA_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="lugar_nacimiento" ColumnName="lugar_nacimiento" />
+                <ScalarProperty Name="nro_licencia" ColumnName="nro_licencia" />
+                <ScalarProperty Name="otorgamiento" ColumnName="otorgamiento" />
+                <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+                <ScalarProperty Name="licencia_categoria" ColumnName="licencia_categoria" />
+                <ScalarProperty Name="clases" ColumnName="clases" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="nro_cedula" ColumnName="nro_cedula" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="cedula_estado" ColumnName="cedula_estado" />
+                <ScalarProperty Name="vehiculo_marca" ColumnName="vehiculo_marca" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="vehiculo_tipo" ColumnName="vehiculo_tipo" />
+                <ScalarProperty Name="cedula_uso" ColumnName="cedula_uso" />
+                <ScalarProperty Name="chasis_cuadro" ColumnName="chasis_cuadro" />
+                <ScalarProperty Name="motor" ColumnName="motor" />
+                <ScalarProperty Name="cedula_vencimiento" ColumnName="cedula_vencimiento" />
+                <ScalarProperty Name="cilindrada" ColumnName="cilindrada" />
+                <ScalarProperty Name="flag_autorizado" ColumnName="flag_autorizado" />
+                <ScalarProperty Name="aseguradora" ColumnName="aseguradora" />
+                <ScalarProperty Name="nro_poliza" ColumnName="nro_poliza" />
+                <ScalarProperty Name="vigencia_desde" ColumnName="vigencia_desde" />
+                <ScalarProperty Name="vigencia_hasta" ColumnName="vigencia_hasta" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

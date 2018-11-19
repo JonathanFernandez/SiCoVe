@@ -144,6 +144,9 @@
     <Compile Include="SP_LISTADO_PERSONAL_REMOLQUE_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LISTAR_DATOS_PERSONA_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LISTAR_PERSONAS_AUTORIZADAS_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
