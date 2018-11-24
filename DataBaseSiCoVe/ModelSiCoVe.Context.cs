@@ -108,5 +108,7 @@ namespace DataBaseSiCoVe
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
         }
+
+        
     }
 }
