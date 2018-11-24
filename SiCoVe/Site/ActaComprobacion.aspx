@@ -29,16 +29,28 @@
                                     <asp:TextBox ID="txtNumActaAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfvNumActaAC" runat="server" ErrorMessage="El N° de acta es obligatorio" ControlToValidate="txtNombre" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Fecha</label>
                                     <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfFecActaAC" runat="server" ErrorMessage="La Fecha es obligatoria" ControlToValidate="txtFecActaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Hora</label>
                                     <asp:TextBox ID="txtHoraActaAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfHoraActaAC" runat="server" ErrorMessage="La Hora es obligatoria" ControlToValidate="txtHoraActaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Dominio</label>
                                     <asp:TextBox ID="txtDominioAC" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfDominioAC" runat="server" ErrorMessage="El Dominio es obligatorio" ControlToValidate="txtDominioAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Tipo de vehículo</label>
@@ -63,6 +75,9 @@
                                     <asp:TextBox ID="txtModeloAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfModeloAC" runat="server" ErrorMessage="El Modelo es obligatorio" ControlToValidate="txtModeloAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Categoría de infracción</label>
                                     <asp:DropDownList ID="ddlCatInfraccionAC" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
@@ -79,6 +94,9 @@
                                 <div class="form-group">
                                     <label>Descripción de la infracción</label>
                                     <asp:textbox id="txtDescInfraccionAC" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfDescInfraccionAC" runat="server" ErrorMessage="La Descripción de la infracción es obligatoria" ControlToValidate="txtDescInfraccionAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Provincia</label>
@@ -98,6 +116,9 @@
                                     <label>Lugar de la infracción</label>
                                     <asp:TextBox ID="txtLugarInfraccionAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfLugarInfraccionAC" runat="server" ErrorMessage="El Lugar de la infracción es obligatorio" ControlToValidate="txtLugarInfraccionAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,12 +135,21 @@
                                     <asp:TextBox ID="txtApellido" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfApellido" runat="server" ErrorMessage="El Apellido es obligatorio" ControlToValidate="txtApellido" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Nombres</label>
                                     <asp:TextBox ID="txtNombre" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfNombre" runat="server" ErrorMessage="El Nombre es obligatorio" ControlToValidate="txtNombre" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>N° de documento</label>
                                     <asp:TextBox ID="txtNumDocumentoAC" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfNumDocumentoAC" runat="server" ErrorMessage="El N° de documento es obligatorio" ControlToValidate="txtNumDocumentoAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Provincia</label>
@@ -140,6 +170,9 @@
                                     <asp:TextBox ID="txtDomicilio" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfDomicilio" runat="server" ErrorMessage="El Domicilio es obligatorio" ControlToValidate="txtDomicilio" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>N° de puerta</label>
                                     <asp:TextBox ID="txtNumPuertaAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -154,6 +187,9 @@
                                 <div class="form-group">
                                     <label>N° de licencia</label>
                                     <asp:TextBox ID="txtNumLicenciaAC" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfNumLicenciaAC" runat="server" ErrorMessage="El N° de licencia es obligatorio" ControlToValidate="txtNumLicenciaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Municipio licencia</label>
@@ -180,6 +216,9 @@
                                 <div class="form-group">
                                     <label>N° agente / inspector</label>
                                     <asp:TextBox ID="txtNumAgenteAC" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfNumAgenteAC" runat="server" ErrorMessage="El N° agente / inspector es obligatorio" ControlToValidate="txtNumAgenteAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <br />
                                 <asp:Button ID="btnAceptarAC" runat="server" class="btn btn-default" Text="Aceptar" OnClick="btnAceptarAC_Click" />

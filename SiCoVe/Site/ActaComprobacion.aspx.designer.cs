@@ -22,6 +22,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtNumActaAC;
         
         /// <summary>
+        /// Control rfvNumActaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvNumActaAC;
+        
+        /// <summary>
         /// Control txtFecActaAC.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFecActaAC;
+        
+        /// <summary>
+        /// Control rfFecActaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfFecActaAC;
         
         /// <summary>
         /// Control txtHoraActaAC.
@@ -40,6 +58,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtHoraActaAC;
         
         /// <summary>
+        /// Control rfHoraActaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfHoraActaAC;
+        
+        /// <summary>
         /// Control txtDominioAC.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDominioAC;
+        
+        /// <summary>
+        /// Control rfDominioAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfDominioAC;
         
         /// <summary>
         /// Control ddlTipoVehiculoAC.
@@ -103,6 +139,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtModeloAC;
         
         /// <summary>
+        /// Control rfModeloAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfModeloAC;
+        
+        /// <summary>
         /// Control ddlCatInfraccionAC.
         /// </summary>
         /// <remarks>
@@ -146,6 +191,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescInfraccionAC;
+        
+        /// <summary>
+        /// Control rfDescInfraccionAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfDescInfraccionAC;
         
         /// <summary>
         /// Control ddlProvinciaINF.
@@ -193,6 +247,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtLugarInfraccionAC;
         
         /// <summary>
+        /// Control rfLugarInfraccionAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfLugarInfraccionAC;
+        
+        /// <summary>
         /// Control txtApellido.
         /// </summary>
         /// <remarks>
@@ -200,6 +263,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
+        
+        /// <summary>
+        /// Control rfApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfApellido;
         
         /// <summary>
         /// Control txtNombre.
@@ -211,6 +283,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
+        /// Control rfNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfNombre;
+        
+        /// <summary>
         /// Control txtNumDocumentoAC.
         /// </summary>
         /// <remarks>
@@ -218,6 +299,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumDocumentoAC;
+        
+        /// <summary>
+        /// Control rfNumDocumentoAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfNumDocumentoAC;
         
         /// <summary>
         /// Control ddlProvinciaAC.
@@ -265,6 +355,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtDomicilio;
         
         /// <summary>
+        /// Control rfDomicilio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfDomicilio;
+        
+        /// <summary>
         /// Control txtNumPuertaAC.
         /// </summary>
         /// <remarks>
@@ -299,6 +398,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumLicenciaAC;
+        
+        /// <summary>
+        /// Control rfNumLicenciaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfNumLicenciaAC;
         
         /// <summary>
         /// Control ddlMuniLicenciaAC.
@@ -362,6 +470,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumAgenteAC;
+        
+        /// <summary>
+        /// Control rfNumAgenteAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfNumAgenteAC;
         
         /// <summary>
         /// Control btnAceptarAC.
