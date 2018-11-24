@@ -27,7 +27,6 @@
         <EntityTypeShape EntityType="sicoveModel.poliza" Width="1.5" PointX="6" PointY="30" />
         <EntityTypeShape EntityType="sicoveModel.provincia" Width="1.5" PointX="1.5" PointY="40.5" />
         <EntityTypeShape EntityType="sicoveModel.sexo" Width="1.5" PointX="1.5" PointY="20.375" />
-        <EntityTypeShape EntityType="sicoveModel.sysdiagram" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.tipo_vehiculo" Width="1.5" PointX="0.75" PointY="11.75" />
         <EntityTypeShape EntityType="sicoveModel.uso_cedula" Width="1.5" PointX="3.75" PointY="26.625" />
         <EntityTypeShape EntityType="sicoveModel.usuario" Width="1.5" PointX="6" PointY="0.75" />

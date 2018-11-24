@@ -40,10 +40,6 @@
                                     <label>Dominio</label>
                                     <asp:TextBox ID="txtDominioAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
-                              <%--  <div class="form-group">
-                                    <label>País</label>
-                                    <asp:DropDownList ID="ddlPaisAC" runat="server" class="form-control"></asp:DropDownList>
-                                </div>--%>
                                 <div class="form-group">
                                     <label>Tipo de vehículo</label>
                                     <asp:DropDownList ID="ddlTipoVehiculoAC" runat="server" class="form-control"></asp:DropDownList>
@@ -131,10 +127,6 @@
                                     <label>Departamento</label>
                                     <asp:TextBox ID="txtDepartamentoAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
-                                <%--<div class="form-group">
-                                    <label>Tipo de documento</label>
-                                    <asp:DropDownList ID="ddlTipDocumentoAC" runat="server" class="form-control"></asp:DropDownList>
-                                </div>--%>
                                 <div class="form-group">
                                     <label>N° de licencia</label>
                                     <asp:TextBox ID="txtNumLicenciaAC" runat="server" class="form-control"></asp:TextBox>
