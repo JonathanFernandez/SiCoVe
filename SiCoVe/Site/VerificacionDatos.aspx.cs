@@ -187,8 +187,59 @@ namespace SiCoVe.Site
         {
             int id_persona = Convert.ToInt16(ddlPersona.SelectedValue);
 
+            var dat = sicove.SP_LISTAR_DATOS_PERSONA(id_persona).ToList();
 
+            foreach (SP_LISTAR_DATOS_PERSONA_Result p in dat)
+            {
+                txtApellidoDNI.Text = p.apellido.ToString();
+                txtNombreDNI.Text = p.nombre.ToString();
+                //ddlSexoDNI.Text = p.sexo.ToString();
+                //ddlNacionalidadDNI
+                txtFecNacimientoDNI.Text = p.fecha_nacimiento.ToString();
+                txtDocumentoDNI.Text = p.dni.ToString();
+                txtDomicilioDNI.Text = p.domicilio.ToString();
+                //ddlLugNacimientoDNI
+
+                txtNumLicenciaLIC.Text = p.nro_licencia.ToString();
+                txtApellidoLIC.Text = p.apellido.ToString();
+                txtNombresLIC.Text = p.nombre.ToString();
+                txtFecNacimientoLIC.Text = p.fecha_nacimiento.ToString();
+                txtDomicilioLIC.Text = p.domicilio.ToString();
+                //ddlNacionalidadLIC
+                //ddlSexoLIC
+                txtFecOtorgamientoLIC.Text = p.otorgamiento.ToString();
+                txtFecVencimientoLIC.Text = p.vencimiento.ToString();
+                txtcategoriLIC.Text = p.licencia_categoria.ToString();
+                txtClasesLIC.Text = p.clases.ToString();
+                txtObservaciones.Text = p.observaciones.ToString();
+
+                txtNumCedulaCED.Text = p.nro_cedula.ToString();
+                txtDominioCED.Text = p.dominio.ToString();
+                //ddlEstadoCED
+                //ddlMarcaCED
+                txtModeloCED.Text = p.modelo.ToString();
+                //ddlTipoCED
+                //ddlUsoCED
+                txtChasisCED.Text = p.chasis_cuadro.ToString();
+                txtNumMotorCED.Text = p.motor.ToString();
+                txtFecVencimientoCED.Text = p.cedula_vencimiento.ToString();
+                txtCilindradaCED.Text = p.cilindrada.ToString();
+                txtTitularCED.Text = String.Concat(p.nombre, ' ', p.apellido);
+                //txtAutorizado.Text = 
+
+                //ddlAseguradoraSEG
+                txtAseguradoSEG.Text = String.Concat(p.nombre, ' ', p.apellido);
+                txtPolizaSEG.Text = p.nro_poliza.ToString();
+                //ddlMarcaSEG
+                txtModeloSEG.Text = p.modelo.ToString();
+                txtcilindradaSEG.Text = p.cilindrada.ToString();
+                txtDominioSEG.Text = p.dominio.ToString();
+                //txtAnioSEG.Text = 
+                txtNumMotorSEG.Text = p.motor.ToString();
+                txtNumChasisSEG.Text = p.chasis_cuadro.ToString();
+                txtFecDesdeSEG.Text = p.vigencia_desde.ToString();
+                txtFecHastaSEG.Text = p.vigencia_hasta.ToString();
+            }
         }
-
     }
 }
