@@ -40,13 +40,12 @@
                                     <label>Dominio</label>
                                     <asp:TextBox ID="txtDominioAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
-                              <%--  <div class="form-group">
-                                    <label>País</label>
-                                    <asp:DropDownList ID="ddlPaisAC" runat="server" class="form-control"></asp:DropDownList>
-                                </div>--%>
                                 <div class="form-group">
                                     <label>Tipo de vehículo</label>
                                     <asp:DropDownList ID="ddlTipoVehiculoAC" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <asp:CompareValidator ID="cvTipoVehiculoAC" ControlToValidate="ddlTipoVehiculoAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Tipo de vehículo" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Otros</label>
@@ -57,16 +56,25 @@
                                     <asp:DropDownList ID="ddlMarcaAC" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
+                                    <asp:CompareValidator ID="cvMarcaAC" ControlToValidate="ddlMarcaAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Marca" CssClass="label label-danger"></asp:CompareValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Modelo</label>
                                     <asp:TextBox ID="txtModeloAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label>Categoría de infracción</label>
                                     <asp:DropDownList ID="ddlCatInfraccionAC" runat="server" class="form-control"></asp:DropDownList>
-                                </div> 
-                                    <div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    <asp:CompareValidator ID="cvCatInfraccionAC" ControlToValidate="ddlCatInfraccionAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Categoría de infracción" CssClass="label label-danger"></asp:CompareValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Infracción</label>
                                     <asp:DropDownList ID="ddlInfraccionAC" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <asp:CompareValidator ID="cvInfraccionAC" ControlToValidate="ddlInfraccionAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Infracción" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Descripción de la infracción</label>
@@ -77,8 +85,14 @@
                                     <asp:DropDownList ID="ddlProvinciaINF" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
+                                    <asp:CompareValidator ID="cvProvinciaINF" ControlToValidate="ddlProvinciaINF" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Provincia" CssClass="label label-danger"></asp:CompareValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Localidad</label>
                                     <asp:DropDownList ID="ddlLocalidadINF" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <asp:CompareValidator ID="cvLocalidadINF" ControlToValidate="ddlLocalidadINF" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Localidad" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Lugar de la infracción</label>
@@ -112,8 +126,14 @@
                                     <asp:DropDownList ID="ddlProvinciaAC" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
+                                    <asp:CompareValidator ID="cvProvinciaAC" ControlToValidate="ddlProvinciaAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Provincia" CssClass="label label-danger"></asp:CompareValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Localidad</label>
                                     <asp:DropDownList ID="ddlLocalidadAC" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <asp:CompareValidator ID="cvLocalidadAC" ControlToValidate="ddlLocalidadAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Localidad" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Domicilio</label>
@@ -131,10 +151,6 @@
                                     <label>Departamento</label>
                                     <asp:TextBox ID="txtDepartamentoAC" runat="server" class="form-control"></asp:TextBox>
                                 </div>
-                                <%--<div class="form-group">
-                                    <label>Tipo de documento</label>
-                                    <asp:DropDownList ID="ddlTipDocumentoAC" runat="server" class="form-control"></asp:DropDownList>
-                                </div>--%>
                                 <div class="form-group">
                                     <label>N° de licencia</label>
                                     <asp:TextBox ID="txtNumLicenciaAC" runat="server" class="form-control"></asp:TextBox>
@@ -144,8 +160,14 @@
                                     <asp:DropDownList ID="ddlMuniLicenciaAC" runat="server" class="form-control"></asp:DropDownList>
                                 </div>
                                 <div class="form-group">
+                                    <asp:CompareValidator ID="cvMuniLicenciaAC" ControlToValidate="ddlMuniLicenciaAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Municipio licencia" CssClass="label label-danger"></asp:CompareValidator>
+                                </div>
+                                <div class="form-group">
                                     <label>Categoría licencia</label>
                                     <asp:DropDownList ID="ddlCatLicencia" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+                                <div class="form-group">
+                                    <asp:CompareValidator ID="cvCatLicencia" ControlToValidate="ddlCatLicencia" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Categoría licencia" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Detalle de la documentación retenida</label>

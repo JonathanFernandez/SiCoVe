@@ -58,6 +58,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoVehiculoAC;
         
         /// <summary>
+        /// Control cvTipoVehiculoAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvTipoVehiculoAC;
+        
+        /// <summary>
         /// Control txtOtrosTipVehAC.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarcaAC;
+        
+        /// <summary>
+        /// Control cvMarcaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvMarcaAC;
         
         /// <summary>
         /// Control txtModeloAC.
@@ -94,6 +112,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlCatInfraccionAC;
         
         /// <summary>
+        /// Control cvCatInfraccionAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvCatInfraccionAC;
+        
+        /// <summary>
         /// Control ddlInfraccionAC.
         /// </summary>
         /// <remarks>
@@ -101,6 +128,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlInfraccionAC;
+        
+        /// <summary>
+        /// Control cvInfraccionAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvInfraccionAC;
         
         /// <summary>
         /// Control txtDescInfraccionAC.
@@ -121,6 +157,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaINF;
         
         /// <summary>
+        /// Control cvProvinciaINF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvProvinciaINF;
+        
+        /// <summary>
         /// Control ddlLocalidadINF.
         /// </summary>
         /// <remarks>
@@ -128,6 +173,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalidadINF;
+        
+        /// <summary>
+        /// Control cvLocalidadINF.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvLocalidadINF;
         
         /// <summary>
         /// Control txtLugarInfraccionAC.
@@ -175,6 +229,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaAC;
         
         /// <summary>
+        /// Control cvProvinciaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvProvinciaAC;
+        
+        /// <summary>
         /// Control ddlLocalidadAC.
         /// </summary>
         /// <remarks>
@@ -182,6 +245,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalidadAC;
+        
+        /// <summary>
+        /// Control cvLocalidadAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvLocalidadAC;
         
         /// <summary>
         /// Control txtDomicilio.
@@ -238,6 +310,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlMuniLicenciaAC;
         
         /// <summary>
+        /// Control cvMuniLicenciaAC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvMuniLicenciaAC;
+        
+        /// <summary>
         /// Control ddlCatLicencia.
         /// </summary>
         /// <remarks>
@@ -245,6 +326,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCatLicencia;
+        
+        /// <summary>
+        /// Control cvCatLicencia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvCatLicencia;
         
         /// <summary>
         /// Control txtDocuRetenidaAC.
