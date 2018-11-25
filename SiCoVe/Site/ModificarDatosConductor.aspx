@@ -1,67 +1,126 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ModificarDatosConductor.aspx.cs" Inherits="SiCoVe.Site.ModificarDatosConductor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ModificarDatosConductor.aspx.cs" Inherits="SiCoVe.ModificarDatosConductor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server"> 
+<asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server"> 
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
+    <div id="page-wrapper">
 
-<div id="page-wrapper">
-
-                         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Modificar Conductor</h1>
+             <!--INI-->
+            <div class="row">
+                <div class="col-lg-12">
+                <h1 class="page-header">Modificar Datos Conductor</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-
+            <!--FIN-->
 
         <div class="panel panel-default">
             <div class="panel-heading">
-               Listado de Conductores
+                Modificar datos de Conductor
             </div>
+
             <div class="panel-body">
-                <div class="table-responsive">
-                  <div class="form-group">
-                        <div class="col-sm-2">
-                            <asp:Label ID="LblApellido" runat="server" Text="Label">Apellido</asp:Label>
-                            <asp:TextBox class="form-control" ID="TextBox1" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-sm-2">
-                            <asp:Label ID="LblNombre" runat="server" Text="Label">Nombre</asp:Label>
-                            <asp:TextBox class="form-control" ID="TextBox2" runat="server"></asp:TextBox>
-                         &nbsp;
-                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#datosconductor" data-toggle="tab">Datos Conduictor</a>
+                            </li>
+                            <li><a href="#dni" data-toggle="tab">Datos Conductor</a>
+                            </li>
+                        </ul>
                         <br />
-                      <div class="col-sm-2">
-                        <asp:Button class="btn btn-outline btn-primary " ID="btnBuscar" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
-                      </div>
-                   </div>
-                        <br />
-                    <div class="form-group">
-                         <asp:GridView ID="GvConductor" DataKeyNames="id" onrowcommand="GvConductor_RowCommand" OnRowEditing="GvConductor_edit" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False" AutoGenerateEditButton="True">
-                            <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
-                            <Columns>
-                                <asp:BoundField HeaderText="ID" DataField="ID" />
-                                <asp:BoundField HeaderText="Apellido" DataField="APELLIDO" />
-                                <asp:BoundField HeaderText="Nombres"  DataField="NOMBRE"/>
-                                <asp:BoundField HeaderText="DNI" DataField="DNI" />     
-                                <asp:BoundField HeaderText="Sexo"  DataField="SEXO"/>
-                                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FECHA_NACIMIENTO"/>
-                                <asp:BoundField HeaderText="Nacionalidad" DataField="NACIONALIDAD" />
-                                <asp:BoundField HeaderText="Domicilio" DataField="DOMICILIO" />                 
-                                
-                            </Columns>
-
-                        </asp:GridView>
+                  <div class="row">
+                    <div class="col-lg-4">
+                        <div class="tab-content">
+                     <div class="tab-pane fade in active" id="datosconductor">
+                       <div class="form-group">
+                            <label>E-Mail</label>
+                            <asp:TextBox ID="txtEMail" runat="server" class="form-control" name="email" type="email" required="required"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="red" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar E-Mail" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="red" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar un Email válido." ValidationExpression="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" Display="Dynamic"></asp:RegularExpressionValidator>
                         </div>
-                 </div>
+                        <asp:CheckBox hidden = False ID="cckrdatoconductor" runat="server"></asp:CheckBox>
+                          </div>
+                      
+                        <div class="tab-pane fade" id="dni">
+                        <div class="form-group">
+                            <label>N° de documento</label>
+                            <asp:TextBox type="number" ID="txtNumDocumento" runat="server" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ForeColor="red" ControlToValidate="txtNumDocumento" runat="server" ErrorMessage="* Debe ingresar número de Documento" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido</label>
+                            <asp:TextBox ID="txtApellido" runat="server" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ForeColor="red" ControlToValidate="txtApellido" runat="server" ErrorMessage="* Debe ingresar Apellido" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Nombres</label>
+                            <asp:TextBox ID="txtNombre" runat="server" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ForeColor="red" ControlToValidate="txtNombre" runat="server" ErrorMessage="* Debe Ingresar Nombre" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Provincia</label>
+                            <asp:DropDownList ID="ddlProvincia" runat="server" class="form-control" ></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="red" ControlToValidate="ddlProvincia" runat="server" ErrorMessage="* Debe seleccionar Provincia" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Domicilio</label>
+                            <asp:TextBox ID="txtDomicilio" runat="server" class="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ForeColor="red" ControlToValidate="txtDomicilio" runat="server" ErrorMessage="* Debe Ingresar Domicilio" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Nacionalidad</label>
+                            <asp:DropDownList ID="ddlNacionalidad" runat="server" class="form-control" ></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" ForeColor="red" ControlToValidate="ddlNacionalidad" runat="server" ErrorMessage="* Debe seleccionar Nacionalidad" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de nacimiento</label>
+                            <asp:TextBox type="number" ID="txtFechaNacimiento" runat="server" class="form-control" TextMode="Date"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ForeColor="red" ControlToValidate="txtFechaNacimiento" runat="server" ErrorMessage="* Debe ingresar Fecha Nacimiento" Display="Dynamic"></asp:RequiredFieldValidator>
+                            </div>
+                        <div class="form-group">
+                            <label>Sexo</label>
+                            <asp:DropDownList ID="ddlSexo" runat="server" class="form-control"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ForeColor="red" ControlToValidate="ddlSexo" runat="server" ErrorMessage="* Debe seleccionar Sexo" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Localidad</label>
+                            <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" ForeColor="red" ControlToValidate="ddlLocalidad" runat="server" ErrorMessage="* Debe seleccionar Localidad" Display="Dynamic"></asp:RequiredFieldValidator>
+                        </div>
+                        <div class="form-group">
+                            <label>Lugar de nacimiento</label>
+                            <asp:TextBox ID="txtLugarNacimiento" runat="server" class="form-control"></asp:TextBox>
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator14" ForeColor="red" ControlToValidate="txtLugarNacimiento" runat="server" ErrorMessage="* Debe ingresar Lugar de Nacimiento"></asp:RequiredFieldValidator>--%>
+                        </div>
+                        <div class="form-group">
+                            <label>Piso</label>
+                            <asp:TextBox type="number" ID="txtPiso" runat="server" class="form-control"></asp:TextBox>
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator15" ForeColor="red" ControlToValidate="txtPiso" runat="server" ErrorMessage="* Debe ingresar Piso"></asp:RequiredFieldValidator>--%>
+                        </div>
+                        <div class="form-group">
+                            <label>Departamento</label>
+                            <asp:TextBox ID="txtDepartamento" runat="server" class="form-control"></asp:TextBox>
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator16" ForeColor="red" ControlToValidate="txtDepartamento" runat="server" ErrorMessage="* Debe ingresar Departamento"></asp:RequiredFieldValidator>--%>
+                        </div>
+                        <div class="form-group">
+                            <label>Nro De Puerta</label>
+                            <asp:TextBox type="number" ID="txtNumPuerta" runat="server" class="form-control"></asp:TextBox>
+                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumPuerta" runat="server" ErrorMessage="* Debe ingresar Numero de Puerta"></asp:RequiredFieldValidator>--%>
+                        </div>
+                            <asp:Button ID="btnRegistrarMDC" runat="server" class="btn btn-default" Text="Modificar" OnClick="btnRegistrarMDC_Click" />
+                       </div>
+                     </div>
+                  </div>
+                  </div>
+                </div>
+               </div>
+              </div>
+              <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
         </div>         
-        </div>   
     </div>
-</asp:Content>
-
-<asp:Content ID="Content4" ContentPlaceHolderID="includeJsSection" runat="server">
  <%--<div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">

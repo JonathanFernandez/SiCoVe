@@ -336,6 +336,7 @@
     <Content Include="Site\BuscarVehiculo.aspx" />
     <Content Include="Site\HistorialAcarreo.aspx" />
     <Content Include="Site\HistorialControles.aspx" />
+    <Content Include="Site\ListarConductor.aspx" />
     <Content Include="Site\ListarUsuarios.aspx" />
     <Content Include="Site\ModificarAutoridad.aspx" />
     <Content Include="Site\ListarAutoridad.aspx" />
@@ -527,6 +528,13 @@
     </Compile>
     <Compile Include="Site\HistorialDenuncias.aspx.designer.cs">
       <DependentUpon>HistorialDenuncias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\ListarConductor.aspx.cs">
+      <DependentUpon>ListarConductor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\ListarConductor.aspx.designer.cs">
+      <DependentUpon>ListarConductor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\ListarUsuarios.aspx.cs">
       <DependentUpon>ListarUsuarios.aspx</DependentUpon>
