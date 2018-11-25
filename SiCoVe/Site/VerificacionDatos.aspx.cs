@@ -20,7 +20,6 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                //var per = sicove.personas.ToList();
                 var per = sicove.SP_LISTAR_PERSONAS_AUTORIZADAS(dominio).ToList();
 
                 ddlPersona.Items.Insert(0, new ListItem("Seleccione persona...", "0"));
@@ -180,6 +179,17 @@ namespace SiCoVe.Site
                 }
 
                 ddlTipoCED.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+
+                txtApellidoDNI.Enabled = false;
+                //txtNombreDNI.Enabled = false;
+                //ddlSexoDNI.Enabled = false;
+                //ddlNacionalidadDNI.Enabled = false;
+                //txtFecNacimientoDNI.Enabled = false;
+                //txtDocumentoDNI.Enabled = false;
+                //txtDomicilioDNI.Enabled = false;
+                //ddlLugNacimientoDNI.Enabled = false;
             }   
         }
 
@@ -193,20 +203,25 @@ namespace SiCoVe.Site
             {
                 txtApellidoDNI.Text = p.apellido.ToString();
                 txtNombreDNI.Text = p.nombre.ToString();
-                //ddlSexoDNI.Text = p.sexo.ToString();
-                //ddlNacionalidadDNI
+
+                ddlSexoDNI.SelectedIndex = 1; //X
+                ddlNacionalidadDNI.SelectedIndex = 1; //X
+
                 txtFecNacimientoDNI.Text = p.fecha_nacimiento.ToString();
                 txtDocumentoDNI.Text = p.dni.ToString();
                 txtDomicilioDNI.Text = p.domicilio.ToString();
-                //ddlLugNacimientoDNI
+
+                ddlLugNacimientoDNI.SelectedIndex = 1; //X
 
                 txtNumLicenciaLIC.Text = p.nro_licencia.ToString();
                 txtApellidoLIC.Text = p.apellido.ToString();
                 txtNombresLIC.Text = p.nombre.ToString();
                 txtFecNacimientoLIC.Text = p.fecha_nacimiento.ToString();
                 txtDomicilioLIC.Text = p.domicilio.ToString();
-                //ddlNacionalidadLIC
-                //ddlSexoLIC
+
+                ddlNacionalidadLIC.SelectedIndex = 1; //X
+                ddlSexoLIC.SelectedIndex = 1; //X
+
                 txtFecOtorgamientoLIC.Text = p.otorgamiento.ToString();
                 txtFecVencimientoLIC.Text = p.vencimiento.ToString();
                 txtcategoriLIC.Text = p.licencia_categoria.ToString();
@@ -215,30 +230,101 @@ namespace SiCoVe.Site
 
                 txtNumCedulaCED.Text = p.nro_cedula.ToString();
                 txtDominioCED.Text = p.dominio.ToString();
-                //ddlEstadoCED
-                //ddlMarcaCED
+
+                ddlEstadoCED.SelectedIndex = 1; //X
+                ddlMarcaCED.SelectedIndex = 1; //X
+
                 txtModeloCED.Text = p.modelo.ToString();
-                //ddlTipoCED
-                //ddlUsoCED
+
+                ddlTipoCED.SelectedIndex = 1; //X
+                ddlUsoCED.SelectedIndex = 1; //X
+
                 txtChasisCED.Text = p.chasis_cuadro.ToString();
                 txtNumMotorCED.Text = p.motor.ToString();
                 txtFecVencimientoCED.Text = p.cedula_vencimiento.ToString();
                 txtCilindradaCED.Text = p.cilindrada.ToString();
                 txtTitularCED.Text = String.Concat(p.nombre, ' ', p.apellido);
-                //txtAutorizado.Text = 
 
-                //ddlAseguradoraSEG
+                if (p.flag_autorizado == true)
+                    radBEsAutorizado.SelectedValue = "True";
+                else
+                    radBEsAutorizado.SelectedValue = "False";
+
+                ddlAseguradoraSEG.SelectedIndex = 1; //X
+
                 txtAseguradoSEG.Text = String.Concat(p.nombre, ' ', p.apellido);
                 txtPolizaSEG.Text = p.nro_poliza.ToString();
-                //ddlMarcaSEG
+
+                ddlMarcaSEG.SelectedIndex = 1; //X
+
                 txtModeloSEG.Text = p.modelo.ToString();
                 txtcilindradaSEG.Text = p.cilindrada.ToString();
                 txtDominioSEG.Text = p.dominio.ToString();
+
                 //txtAnioSEG.Text = 
+
                 txtNumMotorSEG.Text = p.motor.ToString();
                 txtNumChasisSEG.Text = p.chasis_cuadro.ToString();
                 txtFecDesdeSEG.Text = p.vigencia_desde.ToString();
                 txtFecHastaSEG.Text = p.vigencia_hasta.ToString();
+            }
+        }
+
+        protected void btnAprobarVD_Click(object sender, EventArgs e)
+        {
+            Page.Validate();
+
+            if (Page.IsValid)
+            {
+                int id_persona = UserSession.persona_id;
+                int id_agente = 0;
+                int id_vehiculo = 0;
+
+                control con = new control();
+
+                try
+                {
+                    id_agente = (from ag in sicove.agente_transito
+                                 join us in sicove.usuarios on ag.usuario_id equals us.id
+                                 where us.persona_id == id_persona
+                                 select ag.id).First();
+                }
+                catch (Exception ex)
+                {
+                    id_persona = 0;
+                }
+
+                try
+                {
+                    id_vehiculo = (from ve in sicove.vehiculoes
+                                   where ve.dominio == txtDominioCED.Text.ToString()
+                                   select ve.id).First();
+                }
+                catch (Exception ex)
+                {
+                    id_vehiculo = 0;
+                }
+
+                try
+                {
+                    String fecha_hora = DateTime.Now.ToString("g");
+
+                    con.agente_transito_id = id_agente;
+                    con.vehiculo_id = id_vehiculo;
+                    con.persona_id = id_persona;
+                    con.fecha_hora = DateTime.Parse(fecha_hora);
+                    con.provincia_id = Convert.ToInt16(ddlProvinciaFC.SelectedValue);
+                    con.localidad_id = Convert.ToInt16(ddlLocalidadFC.SelectedValue);
+                    con.locacion = txtLugarControlFC.Text.ToString();
+                    con.observaciones = txtObservacionesControlFC.Text.ToString();
+
+                    sicove.controls.Add(con);
+                    sicove.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
             }
         }
     }

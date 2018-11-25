@@ -27,7 +27,10 @@
 					<span class="icon-bar"></span>
 				</button>
 				<div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">SiCoVe 1.0</a>
+                    <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/Index.aspx">
+                        <asp:Image ID="imgLogo" runat="server" Width="120px" Height="43px" style="margin-top:3px" src="/img/Logo.png"/>
+                    </asp:HyperLink>
+                    <a class="navbar-brand" href="~/Index.aspx" style="padding: 15px 5px;">SiCoVe 1.0</a>
                 </div>
                <%-- <asp:Label runat="server" ID="lblUsuario"></asp:Label><b class="caret"></b>--%>
                 <ul class="nav navbar-top-links navbar-right">
@@ -47,13 +50,13 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <!--Logo-->
-                            <li class="sidebar-search">
+                            <%--<li class="sidebar-search">
                                 <div class="text-center">
                                     <asp:HyperLink runat="server" NavigateUrl="~/Index.aspx">
                                         <asp:Image ID="imgLogo" runat="server" Width="220px" Height="110px" src="/img/Logo.png"/>
                                     </asp:HyperLink>
                                 </div>
-                            </li>
+                            </li>--%>
                             <!--Usuario Administrador-->
                             <li>
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Remolque<span class="fa arrow"></span></a>
