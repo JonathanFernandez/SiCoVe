@@ -122,7 +122,7 @@
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Alta de conductor </asp:HyperLink>
                             </li>
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ModificarDatosConductor.aspx"><i class="fa fa-edit fa-fw"></i> Modificar conductor </asp:HyperLink>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarConductor.aspx"><i class="fa fa-edit fa-fw"></i> Modificar conductor </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialControles.aspx"><i class="fa fa-files-o fa-fw"></i> Historial Controles </asp:HyperLink>
