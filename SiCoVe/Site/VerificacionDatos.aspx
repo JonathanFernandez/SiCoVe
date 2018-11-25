@@ -46,7 +46,7 @@
                                     <div class="tab-pane fade in active" id="dni">
                                         <div class="form-group">
                                             <label>Seleccione persona</label>
-                                            <asp:DropDownList ID="ddlPersona" runat="server" class="form-control" OnSelectedIndexChanged="ddlPersona_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlPersona" runat="server" class="form-control" OnSelectedIndexChanged="ddlPersona_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                         </div>
                                         <div class="form-group">
                                             <label>Apellido</label>
