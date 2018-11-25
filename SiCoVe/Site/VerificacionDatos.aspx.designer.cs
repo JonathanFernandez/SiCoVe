@@ -310,31 +310,13 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.TextBox txtTitularCED;
         
         /// <summary>
-        /// Control txtAutorizado.
+        /// Control radBEsAutorizado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAutorizado;
-        
-        /// <summary>
-        /// Control txtDocumentoCED.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDocumentoCED;
-        
-        /// <summary>
-        /// Control txtDomicilioCED.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDomicilioCED;
+        protected global::System.Web.UI.WebControls.RadioButtonList radBEsAutorizado;
         
         /// <summary>
         /// Control ddlAseguradoraSEG.
@@ -454,6 +436,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaFC;
         
         /// <summary>
+        /// Control cvProvinciaFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvProvinciaFC;
+        
+        /// <summary>
         /// Control ddlLocalidadFC.
         /// </summary>
         /// <remarks>
@@ -463,6 +454,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalidadFC;
         
         /// <summary>
+        /// Control cvLocalidadFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvLocalidadFC;
+        
+        /// <summary>
         /// Control txtLugarControlFC.
         /// </summary>
         /// <remarks>
@@ -470,6 +470,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLugarControlFC;
+        
+        /// <summary>
+        /// Control rfLugarControlFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfLugarControlFC;
         
         /// <summary>
         /// Control txtObservacionesControlFC.
@@ -488,14 +497,5 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAprobarVD;
-        
-        /// <summary>
-        /// Control btnModificarVD.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificarVD;
     }
 }

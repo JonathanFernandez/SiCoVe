@@ -221,7 +221,7 @@
                                     <asp:RequiredFieldValidator ID="rfNumAgenteAC" runat="server" ErrorMessage="El N° agente / inspector es obligatorio" ControlToValidate="txtNumAgenteAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <br />
-                                <asp:Button ID="btnAceptarAC" runat="server" class="btn btn-default" Text="Aceptar" OnClick="btnAceptarAC_Click" />
+                                <asp:Button ID="btnAceptarAC" style="display:block; margin:auto;" runat="server" class="btn btn-default" Text="Aceptar" OnClick="btnAceptarAC_Click" />
                             </div>
                         </div>
                     </div>  
