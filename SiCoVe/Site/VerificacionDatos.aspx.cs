@@ -55,18 +55,18 @@ namespace SiCoVe.Site
 
                 var loc = sicove.municipios.ToList();
 
-                ddlLugNacimientoDNI.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
+                //ddlLugNacimientoDNI.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
                 ddlLocalidadFC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
                 foreach (municipio p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
-                    ddlLugNacimientoDNI.Items.Add(item);
+                   // ddlLugNacimientoDNI.Items.Add(item);
                     ddlLocalidadFC.Items.Add(item);
                 }
 
-                ddlLugNacimientoDNI.SelectedIndex = 0;
+                //ddlLugNacimientoDNI.SelectedIndex = 0;
                 ddlLocalidadFC.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
@@ -204,40 +204,40 @@ namespace SiCoVe.Site
                 txtApellidoDNI.Text = p.apellido.ToString();
                 txtNombreDNI.Text = p.nombre.ToString();
 
-                ddlSexoDNI.SelectedIndex = 1; //X
-                ddlNacionalidadDNI.SelectedIndex = 1; //X
+                ddlSexoDNI.SelectedIndex = p.sexo_id; //X
+                ddlNacionalidadDNI.SelectedIndex = p.nacionalidad_id; //X
 
-                txtFecNacimientoDNI.Text = p.fecha_nacimiento.ToString();
+                txtFecNacimientoDNI.Text = String.Format("{0:dd/MM/yyyy}", p.fecha_nacimiento.ToString());
                 txtDocumentoDNI.Text = p.dni.ToString();
                 txtDomicilioDNI.Text = p.domicilio.ToString();
 
-                ddlLugNacimientoDNI.SelectedIndex = 1; //X
+                txtLugNacimientoDNI.Text = p.lugar_nacimiento; //X
 
                 txtNumLicenciaLIC.Text = p.nro_licencia.ToString();
                 txtApellidoLIC.Text = p.apellido.ToString();
                 txtNombresLIC.Text = p.nombre.ToString();
-                txtFecNacimientoLIC.Text = p.fecha_nacimiento.ToString();
+                txtFecNacimientoLIC.Text = String.Format("{0:dd/MM/yyyy}", p.fecha_nacimiento.ToString());
                 txtDomicilioLIC.Text = p.domicilio.ToString();
 
-                ddlNacionalidadLIC.SelectedIndex = 1; //X
-                ddlSexoLIC.SelectedIndex = 1; //X
+                ddlNacionalidadLIC.SelectedIndex = p.nacionalidad_id; //X
+                ddlSexoLIC.SelectedIndex = p.sexo_id; //X
 
-                txtFecOtorgamientoLIC.Text = p.otorgamiento.ToString();
-                txtFecVencimientoLIC.Text = p.vencimiento.ToString();
-                txtcategoriLIC.Text = p.licencia_categoria.ToString();
+                txtFecOtorgamientoLIC.Text = String.Format("{0:dd/MM/yyyy}", p.otorgamiento.ToString());
+                txtFecVencimientoLIC.Text = String.Format("{0:dd/MM/yyyy}", p.vencimiento.ToString()); 
+                txtcategoriLIC.Text = p.licencia_categoria_desc.ToString();
                 txtClasesLIC.Text = p.clases.ToString();
                 txtObservaciones.Text = p.observaciones.ToString();
 
                 txtNumCedulaCED.Text = p.nro_cedula.ToString();
                 txtDominioCED.Text = p.dominio.ToString();
 
-                ddlEstadoCED.SelectedIndex = 1; //X
-                ddlMarcaCED.SelectedIndex = 1; //X
+                ddlEstadoCED.SelectedIndex = p.cedula_estado_id; //X
+                ddlMarcaCED.SelectedIndex = p.vehiculo_marca_id; //X
 
                 txtModeloCED.Text = p.modelo.ToString();
 
-                ddlTipoCED.SelectedIndex = 1; //X
-                ddlUsoCED.SelectedIndex = 1; //X
+                ddlTipoCED.SelectedIndex = p.vehiculo_tipo_id; //X
+                ddlUsoCED.SelectedIndex = p.cedula_uso_id; //X
 
                 txtChasisCED.Text = p.chasis_cuadro.ToString();
                 txtNumMotorCED.Text = p.motor.ToString();
@@ -250,23 +250,23 @@ namespace SiCoVe.Site
                 else
                     radBEsAutorizado.SelectedValue = "False";
 
-                ddlAseguradoraSEG.SelectedIndex = 1; //X
+                ddlAseguradoraSEG.SelectedIndex = p.aseguradora_id; //X
 
                 txtAseguradoSEG.Text = String.Concat(p.nombre, ' ', p.apellido);
                 txtPolizaSEG.Text = p.nro_poliza.ToString();
 
-                ddlMarcaSEG.SelectedIndex = 1; //X
+                ddlMarcaSEG.SelectedIndex = p.vehiculo_marca_id; //X
 
                 txtModeloSEG.Text = p.modelo.ToString();
                 txtcilindradaSEG.Text = p.cilindrada.ToString();
                 txtDominioSEG.Text = p.dominio.ToString();
 
-                //txtAnioSEG.Text = 
+                txtAnioSEG.Text = p.año.ToString();
 
                 txtNumMotorSEG.Text = p.motor.ToString();
                 txtNumChasisSEG.Text = p.chasis_cuadro.ToString();
-                txtFecDesdeSEG.Text = p.vigencia_desde.ToString();
-                txtFecHastaSEG.Text = p.vigencia_hasta.ToString();
+                txtFecDesdeSEG.Text = String.Format("{0:dd/MM/yyyy}", p.vigencia_desde.ToString());
+                txtFecHastaSEG.Text = String.Format("{0:dd/MM/yyyy}", p.vigencia_hasta.ToString());
             }
         }
 

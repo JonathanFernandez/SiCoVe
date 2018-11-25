@@ -54,7 +54,6 @@ namespace DataBaseSiCoVe
     
         public virtual categoria_licencia categoria_licencia { get; set; }
         public virtual codigo_infraccion codigo_infraccion { get; set; }
-        public virtual control control { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<denuncia> denuncias { get; set; }
         public virtual localidad localidad { get; set; }
@@ -66,5 +65,6 @@ namespace DataBaseSiCoVe
         public virtual provincia provincia { get; set; }
         public virtual tipo_vehiculo tipo_vehiculo { get; set; }
         public virtual vehiculo vehiculo { get; set; }
+        public virtual control control { get; set; }
     }
 }

@@ -78,7 +78,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar de nacimiento</label>
-                                            <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
+                                        <%--    <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>--%>
+                                                       <asp:TextBox ID="txtLugNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->

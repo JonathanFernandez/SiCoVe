@@ -29,8 +29,6 @@ namespace DataBaseSiCoVe
         public int localidad_id { get; set; }
         public string locacion { get; set; }
         public string observaciones { get; set; }
-        public string dominio { get; set; }
-        public Nullable<long> dni { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<infraccion> infraccions { get; set; }
