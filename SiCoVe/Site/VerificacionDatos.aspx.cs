@@ -182,14 +182,14 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                txtApellidoDNI.Enabled = false;
-                //txtNombreDNI.Enabled = false;
-                //ddlSexoDNI.Enabled = false;
+                //txtApellidoDNI.ReadOnly = true;
+                //txtNombreDNI.ReadOnly = true;
+                //ddlSexoDNI.Enabled = true;
                 //ddlNacionalidadDNI.Enabled = false;
-                //txtFecNacimientoDNI.Enabled = false;
-                //txtDocumentoDNI.Enabled = false;
-                //txtDomicilioDNI.Enabled = false;
-                //ddlLugNacimientoDNI.Enabled = false;
+                //txtFecNacimientoDNI.ReadOnly = true;
+                //txtDocumentoDNI.ReadOnly = true;
+                //txtDomicilioDNI.ReadOnly = true;
+                //ddlLugNacimientoDNI.Enabled = false; 
             }   
         }
 
