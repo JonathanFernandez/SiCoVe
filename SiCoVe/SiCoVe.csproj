@@ -331,6 +331,8 @@
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\master.js" />
     <Content Include="Site\ActualizarDatosUsuario.aspx" />
     <Content Include="Site\AltaAcarreo.aspx" />
     <Content Include="Site\AltaAutoridad.aspx" />

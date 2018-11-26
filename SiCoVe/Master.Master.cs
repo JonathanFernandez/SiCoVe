@@ -53,6 +53,10 @@ namespace SiCoVe
             scriptStyle = new HtmlHeaderStyleLink("~/Content/vendor/font-awesome/css/font-awesome.min.css");
             scriptStyle.IncludeOn(Page.Header);
 
+            scriptStyle = new HtmlHeaderStyleLink("~/Content/jquery-ui.css");
+            scriptStyle.IncludeOn(Page.Header);
+
+
         }
 
         private void LoadScripts()
@@ -62,6 +66,11 @@ namespace SiCoVe
 
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.min.js");
             scriptLink.IncludeOn(Page.Header);
+
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-3.3.1.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
 
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/bootstrap/js/bootstrap.min.js");
             scriptLink.IncludeOn(Page.Header);
@@ -79,6 +88,13 @@ namespace SiCoVe
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/data/morris-data.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-ui.js");
+            scriptLink.IncludeOn(Page.Header);
+
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/master.js");
             scriptLink.IncludeOn(Page.Header);
             
             
