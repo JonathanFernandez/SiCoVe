@@ -64,13 +64,11 @@
           <Property Name="agente_transito_id" Type="int" Nullable="false" />
           <Property Name="vehiculo_id" Type="int" Nullable="false" />
           <Property Name="persona_id" Type="int" />
-          <Property Name="fecha_hora" Type="date" />
+          <Property Name="fecha_hora" Type="datetime" />
           <Property Name="provincia_id" Type="int" Nullable="false" />
           <Property Name="localidad_id" Type="int" Nullable="false" />
           <Property Name="locacion" Type="nvarchar" MaxLength="200" />
           <Property Name="observaciones" Type="nvarchar" MaxLength="300" />
-          <Property Name="dominio" Type="nvarchar" MaxLength="10" />
-          <Property Name="dni" Type="bigint" />
         </EntityType>
         <EntityType Name="denuncia">
           <Key>
@@ -258,16 +256,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="tipo_vehiculo">
           <Key>
@@ -787,6 +775,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_GENERAR_EMAIL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dominio" Type="nvarchar" Mode="In" />
+          <Parameter Name="remolque_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_LISTADO_AGENTE_TRANSITO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
@@ -801,7 +793,7 @@
           <Parameter Name="persona" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_LISTAR_PERSONAS_AUTORIZADAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="dominio" Type="nchar" Mode="In" />
+          <Parameter Name="dominio" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="sicoveModelStoreContainer">
           <EntitySet Name="agente_transito" EntityType="Self.agente_transito" Schema="dbo" store:Type="Tables" />
@@ -828,7 +820,6 @@
           <EntitySet Name="provincia" EntityType="Self.provincia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="remolque" EntityType="Self.remolque" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sexo" EntityType="Self.sexo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tipo_vehiculo" EntityType="Self.tipo_vehiculo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uso_cedula" EntityType="Self.uso_cedula" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
@@ -1005,7 +996,6 @@
           <EntitySet Name="categoria_licencia" EntityType="sicoveModel.categoria_licencia" />
           <EntitySet Name="cedulas" EntityType="sicoveModel.cedula" />
           <EntitySet Name="codigo_infraccion" EntityType="sicoveModel.codigo_infraccion" />
-          <EntitySet Name="controls" EntityType="sicoveModel.control" />
           <EntitySet Name="denuncias" EntityType="sicoveModel.denuncia" />
           <EntitySet Name="estado_cedula" EntityType="sicoveModel.estado_cedula" />
           <EntitySet Name="estado_denuncia" EntityType="sicoveModel.estado_denuncia" />
@@ -1021,7 +1011,6 @@
           <EntitySet Name="polizas" EntityType="sicoveModel.poliza" />
           <EntitySet Name="provincias" EntityType="sicoveModel.provincia" />
           <EntitySet Name="sexoes" EntityType="sicoveModel.sexo" />
-          <EntitySet Name="sysdiagrams" EntityType="sicoveModel.sysdiagram" />
           <EntitySet Name="tipo_vehiculo" EntityType="sicoveModel.tipo_vehiculo" />
           <EntitySet Name="uso_cedula" EntityType="sicoveModel.uso_cedula" />
           <EntitySet Name="usuarios" EntityType="sicoveModel.usuario" />
@@ -1122,19 +1111,6 @@
             <End Role="tipo_vehiculo" EntitySet="tipo_vehiculo" />
             <End Role="vehiculo" EntitySet="vehiculoes" />
           </AssociationSet>
-          <FunctionImport Name="SP_LISTADO_AGENTE_TRANSITO" ReturnType="Collection(sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result)">
-            <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
-            <Parameter Name="APELLIDO" Mode="In" Type="String" />
-            <Parameter Name="NOMBRE" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_LISTADO_PERSONAL_REMOLQUE" ReturnType="Collection(sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result)">
-            <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
-            <Parameter Name="APELLIDO" Mode="In" Type="String" />
-            <Parameter Name="NOMBRE" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_LISTAR_PERSONAS_AUTORIZADAS" ReturnType="Collection(sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result)">
-          <Parameter Name="dominio" Mode="In" Type="String" />
-          </FunctionImport>
           <EntitySet Name="infraccions" EntityType="sicoveModel.infraccion" />
           <AssociationSet Name="FK_infraccion_categoria_licencia" Association="sicoveModel.FK_infraccion_categoria_licencia">
             <End Role="categoria_licencia" EntitySet="categoria_licencia" />
@@ -1142,10 +1118,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_infraccion_codigo_infraccion" Association="sicoveModel.FK_infraccion_codigo_infraccion">
             <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
-            <End Role="infraccion" EntitySet="infraccions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_infraccion_control" Association="sicoveModel.FK_infraccion_control">
-            <End Role="control" EntitySet="controls" />
             <End Role="infraccion" EntitySet="infraccions" />
           </AssociationSet>
           <AssociationSet Name="FK_denuncia_infraccion" Association="sicoveModel.FK_denuncia_infraccion">
@@ -1200,6 +1172,28 @@
           <AssociationSet Name="FK_remolque_vehiculo" Association="sicoveModel.FK_remolque_vehiculo">
             <End Role="vehiculo" EntitySet="vehiculoes" />
             <End Role="remolque" EntitySet="remolques" />
+          </AssociationSet>
+          <FunctionImport Name="SP_GENERAR_EMAIL" ReturnType="Collection(sicoveModel.SP_GENERAR_EMAIL_Result)">
+            <Parameter Name="dominio" Mode="In" Type="String" />
+            <Parameter Name="remolque_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_AGENTE_TRANSITO" ReturnType="Collection(sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result)">
+            <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
+            <Parameter Name="APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_PERSONAL_REMOLQUE" ReturnType="Collection(sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result)">
+            <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
+            <Parameter Name="APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_PERSONAS_AUTORIZADAS" ReturnType="Collection(sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result)">
+          <Parameter Name="dominio" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="controls" EntityType="sicoveModel.control" />
+          <AssociationSet Name="FK_infraccion_control" Association="sicoveModel.FK_infraccion_control">
+            <End Role="control" EntitySet="controls" />
+            <End Role="infraccion" EntitySet="infraccions" />
           </AssociationSet>
           <FunctionImport Name="SP_LISTAR_DATOS_PERSONA" ReturnType="Collection(sicoveModel.SP_LISTAR_DATOS_PERSONA_Result)">
             <Parameter Name="persona" Mode="In" Type="Int32" />
@@ -1266,23 +1260,6 @@
           <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="categoria_infraccion" Relationship="sicoveModel.FK_codigo_infraccion_categoria_infraccion" FromRole="codigo_infraccion" ToRole="categoria_infraccion" />
           <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_codigo_infraccion" FromRole="codigo_infraccion" ToRole="infraccion" />
-        </EntityType>
-        <EntityType Name="control">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="agente_transito_id" Type="Int32" Nullable="false" />
-          <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
-          <Property Name="persona_id" Type="Int32" />
-          <Property Name="fecha_hora" Type="DateTime" Precision="0" />
-          <Property Name="provincia_id" Type="Int32" Nullable="false" />
-          <Property Name="localidad_id" Type="Int32" Nullable="false" />
-          <Property Name="locacion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="dominio" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="dni" Type="Int64" />
-          <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_control" FromRole="control" ToRole="infraccion" />
         </EntityType>
         <EntityType Name="denuncia">
           <Key>
@@ -1459,16 +1436,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="personas" Relationship="sicoveModel.FK_persona_sexo" FromRole="sexo" ToRole="persona" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="tipo_vehiculo">
           <Key>
@@ -1810,33 +1777,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="SP_LISTADO_AGENTE_TRANSITO_Result">
-          <Property Type="Int64" Name="DNI" Nullable="false" />
-          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
-          <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTADO_PERSONAL_REMOLQUE_Result">
-          <Property Type="Int64" Name="DNI" Nullable="false" />
-          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
-          <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
-        </ComplexType>
         <EntityType Name="infraccion">
           <Key>
             <PropertyRef Name="id" />
@@ -1874,7 +1814,6 @@
           <Property Name="imputado_licencia_categoria_id" Type="Int32" />
           <NavigationProperty Name="categoria_licencia" Relationship="sicoveModel.FK_infraccion_categoria_licencia" FromRole="infraccion" ToRole="categoria_licencia" />
           <NavigationProperty Name="codigo_infraccion" Relationship="sicoveModel.FK_infraccion_codigo_infraccion" FromRole="infraccion" ToRole="codigo_infraccion" />
-          <NavigationProperty Name="control" Relationship="sicoveModel.FK_infraccion_control" FromRole="infraccion" ToRole="control" />
           <NavigationProperty Name="denuncias" Relationship="sicoveModel.FK_denuncia_infraccion" FromRole="infraccion" ToRole="denuncia" />
           <NavigationProperty Name="localidad" Relationship="sicoveModel.FK_infraccion_imp_localidad" FromRole="infraccion" ToRole="localidad" />
           <NavigationProperty Name="licencia" Relationship="sicoveModel.FK_infraccion_licencia" FromRole="infraccion" ToRole="licencia" />
@@ -1885,6 +1824,7 @@
           <NavigationProperty Name="provincia" Relationship="sicoveModel.FK_infraccion_provincia" FromRole="infraccion" ToRole="provincia" />
           <NavigationProperty Name="tipo_vehiculo" Relationship="sicoveModel.FK_infraccion_tipo_vehiculo" FromRole="infraccion" ToRole="tipo_vehiculo" />
           <NavigationProperty Name="vehiculo" Relationship="sicoveModel.FK_infraccion_vehiculo" FromRole="infraccion" ToRole="vehiculo" />
+          <NavigationProperty Name="control" Relationship="sicoveModel.FK_infraccion_control" FromRole="infraccion" ToRole="control" />
         </EntityType>
         <Association Name="FK_infraccion_categoria_licencia">
           <End Type="sicoveModel.categoria_licencia" Role="categoria_licencia" Multiplicity="0..1" />
@@ -1907,18 +1847,6 @@
             </Principal>
             <Dependent Role="infraccion">
               <PropertyRef Name="codigo_infraccion_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_infraccion_control">
-          <End Type="sicoveModel.control" Role="control" Multiplicity="0..1" />
-          <End Type="sicoveModel.infraccion" Role="infraccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="control">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="infraccion">
-              <PropertyRef Name="control_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2094,12 +2022,73 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="SP_LISTAR_DATOS_PERSONA_Result">
+        <ComplexType Name="SP_GENERAR_EMAIL_Result">
+          <Property Type="String" Name="email" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="email_asunto" Nullable="true" MaxLength="168" />
+          <Property Type="String" Name="email_cuerpo" Nullable="true" MaxLength="739" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTADO_AGENTE_TRANSITO_Result">
+          <Property Type="Int64" Name="DNI" Nullable="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
+          <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTADO_PERSONAL_REMOLQUE_Result">
+          <Property Type="Int64" Name="DNI" Nullable="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
+          <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="NRO_LEGAJO" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="sexo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="nacionalidad" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="control">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agente_transito_id" Type="Int32" Nullable="false" />
+          <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+          <Property Name="persona_id" Type="Int32" />
+          <Property Name="fecha_hora" Type="DateTime" Precision="3" />
+          <Property Name="provincia_id" Type="Int32" Nullable="false" />
+          <Property Name="localidad_id" Type="Int32" Nullable="false" />
+          <Property Name="locacion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_control" FromRole="control" ToRole="infraccion" />
+        </EntityType>
+        <Association Name="FK_infraccion_control">
+          <End Type="sicoveModel.control" Role="control" Multiplicity="0..1" />
+          <End Type="sicoveModel.infraccion" Role="infraccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="control">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="infraccion">
+              <PropertyRef Name="control_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_LISTAR_DATOS_PERSONA_Result">
+          <Property Type="Int32" Name="persona_id" Nullable="false" />
+          <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="sexo_id" Nullable="false" />
+          <Property Type="String" Name="sexo_desc" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="nacionalidad_id" Nullable="false" />
+          <Property Type="String" Name="nacionalidad_desc" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="fecha_nacimiento" Nullable="true" />
           <Property Type="Int64" Name="dni" Nullable="false" />
           <Property Type="String" Name="domicilio" Nullable="true" MaxLength="80" />
@@ -2107,22 +2096,29 @@
           <Property Type="String" Name="nro_licencia" Nullable="false" MaxLength="10" />
           <Property Type="DateTime" Name="otorgamiento" Nullable="true" />
           <Property Type="DateTime" Name="vencimiento" Nullable="true" />
-          <Property Type="String" Name="licencia_categoria" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="licencia_categoria_id" Nullable="false" />
+          <Property Type="String" Name="licencia_categoria_desc" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="clases" Nullable="true" MaxLength="20" />
           <Property Type="String" Name="observaciones" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="nro_cedula" Nullable="false" MaxLength="10" />
           <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="cedula_estado" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="vehiculo_marca" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="cedula_estado_id" Nullable="false" />
+          <Property Type="String" Name="cedula_estado_desc" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="vehiculo_marca_id" Nullable="false" />
+          <Property Type="String" Name="vehiculo_marca_desc" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="modelo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="vehiculo_tipo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="cedula_uso" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="vehiculo_tipo_id" Nullable="false" />
+          <Property Type="String" Name="vehiculo_tipo_desc" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="cedula_uso_id" Nullable="false" />
+          <Property Type="String" Name="cedula_uso_desc" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="chasis_cuadro" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="motor" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="cedula_vencimiento" Nullable="false" />
           <Property Type="String" Name="cilindrada" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="año" Nullable="false" />
           <Property Type="Boolean" Name="flag_autorizado" Nullable="false" />
-          <Property Type="String" Name="aseguradora" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="aseguradora_id" Nullable="false" />
+          <Property Type="String" Name="aseguradora_desc" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="nro_poliza" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="vigencia_desde" Nullable="true" />
           <Property Type="DateTime" Name="vigencia_hasta" Nullable="true" />
@@ -2186,23 +2182,6 @@
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
                 <ScalarProperty Name="codigo_infraccion1" ColumnName="codigo_infraccion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="controls">
-            <EntityTypeMapping TypeName="sicoveModel.control">
-              <MappingFragment StoreEntitySet="control">
-                <ScalarProperty Name="dni" ColumnName="dni" />
-                <ScalarProperty Name="dominio" ColumnName="dominio" />
-                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
-                <ScalarProperty Name="locacion" ColumnName="locacion" />
-                <ScalarProperty Name="localidad_id" ColumnName="localidad_id" />
-                <ScalarProperty Name="provincia_id" ColumnName="provincia_id" />
-                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
-                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
-                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
-                <ScalarProperty Name="agente_transito_id" ColumnName="agente_transito_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2360,17 +2339,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="sicoveModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tipo_vehiculo">
             <EntityTypeMapping TypeName="sicoveModel.tipo_vehiculo">
               <MappingFragment StoreEntitySet="tipo_vehiculo">
@@ -2413,45 +2381,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTADO_AGENTE_TRANSITO" FunctionName="sicoveModel.Store.SP_LISTADO_AGENTE_TRANSITO">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result">
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
-                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
-                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTADO_PERSONAL_REMOLQUE" FunctionName="sicoveModel.Store.SP_LISTADO_PERSONAL_REMOLQUE">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result">
-                <ScalarProperty Name="DNI" ColumnName="DNI" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
-                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
-                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
-                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_PERSONAS_AUTORIZADAS" FunctionName="sicoveModel.Store.SP_LISTAR_PERSONAS_AUTORIZADAS">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="apellido" ColumnName="apellido" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="infraccions">
             <EntityTypeMapping TypeName="sicoveModel.infraccion">
               <MappingFragment StoreEntitySet="infraccion">
@@ -2503,14 +2432,79 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_DATOS_PERSONA" FunctionName="sicoveModel.Store.SP_LISTAR_DATOS_PERSONA">
+          <FunctionImportMapping FunctionImportName="SP_GENERAR_EMAIL" FunctionName="sicoveModel.Store.SP_GENERAR_EMAIL">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_DATOS_PERSONA_Result">
+              <ComplexTypeMapping TypeName="sicoveModel.SP_GENERAR_EMAIL_Result">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="email_asunto" ColumnName="email_asunto" />
+                <ScalarProperty Name="email_cuerpo" ColumnName="email_cuerpo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_AGENTE_TRANSITO" FunctionName="sicoveModel.Store.SP_LISTADO_AGENTE_TRANSITO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_PERSONAL_REMOLQUE" FunctionName="sicoveModel.Store.SP_LISTADO_PERSONAL_REMOLQUE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_PERSONAL_REMOLQUE_Result">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_PERSONAS_AUTORIZADAS" FunctionName="sicoveModel.Store.SP_LISTAR_PERSONAS_AUTORIZADAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="sexo" ColumnName="sexo" />
-                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="controls">
+            <EntityTypeMapping TypeName="sicoveModel.control">
+              <MappingFragment StoreEntitySet="control">
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="locacion" ColumnName="locacion" />
+                <ScalarProperty Name="localidad_id" ColumnName="localidad_id" />
+                <ScalarProperty Name="provincia_id" ColumnName="provincia_id" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
+                <ScalarProperty Name="agente_transito_id" ColumnName="agente_transito_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_DATOS_PERSONA" FunctionName="sicoveModel.Store.SP_LISTAR_DATOS_PERSONA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_DATOS_PERSONA_Result">
+                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="sexo_id" ColumnName="sexo_id" />
+                <ScalarProperty Name="sexo_desc" ColumnName="sexo_desc" />
+                <ScalarProperty Name="nacionalidad_id" ColumnName="nacionalidad_id" />
+                <ScalarProperty Name="nacionalidad_desc" ColumnName="nacionalidad_desc" />
                 <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
                 <ScalarProperty Name="dni" ColumnName="dni" />
                 <ScalarProperty Name="domicilio" ColumnName="domicilio" />
@@ -2518,22 +2512,29 @@
                 <ScalarProperty Name="nro_licencia" ColumnName="nro_licencia" />
                 <ScalarProperty Name="otorgamiento" ColumnName="otorgamiento" />
                 <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
-                <ScalarProperty Name="licencia_categoria" ColumnName="licencia_categoria" />
+                <ScalarProperty Name="licencia_categoria_id" ColumnName="licencia_categoria_id" />
+                <ScalarProperty Name="licencia_categoria_desc" ColumnName="licencia_categoria_desc" />
                 <ScalarProperty Name="clases" ColumnName="clases" />
                 <ScalarProperty Name="observaciones" ColumnName="observaciones" />
                 <ScalarProperty Name="nro_cedula" ColumnName="nro_cedula" />
                 <ScalarProperty Name="dominio" ColumnName="dominio" />
-                <ScalarProperty Name="cedula_estado" ColumnName="cedula_estado" />
-                <ScalarProperty Name="vehiculo_marca" ColumnName="vehiculo_marca" />
+                <ScalarProperty Name="cedula_estado_id" ColumnName="cedula_estado_id" />
+                <ScalarProperty Name="cedula_estado_desc" ColumnName="cedula_estado_desc" />
+                <ScalarProperty Name="vehiculo_marca_id" ColumnName="vehiculo_marca_id" />
+                <ScalarProperty Name="vehiculo_marca_desc" ColumnName="vehiculo_marca_desc" />
                 <ScalarProperty Name="modelo" ColumnName="modelo" />
-                <ScalarProperty Name="vehiculo_tipo" ColumnName="vehiculo_tipo" />
-                <ScalarProperty Name="cedula_uso" ColumnName="cedula_uso" />
+                <ScalarProperty Name="vehiculo_tipo_id" ColumnName="vehiculo_tipo_id" />
+                <ScalarProperty Name="vehiculo_tipo_desc" ColumnName="vehiculo_tipo_desc" />
+                <ScalarProperty Name="cedula_uso_id" ColumnName="cedula_uso_id" />
+                <ScalarProperty Name="cedula_uso_desc" ColumnName="cedula_uso_desc" />
                 <ScalarProperty Name="chasis_cuadro" ColumnName="chasis_cuadro" />
                 <ScalarProperty Name="motor" ColumnName="motor" />
                 <ScalarProperty Name="cedula_vencimiento" ColumnName="cedula_vencimiento" />
                 <ScalarProperty Name="cilindrada" ColumnName="cilindrada" />
+                <ScalarProperty Name="año" ColumnName="año" />
                 <ScalarProperty Name="flag_autorizado" ColumnName="flag_autorizado" />
-                <ScalarProperty Name="aseguradora" ColumnName="aseguradora" />
+                <ScalarProperty Name="aseguradora_id" ColumnName="aseguradora_id" />
+                <ScalarProperty Name="aseguradora_desc" ColumnName="aseguradora_desc" />
                 <ScalarProperty Name="nro_poliza" ColumnName="nro_poliza" />
                 <ScalarProperty Name="vigencia_desde" ColumnName="vigencia_desde" />
                 <ScalarProperty Name="vigencia_hasta" ColumnName="vigencia_hasta" />

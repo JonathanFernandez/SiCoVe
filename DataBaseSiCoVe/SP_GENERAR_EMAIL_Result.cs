@@ -11,10 +11,10 @@ namespace DataBaseSiCoVe
 {
     using System;
     
-    public partial class SP_LISTAR_PERSONAS_AUTORIZADAS_Result
+    public partial class SP_GENERAR_EMAIL_Result
     {
-        public int id { get; set; }
-        public string apellido { get; set; }
-        public string nombre { get; set; }
+        public string email { get; set; }
+        public string email_asunto { get; set; }
+        public string email_cuerpo { get; set; }
     }
 }

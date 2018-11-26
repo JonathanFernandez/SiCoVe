@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
-                            <asp:TextBox type="number" ID="txtFechaNacimiento" runat="server" class="form-control" TextMode="Date" required="required"></asp:TextBox>
+                            <asp:TextBox ID="txtFechaNacimiento" runat="server" class="form-control datepicker" required="required"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ForeColor="red" ControlToValidate="txtFechaNacimiento" runat="server" ErrorMessage="* Debe ingresar Fecha Nacimiento" display="dynamic"></asp:RequiredFieldValidator>
                             </div>
                         <div class="form-group">

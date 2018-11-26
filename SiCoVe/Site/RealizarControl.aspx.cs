@@ -21,19 +21,25 @@ namespace SiCoVe.Site
 
         protected void btnTraerPatente_Click(object sender, EventArgs e)
         {
-            //var Ocr = new AutoOcr();
-            FileUploadFoto.SaveAs(Server.MapPath("Temp//" + FileUploadFoto.FileName));
 
-            //var Result = Ocr.Read(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
+            if (!string.IsNullOrEmpty(FileUploadFoto.FileName))
+            {
+                //var Ocr = new AutoOcr();
+                FileUploadFoto.SaveAs(Server.MapPath("Temp//" + FileUploadFoto.FileName));
 
-            imgFoto.ImageUrl = "Temp/" + FileUploadFoto.FileName;
+                //var Result = Ocr.Read(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
 
-            //string extractText = this.ExtractTextFromImage(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
+                imgFoto.ImageUrl = "Temp/" + FileUploadFoto.FileName;
 
-            //lblPatente2.Text = Result.Text;
+                //string extractText = this.ExtractTextFromImage(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
 
-            //lblPatente.Text = extractText;
-            leer();
+                //lblPatente2.Text = Result.Text;
+
+                //lblPatente.Text = extractText;
+                leer();
+            }
+            else
+                lblPatente3.Text = "Suba una patente.";
         }
 
         private void leer()

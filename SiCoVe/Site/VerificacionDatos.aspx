@@ -46,7 +46,7 @@
                                     <div class="tab-pane fade in active" id="dni">
                                         <div class="form-group">
                                             <label>Seleccione persona</label>
-                                            <asp:DropDownList ID="ddlPersona" runat="server" class="form-control" OnSelectedIndexChanged="ddlPersona_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlPersona" runat="server" class="form-control" OnSelectedIndexChanged="ddlPersona_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                         </div>
                                         <div class="form-group">
                                             <label>Apellido</label>
@@ -78,7 +78,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar de nacimiento</label>
-                                            <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
+                                        <%--    <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>--%>
+                                                       <asp:TextBox ID="txtLugNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->
@@ -185,18 +186,13 @@
                                             <label>Titular</label>
                                             <asp:TextBox ID="txtTitularCED" runat="server" class="form-control"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Autorizado</label>
-                                            <asp:TextBox ID="txtAutorizado" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <!--<div class="form-group">
-                                            <label>Documento</label>
-                                            <asp:TextBox ID="txtDocumentoCED" runat="server" class="form-control" placeholder="Ingrese el documento"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Domicilio</label>
-                                            <asp:TextBox ID="txtDomicilioCED" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
-                                        </div>-->
+                                       <div class="form-group">
+                                       <label>Es Autorizado (s/n:)</label>
+                                       <asp:RadioButtonList ID="radBEsAutorizado" runat="server">
+							                <asp:ListItem Text ="Activo" Value= "True" Selected="True"> Si</asp:ListItem>
+							                <asp:ListItem Text ="Activo" Value= "False" > No</asp:ListItem>
+						                </asp:RadioButtonList>
+                                    </div>
                                     </div>
                                     <!-- Datos seguro -->
                                     <div class="tab-pane fade" id="seguro">
@@ -256,20 +252,28 @@
                                             <asp:DropDownList ID="ddlProvinciaFC" runat="server" class="form-control"></asp:DropDownList>
                                         </div>
                                         <div class="form-group">
+                                            <asp:CompareValidator ID="cvProvinciaFC" ControlToValidate="ddlProvinciaFC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Provincia" CssClass="label label-danger"></asp:CompareValidator>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Localidad</label>
                                             <asp:DropDownList ID="ddlLocalidadFC" runat="server" class="form-control"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <asp:CompareValidator ID="cvLocalidadFC" ControlToValidate="ddlLocalidadFC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Localidad" CssClass="label label-danger"></asp:CompareValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar control</label>
                                             <asp:TextBox ID="txtLugarControlFC" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
+                                            <asp:RequiredFieldValidator ID="rfLugarControlFC" runat="server" ErrorMessage="El Lugar de control es obligatorio" ControlToValidate="txtLugarControlFC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Observaciones</label>
                                             <asp:textbox id="txtObservacionesControlFC" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
                                         </div>
                                         <br />
-                                        <asp:Button ID="btnAprobarVD" runat="server" class="btn btn-default" Text="Finalizar" />
-                                        <!--<asp:Button ID="btnModificarVD" runat="server" class="btn btn-default" Text="Modificar" />-->
+                                        <asp:Button ID="btnAprobarVD" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Finalizar" OnClick="btnAprobarVD_Click" />
                                     </div>
                                 </div>
                             </div>

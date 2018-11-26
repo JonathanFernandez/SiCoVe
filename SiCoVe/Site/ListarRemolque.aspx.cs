@@ -33,9 +33,9 @@ namespace SiCoVe
         {
             int id = (int)GvRemolque.DataKeys[e.NewEditIndex].Values["id"];
 
-            Session["id"] = id;
+            //Session["id"] = id;
 
-            Response.Redirect("ModificarRemolque.aspx");
+            Response.Redirect("ModificarRemolque.aspx?id="+id,false);
         }
 
         protected void GvRemolque_delete(object sender, GridViewDeleteEventArgs e)

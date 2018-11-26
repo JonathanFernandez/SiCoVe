@@ -20,7 +20,6 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                //var per = sicove.personas.ToList();
                 var per = sicove.SP_LISTAR_PERSONAS_AUTORIZADAS(dominio).ToList();
 
                 ddlPersona.Items.Insert(0, new ListItem("Seleccione persona...", "0"));
@@ -56,18 +55,18 @@ namespace SiCoVe.Site
 
                 var loc = sicove.municipios.ToList();
 
-                ddlLugNacimientoDNI.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
+                //ddlLugNacimientoDNI.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
                 ddlLocalidadFC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
                 foreach (municipio p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
-                    ddlLugNacimientoDNI.Items.Add(item);
+                   // ddlLugNacimientoDNI.Items.Add(item);
                     ddlLocalidadFC.Items.Add(item);
                 }
 
-                ddlLugNacimientoDNI.SelectedIndex = 0;
+                //ddlLugNacimientoDNI.SelectedIndex = 0;
                 ddlLocalidadFC.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
@@ -180,6 +179,17 @@ namespace SiCoVe.Site
                 }
 
                 ddlTipoCED.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+
+                //txtApellidoDNI.ReadOnly = true;
+                //txtNombreDNI.ReadOnly = true;
+                //ddlSexoDNI.Enabled = true;
+                //ddlNacionalidadDNI.Enabled = false;
+                //txtFecNacimientoDNI.ReadOnly = true;
+                //txtDocumentoDNI.ReadOnly = true;
+                //txtDomicilioDNI.ReadOnly = true;
+                //ddlLugNacimientoDNI.Enabled = false; 
             }   
         }
 
@@ -187,8 +197,135 @@ namespace SiCoVe.Site
         {
             int id_persona = Convert.ToInt16(ddlPersona.SelectedValue);
 
+            var dat = sicove.SP_LISTAR_DATOS_PERSONA(id_persona).ToList();
 
+            foreach (SP_LISTAR_DATOS_PERSONA_Result p in dat)
+            {
+                txtApellidoDNI.Text = p.apellido.ToString();
+                txtNombreDNI.Text = p.nombre.ToString();
+
+                ddlSexoDNI.SelectedIndex = p.sexo_id; //X
+                ddlNacionalidadDNI.SelectedIndex = p.nacionalidad_id; //X
+
+                txtFecNacimientoDNI.Text = String.Format("{0:dd/MM/yyyy}", p.fecha_nacimiento.ToString());
+                txtDocumentoDNI.Text = p.dni.ToString();
+                txtDomicilioDNI.Text = p.domicilio.ToString();
+
+                txtLugNacimientoDNI.Text = p.lugar_nacimiento; //X
+
+                txtNumLicenciaLIC.Text = p.nro_licencia.ToString();
+                txtApellidoLIC.Text = p.apellido.ToString();
+                txtNombresLIC.Text = p.nombre.ToString();
+                txtFecNacimientoLIC.Text = String.Format("{0:dd/MM/yyyy}", p.fecha_nacimiento.ToString());
+                txtDomicilioLIC.Text = p.domicilio.ToString();
+
+                ddlNacionalidadLIC.SelectedIndex = p.nacionalidad_id; //X
+                ddlSexoLIC.SelectedIndex = p.sexo_id; //X
+
+                txtFecOtorgamientoLIC.Text = String.Format("{0:dd/MM/yyyy}", p.otorgamiento.ToString());
+                txtFecVencimientoLIC.Text = String.Format("{0:dd/MM/yyyy}", p.vencimiento.ToString()); 
+                txtcategoriLIC.Text = p.licencia_categoria_desc.ToString();
+                txtClasesLIC.Text = p.clases.ToString();
+                txtObservaciones.Text = p.observaciones.ToString();
+
+                txtNumCedulaCED.Text = p.nro_cedula.ToString();
+                txtDominioCED.Text = p.dominio.ToString();
+
+                ddlEstadoCED.SelectedIndex = p.cedula_estado_id; //X
+                ddlMarcaCED.SelectedIndex = p.vehiculo_marca_id; //X
+
+                txtModeloCED.Text = p.modelo.ToString();
+
+                ddlTipoCED.SelectedIndex = p.vehiculo_tipo_id; //X
+                ddlUsoCED.SelectedIndex = p.cedula_uso_id; //X
+
+                txtChasisCED.Text = p.chasis_cuadro.ToString();
+                txtNumMotorCED.Text = p.motor.ToString();
+                txtFecVencimientoCED.Text = p.cedula_vencimiento.ToString();
+                txtCilindradaCED.Text = p.cilindrada.ToString();
+                txtTitularCED.Text = String.Concat(p.nombre, ' ', p.apellido);
+
+                if (p.flag_autorizado == true)
+                    radBEsAutorizado.SelectedValue = "True";
+                else
+                    radBEsAutorizado.SelectedValue = "False";
+
+                ddlAseguradoraSEG.SelectedIndex = p.aseguradora_id; //X
+
+                txtAseguradoSEG.Text = String.Concat(p.nombre, ' ', p.apellido);
+                txtPolizaSEG.Text = p.nro_poliza.ToString();
+
+                ddlMarcaSEG.SelectedIndex = p.vehiculo_marca_id; //X
+
+                txtModeloSEG.Text = p.modelo.ToString();
+                txtcilindradaSEG.Text = p.cilindrada.ToString();
+                txtDominioSEG.Text = p.dominio.ToString();
+
+                txtAnioSEG.Text = p.año.ToString();
+
+                txtNumMotorSEG.Text = p.motor.ToString();
+                txtNumChasisSEG.Text = p.chasis_cuadro.ToString();
+                txtFecDesdeSEG.Text = String.Format("{0:dd/MM/yyyy}", p.vigencia_desde.ToString());
+                txtFecHastaSEG.Text = String.Format("{0:dd/MM/yyyy}", p.vigencia_hasta.ToString());
+            }
         }
 
+        protected void btnAprobarVD_Click(object sender, EventArgs e)
+        {
+            Page.Validate();
+
+            if (Page.IsValid)
+            {
+                int id_persona = UserSession.persona_id;
+                int id_agente = 0;
+                int id_vehiculo = 0;
+
+                control con = new control();
+
+                try
+                {
+                    id_agente = (from ag in sicove.agente_transito
+                                 join us in sicove.usuarios on ag.usuario_id equals us.id
+                                 where us.persona_id == id_persona
+                                 select ag.id).First();
+                }
+                catch (Exception ex)
+                {
+                    id_persona = 0;
+                }
+
+                try
+                {
+                    id_vehiculo = (from ve in sicove.vehiculoes
+                                   where ve.dominio == txtDominioCED.Text.ToString()
+                                   select ve.id).First();
+                }
+                catch (Exception ex)
+                {
+                    id_vehiculo = 0;
+                }
+
+                try
+                {
+                    String fecha_hora = DateTime.Now.ToString("g");
+
+                    con.agente_transito_id = id_agente;
+                    con.vehiculo_id = id_vehiculo;
+                    con.persona_id = id_persona;
+                    con.fecha_hora = DateTime.Parse(fecha_hora);
+                    con.provincia_id = Convert.ToInt16(ddlProvinciaFC.SelectedValue);
+                    con.localidad_id = Convert.ToInt16(ddlLocalidadFC.SelectedValue);
+                    con.locacion = txtLugarControlFC.Text.ToString();
+                    con.observaciones = txtObservacionesControlFC.Text.ToString();
+
+                    sicove.controls.Add(con);
+                    sicove.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
     }
 }

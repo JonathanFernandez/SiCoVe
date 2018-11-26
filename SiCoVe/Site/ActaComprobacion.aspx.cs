@@ -94,12 +94,12 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                var loc = sicove.municipios.ToList();
+                var loc = sicove.localidads.ToList();
 
                 ddlLocalidadAC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
                 ddlLocalidadINF.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
-                foreach (municipio p in loc)
+                foreach (localidad p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
@@ -116,7 +116,7 @@ namespace SiCoVe.Site
 
                 ddlMuniLicenciaAC.Items.Insert(0, new ListItem("Seleccione municipio...", "0"));
 
-                foreach (municipio p in loc)
+                foreach (municipio p in mun)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
@@ -278,7 +278,7 @@ namespace SiCoVe.Site
                     sicove.infraccions.Add(ac);
                     sicove.SaveChanges();
 
-                    this.Page.Response.Write("<script language='JavaScript'>window.alert('Acta generada correctamente');window.location.href = './ActaComprobacion.aspx';</script>");
+                    //this.Page.Response.Write("<script language='JavaScript'>window.alert('Acta generada correctamente');window.location.href = './ActaComprobacion.aspx';</script>");
                 }
                 catch (Exception ex)
                 {
