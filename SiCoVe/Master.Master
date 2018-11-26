@@ -129,7 +129,7 @@
                             </li>
                             <!--Usuario Remolque-->
                             <li>
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarControl.aspx"><i class="fa fa-dashboard fa-fw"></i> Buscar vehículo </asp:HyperLink>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/BuscarVehiculo.aspx"><i class="fa fa-dashboard fa-fw"></i> Buscar vehículo </asp:HyperLink>
                             </li>
                             <li>
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialAcarreo.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de remolques </asp:HyperLink>

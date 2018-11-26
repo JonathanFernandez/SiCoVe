@@ -4,6 +4,20 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+         <script>
+        function showimagepreview(input) {  
+  
+             if (input.files && input.files[0]) {  
+                 var reader = new FileReader();  
+                 reader.onload = function (e) {  
+  
+                     //document.getElementsByTagName("imgFoto")[0].setAttribute("src", e.target.result);  
+                     document.getElementById('PaginaCentral_ContentPlaceHolder_imgFoto').src = e.target.result;
+                 }  
+                 reader.readAsDataURL(input.files[0]);  
+             }  
+        }  
+    </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
