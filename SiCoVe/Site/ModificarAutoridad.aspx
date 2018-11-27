@@ -1,5 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ModificarAutoridad.aspx.cs" Inherits="SiCoVe.ModificarAutoridad" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
+            <style>
+        .modalBackground
+        {
+            background-color: black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+            z-index: 10000;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
@@ -121,7 +130,28 @@
                             <asp:TextBox type="number" ID="txtNumPuerta" runat="server" class="form-control"></asp:TextBox>
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumPuerta" runat="server" ErrorMessage="* Debe ingresar Numero de Puerta"></asp:RequiredFieldValidator>--%>
                         </div>
-                            <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Modificar" OnClick="btnRegistrarACNC_Click" />
+                                                  
+                            <br />
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <br />
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" OnClick="btnRegistrarACNC_Click" Text="Modificar" />
+                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" DynamicServicePath="" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
+                                    </ajaxToolkit:ModalPopupExtender>
+                                    <br />
+                                    <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:20%; height:auto; margin-left:90px;">
+                                        <div class="modal-body">
+                                            Se modificaron los datos correctamente.
+                                        </div>
+                                        <div modal-footer>
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                        </div>
+                                    </asp:Panel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                       
                        </div>
                      </div>
                   </div>
