@@ -25,15 +25,15 @@
                         <div class="col-sm-2">
 
                             <asp:Label ID="LblLegajo" runat="server" Text="Label">Legajo</asp:Label>
-                            <asp:TextBox class="form-control" ID="TxtDocumento" runat="server"></asp:TextBox>
+                            <asp:TextBox class="form-control" ID="txtLegajo" runat="server"></asp:TextBox>
                             </div>
                         <div class="col-sm-2">
                             <asp:Label ID="LblApellido" runat="server" Text="Label">Apellido</asp:Label>
-                            <asp:TextBox class="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:TextBox class="form-control" ID="txtApellido" runat="server"></asp:TextBox>
                         </div>
                         <div class="col-sm-2">
                             <asp:Label ID="LblNombre" runat="server" Text="Label">Nombre</asp:Label>
-                            <asp:TextBox class="form-control" ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:TextBox class="form-control" ID="txtNombre" runat="server"></asp:TextBox>
                          &nbsp;
                         </div>
                         <br />
