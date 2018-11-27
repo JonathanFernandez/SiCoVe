@@ -13,8 +13,8 @@
                 <h1 class="page-header">Inicio</h1>
 
                 <%--<h1 style="height:80%; width:80%; display:block; margin: auto; opacity: 0.5;">SiCoVe</h1>--%>
-
-                <asp:Image ID="imgLogo" runat="server" style="height:80%; width:80%; display:block; margin:auto; opacity:0.4; margin-top:8%;" src="/img/Inicio.png"/>
+                    <img id="imgLogIndex" runat="server" src="~/img/Inicio.png" style="height:80%; width:80%; display:block; margin:auto; opacity:0.4; margin-top:8%;" />
+                <%--<asp:Image ID="imgLogo" runat="server" style="height:80%; width:80%; display:block; margin:auto; opacity:0.4; margin-top:8%;" src="/img/Inicio.png"/>--%>
             </div>
         </div>
         

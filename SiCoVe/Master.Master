@@ -28,7 +28,8 @@
 				</button>
 				<div class="navbar-header">
                     <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/Index.aspx">
-                        <asp:Image ID="imgLogo" runat="server" Width="120px" Height="43px" style="margin-top:3px" src="~/img/Logo.png"/>
+                     <%--   <asp:Image ID="imgLogo" runat="server" Width="120px" Height="43px" style="margin-top:3px" src="~/img/Logo.png"/>--%>
+                        <img id="imgLog" runat="server" src="~/img/Logo.png" style="margin-top:3px;width:120px;height:43px;" />
                     </asp:HyperLink>
                     <a class="navbar-brand" href="~/Index.aspx" style="padding: 15px 5px;">SiCoVe 1.0</a>
                 </div>

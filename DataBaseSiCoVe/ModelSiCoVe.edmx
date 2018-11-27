@@ -249,6 +249,7 @@
           <Property Name="ubicacion" Type="nvarchar" MaxLength="100" />
           <Property Name="detalle_infraccion" Type="nvarchar" MaxLength="200" />
           <Property Name="dominio" Type="nvarchar" MaxLength="10" />
+          <Property Name="localidad_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sexo">
           <Key>
@@ -691,6 +692,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_remolque_localidad">
+          <End Role="localidad" Type="Self.localidad" Multiplicity="1" />
+          <End Role="remolque" Type="Self.remolque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="remolque">
+              <PropertyRef Name="localidad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_remolque_personal_remolque">
           <End Role="personal_remolque" Type="Self.personal_remolque" Multiplicity="1" />
           <End Role="remolque" Type="Self.remolque" Multiplicity="*" />
@@ -956,6 +969,10 @@
             <End Role="provincia" EntitySet="provincia" />
             <End Role="provincia1" EntitySet="provincia" />
           </AssociationSet>
+          <AssociationSet Name="FK_remolque_localidad" Association="Self.FK_remolque_localidad">
+            <End Role="localidad" EntitySet="localidad" />
+            <End Role="remolque" EntitySet="remolque" />
+          </AssociationSet>
           <AssociationSet Name="FK_remolque_personal_remolque" Association="Self.FK_remolque_personal_remolque">
             <End Role="personal_remolque" EntitySet="personal_remolque" />
             <End Role="remolque" EntitySet="remolque" />
@@ -1160,19 +1177,6 @@
             <End Role="vehiculo" EntitySet="vehiculoes" />
             <End Role="infraccion" EntitySet="infraccions" />
           </AssociationSet>
-          <EntitySet Name="remolques" EntityType="sicoveModel.remolque" />
-          <AssociationSet Name="FK_remolque_personal_remolque" Association="sicoveModel.FK_remolque_personal_remolque">
-            <End Role="personal_remolque" EntitySet="personal_remolque" />
-            <End Role="remolque" EntitySet="remolques" />
-          </AssociationSet>
-          <AssociationSet Name="FK_remolque_playa_acarreo" Association="sicoveModel.FK_remolque_playa_acarreo">
-            <End Role="playa_acarreo" EntitySet="playa_acarreo" />
-            <End Role="remolque" EntitySet="remolques" />
-          </AssociationSet>
-          <AssociationSet Name="FK_remolque_vehiculo" Association="sicoveModel.FK_remolque_vehiculo">
-            <End Role="vehiculo" EntitySet="vehiculoes" />
-            <End Role="remolque" EntitySet="remolques" />
-          </AssociationSet>
           <FunctionImport Name="SP_GENERAR_EMAIL" ReturnType="Collection(sicoveModel.SP_GENERAR_EMAIL_Result)">
             <Parameter Name="dominio" Mode="In" Type="String" />
             <Parameter Name="remolque_id" Mode="In" Type="Int32" />
@@ -1196,8 +1200,25 @@
             <End Role="infraccion" EntitySet="infraccions" />
           </AssociationSet>
           <FunctionImport Name="SP_LISTAR_DATOS_PERSONA" ReturnType="Collection(sicoveModel.SP_LISTAR_DATOS_PERSONA_Result)">
-            <Parameter Name="persona" Mode="In" Type="Int32" />
+          <Parameter Name="persona" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="remolques" EntityType="sicoveModel.remolque" />
+          <AssociationSet Name="FK_remolque_localidad" Association="sicoveModel.FK_remolque_localidad">
+            <End Role="localidad" EntitySet="localidads" />
+            <End Role="remolque" EntitySet="remolques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_remolque_personal_remolque" Association="sicoveModel.FK_remolque_personal_remolque">
+            <End Role="personal_remolque" EntitySet="personal_remolque" />
+            <End Role="remolque" EntitySet="remolques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_remolque_playa_acarreo" Association="sicoveModel.FK_remolque_playa_acarreo">
+            <End Role="playa_acarreo" EntitySet="playa_acarreo" />
+            <End Role="remolque" EntitySet="remolques" />
+          </AssociationSet>
+          <AssociationSet Name="FK_remolque_vehiculo" Association="sicoveModel.FK_remolque_vehiculo">
+            <End Role="vehiculo" EntitySet="vehiculoes" />
+            <End Role="remolque" EntitySet="remolques" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="agente_transito">
           <Key>
@@ -1323,6 +1344,7 @@
           <NavigationProperty Name="personas" Relationship="sicoveModel.FK_persona_localidad" FromRole="localidad" ToRole="persona" />
           <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_imp_localidad" FromRole="localidad" ToRole="infraccion" />
           <NavigationProperty Name="infraccions1" Relationship="sicoveModel.FK_infraccion_localidad" FromRole="localidad" ToRole="infraccion" />
+          <NavigationProperty Name="remolques" Relationship="sicoveModel.FK_remolque_localidad" FromRole="localidad" ToRole="remolque" />
         </EntityType>
         <EntityType Name="marca_vehiculo">
           <Key>
@@ -1970,58 +1992,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="remolque">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="personal_remolque_id" Type="Int32" Nullable="false" />
-          <Property Name="playa_acarreo_id" Type="Int32" Nullable="false" />
-          <Property Name="vehiculo_id" Type="Int32" />
-          <Property Name="fecha_hora" Type="DateTime" Precision="3" />
-          <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="detalle_infraccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="dominio" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="personal_remolque" Relationship="sicoveModel.FK_remolque_personal_remolque" FromRole="remolque" ToRole="personal_remolque" />
-          <NavigationProperty Name="playa_acarreo" Relationship="sicoveModel.FK_remolque_playa_acarreo" FromRole="remolque" ToRole="playa_acarreo" />
-          <NavigationProperty Name="vehiculo" Relationship="sicoveModel.FK_remolque_vehiculo" FromRole="remolque" ToRole="vehiculo" />
-        </EntityType>
-        <Association Name="FK_remolque_personal_remolque">
-          <End Type="sicoveModel.personal_remolque" Role="personal_remolque" Multiplicity="1" />
-          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="personal_remolque">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="remolque">
-              <PropertyRef Name="personal_remolque_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_remolque_playa_acarreo">
-          <End Type="sicoveModel.playa_acarreo" Role="playa_acarreo" Multiplicity="1" />
-          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="playa_acarreo">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="remolque">
-              <PropertyRef Name="playa_acarreo_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_remolque_vehiculo">
-          <End Type="sicoveModel.vehiculo" Role="vehiculo" Multiplicity="0..1" />
-          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="vehiculo">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="remolque">
-              <PropertyRef Name="vehiculo_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="SP_GENERAR_EMAIL_Result">
           <Property Type="String" Name="email" Nullable="true" MaxLength="255" />
           <Property Type="String" Name="email_asunto" Nullable="true" MaxLength="168" />
@@ -2123,6 +2093,72 @@
           <Property Type="DateTime" Name="vigencia_desde" Nullable="true" />
           <Property Type="DateTime" Name="vigencia_hasta" Nullable="true" />
         </ComplexType>
+        <EntityType Name="remolque">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personal_remolque_id" Type="Int32" Nullable="false" />
+          <Property Name="playa_acarreo_id" Type="Int32" Nullable="false" />
+          <Property Name="vehiculo_id" Type="Int32" />
+          <Property Name="fecha_hora" Type="DateTime" Precision="3" />
+          <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="detalle_infraccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="dominio" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="localidad_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="localidad" Relationship="sicoveModel.FK_remolque_localidad" FromRole="remolque" ToRole="localidad" />
+          <NavigationProperty Name="personal_remolque" Relationship="sicoveModel.FK_remolque_personal_remolque" FromRole="remolque" ToRole="personal_remolque" />
+          <NavigationProperty Name="playa_acarreo" Relationship="sicoveModel.FK_remolque_playa_acarreo" FromRole="remolque" ToRole="playa_acarreo" />
+          <NavigationProperty Name="vehiculo" Relationship="sicoveModel.FK_remolque_vehiculo" FromRole="remolque" ToRole="vehiculo" />
+        </EntityType>
+        <Association Name="FK_remolque_localidad">
+          <End Type="sicoveModel.localidad" Role="localidad" Multiplicity="1" />
+          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localidad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="remolque">
+              <PropertyRef Name="localidad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_remolque_personal_remolque">
+          <End Type="sicoveModel.personal_remolque" Role="personal_remolque" Multiplicity="1" />
+          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal_remolque">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="remolque">
+              <PropertyRef Name="personal_remolque_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_remolque_playa_acarreo">
+          <End Type="sicoveModel.playa_acarreo" Role="playa_acarreo" Multiplicity="1" />
+          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="playa_acarreo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="remolque">
+              <PropertyRef Name="playa_acarreo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_remolque_vehiculo">
+          <End Type="sicoveModel.vehiculo" Role="vehiculo" Multiplicity="0..1" />
+          <End Type="sicoveModel.remolque" Role="remolque" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="remolque">
+              <PropertyRef Name="vehiculo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2418,20 +2454,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="remolques">
-            <EntityTypeMapping TypeName="sicoveModel.remolque">
-              <MappingFragment StoreEntitySet="remolque">
-                <ScalarProperty Name="dominio" ColumnName="dominio" />
-                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
-                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
-                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
-                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
-                <ScalarProperty Name="playa_acarreo_id" ColumnName="playa_acarreo_id" />
-                <ScalarProperty Name="personal_remolque_id" ColumnName="personal_remolque_id" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SP_GENERAR_EMAIL" FunctionName="sicoveModel.Store.SP_GENERAR_EMAIL">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sicoveModel.SP_GENERAR_EMAIL_Result">
@@ -2541,6 +2563,21 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="remolques">
+            <EntityTypeMapping TypeName="sicoveModel.remolque">
+              <MappingFragment StoreEntitySet="remolque">
+                <ScalarProperty Name="localidad_id" ColumnName="localidad_id" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
+                <ScalarProperty Name="playa_acarreo_id" ColumnName="playa_acarreo_id" />
+                <ScalarProperty Name="personal_remolque_id" ColumnName="personal_remolque_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
