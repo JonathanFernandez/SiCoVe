@@ -188,8 +188,8 @@ namespace SiCoVe.Site
                     try
                     {
                         id_licencia = (from li in sicove.licencias
-                                   where li.nro_licencia == txtNumLicenciaAC.Text
-                                   select li.id).First();
+                                       where li.nro_licencia == txtNumLicenciaAC.Text
+                                       select li.id).First();
                     }
                     catch (Exception ex)
                     {

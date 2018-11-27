@@ -36,7 +36,7 @@ namespace SiCoVe.Site
                 leer();
             }
             else
-                lblPatente3.Text = "Suba una patente.";
+                lblPatente3.Text = "Debe subir una patente.";
         }
         private void leer()
         {
