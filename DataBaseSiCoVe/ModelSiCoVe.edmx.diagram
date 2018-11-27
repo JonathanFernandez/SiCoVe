@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="11d42b3d50c8411aa820b15ac644d9f9" Name="Diagram1" ZoomLevel="66">
+      <Diagram DiagramId="11d42b3d50c8411aa820b15ac644d9f9" Name="Diagram1" ZoomLevel="98">
         <EntityTypeShape EntityType="sicoveModel.agente_transito" Width="1.5" PointX="8.25" PointY="4.75" />
         <EntityTypeShape EntityType="sicoveModel.aseguradora" Width="1.5" PointX="3.75" PointY="34.5" />
         <EntityTypeShape EntityType="sicoveModel.categoria_infraccion" Width="1.5" PointX="1.5" PointY="26.125" />
@@ -67,12 +67,13 @@
         <AssociationConnector Association="sicoveModel.FK_infraccion_provincia" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_tipo_vehiculo" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_vehiculo" />
-        <EntityTypeShape EntityType="sicoveModel.remolque" Width="1.5" PointX="4.375" PointY="40.375" />
+        <EntityTypeShape EntityType="sicoveModel.control" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="sicoveModel.FK_infraccion_control" />
+        <EntityTypeShape EntityType="sicoveModel.remolque" Width="1.5" PointX="4" PointY="40.125" />
+        <AssociationConnector Association="sicoveModel.FK_remolque_localidad" />
         <AssociationConnector Association="sicoveModel.FK_remolque_personal_remolque" />
         <AssociationConnector Association="sicoveModel.FK_remolque_playa_acarreo" />
         <AssociationConnector Association="sicoveModel.FK_remolque_vehiculo" />
-        <EntityTypeShape EntityType="sicoveModel.control" Width="1.5" PointX="0.75" PointY="1" />
-        <AssociationConnector Association="sicoveModel.FK_infraccion_control" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

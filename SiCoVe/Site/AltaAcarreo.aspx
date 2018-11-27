@@ -39,6 +39,10 @@
                                                 <input class="form-control">
                                         
                                             </div>
+                                           <div class="form-group">
+                                    <label>Localidad</label>
+                                    <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
                                          
                                       <div class="form-group">
                                                 <label>Playa de Estacionamiento</label>
