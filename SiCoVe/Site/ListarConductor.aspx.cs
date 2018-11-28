@@ -40,8 +40,48 @@ namespace SiCoVe
             GvConductor.DataBind();
         }
 
-    
+        protected void GvConductor_edit(object sender, GridViewEditEventArgs e)
+        {
+            int id = (int)GvConductor.DataKeys[e.NewEditIndex].Values["id"];
 
+            Session["id"] = id;
+
+            Response.Redirect("ModificarDatosConductor.aspx");
+        }
+
+        protected void GvConductor_delete(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = (int)GvConductor.DataKeys[e.RowIndex].Values["id"];
+            
+
+            persona per = (from p in sicove.personas where p.id == id select p).FirstOrDefault();
+            //vehiculo vec = (from v in sicove.vehiculoes where v.id == id select v).FirstOrDefault();
+            //borro los usuarios relacionados a la persona
+            foreach (var u in sicove.usuarios.Where(u => u.persona_id == per.id))
+            {
+                sicove.usuarios.Remove(u);
+            }
+            //borro las cedulas relacionados a la persona
+            foreach (var a in sicove.cedulas.Where(a => a.persona_id == per.id))
+            {
+                sicove.cedulas.Remove(a);
+            }
+            //borro las licencias relacionados a la persona
+            foreach (var l in sicove.licencias.Where(l => l.persona_id == per.id))
+            {
+                sicove.licencias.Remove(l);
+            }
+            //foreach (var pl in sicove.polizas.Where(pl => pl.vehiculo_id == vec.id))
+            //{
+            //    sicove.polizas.Remove(pl);
+            //}
+            //sicove.vehiculoes.Remove(vec);
+
+            sicove.personas.Remove(per);
+            sicove.SaveChanges();
+
+            ListadoDatosConductor();
+        }
 
 
 
