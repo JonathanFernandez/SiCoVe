@@ -138,7 +138,10 @@
     <Compile Include="sexo.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
-    <Compile Include="SP_GENERAR_EMAIL_Result.cs">
+    <Compile Include="SP_GENERAR_EMAIL_ACARREO_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GENERAR_EMAIL_DENUNCIA_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_LISTADO_AGENTE_TRANSITO_Result.cs">

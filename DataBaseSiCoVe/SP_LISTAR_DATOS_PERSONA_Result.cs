@@ -20,13 +20,13 @@ namespace DataBaseSiCoVe
         public string sexo_desc { get; set; }
         public int nacionalidad_id { get; set; }
         public string nacionalidad_desc { get; set; }
-        public Nullable<System.DateTime> fecha_nacimiento { get; set; }
+        public string fecha_nacimiento { get; set; }
         public long dni { get; set; }
         public string domicilio { get; set; }
         public string lugar_nacimiento { get; set; }
         public string nro_licencia { get; set; }
-        public Nullable<System.DateTime> otorgamiento { get; set; }
-        public Nullable<System.DateTime> vencimiento { get; set; }
+        public string otorgamiento { get; set; }
+        public string vencimiento { get; set; }
         public int licencia_categoria_id { get; set; }
         public string licencia_categoria_desc { get; set; }
         public string clases { get; set; }
@@ -44,14 +44,14 @@ namespace DataBaseSiCoVe
         public string cedula_uso_desc { get; set; }
         public string chasis_cuadro { get; set; }
         public string motor { get; set; }
-        public System.DateTime cedula_vencimiento { get; set; }
+        public string cedula_vencimiento { get; set; }
         public string cilindrada { get; set; }
         public int año { get; set; }
         public bool flag_autorizado { get; set; }
         public int aseguradora_id { get; set; }
         public string aseguradora_desc { get; set; }
         public string nro_poliza { get; set; }
-        public Nullable<System.DateTime> vigencia_desde { get; set; }
-        public Nullable<System.DateTime> vigencia_hasta { get; set; }
+        public string vigencia_desde { get; set; }
+        public string vigencia_hasta { get; set; }
     }
 }

@@ -84,7 +84,7 @@ namespace SiCoVe.Site
             {
                 remol = (from r in sicove.remolques where r.dominio == auto.dominio orderby r.fecha_hora descending select r).FirstOrDefault();
 
-                var mail = sicove.SP_GENERAR_EMAIL(auto.dominio, remol.id).FirstOrDefault();
+                var mail = sicove.SP_GENERAR_EMAIL_ACARREO(auto.dominio, remol.id).FirstOrDefault();
 
                 EnviarMail(mail.email, mail.email_asunto, mail.email_cuerpo);
             }

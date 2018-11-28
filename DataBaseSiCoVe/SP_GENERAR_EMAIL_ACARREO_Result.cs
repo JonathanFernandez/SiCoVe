@@ -11,7 +11,7 @@ namespace DataBaseSiCoVe
 {
     using System;
     
-    public partial class SP_GENERAR_EMAIL_Result
+    public partial class SP_GENERAR_EMAIL_ACARREO_Result
     {
         public string email { get; set; }
         public string email_asunto { get; set; }
