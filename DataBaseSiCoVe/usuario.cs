@@ -18,8 +18,8 @@ namespace DataBaseSiCoVe
         public usuario()
         {
             this.agente_transito = new HashSet<agente_transito>();
-            this.denuncias = new HashSet<denuncia>();
             this.personal_remolque = new HashSet<personal_remolque>();
+            this.denuncias = new HashSet<denuncia>();
         }
     
         public int id { get; set; }
@@ -30,11 +30,11 @@ namespace DataBaseSiCoVe
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<agente_transito> agente_transito { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<denuncia> denuncias { get; set; }
         public virtual perfil_usuario perfil_usuario { get; set; }
         public virtual persona persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<personal_remolque> personal_remolque { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<denuncia> denuncias { get; set; }
     }
 }

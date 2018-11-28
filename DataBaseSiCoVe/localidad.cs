@@ -21,6 +21,7 @@ namespace DataBaseSiCoVe
             this.infraccions = new HashSet<infraccion>();
             this.infraccions1 = new HashSet<infraccion>();
             this.remolques = new HashSet<remolque>();
+            this.denuncias = new HashSet<denuncia>();
         }
     
         public int id { get; set; }
@@ -36,5 +37,7 @@ namespace DataBaseSiCoVe
         public virtual ICollection<infraccion> infraccions1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<remolque> remolques { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<denuncia> denuncias { get; set; }
     }
 }

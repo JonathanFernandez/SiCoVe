@@ -23,9 +23,11 @@ namespace DataBaseSiCoVe
         public byte[] adjunto { get; set; }
         public Nullable<System.DateTime> fecha_hora { get; set; }
         public string observaciones { get; set; }
+        public int localidad_id { get; set; }
     
         public virtual estado_denuncia estado_denuncia { get; set; }
-        public virtual usuario usuario { get; set; }
         public virtual infraccion infraccion { get; set; }
+        public virtual localidad localidad { get; set; }
+        public virtual usuario usuario { get; set; }
     }
 }

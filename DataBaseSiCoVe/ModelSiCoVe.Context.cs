@@ -33,7 +33,6 @@ namespace DataBaseSiCoVe
         public virtual DbSet<categoria_licencia> categoria_licencia { get; set; }
         public virtual DbSet<cedula> cedulas { get; set; }
         public virtual DbSet<codigo_infraccion> codigo_infraccion { get; set; }
-        public virtual DbSet<denuncia> denuncias { get; set; }
         public virtual DbSet<estado_cedula> estado_cedula { get; set; }
         public virtual DbSet<estado_denuncia> estado_denuncia { get; set; }
         public virtual DbSet<licencia> licencias { get; set; }
@@ -55,6 +54,7 @@ namespace DataBaseSiCoVe
         public virtual DbSet<infraccion> infraccions { get; set; }
         public virtual DbSet<control> controls { get; set; }
         public virtual DbSet<remolque> remolques { get; set; }
+        public virtual DbSet<denuncia> denuncias { get; set; }
     
         public virtual ObjectResult<SP_GENERAR_EMAIL_Result> SP_GENERAR_EMAIL(string dominio, Nullable<int> remolque_id)
         {
