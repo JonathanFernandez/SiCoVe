@@ -40,7 +40,7 @@
 
                                          <div class="form-group">
                                                 <label>Selección de Patente</label>
-                                              <asp:Image ID="imgFoto" runat="server" Style="width: 500px; height: 300px"  />
+                                              <asp:Image ID="imgFoto" runat="server" style="width:100%; height:300px;"  />
                                                
                                         
                                             </div>

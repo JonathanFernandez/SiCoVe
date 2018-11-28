@@ -77,10 +77,11 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="usuario_id" Type="int" Nullable="false" />
           <Property Name="estado_id" Type="int" Nullable="false" />
-          <Property Name="infraccion_id" Type="int" Nullable="false" />
+          <Property Name="infraccion_id" Type="int" />
           <Property Name="dominio" Type="nvarchar" MaxLength="10" />
           <Property Name="ubicacion" Type="nvarchar" MaxLength="100" />
           <Property Name="adjunto" Type="image" />
+          <Property Name="ruta_adjunto" Type="nvarchar(max)" />
           <Property Name="fecha_hora" Type="date" />
           <Property Name="observaciones" Type="nvarchar" MaxLength="200" />
           <Property Name="localidad_id" Type="int" Nullable="false" />
@@ -96,7 +97,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="infraccion">
@@ -382,7 +383,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_denuncia_infraccion">
-          <End Role="infraccion" Type="Self.infraccion" Multiplicity="1" />
+          <End Role="infraccion" Type="Self.infraccion" Multiplicity="0..1" />
           <End Role="denuncia" Type="Self.denuncia" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="infraccion">
@@ -1031,7 +1032,6 @@
           <EntitySet Name="cedulas" EntityType="sicoveModel.cedula" />
           <EntitySet Name="codigo_infraccion" EntityType="sicoveModel.codigo_infraccion" />
           <EntitySet Name="estado_cedula" EntityType="sicoveModel.estado_cedula" />
-          <EntitySet Name="estado_denuncia" EntityType="sicoveModel.estado_denuncia" />
           <EntitySet Name="licencias" EntityType="sicoveModel.licencia" />
           <EntitySet Name="localidads" EntityType="sicoveModel.localidad" />
           <EntitySet Name="marca_vehiculo" EntityType="sicoveModel.marca_vehiculo" />
@@ -1223,6 +1223,7 @@
             <End Role="vehiculo" EntitySet="vehiculoes" />
             <End Role="remolque" EntitySet="remolques" />
           </AssociationSet>
+          <EntitySet Name="estado_denuncia" EntityType="sicoveModel.estado_denuncia" />
           <EntitySet Name="denuncias" EntityType="sicoveModel.denuncia" />
           <AssociationSet Name="FK_denuncia_estado_denuncia" Association="sicoveModel.FK_denuncia_estado_denuncia">
             <End Role="estado_denuncia" EntitySet="estado_denuncia" />
@@ -1310,14 +1311,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="cedulas" Relationship="sicoveModel.FK_cedula_estado_cedula" FromRole="estado_cedula" ToRole="cedula" />
-        </EntityType>
-        <EntityType Name="estado_denuncia">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="denuncias" Relationship="sicoveModel.FK_denuncia_estado_denuncia" FromRole="estado_denuncia" ToRole="denuncia" />
         </EntityType>
         <EntityType Name="licencia">
           <Key>
@@ -2128,6 +2121,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="estado_denuncia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="denuncias" Relationship="sicoveModel.FK_denuncia_estado_denuncia" FromRole="estado_denuncia" ToRole="denuncia" />
+        </EntityType>
         <EntityType Name="denuncia">
           <Key>
             <PropertyRef Name="id" />
@@ -2135,10 +2136,11 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="usuario_id" Type="Int32" Nullable="false" />
           <Property Name="estado_id" Type="Int32" Nullable="false" />
-          <Property Name="infraccion_id" Type="Int32" Nullable="false" />
+          <Property Name="infraccion_id" Type="Int32" />
           <Property Name="dominio" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="adjunto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ruta_adjunto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="fecha_hora" Type="DateTime" Precision="0" />
           <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="localidad_id" Type="Int32" Nullable="false" />
@@ -2160,7 +2162,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_denuncia_infraccion">
-          <End Type="sicoveModel.infraccion" Role="infraccion" Multiplicity="1" />
+          <End Type="sicoveModel.infraccion" Role="infraccion" Multiplicity="0..1" />
           <End Type="sicoveModel.denuncia" Role="denuncia" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="infraccion">
@@ -2261,14 +2263,6 @@
           <EntitySetMapping Name="estado_cedula">
             <EntityTypeMapping TypeName="sicoveModel.estado_cedula">
               <MappingFragment StoreEntitySet="estado_cedula">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="estado_denuncia">
-            <EntityTypeMapping TypeName="sicoveModel.estado_denuncia">
-              <MappingFragment StoreEntitySet="estado_denuncia">
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
@@ -2599,12 +2593,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="estado_denuncia">
+            <EntityTypeMapping TypeName="sicoveModel.estado_denuncia">
+              <MappingFragment StoreEntitySet="estado_denuncia">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="denuncias">
             <EntityTypeMapping TypeName="sicoveModel.denuncia">
               <MappingFragment StoreEntitySet="denuncia">
                 <ScalarProperty Name="localidad_id" ColumnName="localidad_id" />
                 <ScalarProperty Name="observaciones" ColumnName="observaciones" />
                 <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="ruta_adjunto" ColumnName="ruta_adjunto" />
                 <ScalarProperty Name="adjunto" ColumnName="adjunto" />
                 <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
                 <ScalarProperty Name="dominio" ColumnName="dominio" />

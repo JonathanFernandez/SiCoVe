@@ -44,24 +44,34 @@
                                                 <input class="form-control">
                                         
                                             </div>
-                                         <div class="form-group">
-                                                <label>Detalle de la denuncia</label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                        <div class="form-group">
+                                    <label>Localidad</label>
+                                    <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
+                                </div>
+
+                                     
+                                        <div class="form-group">
+                                                <label>Detalle denuncia</label>
+                                                 <asp:TextBox TextMode="MultiLine" ID="txtDetalleDenuncia" runat="server" class="form-control"></asp:TextBox>
                                             
                                             </div>
-                                         <div class="form-group">
-                                                <label>Cargar Foto</label>
-                                                <input type="file">
-                                          
+                                     <div class="form-group">
+                                                <label>Adjunte una foto</label>
+                                              <asp:Image ID="imgFoto" runat="server" style="width:100%; height:300px;"  />
+                                               
+                                        
                                             </div>
                                          <div class="form-group">
-                                                <label>Fecha</label>
-                                                <input class="form-control">
+                                            <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-primary" />
                                             
                                             </div>
+                                          <div class="form-group">
+                                            <label>Fecha de vencimiento</label>
+                                            <asp:TextBox type="number" ID="txtFecha" runat="server" TextMode="Date" class="form-control" required="required"></asp:TextBox>
+                                        </div>
                                          <div class="form-group">
                                                 <label>Patente</label>
-                                                <input class="form-control">
+                                                 <asp:TextBox  ID="txtPatente" runat="server" class="form-control" required="required"></asp:TextBox>
                                     
                                             </div>
                                         <button type="button" class="btn btn-success">Guardar Denuncia</button>

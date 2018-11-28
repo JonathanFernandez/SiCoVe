@@ -12,7 +12,6 @@
         <EntityTypeShape EntityType="sicoveModel.cedula" Width="1.5" PointX="6" PointY="23.625" />
         <EntityTypeShape EntityType="sicoveModel.codigo_infraccion" Width="1.5" PointX="0.75" PointY="22.875" />
         <EntityTypeShape EntityType="sicoveModel.estado_cedula" Width="1.5" PointX="3.75" PointY="24.25" />
-        <EntityTypeShape EntityType="sicoveModel.estado_denuncia" Width="1.5" PointX="6" PointY="5.375" />
         <EntityTypeShape EntityType="sicoveModel.licencia" Width="1.5" PointX="6" PointY="8.25" />
         <EntityTypeShape EntityType="sicoveModel.localidad" Width="1.5" PointX="0.75" PointY="36.5" />
         <EntityTypeShape EntityType="sicoveModel.marca_vehiculo" Width="1.5" PointX="0.75" PointY="14.375" />
@@ -70,7 +69,8 @@
         <AssociationConnector Association="sicoveModel.FK_remolque_personal_remolque" />
         <AssociationConnector Association="sicoveModel.FK_remolque_playa_acarreo" />
         <AssociationConnector Association="sicoveModel.FK_remolque_vehiculo" />
-        <EntityTypeShape EntityType="sicoveModel.denuncia" Width="1.5" PointX="10.5" PointY="18.125" />
+        <EntityTypeShape EntityType="sicoveModel.estado_denuncia" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="sicoveModel.denuncia" Width="1.5" PointX="10.5" PointY="18" />
         <AssociationConnector Association="sicoveModel.FK_denuncia_estado_denuncia" />
         <AssociationConnector Association="sicoveModel.FK_denuncia_infraccion" />
         <AssociationConnector Association="sicoveModel.FK_denuncia_localidad" />

@@ -17,10 +17,11 @@ namespace DataBaseSiCoVe
         public int id { get; set; }
         public int usuario_id { get; set; }
         public int estado_id { get; set; }
-        public int infraccion_id { get; set; }
+        public Nullable<int> infraccion_id { get; set; }
         public string dominio { get; set; }
         public string ubicacion { get; set; }
         public byte[] adjunto { get; set; }
+        public string ruta_adjunto { get; set; }
         public Nullable<System.DateTime> fecha_hora { get; set; }
         public string observaciones { get; set; }
         public int localidad_id { get; set; }
