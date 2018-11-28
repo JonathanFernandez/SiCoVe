@@ -1,5 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ModificarDatosConductor.aspx.cs" Inherits="SiCoVe.ModificarDatosConductor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
+            <style>
+        .modalBackground
+        {
+            background-color: black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+            z-index: 10000;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
@@ -130,35 +139,11 @@
                                             <asp:TextBox type="number" ID="txtNumLicenciaLIC" runat="server" class="form-control" required="required"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumLicenciaLIC" runat="server" ErrorMessage="* Debe Ingresar el N° de licencia" display="Dynamic"></asp:RequiredFieldValidator>
                                             </div>
-                                        <%--<div class="form-group">
-                                            <label>Apellido</label>
-                                            <asp:TextBox ID="txtApellidoLIC" runat="server" class="form-control" placeholder="Ingrese el apellido"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nombres</label>
-                                            <asp:TextBox ID="txtNombresLIC" runat="server" class="form-control" placeholder="Ingrese el/los nombre/s"></asp:TextBox>
-                                        </div>--%>
-                                        <%--<div class="form-group">
-                                            <label>Fecha de nacimiento</label>
-                                            <asp:TextBox ID="txtFecNacimientoLIC" runat="server" TextMode="Date" class="form-control" placeholder="Ingrese la fecha de nacimiento"></asp:TextBox>
-                                        </div>--%>
-                                       <%-- <div class="form-group">
-                                            <label>Domicilio</label>
-                                            <asp:TextBox ID="txtDomicilioLIC" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nacionalidad</label>
-                                            <asp:DropDownList ID="ddlNacionalidadLIC" runat="server" class="form-control"></asp:DropDownList>
-                                        </div> --%>
                                         <div class="form-group">
                                             <label>Municipio</label>
                                             <asp:DropDownList ID="ddlMunicipio" runat="server" class="form-control" required="required"></asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator18" ForeColor="red" ControlToValidate="ddlMunicipio" runat="server" ErrorMessage="* Debe seleccionar Municipio" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
-                                     <%--   <div class="form-group">
-                                            <label>Sexo</label>
-                                            <asp:DropDownList ID="ddlSexoLIC" runat="server" class="form-control"></asp:DropDownList>
-                                        </div> --%>
                                         <div class="form-group">
                                             <label>Fecha de otorgamiento</label>
                                             <asp:TextBox ID="txtFecOtorgamientoLIC" runat="server" class="form-control datepicker" required="required"></asp:TextBox>
@@ -225,9 +210,6 @@
                                         <div class="form-group">
                                             <label>Uso</label>
                                             <asp:DropDownList ID="ddlUsoCED" runat="server" class="form-control"></asp:DropDownList>
-                                                <!--option>Privado</!--option>
-                                                <option>Público</option>
-                                                <option>Oficial</option-->
                                         </div>
                                           <div class="form-group">
                                             <label>Año</label>
@@ -268,30 +250,6 @@
                                             <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control" required="required"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ForeColor="red" ControlToValidate="txtPolizaSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div>
-                                        <%--<div class="form-group">
-                                            <label>Marca</label>
-                                            <asp:DropDownList ID="ddlMarcaSEG" runat="server" class="form-control"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Modelo</label>
-                                            <asp:TextBox ID="txtModeloSEG" runat="server" class="form-control" placeholder="Ingrese el modelo"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Cilindrada</label>
-                                            <asp:TextBox ID="txtcilindradaSEG" runat="server" class="form-control" placeholder="Ingrese la cilindrada"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Dominio</label>
-                                            <asp:TextBox ID="txtDominioSEG" runat="server" class="form-control" placeholder="Ingrese el dominio"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>N° de motor</label>
-                                            <asp:TextBox ID="txtNumMotorSEG" runat="server" class="form-control" placeholder="Ingrese el N° de motor"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>N° de chasis</label>
-                                            <asp:TextBox ID="txtNumChasisSEG" runat="server" class="form-control" placeholder="Ingrese el N° de chasis"></asp:TextBox>
-                                        </div>--%>
                                         <div class="form-group">
                                             <label>Fecha desde</label>
                                             <asp:TextBox ID="txtFecDesdeSEG" runat="server" class="form-control datepicker" required="required"></asp:TextBox>
@@ -302,7 +260,27 @@
                                             <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control datepicker" required="required"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator40" ForeColor="red" ControlToValidate="txtFecHastaSEG" runat="server" ErrorMessage="* Debe ingresar Fecha hasta" display="Dynamic"></asp:RequiredFieldValidator>                                        
                                         </div>
-                                        <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" OnClick="btnGuardarMDC_Click" Text="Guardar" />
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" OnClick="btnGuardarMDC_Click" Text="Modificar" />
+                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" DynamicServicePath="" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
+                                    </ajaxToolkit:ModalPopupExtender>
+                                    <br />
+                                    <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:20%; height:auto; margin-left:90px;">
+                                        <div class="modal-body">
+                                            Se modificaron los datos correctamente.
+                                        </div>
+                                        <div modal-footer>
+                                            <button class="btn" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                        </div>
+                                    </asp:Panel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>                                    
+                                    
+                                    
+                                    
                                     </div>
                                 </div>
                                 <br />
