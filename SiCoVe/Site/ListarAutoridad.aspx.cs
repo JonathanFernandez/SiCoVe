@@ -27,24 +27,16 @@ namespace SiCoVe
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            
-           /* var legajo = 0;
-            var agentes = from a in sicove.personas select a; ;
-
-            if (!string.IsNullOrEmpty(txtLegajo.Text))
-            {
+            int legajo = 0; 
+            if(txtLegajo.Text != "")
                 legajo = Convert.ToInt32(txtLegajo.Text);
-                agentes = from a in sicove.personas where (legajo == a.agente_transito.nro_legajo || txtApellido.Text == a.apellido || txtNombre.Text == a.nombre) select a;
-            }
-            else if (!string.IsNullOrEmpty(txtLegajo.Text) && !string.IsNullOrEmpty(txtApellido.Text) && !string.IsNullOrEmpty(txtNombre.Text))
-            {
-                agentes = from a in sicove.personas where (txtApellido.Text == a.apellido) select a;
-            }
+            
 
-            List<agente> ListaAgentes = agentes.ToList();
-            GvAutoridad.DataSource = ListaAgentes;
-            GvAutoridad.DataBind();*/
+            GvAutoridad.DataSource = sicove.SP_LISTADO_AGENTE_TRANSITO(legajo, txtApellido.Text, txtNombre.Text).ToList();
+
+            GvAutoridad.DataBind();
         }
+
         protected void GvAutoridad_edit(object sender, GridViewEditEventArgs e)
         {
             int id = (int)GvAutoridad.DataKeys[e.NewEditIndex].Values["id"];
