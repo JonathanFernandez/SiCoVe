@@ -39,6 +39,8 @@ namespace SiCoVe.Site
 
         protected void btnGenerarDenuncia_Click(object sender, EventArgs e)
         {
+         try
+           {
             denuncia den = new denuncia();
             den.usuario_id = UserSession.id;
             den.estado_id = 1;
@@ -78,6 +80,12 @@ namespace SiCoVe.Site
             var mail = sicove.SP_GENERAR_EMAIL_DENUNCIA(den.id).FirstOrDefault();
 
             EnviarMail(mail.email, mail.email_asunto, mail.email_cuerpo , mail.ruta_adjunto);
+           }
+          catch (Exception ex)
+          {
+                LblError.Text = "No se pudo registrar la denuncia, verifique los datos ingresados.";
+                //LblError.Text = Convert.ToString(ex);
+          }
         }
 
         private void EnviarMail(string email, string email_asunto, string email_cuerpo, string ruta_adjunto)

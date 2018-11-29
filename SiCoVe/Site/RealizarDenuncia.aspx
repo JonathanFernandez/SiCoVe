@@ -43,37 +43,35 @@
                                                 <label>Geolocalización</label>
                                                 <input class="form-control">
                                         
-                                            </div>
+                                        </div>
                                         <div class="form-group">
-                                    <label>Localidad</label>
-                                    <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
-                                </div>
-
-                                     
+                                            <label>Localidad</label>
+                                            <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="rfvddlLocalidad" runat="server" ErrorMessage="Debe seleccionar Localidad" ControlToValidate="ddlLocalidad" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>  
+                                        </div>
                                         <div class="form-group">
-                                                <label>Detalle denuncia</label>
-                                                 <asp:TextBox TextMode="MultiLine" ID="txtDetalleDenuncia" runat="server" class="form-control"></asp:TextBox>
-                                            
-                                            </div>
-                                     <div class="form-group">
-                                                <label>Adjunte una foto</label>
+                                             <label>Detalle denuncia</label>
+                                             <asp:TextBox TextMode="MultiLine" ID="txtDetalleDenuncia" runat="server" class="form-control"></asp:TextBox>
+                                             <asp:RequiredFieldValidator ID="rfvdenuncia" runat="server" ErrorMessage="Debe Ingresar Detalle" ControlToValidate="txtDetalleDenuncia" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                        </div>
+                                        <div class="form-group">
+                                              <label>Adjunte una foto</label>
                                               <asp:Image ID="imgFoto" runat="server" style="width:100%; height:300px;"  />
-                                               
-                                        
-                                            </div>
-                                         <div class="form-group">
+                                        </div>
+                                        <div class="form-group">
                                             <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-primary" />
-                                            
+                                            <asp:RequiredFieldValidator ID="rfvFileUploadFoto" runat="server" ErrorMessage="Debe Ingresar una Imagen" ControlToValidate="FileUploadFoto" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>  
                                             </div>
                                           <div class="form-group">
                                             <label>Fecha de vencimiento</label>
-                                            <asp:TextBox type="number" ID="txtFecha" runat="server" TextMode="Date" class="form-control" required="required"></asp:TextBox>
-                                        </div>
+                                            <asp:TextBox type="number" ID="txtFecha" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="rfvFechavencimiento" runat="server" ErrorMessage="Debe Ingresar Fecha de vencimiento" ControlToValidate="txtFecha" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>  
+                                          </div>
                                          <div class="form-group">
-                                                <label>Patente</label>
-                                                 <asp:TextBox  ID="txtPatente" runat="server" class="form-control" required="required"></asp:TextBox>
-                                    
-                                            </div>
+                                             <label>Patente</label>
+                                              <asp:TextBox  ID="txtPatente" runat="server" class="form-control"></asp:TextBox>
+                                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe Ingresar Fecha de vencimiento" ControlToValidate="txtFecha" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator> 
+                                         </div>
                                     <div class="row">
                                     <div class="col-lg-6">
 
@@ -93,7 +91,7 @@
                             </div>
 
                         </div>
-
+                        <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
                   </div>
                     <!-- /.panel -->
                 </div>
