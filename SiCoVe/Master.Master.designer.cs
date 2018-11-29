@@ -40,8 +40,7 @@ namespace SiCoVe {
         protected global::System.Web.UI.HtmlControls.HtmlForm frmMaster;
         
         /// <summary>
-        /// Control imgLogo.
-        /// imgLog control.
+        /// Control imgLog.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

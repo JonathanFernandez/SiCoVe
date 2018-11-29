@@ -55,8 +55,6 @@ namespace SiCoVe
 
             scriptStyle = new HtmlHeaderStyleLink("~/Content/jquery-ui.css");
             scriptStyle.IncludeOn(Page.Header);
-
-
         }
 
         private void LoadScripts()
@@ -67,10 +65,8 @@ namespace SiCoVe
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.min.js");
             scriptLink.IncludeOn(Page.Header);
 
-
             scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-3.3.1.min.js");
             scriptLink.IncludeOn(Page.Header);
-
 
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/bootstrap/js/bootstrap.min.js");
             scriptLink.IncludeOn(Page.Header);
@@ -90,14 +86,34 @@ namespace SiCoVe
             scriptLink = new HtmlHeaderJSLink("~/Content/data/morris-data.js");
             scriptLink.IncludeOn(Page.Header);
 
+            //INI - Agregado para pantalla Estadisticas
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot/excanvas.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot/jquery.flot.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot/jquery.flot.pie.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot/jquery.flot.resize.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot/jquery.flot.time.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot-tooltip/jquery.flot.time.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Content/data/flot-data.js");
+            scriptLink.IncludeOn(Page.Header);
+            //FIN - Agregado para pantalla Estadisticas
+
             scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-ui.js");
             scriptLink.IncludeOn(Page.Header);
 
-
             scriptLink = new HtmlHeaderJSLink("~/Scripts/master.js");
             scriptLink.IncludeOn(Page.Header);
-            
-            
 
             //scriptLink = new HtmlHeaderJSLink("~/Content/js/masterPage.js");
             //scriptLink.IncludeOn(Page.Header);
@@ -107,7 +123,6 @@ namespace SiCoVe
 
             //scriptLink = new HtmlHeaderJSLink("~/Content/js/xtableheaderfixed.js");
             //scriptLink.IncludeOn(Page.Header);
-  
         }
     }
 }

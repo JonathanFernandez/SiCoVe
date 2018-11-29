@@ -12,7 +12,7 @@
     <title></title>
     
     <asp:ContentPlaceHolder ID="IncludeCssSection" runat="server"></asp:ContentPlaceHolder>
-
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -90,30 +90,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas y reportes<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="~\Site\index.aspx">Controles por zona</a>
-                                    </li>
-                                    <li>
-                                        <a href="~\Site\index.aspx">Infracciones por zona</a>
-                                    </li>
-                                    <li>
-                                        <a href="~\Site\index.aspx">Alta de usuarios por zona</a>
-                                    </li>
-                                     <li>
-                                        <a href="~\Site\index.aspx">...</a>
-                                    </li>
-                                     <li>
-                                        <a href="~\Site\index.aspx">...</a>
-                                    </li>
-                                     <li>
-                                        <a href="~\Site\index.aspx">...</a>
-                                    </li>
-                                     <li>
-                                        <a href="~\Site\index.aspx">...</a>
-                                    </li>
-                                </ul>
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/Estadisticas.aspx"><i class="fa fa-bar-chart-o fa-fw""></i> Estadisticas </asp:HyperLink>
                             </li>
                             <!--Usuario Autoridad de Tránsito-->
                             <li>
