@@ -74,8 +74,20 @@
                                                  <asp:TextBox  ID="txtPatente" runat="server" class="form-control" required="required"></asp:TextBox>
                                     
                                             </div>
-                                        <button type="button" class="btn btn-success">Guardar Denuncia</button>
-                                        <button type="button" class="btn btn-danger">Cancelar</button>
+                                    <div class="row">
+                                    <div class="col-lg-6">
+
+                                         
+                                         <div class="form-group">
+                                                <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-primary" />
+                                               
+                                          
+                                            </div>
+                                    
+                                    
+                                    </div>
+                            </div>
+
 
                                     </div>
                             </div>
