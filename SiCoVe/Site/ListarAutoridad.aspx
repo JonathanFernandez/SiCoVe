@@ -51,7 +51,7 @@
                                 <asp:BoundField HeaderText="Nombres"  DataField="NOMBRE"/>
                                 <asp:BoundField HeaderText="DNI" DataField="DNI" />     
                                 <asp:BoundField HeaderText="Sexo"  DataField="SEXO"/>
-                                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FECHA_NACIMIENTO"/>
+                                <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FECHA_NACIMIENTO" DataFormatString = "{0: dd-MM-yyyy}"/>
                                 <asp:BoundField HeaderText="Nacionalidad" DataField="NACIONALIDAD" />
                                 <asp:BoundField HeaderText="Domicilio" DataField="DOMICILIO" />                 
                                 

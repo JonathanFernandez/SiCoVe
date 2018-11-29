@@ -1,5 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ModificarRemolque.aspx.cs" Inherits="SiCoVe.ModificarRemolque" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
+            <style>
+        .modalBackground
+        {
+            background-color: black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+            z-index: 10000;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
@@ -89,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
-                            <asp:TextBox ID="txtFechaNacimiento" runat="server" class="form-control" TextMode="Date"></asp:TextBox>
+                            <asp:TextBox ID="txtFechaNacimiento" runat="server" class="form-control datepicker" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" ForeColor="red" ControlToValidate="txtFechaNacimiento" runat="server" ErrorMessage="* Debe ingresar Fecha Nacimiento" Display="Dynamic"></asp:RequiredFieldValidator>
                             </div>
                         <div class="form-group">
@@ -122,7 +131,28 @@
                             <asp:TextBox type="number" ID="txtNumPuerta" runat="server" class="form-control"></asp:TextBox>
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumPuerta" runat="server" ErrorMessage="* Debe ingresar Numero de Puerta"></asp:RequiredFieldValidator>--%>
                         </div>
-                            <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Modificar" OnClick="btnRegistrarACNC_Click" />
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" OnClick="btnRegistrarACNC_Click" Text="Modificar" />
+                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
+                                    </ajaxToolkit:ModalPopupExtender>
+                                    <br />
+                                        <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:auto; height:auto; margin-left:auto;">
+                                        <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modificacion de Usuario</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            Se Modificaron los datos correctamente
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-outline btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                        </div>
+                                    </asp:Panel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>    
                        </div>
                      </div>
 

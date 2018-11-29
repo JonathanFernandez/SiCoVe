@@ -265,15 +265,19 @@
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
                                     <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" OnClick="btnGuardarMDC_Click" Text="Modificar" />
-                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" DynamicServicePath="" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
+                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
                                     </ajaxToolkit:ModalPopupExtender>
                                     <br />
-                                    <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:20%; height:auto; margin-left:90px;">
-                                        <div class="modal-body">
-                                            Se modificaron los datos correctamente.
+                                        <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:auto; height:auto; margin-left:auto;">
+                                        <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modificacion de Usuario</h4>
                                         </div>
-                                        <div modal-footer>
-                                            <button class="btn" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                        <div class="modal-body">
+                                            Se Modificaron los datos correctamente
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-outline btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
                                         </div>
                                     </asp:Panel>
                                 </ContentTemplate>
