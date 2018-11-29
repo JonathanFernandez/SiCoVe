@@ -21,18 +21,18 @@
     <div id="page-wrapper">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificar usuario</h1>
+                <h1 class="page-header">Modificar Usuario</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Registrar Usuario
+                        Modificar datos del Conductor
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#datosusuario" data-toggle="tab">Modificar datos del Conductor</a>
+                            <li class="active"><a href="#datosusuario" data-toggle="tab">Datos de Usuario</a>
                             </li>
                             <li><a href="#dni" data-toggle="tab">Datos DNI</a>
                             </li>

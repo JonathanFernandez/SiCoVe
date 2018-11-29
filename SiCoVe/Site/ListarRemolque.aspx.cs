@@ -27,7 +27,17 @@ namespace SiCoVe
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            int legajo = 0;
+            if (LblLegajo.Text != "")
+            
+                legajo = Convert.ToInt32(txtLegajo.Text);
 
+
+            GvRemolque.DataSource = sicove.SP_LISTADO_PERSONAL_REMOLQUE(legajo, txtApellido.Text, txtNombre.Text).ToList();
+
+            GvRemolque.DataBind();
+            
+            
         }
         protected void GvRemolque_edit(object sender, GridViewEditEventArgs e)
         {
