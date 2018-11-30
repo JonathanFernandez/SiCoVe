@@ -22,6 +22,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlPersona;
         
         /// <summary>
+        /// Control cvddlPersona.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvddlPersona;
+        
+        /// <summary>
         /// Control txtApellidoDNI.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlSexoDNI;
         
         /// <summary>
+        /// Control cvddlSexoDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvddlSexoDNI;
+        
+        /// <summary>
         /// Control ddlNacionalidadDNI.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNacionalidadDNI;
+        
+        /// <summary>
+        /// Control CVddlNacionalidadDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlNacionalidadDNI;
         
         /// <summary>
         /// Control txtFecNacimientoDNI.
@@ -148,6 +175,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlNacionalidadLIC;
         
         /// <summary>
+        /// Control CVddlNacionalidadLIC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlNacionalidadLIC;
+        
+        /// <summary>
         /// Control ddlSexoLIC.
         /// </summary>
         /// <remarks>
@@ -155,6 +191,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSexoLIC;
+        
+        /// <summary>
+        /// Control CVddlSexoLIC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlSexoLIC;
         
         /// <summary>
         /// Control txtFecOtorgamientoLIC.
@@ -229,6 +274,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstadoCED;
         
         /// <summary>
+        /// Control CVddlEstadoCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlEstadoCED;
+        
+        /// <summary>
         /// Control ddlMarcaCED.
         /// </summary>
         /// <remarks>
@@ -236,6 +290,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarcaCED;
+        
+        /// <summary>
+        /// Control CVddlMarcaCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlMarcaCED;
         
         /// <summary>
         /// Control txtModeloCED.
@@ -256,6 +319,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoCED;
         
         /// <summary>
+        /// Control CVddlTipoCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlTipoCED;
+        
+        /// <summary>
         /// Control ddlUsoCED.
         /// </summary>
         /// <remarks>
@@ -263,6 +335,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUsoCED;
+        
+        /// <summary>
+        /// Control CVddlUsoCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlUsoCED;
         
         /// <summary>
         /// Control txtChasisCED.
@@ -328,6 +409,15 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlAseguradoraSEG;
         
         /// <summary>
+        /// Control CVddlAseguradoraSEG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlAseguradoraSEG;
+        
+        /// <summary>
         /// Control txtAseguradoSEG.
         /// </summary>
         /// <remarks>
@@ -353,6 +443,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarcaSEG;
+        
+        /// <summary>
+        /// Control CVddlMarcaSEG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlMarcaSEG;
         
         /// <summary>
         /// Control txtModeloSEG.
@@ -434,6 +533,15 @@ namespace SiCoVe.Site {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaFC;
+        
+        /// <summary>
+        /// Control CVddlProvinciaFC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlProvinciaFC;
         
         /// <summary>
         /// Control cvProvinciaFC.
