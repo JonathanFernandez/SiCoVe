@@ -59,13 +59,13 @@ namespace SiCoVe
 
         private void LoadScripts()
         {
-            //imgPirelli.Src = "~/Content/img/logo_pirelli_small.svg";
-            //imgPirelli.Src = "~/Content/img/logo_pirelli_chico.jpg";
-
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.min.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-3.3.1.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-ui.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/bootstrap/js/bootstrap.min.js");
@@ -80,10 +80,16 @@ namespace SiCoVe
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/raphael/raphael.min.js");
             scriptLink.IncludeOn(Page.Header);
 
-            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/morrisjs/morris.min.js");
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/morrisjs/morris.js");
             scriptLink.IncludeOn(Page.Header);
 
-            scriptLink = new HtmlHeaderJSLink("~/Content/data/morris-data.js");
+            //scriptLink = new HtmlHeaderJSLink("~/Content/vendor/morrisjs/morris.min.js");
+            //scriptLink.IncludeOn(Page.Header);
+
+            //scriptLink = new HtmlHeaderJSLink("~/Content/data/morris-data.js");
+            //scriptLink.IncludeOn(Page.Header); 
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/master.js");
             scriptLink.IncludeOn(Page.Header);
 
             //INI - Agregado para pantalla Estadisticas
@@ -102,27 +108,12 @@ namespace SiCoVe
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot/jquery.flot.time.js");
             scriptLink.IncludeOn(Page.Header);
 
-            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot-tooltip/jquery.flot.time.js");
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/flot-tooltip/jquery.flot.tooltip.min.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/data/flot-data.js");
             scriptLink.IncludeOn(Page.Header);
             //FIN - Agregado para pantalla Estadisticas
-
-            scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-ui.js");
-            scriptLink.IncludeOn(Page.Header);
-
-            scriptLink = new HtmlHeaderJSLink("~/Scripts/master.js");
-            scriptLink.IncludeOn(Page.Header);
-
-            //scriptLink = new HtmlHeaderJSLink("~/Content/js/masterPage.js");
-            //scriptLink.IncludeOn(Page.Header);
-
-            //scriptLink = new HtmlHeaderJSLink("~/Content/js/clockface.js");
-            //scriptLink.IncludeOn(Page.Header);
-
-            //scriptLink = new HtmlHeaderJSLink("~/Content/js/xtableheaderfixed.js");
-            //scriptLink.IncludeOn(Page.Header);
         }
     }
 }
