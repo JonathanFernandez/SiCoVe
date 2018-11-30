@@ -36,14 +36,7 @@ namespace SiCoVe.Site
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "tMensual", "\n" + sb.ToString(), true);
             //ScriptManager.RegisterStartupScript(this, this.GetType(), "tMensualFun", "\n llenarGraficoTortasMensual(dataMen);", true);
 
-
-
-            //string script = "saludar();";
-
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "Script_cargar", script, true);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "tMensualFun", "\n prueba();", true);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "graficos", "llenarFlotPie();", true);
-            
         }
     }
 }
