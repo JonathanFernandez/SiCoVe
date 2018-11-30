@@ -1,5 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="SolicitarModificacionDatos.aspx.cs" Inherits="SiCoVe.Site.SolicitarModificacionDatos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="SolicitarModificacionDatos.aspx.cs" Inherits="SiCoVe.SolicitarModificacionDatos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
+     <style>
+        .modalBackground
+        {
+            background-color: black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+            z-index: 10000;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
@@ -10,8 +19,6 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
-
-        <!--INI-->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Solicitud de modificación de datos</h1>
@@ -19,13 +26,11 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-            <!--FIN-->
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Solicitar actualización de datos
                     </div>
-                    <div class="panel-body">
+                   <div class="panel-body">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#datosusuario" data-toggle="tab">Datos Usuario</a>
                             </li>
@@ -37,7 +42,8 @@
                             </li>
                             <li><a href="#seguro" data-toggle="tab">Datos seguro</a>
                             </li>
-                        </ul>
+                         </ul>
+
                         <br />
                         <div class="row">
                             <div class="col-lg-4">
@@ -48,17 +54,9 @@
                                             <label>Mail</label>
                                             <asp:TextBox ID="txtMailSM" runat="server" class="form-control" placeholder="Ingrese E-Mail"></asp:TextBox>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Contraseña</label>
-                                            <asp:TextBox ID="txtContraseñaSM" runat="server" class="form-control" type="password"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Confirmar Contraseña</label>
-                                            <asp:TextBox ID="txtConContraseñaSM" runat="server" class="form-control" type="password"></asp:TextBox>
-                                        </div>
                                          <div class="form-group">
                                             <label>Es Conductor? </label>
-                                            <asp:CheckBox ID="CheckBox1" runat="server"></asp:CheckBox>
+                                            <asp:CheckBox ID="CheckBox1" onclick="habilitar(this.checked);" runat="server"></asp:CheckBox>
                                         </div>
                                     </div>
                                     <!-- Datos DNI -->
@@ -78,10 +76,20 @@
                                         <div class="form-group">
                                             <label>Nacionalidad</label>
                                             <asp:DropDownList ID="ddlNacionalidadDNI" runat="server" class="form-control"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Provincia</label>
+                                            <asp:DropDownList ID="ddlProvinciaDNI"   runat="server" class="form-control" required="required"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="red" ControlToValidate="ddlProvinciaDNI" runat="server" ErrorMessage="* Debe Seleccionar Provincia" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
+                                            <label>Localidad</label>
+                                            <asp:DropDownList ID="ddlLocalidadDNI"   runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ForeColor="red" ControlToValidate="ddlLocalidadDNI" runat="server" ErrorMessage="* Debe Seleccionar Localidad" display="Dynamic"></asp:RequiredFieldValidator>
+                                        </div>                                         
+                                        <div class="form-group">
                                             <label>Fecha de nacimiento</label>
-                                            <asp:TextBox ID="txtFecNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecNacimientoDNI" runat="server" class="form-control datepicker"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Número de documento</label>
@@ -92,8 +100,20 @@
                                             <asp:TextBox ID="txtDomicilioDNI" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
+                                            <label>Piso</label>
+                                            <asp:TextBox type="number" ID="txtPisoDNI"   runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Departamento</label>
+                                            <asp:TextBox ID="txtDepartamentoDNI"   runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Puerta</label>
+                                            <asp:TextBox  ID="txtPuertaDNI"   runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Lugar de nacimiento</label>
-                                            <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:TextBox ID="txtLugarNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Cargar Foto DNI</label>
@@ -107,40 +127,22 @@
                                             <asp:TextBox ID="txtNumLicenciaLIC" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Apellido</label>
-                                            <asp:TextBox ID="txtApellidoLIC" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nombres</label>
-                                            <asp:TextBox ID="txtNombresLIC" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fecha de nacimiento</label>
-                                            <asp:TextBox ID="txtFecNacimientoLIC" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Domicilio</label>
-                                            <asp:TextBox ID="txtDomicilioLIC" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nacionalidad</label>
-                                            <asp:DropDownList ID="ddlNacionalidadLIC" runat="server" class="form-control"></asp:DropDownList>
-                                        </div> 
-                                        <div class="form-group">
-                                            <label>Sexo</label>
-                                            <asp:DropDownList ID="ddlSexoLIC" runat="server" class="form-control"></asp:DropDownList>
+                                            <label>Municipio</label>
+                                            <asp:DropDownList ID="ddlMunicipio"   runat="server" class="form-control" required="required"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" ForeColor="red" ControlToValidate="ddlMunicipio" runat="server" ErrorMessage="* Debe seleccionar Municipio" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
                                             <label>Fecha de otorgamiento</label>
-                                            <asp:TextBox ID="txtFecOtorgamientoLIC" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecOtorgamientoLIC" runat="server" class="form-control datepicker"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha de vencimiento</label>
-                                            <asp:TextBox ID="txtFecVencimientoLIC" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecVencimientoLIC" runat="server" class="form-control datepicker"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Categoría</label>
-                                            <asp:TextBox ID="txtcategoriLIC" runat="server" class="form-control"></asp:TextBox>
+                                             <asp:DropDownList ID="ddlCategoriaLIC"   runat="server" class="form-control"></asp:DropDownList>
+                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" ForeColor="red" ControlToValidate="ddlCategoriaLIC" runat="server" ErrorMessage="* Debe ingresar la Categoria" display="Dynamic"></asp:RequiredFieldValidator>                                        
                                         </div>
                                         <div class="form-group">
                                             <label>Clases</label>
@@ -151,7 +153,7 @@
                                             <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
+                                            <label>Cargar Foto Licencia</label>
                                             <input type="file">
                                         </div>
                                     </div>
@@ -160,6 +162,10 @@
                                         <div class="form-group">
                                             <label>N° de cédula</label>
                                             <asp:TextBox ID="txtNumCedulaCED" runat="server" class="form-control"></asp:TextBox>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Es conductor autorizado?
+                                            <asp:CheckBox ID="cckAutorizado" runat="server"></asp:CheckBox> </label>
                                         </div>
                                         <div class="form-group">
                                             <label>Dominio</label>
@@ -184,9 +190,11 @@
                                         <div class="form-group">
                                             <label>Uso</label>
                                             <asp:DropDownList ID="ddlUsoCED" runat="server" class="form-control"></asp:DropDownList>
-                                                <!--option>Privado</!--option>
-                                                <option>Público</option>
-                                                <option>Oficial</option-->
+                                          <div class="form-group">
+                                            <label>Año</label>
+                                            <asp:TextBox type="number"   ID="txtAnioCED" runat="server" class="form-control" required="required"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator30" ForeColor="red" ControlToValidate="txtAnioCED" runat="server" ErrorMessage="* Debe ingresar Año" display="Dynamic"></asp:RequiredFieldValidator>
+                                        </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Cuadro / Chasis</label>
@@ -198,7 +206,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha de vencimiento</label>
-                                            <asp:TextBox ID="txtFecVencimientoCED" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecVencimientoCED" runat="server" class="form-control datepicker"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Cilindrada</label>
@@ -209,19 +217,7 @@
                                             <asp:TextBox ID="txtTitularCED" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Autorizado</label>
-                                            <asp:TextBox ID="txtAutorizado" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <!--<div class="form-group">
-                                            <label>Documento</label>
-                                            <asp:TextBox ID="txtDocumentoCED" runat="server" class="form-control" placeholder="Ingrese el documento"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Domicilio</label>
-                                            <asp:TextBox ID="txtDomicilioCED" runat="server" class="form-control" placeholder="Ingrese el domicilio"></asp:TextBox>
-                                        </div>-->
-                                        <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
+                                            <label>Cargar Foto Cedula</label>
                                             <input type="file">
                                         </div>
                                     </div>
@@ -240,65 +236,46 @@
                                             <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Marca</label>
-                                            <asp:DropDownList ID="ddlMarcaSEG" runat="server" class="form-control"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Modelo</label>
-                                            <asp:TextBox ID="txtModeloSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Cilindrada</label>
-                                            <asp:TextBox ID="txtcilindradaSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Dominio</label>
-                                            <asp:TextBox ID="txtDominioSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Año</label>
-                                            <asp:TextBox ID="txtAnioSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>N° de motor</label>
-                                            <asp:TextBox ID="txtNumMotorSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>N° de chasis</label>
-                                            <asp:TextBox ID="txtNumChasisSEG" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <div class="form-group">
                                             <label>Fecha desde</label>
-                                            <asp:TextBox ID="txtFecDesdeSEG" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecDesdeSEG" runat="server" class="form-control datepicker"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha hasta</label>
-                                            <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtFecHastaSEG" runat="server" class="form-control datepicker"></asp:TextBox>
                                         </div>
                                         <div class="form-group">
-                                            <label>Cargar Foto DNI</label>
+                                            <label>Cargar Foto Seguro</label>
                                             <input type="file">
                                         </div>
+
                                     </div>
                                     <br />
-                                    <asp:Button ID="btnEnviar" runat="server" class="btn btn-default" Text="Enviar" />
-                                    <!-- Finalizar control -->
-                                    <!--<div class="tab-pane fade" id="control">
-                                        <div class="form-group">
-                                            <label>Lugar control</label>
-                                            <asp:TextBox ID="txtLugarControl" runat="server" class="form-control"></asp:TextBox>
+                            <asp:ScriptManager ID="ScriptManager1" runat="server">
+                            </asp:ScriptManager>
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                <ContentTemplate>
+                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Enviar Modificación" />
+                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
+                                    </ajaxToolkit:ModalPopupExtender>
+                                    <br />
+                                        <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:auto; height:auto; margin-left:auto;">
+                                        <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modificacion de Usuario</h4>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Observaciones</label>
-                                            <asp:textbox id="txtObservacionesControl" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
+                                        <div class="modal-body">
+                                            Se envió la solicitud de modificación
                                         </div>
-                                        <br />
-                                        <asp:Button ID="btnAprobarVD" runat="server" class="btn btn-default" Text="Finalizar" />
-                                    </div>-->
-                                </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-outline btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                        </div>
+                                    </asp:Panel>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>   
                             </div>
                         </div>
-                    </div>
+                     </div>                     
+                   </div>
                 </div>   
             </div>
         </div>   
