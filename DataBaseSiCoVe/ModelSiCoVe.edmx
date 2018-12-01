@@ -814,11 +814,7 @@
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="SP_LISTADO_CONTROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="AGENTE_TRANSITO" Type="int" Mode="In" />
-          <Parameter Name="FECHA_HORA" Type="date" Mode="In" />
-          <Parameter Name="LOCALIDAD_ID" Type="int" Mode="In" />
-        </Function>
+        <Function Name="SP_LISTADO_CONTROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTADO_PERSONAL_REMOLQUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
@@ -1253,10 +1249,7 @@
           <Parameter Name="dominio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_CONTROLES" ReturnType="Collection(sicoveModel.SP_LISTADO_CONTROLES_Result)">
-            <Parameter Name="AGENTE_TRANSITO" Mode="In" Type="Int32" />
-            <Parameter Name="FECHA_HORA" Mode="In" Type="DateTime" />
-            <Parameter Name="LOCALIDAD_ID" Mode="In" Type="Int32" />
-          </FunctionImport>
+            </FunctionImport>
         </EntityContainer>
         <EntityType Name="agente_transito">
           <Key>

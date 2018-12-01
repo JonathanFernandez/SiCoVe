@@ -130,21 +130,9 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
         }
     
-        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES(Nullable<int> aGENTE_TRANSITO, Nullable<System.DateTime> fECHA_HORA, Nullable<int> lOCALIDAD_ID)
+        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES()
         {
-            var aGENTE_TRANSITOParameter = aGENTE_TRANSITO.HasValue ?
-                new ObjectParameter("AGENTE_TRANSITO", aGENTE_TRANSITO) :
-                new ObjectParameter("AGENTE_TRANSITO", typeof(int));
-    
-            var fECHA_HORAParameter = fECHA_HORA.HasValue ?
-                new ObjectParameter("FECHA_HORA", fECHA_HORA) :
-                new ObjectParameter("FECHA_HORA", typeof(System.DateTime));
-    
-            var lOCALIDAD_IDParameter = lOCALIDAD_ID.HasValue ?
-                new ObjectParameter("LOCALIDAD_ID", lOCALIDAD_ID) :
-                new ObjectParameter("LOCALIDAD_ID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES", aGENTE_TRANSITOParameter, fECHA_HORAParameter, lOCALIDAD_IDParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES");
         }
     }
 }

@@ -25,8 +25,23 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <asp:GridView ID="GvHistorialControles" runat="server"></asp:GridView>
-                            
+                           
+                            <asp:GridView ID="GvHistorialControles" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False">
+                            <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
+                            <Columns>
+                                <asp:BoundField HeaderText="ID Agente"  DataField="AGENTE_TRANSITO_ID"/> 
+                                <asp:BoundField HeaderText="Provincia"  DataField="PROVINCIA"/>
+                                <asp:BoundField HeaderText="Fecha" DataField="FECHA_HORA" DataFormatString = "{0: dd-MM-yyyy}"/>     
+                                <asp:BoundField HeaderText="Provincia"  DataField="PROVINCIA"/>
+                                <asp:BoundField HeaderText="Localidad" DataField="LOCALIDAD" />
+                                <asp:BoundField HeaderText="Locacion" DataField="LOCACION" />
+                                <asp:BoundField HeaderText="Observaciones" DataField="OBSERVACIONES" />                 
+                                <asp:BoundField HeaderText="Apellido (Conductor)" DataField="APELLIDO" /> 
+                                <asp:BoundField HeaderText="Nombre (Conductor)" DataField="NOMBRE" />  
+                                <asp:BoundField HeaderText="Vehiculo" DataField="VEHICULO" />                 
+                                <asp:BoundField HeaderText="Dominio" DataField="DOMINIO" />                                                 
+                            </Columns>
+                             </asp:GridView>
                         </div>
                         <!-- /.panel-body -->
                     </div>
