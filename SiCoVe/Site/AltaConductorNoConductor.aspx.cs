@@ -28,7 +28,7 @@ namespace SiCoVe.Site
                 }
 
                 ddlCategoriaLIC.SelectedIndex = 0;
-            }
+            
 
             /*--------------------------------------------------------------------------------*/
             var mar = sicove.marca_vehiculo.ToList();
@@ -173,6 +173,7 @@ namespace SiCoVe.Site
                 ddlAseguradoraSEG.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
+            }
         }
 
         //{
