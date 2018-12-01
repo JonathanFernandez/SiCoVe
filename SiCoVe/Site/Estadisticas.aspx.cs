@@ -167,14 +167,14 @@ namespace SiCoVe.Site
                 StringBuilder sb;
 
                 int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_CONTROLES_X_LOCALIDAD().ToList();
+                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_LOCALIDAD().ToList();
 
                 if (dataContLoc.Count > 0)
                 {
                     sb = new StringBuilder();
                     sb.Append("var dataMen = [");
 
-                    foreach (SP_LISTAR_CONTROLES_X_LOCALIDAD_Result lo in dataContLoc)
+                    foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
                     {
                         if (flag == 0)
                             sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
@@ -198,7 +198,7 @@ namespace SiCoVe.Site
                         sb.Append("element: 'morris-bar-chartAnual',");
                         sb.Append(" data: [");
 
-                        foreach (SP_LISTAR_CONTROLES_X_LOCALIDAD_Result lo in dataContLoc)
+                        foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
                         {
                             if (flag == 0)
                                 sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
