@@ -85,15 +85,6 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlSexoDNI;
         
         /// <summary>
-        /// Control CVddlSexoDNI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlSexoDNI;
-        
-        /// <summary>
         /// Control ddlNacionalidadDNI.
         /// </summary>
         /// <remarks>
@@ -101,15 +92,6 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNacionalidadDNI;
-        
-        /// <summary>
-        /// Control CVddlNacionalidadDNI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlNacionalidadDNI;
         
         /// <summary>
         /// Control ddlProvinciaDNI.
@@ -121,15 +103,6 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlProvinciaDNI;
         
         /// <summary>
-        /// Control CVddlProvinciaDNI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlProvinciaDNI;
-        
-        /// <summary>
         /// Control ddlLocalidadDNI.
         /// </summary>
         /// <remarks>
@@ -137,15 +110,6 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalidadDNI;
-        
-        /// <summary>
-        /// Control CVddlLocalidadDNI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlLocalidadDNI;
         
         /// <summary>
         /// Control txtFecNacimientoDNI.
@@ -247,15 +211,6 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlMunicipio;
         
         /// <summary>
-        /// Control CVddlMunicipio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlMunicipio;
-        
-        /// <summary>
         /// Control txtFecOtorgamientoLIC.
         /// </summary>
         /// <remarks>
@@ -299,15 +254,6 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategoriaLIC;
-        
-        /// <summary>
-        /// Control CVddlCategoriaLIC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlCategoriaLIC;
         
         /// <summary>
         /// Control txtClasesLIC.
@@ -364,6 +310,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtDominioCED;
         
         /// <summary>
+        /// Control RFVtxtDominioCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtDominioCED;
+        
+        /// <summary>
         /// Control ddlEstadoCED.
         /// </summary>
         /// <remarks>
@@ -371,15 +326,6 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEstadoCED;
-        
-        /// <summary>
-        /// Control CVddlEstadoCED.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CVddlEstadoCED;
         
         /// <summary>
         /// Control ddlMarcaCED.
@@ -398,6 +344,15 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtModeloCED;
+        
+        /// <summary>
+        /// Control RFVtxtModeloCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtModeloCED;
         
         /// <summary>
         /// Control ddlTipoCED.
@@ -427,13 +382,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtAnioCED;
         
         /// <summary>
-        /// Control RequiredFieldValidator30.
+        /// Control RFtxtAnioCED.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator30;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFtxtAnioCED;
         
         /// <summary>
         /// Control txtChasisCED.
@@ -445,6 +400,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtChasisCED;
         
         /// <summary>
+        /// Control RFVtxtChasisCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtChasisCED;
+        
+        /// <summary>
         /// Control txtNumMotorCED.
         /// </summary>
         /// <remarks>
@@ -452,6 +416,15 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumMotorCED;
+        
+        /// <summary>
+        /// Control RFVtxtNumMotorCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtNumMotorCED;
         
         /// <summary>
         /// Control txtFecVencimientoCED.
@@ -463,6 +436,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtFecVencimientoCED;
         
         /// <summary>
+        /// Control RFVtxtFecVencimientoCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtFecVencimientoCED;
+        
+        /// <summary>
         /// Control txtCilindradaCED.
         /// </summary>
         /// <remarks>
@@ -472,6 +454,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtCilindradaCED;
         
         /// <summary>
+        /// Control RFVtxtCilindradaCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtCilindradaCED;
+        
+        /// <summary>
         /// Control txtTitularCED.
         /// </summary>
         /// <remarks>
@@ -479,6 +470,15 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTitularCED;
+        
+        /// <summary>
+        /// Control RFVtxtTitularCED.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtTitularCED;
         
         /// <summary>
         /// Control ddlAseguradoraSEG.
@@ -499,6 +499,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtAseguradoSEG;
         
         /// <summary>
+        /// Control RFVtxtAseguradoSEG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtAseguradoSEG;
+        
+        /// <summary>
         /// Control txtPolizaSEG.
         /// </summary>
         /// <remarks>
@@ -508,6 +517,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtPolizaSEG;
         
         /// <summary>
+        /// Control RFVtxtPolizaSEG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtPolizaSEG;
+        
+        /// <summary>
         /// Control txtFecDesdeSEG.
         /// </summary>
         /// <remarks>
@@ -515,6 +533,15 @@ namespace SiCoVe {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFecDesdeSEG;
+        
+        /// <summary>
+        /// Control RFVtxtFecDesdeSEG.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtFecDesdeSEG;
         
         /// <summary>
         /// Control txtFecHastaSEG.

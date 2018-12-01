@@ -35,6 +35,7 @@ namespace SiCoVe
                 txtPuertaDNI.Text = per.nro_puerta;
                 txtFecNacimientoDNI.Text = string.Format("{0:dd/MM/yyyy}", per.fecha_nacimiento);
                 txtLugarNacimientoDNI.Text = per.lugar_nacimiento;
+                CheckBox1.Checked = per.flag_conductor;
 
                 usuario usu = (from u in sicove.usuarios where u.persona_id == per.id select u).FirstOrDefault();
 
@@ -55,6 +56,8 @@ namespace SiCoVe
                 ddlEstadoCED.SelectedValue = Convert.ToString(ced.estado_id);
                 txtFecVencimientoCED.Text = string.Format("{0:dd/MM/yyyy}", ced.vencimiento);
                 cckAutorizado.Checked = ced.flag_autorizado;
+                if (ced.flag_autorizado == false)
+                txtTitularCED.Text = string.Format("{0} {1}", per.apellido , per.nombre);
 
                 vehiculo ve = (from v in sicove.vehiculoes where v.id == ced.vehiculo_id select v).First();
                 ddlTipoCED.Text = Convert.ToString(ve.tipo_id);
@@ -71,7 +74,7 @@ namespace SiCoVe
                 ddlAseguradoraSEG.SelectedValue = Convert.ToString(pol.aseguradora_id);
                 txtFecDesdeSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_desde);
                 txtFecHastaSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_hasta);
-
+                txtAseguradoSEG.Text = string.Format("{0} {1}", per.apellido, per.nombre);
             }
         }
 

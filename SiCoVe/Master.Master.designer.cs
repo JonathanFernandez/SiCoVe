@@ -13,15 +13,6 @@ namespace SiCoVe {
     public partial class Master {
         
         /// <summary>
-        /// includeJsSection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder includeJsSection;
-        
-        /// <summary>
         /// IncludeCssSection control.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,14 @@ namespace SiCoVe {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder PaginaCentral_ContentPlaceHolder;
+        
+        /// <summary>
+        /// includeJsSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder includeJsSection;
     }
 }
