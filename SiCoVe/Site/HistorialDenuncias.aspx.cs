@@ -18,8 +18,8 @@ namespace SiCoVe.Site
 
         public void listadoDenuncias()
         {
-            //GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIAS().ToList();
-            //GvHistorialDenuncias.DataBind();
+            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA().ToList();
+            GvHistorialDenuncias.DataBind();
         }
 
     }

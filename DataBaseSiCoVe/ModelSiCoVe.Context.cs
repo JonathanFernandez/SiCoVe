@@ -139,5 +139,10 @@ namespace DataBaseSiCoVe
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO");
         }
+    
+        public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA");
+        }
     }
 }
