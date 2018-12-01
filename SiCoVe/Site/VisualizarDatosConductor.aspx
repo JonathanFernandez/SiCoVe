@@ -63,23 +63,23 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Sexo</label>
-                                            <asp:TextBox ID="txtSexoDNI" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ForeColor="red" ControlToValidate="txtSexoDNI" runat="server" ErrorMessage="* Debe Seleccionar Sexo" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlSexoDNI" ReadOnly="true" runat="server" class="form-control" required="required"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ForeColor="red" ControlToValidate="ddlSexoDNI" runat="server" ErrorMessage="* Debe Seleccionar Sexo" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
                                             <label>Nacionalidad</label>
-                                            <asp:TextBox ID="txtNacionalidadDNI" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ForeColor="red" ControlToValidate="txtNacionalidadDNI" runat="server" ErrorMessage="* Debe Seleccionar Nacionalidad" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlNacionalidadDNI" ReadOnly="true" runat="server" class="form-control" required="required"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ForeColor="red" ControlToValidate="ddlNacionalidadDNI" runat="server" ErrorMessage="* Debe Seleccionar Nacionalidad" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
                                             <label>Provincia</label>
-                                            <asp:TextBox ID="txtProvinciaDNI" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="red" ControlToValidate="txtProvinciaDNI" runat="server" ErrorMessage="* Debe Seleccionar Provincia" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlProvinciaDNI" ReadOnly="true" runat="server" class="form-control" required="required"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="red" ControlToValidate="ddlProvinciaDNI" runat="server" ErrorMessage="* Debe Seleccionar Provincia" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
                                             <label>Localidad</label>
-                                            <asp:TextBox ID="txtLocalidadDNI" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ForeColor="red" ControlToValidate="txtLocalidadDNI" runat="server" ErrorMessage="* Debe Seleccionar Localidad" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlLocalidadDNI" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" ForeColor="red" ControlToValidate="ddlLocalidadDNI" runat="server" ErrorMessage="* Debe Seleccionar Localidad" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
                                             <label>Fecha de nacimiento</label>
@@ -117,13 +117,13 @@
                                     <div class="tab-pane fade" id="licencia">
                                         <div class="form-group">
                                             <label>N° de licencia</label>
-                                            <asp:TextBox type="number" ID="txtNumLicenciaLIC" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
+                                            <asp:TextBox ID="txtNumLicenciaLIC" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumLicenciaLIC" runat="server" ErrorMessage="* Debe Ingresar el N° de licencia" display="Dynamic"></asp:RequiredFieldValidator>
                                             </div>
                                         <div class="form-group">
                                             <label>Municipio</label>
-                                            <asp:TextBox ID="txtMunicipio" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" ForeColor="red" ControlToValidate="txtMunicipio" runat="server" ErrorMessage="* Debe seleccionar Municipio" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlMunicipio" ReadOnly="true" runat="server" class="form-control" required="required"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" ForeColor="red" ControlToValidate="ddlMunicipio" runat="server" ErrorMessage="* Debe seleccionar Municipio" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div> 
                                         <div class="form-group">
                                             <label>Fecha de otorgamiento</label>
@@ -137,8 +137,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Categoría</label>
-                                             <asp:TextBox ID="txtCategoriaLIC" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
-                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" ForeColor="red" ControlToValidate="txtCategoriaLIC" runat="server" ErrorMessage="* Debe ingresar la Categoria" display="Dynamic"></asp:RequiredFieldValidator>                                        
+                                             <asp:DropDownList ID="ddlCategoriaLIC" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
+                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" ForeColor="red" ControlToValidate="ddlCategoriaLIC" runat="server" ErrorMessage="* Debe ingresar la Categoria" display="Dynamic"></asp:RequiredFieldValidator>                                        
                                         </div>
                                         <div class="form-group">
                                             <label>Clases</label>
@@ -154,7 +154,7 @@
                                     <div class="tab-pane fade" id="cedula">
                                         <div class="form-group">
                                             <label>N° de cédula</label>
-                                            <asp:TextBox type="number" ID="txtNumCedulaCED" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
+                                            <asp:TextBox  ID="txtNumCedulaCED" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator24" ForeColor="red" ControlToValidate="txtNumCedulaCED" runat="server" ErrorMessage="* Debe ingresar el N° de cédula" display="Dynamic"></asp:RequiredFieldValidator> 
                                         </div>
                                         <div class="form-group">
@@ -168,13 +168,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Estado</label>
-                                            <asp:TextBox ID="txtEstadoCED" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator26" ForeColor="red" ControlToValidate="txtEstadoCED" runat="server" ErrorMessage="* Debe Seleccinar Estado" display="Dynamic"></asp:RequiredFieldValidator> 
+                                            <asp:DropDownList ID="ddlEstadoCED" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator26" ForeColor="red" ControlToValidate="ddlEstadoCED" runat="server" ErrorMessage="* Debe Seleccinar Estado" display="Dynamic"></asp:RequiredFieldValidator> 
                                         </div>
                                         <div class="form-group">
                                             <label>Marca</label>
-                                            <asp:TextBox ID="txtMarcaCED" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator27" ForeColor="red" ControlToValidate="txtMarcaCED" runat="server" ErrorMessage="* Debe seleccionar Marca" display="Dynamic"></asp:RequiredFieldValidator> 
+                                            <asp:DropDownList ID="ddlMarcaCED" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator27" ForeColor="red" ControlToValidate="ddlMarcaCED" runat="server" ErrorMessage="* Debe seleccionar Marca" display="Dynamic"></asp:RequiredFieldValidator> 
                                         </div>
                                         <div class="form-group">
                                             <label>Modelo</label>
@@ -183,12 +183,12 @@
                                             </div>
                                         <div class="form-group">
                                             <label>Tipo</label>
-                                            <asp:TextBox ID="txtTipoCED" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator29" ForeColor="red" ControlToValidate="txtTipoCED" runat="server" ErrorMessage="* Debe ingresar Tipo" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlTipoCED" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator29" ForeColor="red" ControlToValidate="ddlTipoCED" runat="server" ErrorMessage="* Debe ingresar Tipo" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Uso</label>
-                                            <asp:TextBox ID="txtUsoCED" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:DropDownList ID="ddlUsoCED" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
                                         </div>
                                           <div class="form-group">
                                             <label>Año</label>
@@ -215,14 +215,23 @@
                                             <asp:TextBox ID="txtCilindradaCED" ReadOnly="true" runat="server" class="form-control" required="required"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator34" ForeColor="red" ControlToValidate="txtCilindradaCED" runat="server" ErrorMessage="* Debe ingresar Cilindrada" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div>
-
+                                        <div class="form-group">
+                                            <label>Titular</label>
+                                            <asp:TextBox ID="txtTitularCED" runat="server" ReadOnly="true" class="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RFVtxtTitularCED" ControlToValidate="txtTitularCED" runat="server" ErrorMessage="* Debe ingresar Titular" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                        </div>
                                     </div>
                                     <!-- Datos seguro -->
                                     <div class="tab-pane fade" id="seguro">
                                         <div class="form-group">
                                             <label>Aseguradora</label>
-                                            <asp:TextBox ID="txtAseguradoraSEG" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator36" ForeColor="red" ControlToValidate="txtAseguradoraSEG" runat="server" ErrorMessage="* Debe ingresar Aseguradora" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:DropDownList ID="ddlAseguradoraSEG" ReadOnly="true" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator36" ForeColor="red" ControlToValidate="ddlAseguradoraSEG" runat="server" ErrorMessage="* Debe ingresar Aseguradora" display="Dynamic"></asp:RequiredFieldValidator>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Asegurado</label>
+                                            <asp:TextBox ID="txtAseguradoSEG" ReadOnly="true" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RFVtxtAseguradoSEG" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Póliza</label>
