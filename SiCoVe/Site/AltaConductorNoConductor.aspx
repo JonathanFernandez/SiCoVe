@@ -284,7 +284,7 @@
                                         <div class="form-group">
                                             <label>Póliza</label>
                                             <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Póliza" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha desde</label>
