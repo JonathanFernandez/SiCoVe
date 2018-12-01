@@ -171,6 +171,9 @@
     <Compile Include="SP_LISTAR_DATOS_PERSONA_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
