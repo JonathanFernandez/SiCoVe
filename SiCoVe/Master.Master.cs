@@ -59,18 +59,21 @@ namespace SiCoVe
 
         private void LoadScripts()
         {
-            HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.min.js");
+            HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-3.3.1.min.js");
             scriptLink.IncludeOn(Page.Header);
 
-            scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-ui.js");
+            scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.min.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/bootstrap/js/bootstrap.min.js");
             scriptLink.IncludeOn(Page.Header);
 
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-ui.js");
+            scriptLink.IncludeOn(Page.Header);
+            
             scriptLink = new HtmlHeaderJSLink("~/Content/vendor/metisMenu/metisMenu.min.js");
             scriptLink.IncludeOn(Page.Header);
 
