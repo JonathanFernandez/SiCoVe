@@ -197,6 +197,12 @@ namespace DataBaseSiCoVe
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONDUCTORES_Result>("SP_LISTADO_CONDUCTORES", dNIParameter, aPELLIDOParameter, nOMBREParameter);
         }
+    
+        public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD");
+
+        }
 
     }
 }

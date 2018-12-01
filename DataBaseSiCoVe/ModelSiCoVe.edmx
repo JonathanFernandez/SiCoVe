@@ -809,19 +809,11 @@
         <Function Name="SP_GENERAR_EMAIL_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="denuncia" Type="int" Mode="In" />
         </Function>
-        <Function Name="SP_LISTADO_ACARREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTADO_AGENTE_TRANSITO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="SP_LISTADO_CONDUCTORES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="DNI" Type="int" Mode="In" />
-          <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
-          <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="SP_LISTADO_CONTROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="SP_LISTADO_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTADO_PERSONAL_REMOLQUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
@@ -1262,6 +1254,7 @@
             <Parameter Name="persona" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTAR_PERSONAS_AUTORIZADAS" ReturnType="Collection(sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result)">
+
             <Parameter Name="dominio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_CONTROLES" ReturnType="Collection(sicoveModel.SP_LISTADO_CONTROLES_Result)">
@@ -1272,6 +1265,9 @@
             <Parameter Name="DNI" Mode="In" Type="Int32" />
             <Parameter Name="APELLIDO" Mode="In" Type="String" />
             <Parameter Name="NOMBRE" Mode="In" Type="String" />
+
+
+          <Parameter Name="dominio" Mode="In" Type="String" />
 
           </FunctionImport>
           <FunctionImport Name="SP_LISTAR_CONTROLES_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result)" />
@@ -2279,6 +2275,7 @@
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
 
+
         <ComplexType Name="SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
           <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
           <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
@@ -2323,6 +2320,11 @@
           <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
           <Property Type="Int32" Name="ID" Nullable="false" />
+
+
+        <ComplexType Name="SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
 
         </ComplexType>
 
@@ -2820,6 +2822,10 @@
               <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
                 <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
                 <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+                 </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+
 
           <FunctionImportMapping FunctionImportName="SP_LISTADO_CONTROLES" FunctionName="sicoveModel.Store.SP_LISTADO_CONTROLES">
             <ResultMapping>
@@ -2875,12 +2881,11 @@
                 <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
                 <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
 
-        </EntityContainerMapping>
+        
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
