@@ -34,11 +34,11 @@
                                     
                                             </div>
 
-                                         <div class="form-group">
+                                         <%--<div class="form-group">
                                                 <label>Geolocalización</label>
                                                 <input class="form-control">
                                         
-                                            </div>
+                                            </div>--%>
                                            <div class="form-group">
                                     <label>Localidad</label>
                                     <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>

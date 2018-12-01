@@ -39,11 +39,11 @@
                             <div class="row">
                                     <div class="col-lg-6">
 
-                                         <div class="form-group">
+                                        <%-- <div class="form-group">
                                                 <label>Geolocalización</label>
                                                 <input class="form-control">
                                         
-                                        </div>
+                                        </div>--%>
                                         <div class="form-group">
                                             <label>Localidad</label>
                                             <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
@@ -63,9 +63,9 @@
                                             <asp:RequiredFieldValidator ID="rfvFileUploadFoto" runat="server" ErrorMessage="Debe Ingresar una Imagen" ControlToValidate="FileUploadFoto" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>  
                                             </div>
                                           <div class="form-group">
-                                            <label>Fecha de vencimiento</label>
+                                            <label>Fecha ocurrencia </label>
                                             <asp:TextBox type="number" ID="txtFecha" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="rfvFechavencimiento" runat="server" ErrorMessage="Debe Ingresar Fecha de vencimiento" ControlToValidate="txtFecha" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>  
+                                            <asp:RequiredFieldValidator ID="rfvFechavencimiento" runat="server" ErrorMessage="Debe Ingresar Fecha de ocurrencia" ControlToValidate="txtFecha" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>  
                                           </div>
                                          <div class="form-group">
                                              <label>Patente</label>
