@@ -232,6 +232,70 @@ namespace SiCoVe.Site
                     }
                 }
             }
+
+            if (id_grafico == 4)
+            {
+                lblflot.InnerText = "Infracciones por Categoría";
+                lblbar.InnerText = "Infracciones por Categoría";
+
+                StringBuilder sb;
+
+                int flag = 0;
+                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_CATEGORIA().ToList();
+
+                if (dataContLoc.Count > 0)
+                {
+                    sb = new StringBuilder();
+                    sb.Append("var dataMen = [");
+
+                    foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
+                    {
+                        if (flag == 0)
+                            sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                        else
+                            sb.Append(",{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+
+                        flag = 1;
+                    }
+
+                    sb.Append("];");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
+
+                    flag = 0;
+
+                    if (dataContLoc.Count > 0)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Morris.Bar({");
+                        sb.Append("element: 'morris-bar-chartAnual',");
+                        sb.Append(" data: [");
+
+                        foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
+                        {
+                            if (flag == 0)
+                                sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                            else
+                                sb.Append(",{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                            flag = 1;
+                        }
+
+                        sb.Append("],");
+
+                        sb.Append("xkey: 'area',");
+                        sb.Append("ykeys: ['cantidad'],");
+                        sb.Append("labels: ['cantidad'],");
+                        sb.Append("barRatio: 0.4,");
+                        sb.Append("xLabelAngle: 35,");
+                        sb.Append("hideHover: 'auto',");
+                        sb.Append("resize: true");
+                        sb.Append("});");
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
+                    }
+                }
+            }
         }
 
         private void llenarPrimerGrafico()
