@@ -171,5 +171,10 @@ namespace DataBaseSiCoVe
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result>("SP_LISTAR_INFRACCIONES_X_LOCALIDAD");
         }
+    
+        public virtual ObjectResult<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result> SP_LISTAR_ACARREOS_X_LOCALIDAD()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result>("SP_LISTAR_ACARREOS_X_LOCALIDAD");
+        }
     }
 }
