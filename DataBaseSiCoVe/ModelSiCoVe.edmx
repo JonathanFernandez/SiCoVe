@@ -819,6 +819,7 @@
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_LISTAR_CONTROLES_X_LOCALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTAR_DATOS_PERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="persona" Type="int" Mode="In" />
         </Function>
@@ -1229,7 +1230,7 @@
             <Parameter Name="remolque_id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_GENERAR_EMAIL_DENUNCIA" ReturnType="Collection(sicoveModel.SP_GENERAR_EMAIL_DENUNCIA_Result)">
-            <Parameter Name="denuncia" Mode="In" Type="Int32" />
+          <Parameter Name="denuncia" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_AGENTE_TRANSITO" ReturnType="Collection(sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result)">
             <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
@@ -1242,11 +1243,12 @@
             <Parameter Name="NOMBRE" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTAR_DATOS_PERSONA" ReturnType="Collection(sicoveModel.SP_LISTAR_DATOS_PERSONA_Result)">
-            <Parameter Name="persona" Mode="In" Type="Int32" />
+          <Parameter Name="persona" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTAR_PERSONAS_AUTORIZADAS" ReturnType="Collection(sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result)">
-            <Parameter Name="dominio" Mode="In" Type="String" />
+          <Parameter Name="dominio" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_CONTROLES_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result)" />
         </EntityContainer>
         <EntityType Name="agente_transito">
           <Key>
@@ -2209,6 +2211,10 @@
           <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2637,6 +2643,14 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_LOCALIDAD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
