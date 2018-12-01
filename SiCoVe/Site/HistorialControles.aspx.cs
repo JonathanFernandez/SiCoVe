@@ -19,7 +19,7 @@ namespace SiCoVe.Site
 
         public void listadoControles()
         {
-            GvHistorialControles.DataSource = sicove.SP(null, null, null).ToList();
+            GvHistorialControles.DataSource = sicove.SP_LISTADO_CONTROLES(null, null, null).ToList();
             GvHistorialControles.DataBind();
         }
     }
