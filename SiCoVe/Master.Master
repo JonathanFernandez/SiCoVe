@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title></title>
-    
+     <asp:ContentPlaceHolder ID="includeJsSection" runat="server"></asp:ContentPlaceHolder>
     <asp:ContentPlaceHolder ID="IncludeCssSection" runat="server"></asp:ContentPlaceHolder>
     
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -138,6 +138,6 @@
             <asp:ContentPlaceHolder ID="PaginaCentral_ContentPlaceHolder" runat="server"></asp:ContentPlaceHolder>
         </div>
     </form>
-    <asp:ContentPlaceHolder ID="includeJsSection" runat="server"></asp:ContentPlaceHolder>
+   
 </body>
 </html>
