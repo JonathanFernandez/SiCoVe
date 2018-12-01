@@ -815,6 +815,11 @@
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_LISTADO_CONDUCTORES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DNI" Type="int" Mode="In" />
+          <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="SP_LISTADO_CONTROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTADO_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTADO_PERSONAL_REMOLQUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1254,6 +1259,11 @@
             </FunctionImport>
           <FunctionImport Name="SP_LISTADO_ACARREO" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_Result)" />
           <FunctionImport Name="SP_LISTADO_DENUNCIA" ReturnType="Collection(sicoveModel.SP_LISTADO_DENUNCIA_Result)" />
+          <FunctionImport Name="SP_LISTADO_CONDUCTORES" ReturnType="Collection(sicoveModel.SP_LISTADO_CONDUCTORES_Result)">
+            <Parameter Name="DNI" Mode="In" Type="Int32" />
+            <Parameter Name="APELLIDO" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="agente_transito">
           <Key>
@@ -2247,6 +2257,16 @@
           <Property Type="String" Name="observaciones" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
         </ComplexType>
+        <ComplexType Name="SP_LISTADO_CONDUCTORES_Result">
+          <Property Type="Int64" Name="DNI" Nullable="false" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SEXO" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FECHA_NACIMIENTO" Nullable="true" />
+          <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2718,6 +2738,20 @@
                 <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
                 <ScalarProperty Name="observaciones" ColumnName="observaciones" />
                 <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_CONDUCTORES" FunctionName="sicoveModel.Store.SP_LISTADO_CONDUCTORES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_CONDUCTORES_Result">
+                <ScalarProperty Name="DNI" ColumnName="DNI" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+                <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+                <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

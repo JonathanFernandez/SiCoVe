@@ -33,12 +33,12 @@
                     </div>
                     <div class="form-group">
 
-                          <asp:GridView ID="GvUsuario" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True"  >
+                          <asp:GridView ID="GvUsuarios" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False" AllowPaging="True" AllowSorting="True"  >
                                       <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                               <Columns>
-                                  <asp:BoundField HeaderText="DNI" />
-                                  <asp:BoundField HeaderText="Apellido" />
-                                  <asp:BoundField HeaderText="Nombres" />
+                                  <asp:BoundField HeaderText="DNI" DataField="DNI"/>
+                                  <asp:BoundField HeaderText="Apellido"  DataField="APELLIDO" />
+                                  <asp:BoundField HeaderText="Nombres"  DataField="NOMBRE" />
                                   <asp:CommandField HeaderText="Eliminar Solicitud" ShowDeleteButton="True"></asp:CommandField>
                                   <asp:HyperLinkField HeaderText="Ver Datos" NavigateUrl="~/Site/ActualizarDatosUsuario.aspx" Text="Ver" />
                               </Columns>

@@ -144,5 +144,22 @@ namespace DataBaseSiCoVe
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA");
         }
+    
+        public virtual ObjectResult<SP_LISTADO_CONDUCTORES_Result> SP_LISTADO_CONDUCTORES(Nullable<int> dNI, string aPELLIDO, string nOMBRE)
+        {
+            var dNIParameter = dNI.HasValue ?
+                new ObjectParameter("DNI", dNI) :
+                new ObjectParameter("DNI", typeof(int));
+    
+            var aPELLIDOParameter = aPELLIDO != null ?
+                new ObjectParameter("APELLIDO", aPELLIDO) :
+                new ObjectParameter("APELLIDO", typeof(string));
+    
+            var nOMBREParameter = nOMBRE != null ?
+                new ObjectParameter("NOMBRE", nOMBRE) :
+                new ObjectParameter("NOMBRE", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONDUCTORES_Result>("SP_LISTADO_CONDUCTORES", dNIParameter, aPELLIDOParameter, nOMBREParameter);
+        }
     }
 }
