@@ -144,7 +144,19 @@
     <Compile Include="SP_GENERAR_EMAIL_DENUNCIA_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LISTADO_ACARREO_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LISTADO_AGENTE_TRANSITO_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LISTADO_CONDUCTORES_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LISTADO_CONTROLES_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_LISTADO_DENUNCIA_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
     <Compile Include="SP_LISTADO_PERSONAL_REMOLQUE_Result.cs">
