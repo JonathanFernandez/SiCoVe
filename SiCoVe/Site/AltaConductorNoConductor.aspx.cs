@@ -16,158 +16,301 @@ namespace SiCoVe.Site
         {
             if (!Page.IsPostBack)
             {
-                CargarCombos();
+                var catl = sicove.categoria_licencia.ToList();
+
+                ddlCategoriaLIC.Items.Insert(0, new ListItem("Seleccione Categoría de Licencia...", "0"));
+
+                foreach (categoria_licencia p in catl)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlCategoriaLIC.Items.Add(item);
+                }
+
+                ddlCategoriaLIC.SelectedIndex = 0;
             }
+
+            /*--------------------------------------------------------------------------------*/
+            var mar = sicove.marca_vehiculo.ToList();
+
+                ddlMarcaCED.Items.Insert(0, new ListItem("Seleccione Marca...", "0"));
+
+                foreach (marca_vehiculo p in mar)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlMarcaCED.Items.Add(item);
+                }
+
+                ddlMarcaCED.SelectedIndex = 0;
+
+               /*--------------------------------------------------------------------------------*/
+             var nac = sicove.nacionalidads.ToList();
+
+               ddlNacionalidadDNI.Items.Insert(0, new ListItem("Seleccione Nacionalidad...", "0"));
+
+               foreach (nacionalidad p in nac)
+               {
+                   ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                   ddlNacionalidadDNI.Items.Add(item);
+               }
+
+                   ddlNacionalidadDNI.SelectedIndex = 0;
+
+            /*--------------------------------------------------------------------------------*/
+            var Sex = sicove.sexoes.ToList();
+
+                ddlSexoDNI.Items.Insert(0, new ListItem("Seleccione Sexo...", "0"));
+
+                foreach (sexo p in Sex)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlSexoDNI.Items.Add(item);
+                }
+
+                    ddlSexoDNI.SelectedIndex = 0;
+
+            /*--------------------------------------------------------------------------------*/
+            var pro = sicove.provincias.ToList();
+
+                ddlProvinciaDNI.Items.Insert(0, new ListItem("Seleccione Provincia...", "0"));
+                
+                foreach (provincia p in pro)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlProvinciaDNI.Items.Add(item);
+                    //ddlProvinciaDNI.Items.Add(item);
+                }
+
+                ddlProvinciaDNI.SelectedIndex = 0;
+                //ddlProvinciaDNI.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+              var loc = sicove.localidads.ToList();
+
+                  ddlLocalidadDNI.Items.Insert(0, new ListItem("Seleccione Localidad...", "0"));
+                
+                foreach (localidad p in loc)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlLocalidadDNI.Items.Add(item);
+                }
+
+                ddlLocalidadDNI.SelectedIndex = 0;
+                
+                /*--------------------------------------------------------------------------------*/
+                var mun = sicove.municipios.ToList();
+
+                ddlMunicipio.Items.Insert(0, new ListItem("Seleccione municipio...", "0"));
+
+                foreach (municipio p in mun)
+                {
+                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                    ddlMunicipio.Items.Add(item);
+                }
+
+                ddlMunicipio.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+                var Est = sicove.estado_cedula.ToList();
+
+                ddlEstadoCED.Items.Insert(0, new ListItem("Seleccione Estado...", "0"));
+
+                foreach (estado_cedula c in Est)
+                {
+                    ListItem item = new ListItem(c.descripcion, Convert.ToString(c.id));
+
+                    ddlEstadoCED.Items.Add(item);
+                }
+
+                ddlEstadoCED.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+                var Tip = sicove.tipo_vehiculo.ToList();
+        
+                ddlTipoCED.Items.Insert(0, new ListItem("Seleccione Tipo...", "0"));
+
+                 foreach (tipo_vehiculo t in Tip)
+                {
+                    ListItem item = new ListItem(t.descripcion, Convert.ToString(t.id));
+
+                ddlTipoCED.Items.Add(item);
+                }
+
+                ddlTipoCED.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
+                var Uso = sicove.uso_cedula.ToList();
+
+                ddlUsoCED.Items.Insert(0, new ListItem("Seleccione Uso...", "0"));
+
+                foreach (uso_cedula u in Uso)
+               {
+                    ListItem item = new ListItem(u.descripcion, Convert.ToString(u.id));
+
+                ddlUsoCED.Items.Add(item);
+               }
+
+                ddlUsoCED.SelectedIndex = 0;
+
+               /*--------------------------------------------------------------------------------*/
+                var Ase = sicove.aseguradoras.ToList();
+
+                ddlAseguradoraSEG.Items.Insert(0, new ListItem("Seleccione Aseguradora...", "0"));
+
+                foreach (aseguradora a in Ase)
+                {
+                    ListItem item = new ListItem(a.descripcion, Convert.ToString(a.id));
+
+                ddlAseguradoraSEG.Items.Add(item);
+                }
+
+                ddlAseguradoraSEG.SelectedIndex = 0;
+
+                /*--------------------------------------------------------------------------------*/
         }
 
-        private void CargarCombos()
-        {
-            CargarSexo();
-            CargarNacionalidad();
-            CargarEstado();
-            CargarTipo();
-            CargarUso();
-            CargarAseguradora();
-            CargarMarca();
-            CargarMunicipio();
-            CargarProvincia();
-            CargarLocalidad();
-            CargarCategorias();
-        }
+        //{
+        //    if (!Page.IsPostBack)
+        //    {
+        //        CargarCombos();
+        //    }
+        //}
 
-        private void CargarCategorias()
-        {
-            var categorias = sicove.categoria_licencia.ToList();
+        //private void CargarCombos()
+        //{
+        //    CargarSexo();  ok
+        //    CargarNacionalidad(); ok
+        //    CargarEstado(); ok  
+        //    CargarTipo(); ok
+        //    CargarUso(); ok
+        //    CargarAseguradora(); ok
+        //    CargarMarca(); ok
+        //    CargarMunicipio(); ok
+        //    CargarProvincia(); ok
+        //    CargarLocalidad(); ok
+        //    CargarCategorias();ok
+        //}
 
-            ddlCategoriaLIC.DataTextField = "descripcion";
-            ddlCategoriaLIC.DataValueField = "id";
-            ddlCategoriaLIC.DataSource = categorias;
-            ddlCategoriaLIC.DataBind();
-        }
+        //private void CargarCategorias()
+        //{
+        //    var categorias = sicove.categoria_licencia.ToList();
 
-        private void CargarLocalidad()
-        {
-            var localidad = sicove.localidads.ToList();
+        //    ddlCategoriaLIC.DataTextField = "descripcion";
+        //    ddlCategoriaLIC.DataValueField = "id";
+        //    ddlCategoriaLIC.DataSource = categorias;
+        //    ddlCategoriaLIC.DataBind();
+        //}
 
-            ddlLocalidadDNI.DataTextField = "descripcion";
-            ddlLocalidadDNI.DataValueField = "id";
-            ddlLocalidadDNI.DataSource = localidad;
-            ddlLocalidadDNI.DataBind();
-        }
+        //private void CargarLocalidad()
+        //{
+        //    var localidad = sicove.localidads.ToList();
 
-        private void CargarProvincia()
-        {
-            var provincia = sicove.provincias.ToList();
+        //    ddlLocalidadDNI.DataTextField = "descripcion";
+        //    ddlLocalidadDNI.DataValueField = "id";
+        //    ddlLocalidadDNI.DataSource = localidad;
+        //    ddlLocalidadDNI.DataBind();
+        //}
 
-            ddlProvinciaDNI.DataTextField = "descripcion";
-            ddlProvinciaDNI.DataValueField = "id";
-            ddlProvinciaDNI.DataSource = provincia;
-            ddlProvinciaDNI.DataBind();
-        }
+        //private void CargarProvincia()
+        //{
+        //    var provincia = sicove.provincias.ToList();
 
-        private void CargarMunicipio()
-        {
-            var municipio = sicove.municipios.ToList();
+        //    ddlProvinciaDNI.DataTextField = "descripcion";
+        //    ddlProvinciaDNI.DataValueField = "id";
+        //    ddlProvinciaDNI.DataSource = provincia;
+        //    ddlProvinciaDNI.DataBind();
+        //}
 
-            ddlMunicipio.DataTextField = "descripcion";
-            ddlMunicipio.DataValueField = "id";
-            ddlMunicipio.DataSource = municipio;
-            ddlMunicipio.DataBind();
+        //private void CargarMunicipio()
+        //{
+        //    var municipio = sicove.municipios.ToList();
 
-        }
+        //    ddlMunicipio.DataTextField = "descripcion";
+        //    ddlMunicipio.DataValueField = "id";
+        //    ddlMunicipio.DataSource = municipio;
+        //    ddlMunicipio.DataBind();
 
-        private void CargarMarca()
-        {
-            var marcas = sicove.marca_vehiculo.ToList();
+        //}
 
-            ddlMarcaCED.DataTextField = "descripcion";
-            ddlMarcaCED.DataValueField = "id";
-            ddlMarcaCED.DataSource = marcas;
-            ddlMarcaCED.DataBind();
+        //private void CargarMarca()
+        //{
+        //    var marcas = sicove.marca_vehiculo.ToList();
 
-            //ddlMarcaSEG.DataTextField = "descripcion";
-            //ddlMarcaSEG.DataValueField = "id";
-            //ddlMarcaSEG.DataSource = marcas;
-            //ddlMarcaSEG.DataBind();
+        //    ddlMarcaCED.DataTextField = "descripcion";
+        //    ddlMarcaCED.DataValueField = "id";
+        //    ddlMarcaCED.DataSource = marcas;
+        //    ddlMarcaCED.DataBind();
+        //}
 
+        //private void CargarUso()
+        //{
+        //    var uso = sicove.uso_cedula.ToList();
 
-        }
+        //    ddlUsoCED.DataTextField = "descripcion";
+        //    ddlUsoCED.DataValueField = "id";
+        //    ddlUsoCED.DataSource = uso;
+        //    ddlUsoCED.DataBind();
+        //}
 
-        private void CargarUso()
-        {
-            var uso = sicove.uso_cedula.ToList();
+        //private void CargarAseguradora()
+        //{
+        //    var aseguradora = sicove.aseguradoras.ToList();
 
-            ddlUsoCED.DataTextField = "descripcion";
-            ddlUsoCED.DataValueField = "id";
-            ddlUsoCED.DataSource = uso;
-            ddlUsoCED.DataBind();
-        }
+        //    ddlAseguradoraSEG.DataTextField = "descripcion";
+        //    ddlAseguradoraSEG.DataValueField = "id";
+        //    ddlAseguradoraSEG.DataSource = aseguradora;
+        //    ddlAseguradoraSEG.DataBind();
 
-        private void CargarAseguradora()
-        {
-            var aseguradora = sicove.aseguradoras.ToList();
+        //}
 
-            ddlAseguradoraSEG.DataTextField = "descripcion";
-            ddlAseguradoraSEG.DataValueField = "id";
-            ddlAseguradoraSEG.DataSource = aseguradora;
-            ddlAseguradoraSEG.DataBind();
+        //private void CargarTipo()
+        //{
+        //    var tipo = sicove.tipo_vehiculo.ToList();
 
-        }
+        //    ddlTipoCED.DataTextField = "descripcion";
+        //    ddlTipoCED.DataValueField = "id";
+        //    ddlTipoCED.DataSource = tipo;
+        //    ddlTipoCED.DataBind();
 
-        private void CargarTipo()
-        {
-            var tipo = sicove.tipo_vehiculo.ToList();
+        //}
 
-            ddlTipoCED.DataTextField = "descripcion";
-            ddlTipoCED.DataValueField = "id";
-            ddlTipoCED.DataSource = tipo;
-            ddlTipoCED.DataBind();
+        //private void CargarEstado()
+        //{
 
-        }
+        //    var estado = sicove.estado_cedula.ToList();
 
-        private void CargarEstado()
-        {
+        //    ddlEstadoCED.DataTextField = "descripcion";
+        //    ddlEstadoCED.DataValueField = "id";
+        //    ddlEstadoCED.DataSource = estado;
+        //    ddlEstadoCED.DataBind();
+        //}
 
-            var estado = sicove.estado_cedula.ToList();
+        //private void CargarNacionalidad()
+        //{
+        //    var nacionalidades = sicove.nacionalidads.ToList();
 
-            ddlEstadoCED.DataTextField = "descripcion";
-            ddlEstadoCED.DataValueField = "id";
-            ddlEstadoCED.DataSource = estado;
-            ddlEstadoCED.DataBind();
-        }
+        //    ddlNacionalidadDNI.DataTextField = "descripcion";
+        //    ddlNacionalidadDNI.DataValueField = "id";
 
-        private void CargarNacionalidad()
-        {
-            var nacionalidades = sicove.nacionalidads.ToList();
+        //    ddlNacionalidadDNI.DataSource = nacionalidades;
+        //    ddlNacionalidadDNI.DataBind();
+        //}
 
-            ddlNacionalidadDNI.DataTextField = "descripcion";
-            ddlNacionalidadDNI.DataValueField = "id";
+        //private void CargarSexo()
+        //{
+        //    var sexo = sicove.sexoes.ToList();
 
-            ddlNacionalidadDNI.DataSource = nacionalidades;
-            ddlNacionalidadDNI.DataBind();
-
-            //ddlNacionalidadLIC.DataTextField = "descripcion";
-            //ddlNacionalidadLIC.DataValueField = "id";
-
-            //ddlNacionalidadLIC.DataSource = nacionalidades;
-            //ddlNacionalidadLIC.DataBind();
-
-        }
-
-        private void CargarSexo()
-        {
-            var sexo = sicove.sexoes.ToList();
-
-            ddlSexoDNI.DataTextField = "descripcion";
-            ddlSexoDNI.DataValueField = "id";
-            ddlSexoDNI.DataSource = sexo;
-            ddlSexoDNI.DataBind();
-
-            //ddlSexoLIC.DataTextField = "descripcion";
-            //ddlSexoLIC.DataValueField = "id";
-            //ddlSexoLIC.DataSource = sexo;
-            //ddlSexoLIC.DataBind();
-        }
+        //    ddlSexoDNI.DataTextField = "descripcion";
+        //    ddlSexoDNI.DataValueField = "id";
+        //    ddlSexoDNI.DataSource = sexo;
+        //    ddlSexoDNI.DataBind();
+        //}
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
