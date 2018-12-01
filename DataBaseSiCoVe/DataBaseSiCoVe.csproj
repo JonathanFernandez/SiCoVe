@@ -162,6 +162,9 @@
     <Compile Include="SP_LISTADO_PERSONAL_REMOLQUE_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LISTAR_CONTROLES_X_LOCALIDAD_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LISTAR_DATOS_PERSONA_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
@@ -182,32 +185,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="ModelSiCoVe.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelSiCoVe.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ModelSiCoVe.edmx.diagram">
       <DependentUpon>ModelSiCoVe.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModelSiCoVe.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelSiCoVe.Context.cs</LastGenOutput>
       <DependentUpon>ModelSiCoVe.edmx</DependentUpon>
+      <LastGenOutput>ModelSiCoVe.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelSiCoVe.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelSiCoVe.edmx</DependentUpon>
       <LastGenOutput>ModelSiCoVe.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
