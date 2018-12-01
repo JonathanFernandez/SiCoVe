@@ -130,42 +130,9 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
         }
     
-<<<<<<< HEAD
         public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD");
-=======
-        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES");
-        }
-    
-        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO");
-        }
-    
-        public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA");
-        }
-    
-        public virtual ObjectResult<SP_LISTADO_CONDUCTORES_Result> SP_LISTADO_CONDUCTORES(Nullable<int> dNI, string aPELLIDO, string nOMBRE)
-        {
-            var dNIParameter = dNI.HasValue ?
-                new ObjectParameter("DNI", dNI) :
-                new ObjectParameter("DNI", typeof(int));
-    
-            var aPELLIDOParameter = aPELLIDO != null ?
-                new ObjectParameter("APELLIDO", aPELLIDO) :
-                new ObjectParameter("APELLIDO", typeof(string));
-    
-            var nOMBREParameter = nOMBRE != null ?
-                new ObjectParameter("NOMBRE", nOMBRE) :
-                new ObjectParameter("NOMBRE", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONDUCTORES_Result>("SP_LISTADO_CONDUCTORES", dNIParameter, aPELLIDOParameter, nOMBREParameter);
->>>>>>> 27ad54d27308af05802b46c5ec13d6c0843964b8
         }
     }
 }
