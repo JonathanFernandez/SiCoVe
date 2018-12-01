@@ -28,14 +28,14 @@
                             <asp:GridView ID="GvHistorialDenuncias" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False">
                             <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                             <Columns>                     
-                                <asp:BoundField HeaderText="Infraccion"  DataField="INFRACCION_ID"/> 
-                                <asp:BoundField HeaderText="Usuario"  DataField="USUARIO_ID"/> 
-                                <asp:BoundField HeaderText="Estado"  DataField="ESTADO_ID"/>
+                                
+                                <asp:BoundField HeaderText="Usuario"  DataField="USUARIO"/> 
+                                <asp:BoundField HeaderText="Estado"  DataField="ESTADO"/>
                                 <asp:BoundField HeaderText="Fecha" DataField="FECHA_HORA" DataFormatString = "{0: dd-MM-yyyy}"/>     
                                 <asp:BoundField HeaderText="ubicacion"  DataField="UBICACION"/>
-                                <asp:BoundField HeaderText="Localidad" DataField="LOCALIDAD_ID" />
+                                <asp:BoundField HeaderText="Localidad" DataField="LOCALIDAD" />
                                 <asp:BoundField HeaderText="dominio" DataField="DOMINIO" />                                
-                                <asp:BoundField HeaderText="Observaciones" DataField="OBSERVACIONES" />                                                                                                
+                                <asp:BoundField HeaderText="Observaciones" DataField="INFRACCION" />                                                                                                
                             </Columns>
                              </asp:GridView>
                             
