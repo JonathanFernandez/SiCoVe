@@ -13,9 +13,8 @@ namespace SiCoVe.Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //StringBuilder sb;
+            StringBuilder sb = new StringBuilder();
 
-            //sb = new StringBuilder();
             //sb.Append("var dataMen = [");
 
             //foreach (SP_HSE_INFORME_CANTIDAD_TIPO_OBS_MENSUAL_Result ob in dataMensual)
@@ -29,14 +28,15 @@ namespace SiCoVe.Site
 
             //}
 
-            //sb.Append("{label: '" + "Juan" + " /" + "10" + "', data: " + "10" + " }");
-
             //sb.Append("];");
 
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "tMensual", "\n" + sb.ToString(), true);
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "tMensualFun", "\n llenarGraficoTortasMensual(dataMen);", true);
+            sb.Append("var dataMen = [");
+            sb.Append("{label: '" + "Juan" + "', data: " + "10" + " }");
+            sb.Append(",{label: '" + "Sobrile" + "', data: " + "20" + " }");
+            sb.Append("];");
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "graficos", "llenarFlotPie();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosFun", "\n llenarFlotPie(dataMen);", true);
         }
     }
 }

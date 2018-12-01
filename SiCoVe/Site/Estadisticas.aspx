@@ -2,7 +2,49 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="../Content/data/flot-data.js"></script>
+    <%--<script type="text/javascript" src="../Content/data/flot-data.js"></script>--%>
+
+    <script>
+        function llenarFlotPie(datos) {
+
+            alert("entro " + datos[0].label + " " + datos[0].data);
+
+            var data = [{
+                label: "Series 0",
+                data: 110
+            }, {
+                label: "Series 1",
+                data: 1
+            }, {
+                label: "Series 2",
+                data: 1
+            }, {
+                label: "Series 3",
+                data: 1
+            }];
+
+            var plotObj = $.plot($("#flot-pie-chart"), datos, {
+                series: {
+                    pie: {
+                        show: true
+                    }
+                },
+                grid: {
+                    hoverable: true
+                },
+                tooltip: true,
+                tooltipOpts: {
+                    content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+                    shifts: {
+                        x: 20,
+                        y: 0
+                    },
+                    defaultTheme: false
+                }
+            });
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
