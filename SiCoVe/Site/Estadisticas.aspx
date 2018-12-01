@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <%--<script type="text/javascript" src="../Content/vendor/jquery/jquery.js" ></script>
+    <script type="text/javascript" src="../Content/vendor/jquery/jquery.js" ></script>
     <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js" ></script>
     <script type="text/javascript" src="../Content/vendor/jquery/jquery.min.js" ></script>
     <script type="text/javascript" src="../Content/vendor/bootstrap/js/bootstrap.min.js" ></script>
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="../Content/vendor/flot/jquery.flot.resize.js" ></script>
     <script type="text/javascript" src="../Content/vendor/flot/jquery.flot.time.js" ></script>
     <script type="text/javascript" src="../Content/vendor/flot-tooltip/jquery.flot.tooltip.min.js" ></script>
-    <script type="text/javascript" src="../Content/data/flot-data.js" ></script>--%>
+    <script type="text/javascript" src="../Content/data/flot-data.js" ></script>
     <script>
         function llenarFlotPie(datos) {
             var plotObj = $.plot($("#flot-pie-chart"), datos, {
