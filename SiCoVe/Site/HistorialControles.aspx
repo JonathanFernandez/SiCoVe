@@ -24,8 +24,7 @@
                              Historial de controles
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                           
+                        <div class="panel-body">                     
                             <asp:GridView ID="GvHistorialControles" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False">
                             <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                             <Columns>

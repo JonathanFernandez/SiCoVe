@@ -809,6 +809,7 @@
         <Function Name="SP_GENERAR_EMAIL_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="denuncia" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_LISTADO_ACARREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTADO_AGENTE_TRANSITO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
@@ -1250,6 +1251,7 @@
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_CONTROLES" ReturnType="Collection(sicoveModel.SP_LISTADO_CONTROLES_Result)">
             </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_ACARREO" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_Result)" />
         </EntityContainer>
         <EntityType Name="agente_transito">
           <Key>
@@ -2224,6 +2226,15 @@
           <Property Type="String" Name="VEHICULO" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DOMINIO" Nullable="true" MaxLength="10" />
         </ComplexType>
+        <ComplexType Name="SP_LISTADO_ACARREO_Result">
+          <Property Type="Int32" Name="REMOLCADOR" Nullable="false" />
+          <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2668,6 +2679,19 @@
                 <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
                 <ScalarProperty Name="VEHICULO" ColumnName="VEHICULO" />
                 <ScalarProperty Name="DOMINIO" ColumnName="DOMINIO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_Result">
+                <ScalarProperty Name="REMOLCADOR" ColumnName="REMOLCADOR" />
+                <ScalarProperty Name="PLAYA" ColumnName="PLAYA" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
