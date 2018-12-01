@@ -47,7 +47,7 @@
                             <label>E-Mail</label>
                             <asp:TextBox ID="txtEMail" runat="server" class="form-control" name="email" type="email" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar E-Mail" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar un Email válido." display="dynamic" ValidationExpression="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" CssClass="label label-danger"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar un Email válido." display="dynamic" ValidationExpression="\w+([-+.']\w+)@\w+([-.]\w+)\.\w+([-.]\w+)*" CssClass="label label-danger"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>

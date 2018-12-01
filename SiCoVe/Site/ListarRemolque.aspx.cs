@@ -28,8 +28,7 @@ namespace SiCoVe
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             int legajo = 0;
-            if (LblLegajo.Text != "")
-            
+            if (txtLegajo.Text != "")           
                 legajo = Convert.ToInt32(txtLegajo.Text);
 
 
@@ -66,10 +65,7 @@ namespace SiCoVe
             }
 
             sicove.personas.Remove(per);
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario eliminado con éxito');", true);
             sicove.SaveChanges();
-
-
             ListadoRemolque();
         }
 

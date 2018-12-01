@@ -65,7 +65,6 @@ namespace SiCoVe
            
             sicove.personas.Remove(per);
             sicove.SaveChanges();
-
             ListadoAutoridad();
         }
 
