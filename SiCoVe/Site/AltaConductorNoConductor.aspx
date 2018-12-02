@@ -6,6 +6,12 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+<script>
+    function cckConductor_click() {
+        alert();
+}
+
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -59,7 +65,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Es conductor?
-                                            <asp:CheckBox ID="cckConductor" runat="server"></asp:CheckBox> </label>
+                                            <asp:CheckBox ID="cckConductor" runat="server" onclick="cckConductor_click()" ></asp:CheckBox> </label>
                                         </div>
                                     </div>
                                     <!-- Datos DNI -->
