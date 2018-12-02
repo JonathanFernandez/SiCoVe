@@ -14,9 +14,22 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+        <div class="row">
+      <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <label id="lblSeleccione" runat="server">Selección de localidad</label>
+                    </div>
+                    <div class="panel-body">
+                        <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocalidad_SelectedIndexChanged"></asp:DropDownList>
 
-      
-                        
+                        <%--<br />
+                        <asp:Button ID="btnGraficar" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Aceptar" OnClick="btnGraficar_Click" />--%>
+                    </div>
+                </div>
+            </div>
+                         </div>
+                 
                             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">

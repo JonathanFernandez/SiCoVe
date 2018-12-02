@@ -13,12 +13,32 @@ namespace SiCoVe.Site
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
+            {
+                CargarLocalidades();
                 listadoDenuncias();
+
+            }
+        }
+        private void CargarLocalidades()
+        {
+            var loc = sicove.localidads.ToList();
+
+            //ddlLocalidad.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
+
+            foreach (localidad p in loc)
+            {
+                ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                ddlLocalidad.Items.Add(item);
+
+            }
+
+            //ddlLocalidad.SelectedIndex = 0;
         }
 
         public void listadoDenuncias()
         {
-            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA().ToList();
+            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA(Convert.ToInt32(ddlLocalidad.SelectedValue)).ToList();
             GvHistorialDenuncias.DataBind();
         }
 
@@ -42,6 +62,11 @@ namespace SiCoVe.Site
             }
 
             sicove.SaveChanges();
+            listadoDenuncias();
+        }
+
+        protected void ddlLocalidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
             listadoDenuncias();
         }
     }
