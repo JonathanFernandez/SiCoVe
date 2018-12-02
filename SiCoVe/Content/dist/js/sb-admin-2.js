@@ -29,28 +29,28 @@ $(function() {
         }
     });
 
-    /*var url = window.location;*/
-    //var element = $('ul.nav a').filter(function() {
-    //     return this.href == url;
-    // }).addClass('active').parent().parent().addClass('in').parent();
+    // INI - CODIGO ORIGINAL
+        /*var url = window.location;*/
 
-    /*var element = $('ul.nav a').filter(function() {
-        return this.href == url;
-    }).addClass('active').parent();*/
+        // INI - ESTO YA ESTABA COMENTADO ORIGINALMENTE
+            //var element = $('ul.nav a').filter(function() {
+            //     return this.href == url;
+            // }).addClass('active').parent().parent().addClass('in').parent();
+        // FIN - ESTO YA ESTABA COMENTADO ORIGINALMENTE
 
-    /*while (true) {
-        if (element.is('li')) {
-            element = element.parent().addClass('in').parent();
-        } else {
-            break;
-        }
-    }*/
+        /*var element = $('ul.nav a').filter(function() {
+            return this.href == url;
+        }).addClass('active').parent();
 
-    var url = window.location;
-    var element = $('ul.nav a').filter(function () {
-        return this.href == url /*|| url.href.indexOf(this.href) == 0*/;
-    }).addClass('active').parent().addClass('in').parent();
+        while (true) {
+            if (element.is('li')) {
+                element = element.parent().addClass('in').parent();
+            } else {
+                break;
+            }
+        }*/
+    // FIN - CODIGO ORIGINAL
 
-    /*if (element.is('li')) {
-        element.addClass('active');*/
+    //AGREGADO:
+    $('div.navbar-collapse').addClass('collapse');
 });
