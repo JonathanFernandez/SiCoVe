@@ -13,7 +13,27 @@ namespace SiCoVe.Site {
     public partial class HistorialDenuncias {
         
         /// <summary>
-        /// Control LblDni.
+
+        /// lblSeleccione control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSeleccione;
+        
+        /// <summary>
+        /// ddlLocalidad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocalidad;
+        
+        /// <summary>
+        /// GvHistorialDenuncias control.
+
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

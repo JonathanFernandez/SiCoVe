@@ -40,6 +40,24 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.FileUpload FileUploadLIC;
         
         /// <summary>
+        /// FileUploadCedula control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadCedula;
+        
+        /// <summary>
+        /// FileUploadSeguro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadSeguro;
+        
+        /// <summary>
         /// btnRegistrarACNC control.
         /// </summary>
         /// <remarks>
