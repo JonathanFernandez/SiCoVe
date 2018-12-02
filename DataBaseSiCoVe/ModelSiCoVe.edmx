@@ -82,7 +82,7 @@
           <Property Name="ubicacion" Type="nvarchar" MaxLength="100" />
           <Property Name="adjunto" Type="image" />
           <Property Name="ruta_adjunto" Type="nvarchar(max)" />
-          <Property Name="fecha_hora" Type="date" />
+          <Property Name="fecha_hora" Type="datetime" />
           <Property Name="observaciones" Type="nvarchar" MaxLength="200" />
           <Property Name="localidad_id" Type="int" Nullable="false" />
         </EntityType>
@@ -113,7 +113,7 @@
           <Property Name="localidad_id" Type="int" Nullable="false" />
           <Property Name="control_id" Type="int" />
           <Property Name="nro_acta" Type="bigint" />
-          <Property Name="fecha_hora" Type="date" />
+          <Property Name="fecha_hora" Type="datetime" />
           <Property Name="locacion" Type="nvarchar" MaxLength="200" />
           <Property Name="observaciones" Type="nvarchar" MaxLength="300" />
           <Property Name="documentacion_retenida" Type="nvarchar" MaxLength="100" />
@@ -1129,7 +1129,7 @@
           <Property Name="ubicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="adjunto" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="ruta_adjunto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="fecha_hora" Type="DateTime" Precision="0" />
+          <Property Name="fecha_hora" Type="DateTime" Precision="3" />
           <Property Name="observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="localidad_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="estado_denuncia" Relationship="Self.FK_denuncia_estado_denuncia" FromRole="denuncia" ToRole="estado_denuncia" />
@@ -1166,7 +1166,7 @@
           <Property Name="localidad_id" Type="Int32" Nullable="false" />
           <Property Name="control_id" Type="Int32" />
           <Property Name="nro_acta" Type="Int64" />
-          <Property Name="fecha_hora" Type="DateTime" Precision="0" />
+          <Property Name="fecha_hora" Type="DateTime" Precision="3" />
           <Property Name="locacion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="observaciones" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="documentacion_retenida" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
