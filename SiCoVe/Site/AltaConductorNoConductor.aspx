@@ -225,8 +225,8 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator31" ControlToValidate="txtChasisCED" runat="server" ErrorMessage="* Debe ingresar Chasis" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
-                                            <label>N° de motor</label>
-                                            <asp:TextBox type="number" ID="txtNumMotorCED" runat="server" class="form-control"></asp:TextBox>
+                                            <label>Motor</label>
+                                            <asp:TextBox ID="txtNumMotorCED" runat="server" class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator32" ControlToValidate="txtNumMotorCED" runat="server" ErrorMessage="* Debe ingresar Motor" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
@@ -259,7 +259,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Póliza</label>
-                                            <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control"></asp:TextBox>
+                                            <asp:TextBox type="number"  ID="txtPolizaSEG" runat="server" class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Póliza" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
@@ -272,11 +272,11 @@
                                             <asp:TextBox type="number" ID="txtFecHastaSEG" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator40" ControlToValidate="txtFecHastaSEG" runat="server" ErrorMessage="* Debe ingresar Fecha hasta" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>                                        
                                         </div>
+                                        <asp:Button ID="btnRegistrarACNC" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
                                     </div>
                                 </div>
                                 <br />
-                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
-                            </div>
+                           </div>
                         </div>
                     </div>
                     <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
