@@ -19,8 +19,18 @@ namespace SiCoVe.Site
 
         public void listadoAcarreo()
         {
-            GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO().ToList();
+            GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(null, null, null).ToList();
             GvHistorialAcarreo.DataBind();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if(UserSession.perfil_usuario_id != 1)
+                GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(UserSession.persona_id, txtLocalidad.Text, txtDominio.Text).ToList();
+            else
+                GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(null, null, null).ToList();
+            GvHistorialAcarreo.DataBind();
+
         }
     }
 }

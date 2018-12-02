@@ -18,7 +18,7 @@ namespace SiCoVe.Site
 
         public void listadoDenuncias()
         {
-            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA().ToList();
+            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA(null,null,null).ToList();
             GvHistorialDenuncias.DataBind();
         }
 
@@ -43,6 +43,13 @@ namespace SiCoVe.Site
 
             sicove.SaveChanges();
             listadoDenuncias();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA(txtDni.Text, txtLocalidad.Text, txtDominio.Text).ToList();
+
+            GvHistorialDenuncias.DataBind();
         }
     }
 }

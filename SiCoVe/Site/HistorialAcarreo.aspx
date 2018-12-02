@@ -26,7 +26,24 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body" >
+                                              <div class="form-group">
+                        <div class="col-sm-2">
 
+                        
+                            <asp:Label ID="LblLocalidad" runat="server" Text="Label">Localidad</asp:Label>
+                            <asp:TextBox class="form-control" ID="txtLocalidad" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-2">
+                            <asp:Label ID="LblDominio" runat="server" Text="Label">Dominio</asp:Label>
+                            <asp:TextBox class="form-control" ID="txtDominio" runat="server"></asp:TextBox>
+                         &nbsp;
+                        </div>
+                        <br />
+
+                      <div class="col-sm-2">
+                        <asp:Button class="btn btn-outline btn-primary " ID="btnBuscar" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
+                      </div>
+                   </div>
                             <asp:GridView runat="server" ID="GvHistorialAcarreo" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="False">
                                 <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                 <Columns>  
