@@ -122,11 +122,6 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES");
         }
     
-        public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA");
-        }
-    
         public virtual ObjectResult<SP_LISTADO_PERSONAL_REMOLQUE_Result> SP_LISTADO_PERSONAL_REMOLQUE(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
         {
             var nRO_LEGAJOParameter = nRO_LEGAJO.HasValue ?
@@ -162,19 +157,19 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD()
+        public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD");
-        }
-    
-        public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result> SP_LISTAR_INFRACCIONES_X_LOCALIDAD()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result>("SP_LISTAR_INFRACCIONES_X_LOCALIDAD");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA");
         }
     
         public virtual ObjectResult<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result> SP_LISTAR_ACARREOS_X_LOCALIDAD()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result>("SP_LISTAR_ACARREOS_X_LOCALIDAD");
+        }
+    
+        public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD");
         }
     
         public virtual ObjectResult<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result> SP_LISTAR_DENUNCIAS_X_LOCALIDAD()
@@ -185,6 +180,11 @@ namespace DataBaseSiCoVe
         public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result> SP_LISTAR_INFRACCIONES_X_CATEGORIA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result>("SP_LISTAR_INFRACCIONES_X_CATEGORIA");
+        }
+    
+        public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result> SP_LISTAR_INFRACCIONES_X_LOCALIDAD()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result>("SP_LISTAR_INFRACCIONES_X_LOCALIDAD");
         }
     }
 }

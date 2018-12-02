@@ -2,10 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="../Content/vendor/jquery/jquery.js" ></script>
-    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js" ></script>
-    <script type="text/javascript" src="../Content/vendor/jquery/jquery.min.js" ></script>
+    <%--<script type="text/javascript" src="../Content/vendor/jquery/jquery.js" ></script>--%>
+    <%--<script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js" ></script>--%>
+    <%--<script type="text/javascript" src="../Content/vendor/jquery/jquery.min.js" ></script>--%>
+
     <script type="text/javascript" src="../Content/vendor/bootstrap/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="../Content/vendor/jquery/jquery.min.js" ></script>
     <script type="text/javascript" src="../Scripts/jquery-ui.js" ></script>
     <script type="text/javascript" src="../Content/vendor/metisMenu/metisMenu.min.js" ></script>
     <script type="text/javascript" src="../Content/dist/js/sb-admin-2.js" ></script>
