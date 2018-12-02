@@ -21,7 +21,7 @@ namespace SiCoVe.Site
         {
             GvHistorialAcarreo.DataSource =
                 (from r in sicove.remolque
-                     join pr in sicove.personal_remolque on r.personal_remolque_id = pr.id
+                     join pr in sicove.personal_remolque on r.personal_remolque_id = pr.id  
                      join p in sicove.playa_acarreo on r.playa_acarreo_id = p.id
                      join v in sicove.vehiculo on r.vehiculo_id = v.id
                      join l in sicove.localidad on r.localidad_id = l.id
