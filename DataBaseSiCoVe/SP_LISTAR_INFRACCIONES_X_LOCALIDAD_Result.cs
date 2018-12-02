@@ -13,7 +13,7 @@ namespace DataBaseSiCoVe
     
     public partial class SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result
     {
-        public Nullable<int> CANTIDAD { get; set; }
-        public string LOCALIDAD { get; set; }
+        public Nullable<int> cantidad { get; set; }
+        public string localidad { get; set; }
     }
 }

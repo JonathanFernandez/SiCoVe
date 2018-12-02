@@ -11,9 +11,9 @@ namespace DataBaseSiCoVe
 {
     using System;
     
-    public partial class SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result
+    public partial class SP_LISTAR_ACARREOS_X_PLAYA_Result
     {
         public Nullable<int> cantidad { get; set; }
-        public string categoria_infraccion { get; set; }
+        public string playa_acarreo { get; set; }
     }
 }
