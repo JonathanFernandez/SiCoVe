@@ -27,8 +27,8 @@ namespace DataBaseSiCoVe
         public int localidad_id { get; set; }
     
         public virtual estado_denuncia estado_denuncia { get; set; }
-        public virtual infraccion infraccion { get; set; }
         public virtual localidad localidad { get; set; }
         public virtual usuario usuario { get; set; }
+        public virtual infraccion infraccion { get; set; }
     }
 }

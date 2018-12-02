@@ -70,10 +70,10 @@ namespace SiCoVe.Site
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA(txtDni.Text, txtLocalidad.Text, txtDominio.Text).ToList();
+            GvHistorialDenuncias.DataSource = sicove.SP_LISTADO_DENUNCIA(Convert.ToInt32(ddlLocalidad.SelectedValue)).ToList();
 
             GvHistorialDenuncias.DataBind();
-
+        }
         protected void ddlLocalidad_SelectedIndexChanged(object sender, EventArgs e)
         {
             listadoDenuncias();

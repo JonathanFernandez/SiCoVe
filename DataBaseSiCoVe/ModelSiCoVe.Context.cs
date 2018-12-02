@@ -37,7 +37,6 @@ namespace DataBaseSiCoVe
         public virtual DbSet<denuncia> denuncias { get; set; }
         public virtual DbSet<estado_cedula> estado_cedula { get; set; }
         public virtual DbSet<estado_denuncia> estado_denuncia { get; set; }
-        public virtual DbSet<infraccion> infraccions { get; set; }
         public virtual DbSet<licencia> licencias { get; set; }
         public virtual DbSet<localidad> localidads { get; set; }
         public virtual DbSet<marca_vehiculo> marca_vehiculo { get; set; }
@@ -55,6 +54,7 @@ namespace DataBaseSiCoVe
         public virtual DbSet<uso_cedula> uso_cedula { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<vehiculo> vehiculoes { get; set; }
+        public virtual DbSet<infraccion> infraccions { get; set; }
     
         public virtual ObjectResult<SP_GENERAR_EMAIL_ACARREO_Result> SP_GENERAR_EMAIL_ACARREO(string dominio, Nullable<int> remolque_id)
         {
@@ -76,11 +76,6 @@ namespace DataBaseSiCoVe
                 new ObjectParameter("denuncia", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GENERAR_EMAIL_DENUNCIA_Result>("SP_GENERAR_EMAIL_DENUNCIA", denunciaParameter);
-        }
-    
-        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO");
         }
     
         public virtual ObjectResult<SP_LISTADO_AGENTE_TRANSITO_Result> SP_LISTADO_AGENTE_TRANSITO(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
@@ -117,9 +112,30 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONDUCTORES_Result>("SP_LISTADO_CONDUCTORES", dNIParameter, aPELLIDOParameter, nOMBREParameter);
         }
     
-        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES()
+        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES(Nullable<int> lEGAJO, string lOCALIDAD, string dOMINIO)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES");
+            var lEGAJOParameter = lEGAJO.HasValue ?
+                new ObjectParameter("LEGAJO", lEGAJO) :
+                new ObjectParameter("LEGAJO", typeof(int));
+    
+            var lOCALIDADParameter = lOCALIDAD != null ?
+                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
+                new ObjectParameter("LOCALIDAD", typeof(string));
+    
+            var dOMINIOParameter = dOMINIO != null ?
+                new ObjectParameter("DOMINIO", dOMINIO) :
+                new ObjectParameter("DOMINIO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES", lEGAJOParameter, lOCALIDADParameter, dOMINIOParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA(Nullable<int> localidad_id)
+        {
+            var localidad_idParameter = localidad_id.HasValue ?
+                new ObjectParameter("localidad_id", localidad_id) :
+                new ObjectParameter("localidad_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA", localidad_idParameter);
         }
     
         public virtual ObjectResult<SP_LISTADO_PERSONAL_REMOLQUE_Result> SP_LISTADO_PERSONAL_REMOLQUE(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
@@ -139,24 +155,6 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_PERSONAL_REMOLQUE_Result>("SP_LISTADO_PERSONAL_REMOLQUE", nRO_LEGAJOParameter, aPELLIDOParameter, nOMBREParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_DATOS_PERSONA_Result> SP_LISTAR_DATOS_PERSONA(Nullable<int> persona)
-        {
-            var personaParameter = persona.HasValue ?
-                new ObjectParameter("persona", persona) :
-                new ObjectParameter("persona", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
-        }
-    
-        public virtual ObjectResult<SP_LISTAR_PERSONAS_AUTORIZADAS_Result> SP_LISTAR_PERSONAS_AUTORIZADAS(string dominio)
-        {
-            var dominioParameter = dominio != null ?
-                new ObjectParameter("dominio", dominio) :
-                new ObjectParameter("dominio", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
-        }
-    
         public virtual ObjectResult<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result> SP_LISTAR_ACARREOS_X_LOCALIDAD()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result>("SP_LISTAR_ACARREOS_X_LOCALIDAD");
@@ -165,6 +163,15 @@ namespace DataBaseSiCoVe
         public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD");
+        }
+    
+        public virtual ObjectResult<SP_LISTAR_DATOS_PERSONA_Result> SP_LISTAR_DATOS_PERSONA(Nullable<int> persona)
+        {
+            var personaParameter = persona.HasValue ?
+                new ObjectParameter("persona", persona) :
+                new ObjectParameter("persona", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
         }
     
         public virtual ObjectResult<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result> SP_LISTAR_DENUNCIAS_X_LOCALIDAD()
@@ -182,13 +189,26 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result>("SP_LISTAR_INFRACCIONES_X_LOCALIDAD");
         }
     
-        public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA(Nullable<int> localidad_id)
+        public virtual ObjectResult<SP_LISTAR_PERSONAS_AUTORIZADAS_Result> SP_LISTAR_PERSONAS_AUTORIZADAS(string dominio)
         {
-            var localidad_idParameter = localidad_id.HasValue ?
-                new ObjectParameter("localidad_id", localidad_id) :
-                new ObjectParameter("localidad_id", typeof(int));
+            var dominioParameter = dominio != null ?
+                new ObjectParameter("dominio", dominio) :
+                new ObjectParameter("dominio", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_DENUNCIA_Result>("SP_LISTADO_DENUNCIA", localidad_idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(string lOCALIDAD, string dOMINIO)
+        {
+            var lOCALIDADParameter = lOCALIDAD != null ?
+                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
+                new ObjectParameter("LOCALIDAD", typeof(string));
+    
+            var dOMINIOParameter = dOMINIO != null ?
+                new ObjectParameter("DOMINIO", dOMINIO) :
+                new ObjectParameter("DOMINIO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, dOMINIOParameter);
         }
     }
 }

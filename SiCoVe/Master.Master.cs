@@ -24,6 +24,7 @@ namespace SiCoVe
                 //lblUsuario.Text = string.Format("{0} , {1}", userLog.persona.apellido, userLog.persona.nombre);
                 LoadStyles();
                 LoadScripts();
+                HabilitarMenus();
 
                 
             }
@@ -32,6 +33,50 @@ namespace SiCoVe
                 Response.Redirect("~/Login.aspx", false);
                 //Server.Transfer("~/Login.aspx");
             }
+        }
+
+        private void HabilitarMenus()
+        {
+            switch (userLog.perfil_usuario_id)
+            {
+                case 1:
+                    ////Usuario Administrador
+                    liRemolque.Visible = true;
+                    liAutoridad.Visible = true;
+                    liConductor.Visible = true;
+                    liEstadistica.Visible = true;
+                    break;
+                case 2:
+                    ////Usuario Conductor
+                    liCrearUsuario.Visible = true;
+                    liVisualizarDatos.Visible = true;
+                    liSolicitarModificarDatos.Visible = true;
+                    liRealizarDenuncia.Visible = true;
+                    liHistorialDenuncia.Visible = true;
+                    break;
+                case 3:
+                    ////Usuario Autoridad de Tránsito
+                    liRealizarControl.Visible = true;
+                    liGenerarInfraccion.Visible = true;
+                    liAltaConductor.Visible = true;
+                    liModificarConducto.Visible = true;
+                    liHistorialControles.Visible = true;
+                    break;
+                case 4:
+                    ////Usuario Remolque
+                    liBuscarVehiculo.Visible = true;
+                    liHistorialRemolque.Visible = true;
+                    break;
+
+            }
+
+
+
+
+
+
+
+
         }
 
         private void LoadStyles()

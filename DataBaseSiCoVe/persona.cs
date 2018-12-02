@@ -18,9 +18,9 @@ namespace DataBaseSiCoVe
         public persona()
         {
             this.cedulas = new HashSet<cedula>();
-            this.infraccions = new HashSet<infraccion>();
             this.licencias = new HashSet<licencia>();
             this.usuarios = new HashSet<usuario>();
+            this.infraccions = new HashSet<infraccion>();
         }
     
         public int id { get; set; }
@@ -42,8 +42,6 @@ namespace DataBaseSiCoVe
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cedula> cedulas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<infraccion> infraccions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<licencia> licencias { get; set; }
         public virtual localidad localidad { get; set; }
         public virtual nacionalidad nacionalidad { get; set; }
@@ -51,5 +49,7 @@ namespace DataBaseSiCoVe
         public virtual sexo sexo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuario> usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<infraccion> infraccions { get; set; }
     }
 }

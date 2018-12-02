@@ -94,7 +94,7 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                 </div>
                             </li>--%>
                             <!--Usuario Administrador-->
-                            <li>
+                            <li runat="server" id ="liRemolque" visible="false">
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Remolque<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -105,7 +105,7 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li runat="server" id ="liAutoridad" visible="false">
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Autoridad de Tránsito<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -116,7 +116,7 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li runat="server" id ="liConductor" visible="false">
                                 <a href="#"><i class="fa fa-table fa-fw"></i> Conductor<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -124,46 +124,46 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li runat="server" id ="liEstadistica" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/Estadisticas.aspx"><i class="fa fa-bar-chart-o fa-fw""></i> Estadisticas </asp:HyperLink>
                             </li>
                             <!--Usuario Autoridad de Tránsito-->
-                            <li>
+                            <li runat="server" id ="liRealizarControl" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarControl.aspx"><i class="fa fa-dashboard fa-fw"></i> Realizar control </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liGenerarInfraccion" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/ActaComprobacion.aspx"><i class="fa fa-edit fa-fw"></i> Generar infracción </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liAltaConductor" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Alta de conductor </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liModificarConducto" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarConductor.aspx"><i class="fa fa-edit fa-fw"></i> Modificar conductor </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liHistorialControles" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialControles.aspx"><i class="fa fa-files-o fa-fw"></i> Historial Controles </asp:HyperLink>
                             </li>
                             <!--Usuario Remolque-->
-                            <li>
+                            <li runat="server" id ="liBuscarVehiculo" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/BuscarVehiculo.aspx"><i class="fa fa-dashboard fa-fw"></i> Buscar vehículo </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liHistorialRemolque" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialAcarreo.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de remolques </asp:HyperLink>
                             </li>
                             <!--Usuario Conductor-->
-                            <li>
+                            <li runat="server" id ="liCrearUsuario" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Crear usuario </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liVisualizarDatos" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/VisualizarDatosConductor.aspx"><i class="fa fa-edit fa-fw"></i> Visualizar datos </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liSolicitarModificarDatos" visible="false">
                                  <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModificacionDatos.aspx"><i class="fa fa-dashboard fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liRealizarDenuncia" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarDenuncia.aspx"><i class="fa fa-edit fa-fw"></i> Realizar denuncia </asp:HyperLink>
                             </li>
-                            <li>
+                            <li runat="server" id ="liHistorialDenuncia" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias </asp:HyperLink>
                             </li>
                         </ul>
