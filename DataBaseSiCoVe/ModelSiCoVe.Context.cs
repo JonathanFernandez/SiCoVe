@@ -78,6 +78,19 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GENERAR_EMAIL_DENUNCIA_Result>("SP_GENERAR_EMAIL_DENUNCIA", denunciaParameter);
         }
     
+        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(string lOCALIDAD, string dOMINIO)
+        {
+            var lOCALIDADParameter = lOCALIDAD != null ?
+                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
+                new ObjectParameter("LOCALIDAD", typeof(string));
+    
+            var dOMINIOParameter = dOMINIO != null ?
+                new ObjectParameter("DOMINIO", dOMINIO) :
+                new ObjectParameter("DOMINIO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, dOMINIOParameter);
+        }
+    
         public virtual ObjectResult<SP_LISTADO_AGENTE_TRANSITO_Result> SP_LISTADO_AGENTE_TRANSITO(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)
         {
             var nRO_LEGAJOParameter = nRO_LEGAJO.HasValue ?
@@ -155,14 +168,56 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_PERSONAL_REMOLQUE_Result>("SP_LISTADO_PERSONAL_REMOLQUE", nRO_LEGAJOParameter, aPELLIDOParameter, nOMBREParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result> SP_LISTAR_ACARREOS_X_LOCALIDAD()
+        public virtual ObjectResult<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result> SP_LISTAR_ACARREOS_X_LOCALIDAD(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result>("SP_LISTAR_ACARREOS_X_LOCALIDAD");
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_ACARREOS_X_LOCALIDAD_Result>("SP_LISTAR_ACARREOS_X_LOCALIDAD", fecha_desdeParameter, fecha_hastaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD()
+        public virtual ObjectResult<SP_LISTAR_ACARREOS_X_PLAYA_Result> SP_LISTAR_ACARREOS_X_PLAYA(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD");
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_ACARREOS_X_PLAYA_Result>("SP_LISTAR_ACARREOS_X_PLAYA", fecha_desdeParameter, fecha_hastaParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTAR_CONTROLES_X_AGENTE_Result> SP_LISTAR_CONTROLES_X_AGENTE(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
+        {
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_AGENTE_Result>("SP_LISTAR_CONTROLES_X_AGENTE", fecha_desdeParameter, fecha_hastaParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result> SP_LISTAR_CONTROLES_X_LOCALIDAD(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
+        {
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD", fecha_desdeParameter, fecha_hastaParameter);
         }
     
         public virtual ObjectResult<SP_LISTAR_DATOS_PERSONA_Result> SP_LISTAR_DATOS_PERSONA(Nullable<int> persona)
@@ -174,19 +229,43 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result> SP_LISTAR_DENUNCIAS_X_LOCALIDAD()
+        public virtual ObjectResult<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result> SP_LISTAR_DENUNCIAS_X_LOCALIDAD(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result>("SP_LISTAR_DENUNCIAS_X_LOCALIDAD");
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result>("SP_LISTAR_DENUNCIAS_X_LOCALIDAD", fecha_desdeParameter, fecha_hastaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result> SP_LISTAR_INFRACCIONES_X_CATEGORIA()
+        public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result> SP_LISTAR_INFRACCIONES_X_CATEGORIA(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result>("SP_LISTAR_INFRACCIONES_X_CATEGORIA");
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result>("SP_LISTAR_INFRACCIONES_X_CATEGORIA", fecha_desdeParameter, fecha_hastaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result> SP_LISTAR_INFRACCIONES_X_LOCALIDAD()
+        public virtual ObjectResult<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result> SP_LISTAR_INFRACCIONES_X_LOCALIDAD(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result>("SP_LISTAR_INFRACCIONES_X_LOCALIDAD");
+            var fecha_desdeParameter = fecha_desde.HasValue ?
+                new ObjectParameter("fecha_desde", fecha_desde) :
+                new ObjectParameter("fecha_desde", typeof(System.DateTime));
+    
+            var fecha_hastaParameter = fecha_hasta.HasValue ?
+                new ObjectParameter("fecha_hasta", fecha_hasta) :
+                new ObjectParameter("fecha_hasta", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result>("SP_LISTAR_INFRACCIONES_X_LOCALIDAD", fecha_desdeParameter, fecha_hastaParameter);
         }
     
         public virtual ObjectResult<SP_LISTAR_PERSONAS_AUTORIZADAS_Result> SP_LISTAR_PERSONAS_AUTORIZADAS(string dominio)
@@ -196,19 +275,6 @@ namespace DataBaseSiCoVe
                 new ObjectParameter("dominio", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
-        }
-    
-        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(string lOCALIDAD, string dOMINIO)
-        {
-            var lOCALIDADParameter = lOCALIDAD != null ?
-                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
-                new ObjectParameter("LOCALIDAD", typeof(string));
-    
-            var dOMINIOParameter = dOMINIO != null ?
-                new ObjectParameter("DOMINIO", dOMINIO) :
-                new ObjectParameter("DOMINIO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, dOMINIOParameter);
         }
     }
 }
