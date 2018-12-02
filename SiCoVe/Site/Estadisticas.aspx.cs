@@ -49,7 +49,7 @@ namespace SiCoVe.Site
                 StringBuilder sb;
 
                 int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_LOCALIDAD().ToList();
+                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_LOCALIDAD(null,null).ToList();
 
                 if (dataContLoc.Count > 0)
                 {
@@ -59,9 +59,9 @@ namespace SiCoVe.Site
                     foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
                     {
                         if (flag == 0)
-                            sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
                         else
-                            sb.Append(",{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
 
                         flag = 1;
                     }
@@ -83,9 +83,9 @@ namespace SiCoVe.Site
                         foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
                         {
                             if (flag == 0)
-                                sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                             else
-                                sb.Append(",{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                             flag = 1;
                         }
 
@@ -113,7 +113,7 @@ namespace SiCoVe.Site
                 StringBuilder sb;
 
                 int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_ACARREOS_X_LOCALIDAD().ToList();
+                var dataContLoc = sicove.SP_LISTAR_ACARREOS_X_LOCALIDAD(null, null).ToList();
 
                 if (dataContLoc.Count > 0)
                 {
@@ -123,9 +123,9 @@ namespace SiCoVe.Site
                     foreach (SP_LISTAR_ACARREOS_X_LOCALIDAD_Result lo in dataContLoc)
                     {
                         if (flag == 0)
-                            sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
                         else
-                            sb.Append(",{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
 
                         flag = 1;
                     }
@@ -147,9 +147,9 @@ namespace SiCoVe.Site
                         foreach (SP_LISTAR_ACARREOS_X_LOCALIDAD_Result lo in dataContLoc)
                         {
                             if (flag == 0)
-                                sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                             else
-                                sb.Append(",{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                             flag = 1;
                         }
 
@@ -177,7 +177,7 @@ namespace SiCoVe.Site
                 StringBuilder sb;
 
                 int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_DENUNCIAS_X_LOCALIDAD().ToList();
+                var dataContLoc = sicove.SP_LISTAR_DENUNCIAS_X_LOCALIDAD(null, null).ToList();
 
                 if (dataContLoc.Count > 0)
                 {
@@ -187,9 +187,9 @@ namespace SiCoVe.Site
                     foreach (SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result lo in dataContLoc)
                     {
                         if (flag == 0)
-                            sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
                         else
-                            sb.Append(",{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
 
                         flag = 1;
                     }
@@ -211,9 +211,9 @@ namespace SiCoVe.Site
                         foreach (SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result lo in dataContLoc)
                         {
                             if (flag == 0)
-                                sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                             else
-                                sb.Append(",{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                             flag = 1;
                         }
 
@@ -241,7 +241,7 @@ namespace SiCoVe.Site
                 StringBuilder sb;
 
                 int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_CATEGORIA().ToList();
+                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_CATEGORIA(null, null).ToList();
 
                 if (dataContLoc.Count > 0)
                 {
@@ -251,9 +251,9 @@ namespace SiCoVe.Site
                     foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
                     {
                         if (flag == 0)
-                            sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append("{label: '" + lo.categoria_infraccion.ToString() + "', data: " + lo.cantidad + " }");
                         else
-                            sb.Append(",{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                            sb.Append(",{label: '" + lo.categoria_infraccion.ToString() + "', data: " + lo.cantidad + " }");
 
                         flag = 1;
                     }
@@ -275,9 +275,9 @@ namespace SiCoVe.Site
                         foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
                         {
                             if (flag == 0)
-                                sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append("{ area: '" + lo.categoria_infraccion.ToString() + "', cantidad: " + lo.cantidad + "}");
                             else
-                                sb.Append(",{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                                sb.Append(",{ area: '" + lo.categoria_infraccion.ToString() + "', cantidad: " + lo.cantidad + "}");
                             flag = 1;
                         }
 
@@ -306,7 +306,7 @@ namespace SiCoVe.Site
             StringBuilder sb;
 
             int flag = 0;
-            var dataContLoc = sicove.SP_LISTAR_CONTROLES_X_LOCALIDAD().ToList();
+            var dataContLoc = sicove.SP_LISTAR_CONTROLES_X_LOCALIDAD(null, null).ToList();
 
             if (dataContLoc.Count > 0)
             {
@@ -316,9 +316,9 @@ namespace SiCoVe.Site
                 foreach (SP_LISTAR_CONTROLES_X_LOCALIDAD_Result lo in dataContLoc)
                 {
                     if (flag == 0)
-                        sb.Append("{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                        sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
                     else
-                        sb.Append(",{label: '" + lo.LOCALIDAD.ToString() + "', data: " + lo.CANTIDAD + " }");
+                        sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
 
                     flag = 1;
                 }
@@ -340,9 +340,9 @@ namespace SiCoVe.Site
                     foreach (SP_LISTAR_CONTROLES_X_LOCALIDAD_Result lo in dataContLoc)
                     {
                         if (flag == 0)
-                            sb.Append("{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                            sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                         else
-                            sb.Append(",{ area: '" + lo.LOCALIDAD.ToString() + "', cantidad: " + lo.CANTIDAD + "}");
+                            sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
                         flag = 1;
                     }
 
@@ -360,6 +360,11 @@ namespace SiCoVe.Site
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
                 }
             }
+        }
+
+        protected void btnGraficar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

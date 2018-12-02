@@ -19,25 +19,29 @@ namespace SiCoVe.Site
 
         public void listadoAcarreo()
         {
-            /*GvHistorialAcarreo.DataSource =
 
-                (from r in sicove.remolques
-                     join pr in sicove.personal_remolque on r.personal_remolque_id = pr.id
-                     join p in sicove.playa_acarreo on r.playa_acarreo_id = p.id
-                     join v in sicove.vehiculoes on r.vehiculo_id = v.id
-                     join l in sicove.localidads on r.localidad_id = l.id
+            /*           
+            //GvHistorialAcarreo.DataSource = 
 
-                 where pr.usuario_id == UserSession.id
-                 select new
-                 {
-                     REMOLCADOR = pr.nro_legajo,
-                     PLAYA = p.descripcion,
-                     FECHA = r.fecha_hora,
-                     UBICACION = r.ubicacion,
-                     DETALLE_INFRACCION = r.detalle_infraccion,
-                     DOMINIO = r.dominio,
-                     LOCALIDAD = l.descripcion
-                 }).ToList();
+                //(from r in sicove.remolques
+                // join pr in sicove.personal_remolque on
+                //     p
+                //     join p in sicove.playa_acarreo on r.playa_acarreo_id = p.id
+                //     join v in sicove.vehiculoes on r.vehiculo_id = v.id
+                //     join l in sicove.localidads on r.localidad_id = l.id
+
+                // where pr.usuario_id == UserSession.id
+                // select new
+                // {
+                //     REMOLCADOR = pr.nro_legajo,
+                //     PLAYA = p.descripcion,
+                //     FECHA = r.fecha_hora,
+                //     UBICACION = r.ubicacion,
+                //     DETALLE_INFRACCION = r.detalle_infraccion,
+                //     DOMINIO = r.dominio,
+                //     LOCALIDAD = l.descripcion
+                // }).ToList();
+
 
     */
         }

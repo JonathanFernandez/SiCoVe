@@ -41,7 +41,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Ingreso al Sistema</h3>
                     </div>
                     <div class="panel-body">
                         <%--<form role="form">--%>
@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="form-group">
                                     <%--<input class="form-control" placeholder="Password" name="password" type="password" value="">--%>
-                                    <asp:TextBox runat="server" ID="txtPass"  TextMode="Password" class="form-control" placeholder="Password" name="password"   value="" required="required"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtPass"  TextMode="Password" class="form-control" placeholder="Contraseña" name="password"   value="" required="required"></asp:TextBox>
                                 </div>
                                 <%--<div class="checkbox">
                                     <label>
@@ -61,7 +61,7 @@
                                 </div>--%>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <%--<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>--%>
-                                <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
+                                <asp:Button runat="server" Text="Iniciar Sesión" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
                                 <br />
 
                                 <div class="form-group">

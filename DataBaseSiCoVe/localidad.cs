@@ -19,9 +19,9 @@ namespace DataBaseSiCoVe
         {
             this.denuncias = new HashSet<denuncia>();
             this.personas = new HashSet<persona>();
-            this.remolques = new HashSet<remolque>();
             this.infraccions = new HashSet<infraccion>();
             this.infraccions1 = new HashSet<infraccion>();
+            this.remolques = new HashSet<remolque>();
         }
     
         public int id { get; set; }
@@ -34,10 +34,10 @@ namespace DataBaseSiCoVe
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<persona> personas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<remolque> remolques { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<infraccion> infraccions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<infraccion> infraccions1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<remolque> remolques { get; set; }
     }
 }
