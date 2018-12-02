@@ -70,7 +70,9 @@ format: 'DD/MM/YYYY HH:mm:ss',
                 </div>
                <%-- <asp:Label runat="server" ID="lblUsuario"></asp:Label><b class="caret"></b>--%>
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
+                            <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx" style="float:right; margin:15px;" ><i class="fa fa-fw fa-power-off"></i> Salir </asp:HyperLink>
+
+                    <!--<li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                         </a>
@@ -79,7 +81,7 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                  <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx"><i class="fa fa-fw fa-power-off"></i> Log Out </asp:HyperLink>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
 
                 <div class="navbar-default sidebar" role="navigation">
