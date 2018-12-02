@@ -827,10 +827,14 @@
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="SP_LISTAR_ACARREOS_X_LOCALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTAR_CONTROLES_X_LOCALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTAR_DATOS_PERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="persona" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_LISTAR_DENUNCIAS_X_LOCALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LISTAR_INFRACCIONES_X_CATEGORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LISTAR_INFRACCIONES_X_LOCALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_LISTAR_PERSONAS_AUTORIZADAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="dominio" Type="nvarchar" Mode="In" />
         </Function>
@@ -2144,12 +2148,12 @@
           <FunctionImport Name="SP_LISTAR_PERSONAS_AUTORIZADAS" ReturnType="Collection(sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result)">
           <Parameter Name="dominio" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="SP_LISTAR_CONTROLES_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result)" />
-          <FunctionImport Name="SP_LISTAR_INFRACCIONES_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result)" />
+          <FunctionImport Name="SP_LISTADO_DENUNCIA" ReturnType="Collection(sicoveModel.SP_LISTADO_DENUNCIA_Result)" />
           <FunctionImport Name="SP_LISTAR_ACARREOS_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_ACARREOS_X_LOCALIDAD_Result)" />
+          <FunctionImport Name="SP_LISTAR_CONTROLES_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result)" />
           <FunctionImport Name="SP_LISTAR_DENUNCIAS_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result)" />
           <FunctionImport Name="SP_LISTAR_INFRACCIONES_X_CATEGORIA" ReturnType="Collection(sicoveModel.SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result)" />
-          <FunctionImport Name="SP_LISTADO_DENUNCIA" ReturnType="Collection(sicoveModel.SP_LISTADO_DENUNCIA_Result)" />
+          <FunctionImport Name="SP_LISTAR_INFRACCIONES_X_LOCALIDAD" ReturnType="Collection(sicoveModel.SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result)" />
         </EntityContainer>
         <ComplexType Name="SP_GENERAR_EMAIL_ACARREO_Result">
           <Property Type="String" Name="email" Nullable="true" MaxLength="255" />
@@ -2262,26 +2266,6 @@
           <Property Type="String" Name="apellido" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
-          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result">
-          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTAR_ACARREOS_X_LOCALIDAD_Result">
-          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result">
-          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result">
-          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="50" />
-        </ComplexType>
         <ComplexType Name="SP_LISTADO_DENUNCIA_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="Int32" Name="USUARIO" Nullable="false" />
@@ -2295,6 +2279,26 @@
           <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
           <Property Type="String" Name="CONFIRMAR" Nullable="false" MaxLength="9" />
           <Property Type="String" Name="ANULAR" Nullable="false" MaxLength="6" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_ACARREOS_X_LOCALIDAD_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result">
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2770,14 +2774,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_LOCALIDAD">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
-                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
-                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_LISTADO_DENUNCIA" FunctionName="sicoveModel.Store.SP_LISTADO_DENUNCIA">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_DENUNCIA_Result">
@@ -2793,6 +2789,46 @@
                 <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
                 <ScalarProperty Name="CONFIRMAR" ColumnName="CONFIRMAR" />
                 <ScalarProperty Name="ANULAR" ColumnName="ANULAR" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_ACARREOS_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_ACARREOS_X_LOCALIDAD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_ACARREOS_X_LOCALIDAD_Result">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_LOCALIDAD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_DENUNCIAS_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_DENUNCIAS_X_LOCALIDAD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_INFRACCIONES_X_CATEGORIA" FunctionName="sicoveModel.Store.SP_LISTAR_INFRACCIONES_X_CATEGORIA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_INFRACCIONES_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_INFRACCIONES_X_LOCALIDAD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result">
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
