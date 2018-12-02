@@ -393,6 +393,8 @@ namespace SiCoVe.Site
                 sicove.polizas.Add(pol);
                 }
                 sicove.SaveChanges();
+                lblMensaje.Text = "Usuario dado de alta con éxito.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
                 CleanControl(this.Controls);
             }
             catch (Exception ex)
