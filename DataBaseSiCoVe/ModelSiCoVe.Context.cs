@@ -48,13 +48,13 @@ namespace DataBaseSiCoVe
         public virtual DbSet<playa_acarreo> playa_acarreo { get; set; }
         public virtual DbSet<poliza> polizas { get; set; }
         public virtual DbSet<provincia> provincias { get; set; }
-        public virtual DbSet<remolque> remolques { get; set; }
         public virtual DbSet<sexo> sexoes { get; set; }
         public virtual DbSet<tipo_vehiculo> tipo_vehiculo { get; set; }
         public virtual DbSet<uso_cedula> uso_cedula { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<vehiculo> vehiculoes { get; set; }
         public virtual DbSet<infraccion> infraccions { get; set; }
+        public virtual DbSet<remolque> remolques { get; set; }
     
         public virtual ObjectResult<SP_GENERAR_EMAIL_ACARREO_Result> SP_GENERAR_EMAIL_ACARREO(string dominio, Nullable<int> remolque_id)
         {
