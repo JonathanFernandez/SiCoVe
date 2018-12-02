@@ -60,9 +60,12 @@
                         <label id="lblSeleccione" runat="server">Selección de opción</label>
                     </div>
                     <div class="panel-body">
-                        <asp:DropDownList ID="ddlGraficos" runat="server" class="form-control" OnSelectedIndexChanged="ddlGraficos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                        <%--<br />
-                        <asp:Button ID="btnGraficar" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Aceptar" OnClick="btnGraficar_Click" />--%>
+                        <div class="form-group">
+                            <label>Selecciones reporte</label>
+                            <asp:DropDownList ID="ddlGraficos" runat="server" class="form-control" OnSelectedIndexChanged="ddlGraficos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                        </div>
+
+                        <asp:Button ID="btnGraficar" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Aceptar" OnClick="btnGraficar_Click" />
                     </div>
                 </div>
             </div>
