@@ -61,15 +61,18 @@ namespace SiCoVe.Site
 
                 lblPatente3.Text = result.Results[0].Plate;
 
-                btnGenerarInfraccion.Enabled = true;
+               
 
                 //Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                lblPatente3.Text = "Patente no decifrada";
+                lblPatente3.Text = string.Empty;
+                lblMensaje.Text = "Patente no decifrada, puede continuar pero debe ingresar la patente manualmente";
+               
                 //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
             }
+            btnGenerarInfraccion.Enabled = true;
         }
 
         protected void btnGenerarInfraccion_Click(object sender, EventArgs e)

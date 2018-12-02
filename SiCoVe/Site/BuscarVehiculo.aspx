@@ -56,6 +56,10 @@
                                                <asp:Label ID="lblPatente3" runat="server" Text=""></asp:Label>
                                             
                                             </div>
+                                          <div class="form-group">
+                                               <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
+                                            
+                                            </div>
                                          
                                     </div>
                             </div>
@@ -66,7 +70,7 @@
 
                                          
                                          <div class="form-group">
-                                                <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Infracción" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
+                                                <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Acarreo" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
                                                
                                           
                                             </div>
