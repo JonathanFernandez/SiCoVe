@@ -19,7 +19,7 @@ namespace SiCoVe
 
         }
 
-        private void EnviarMail(string email, string email_asunto, string email_cuerpo, string FileUpload1, string FileUpload2, string FileUpload3, string FileUpload4)
+        private void EnviarMail(string email, string email_asunto, string email_cuerpo, string fotoDNI, string fotoCedula, string fotoSeguro, string fotoLicencia)
         {
             /*-------------------------MENSAJE DE CORREO----------------------*/
 
@@ -27,7 +27,7 @@ namespace SiCoVe
             System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
 
             //Direccion de correo electronico a la que queremos enviar el mensaje
-            mmsg.To.Add(email);
+            mmsg.To.Add("sicoveunlam@outlook.com");
             //mmsg.To.Add("jonathan.fernandez.ex@pirelli.com");
             //mmsg.To.Add("walter.santucho.it@gmail.com ");
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
@@ -44,11 +44,14 @@ namespace SiCoVe
 
             mmsg.Body = body;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
-
-            mmsg.Attachments.Add(new Attachment(FileUpload1));
-            mmsg.Attachments.Add(new Attachment(FileUpload2));
-            mmsg.Attachments.Add(new Attachment(FileUpload3));
-            mmsg.Attachments.Add(new Attachment(FileUpload4));
+            if (!string.IsNullOrEmpty(fotoDNI))
+                mmsg.Attachments.Add(new Attachment(fotoDNI));
+            if (!string.IsNullOrEmpty(fotoCedula))
+                mmsg.Attachments.Add(new Attachment(fotoCedula));
+            if (!string.IsNullOrEmpty(fotoSeguro))
+                mmsg.Attachments.Add(new Attachment(fotoSeguro));
+            if (!string.IsNullOrEmpty(fotoLicencia))
+                mmsg.Attachments.Add(new Attachment(fotoLicencia));
 
 
             //Correo electronico desde la que enviamos el mensaje
@@ -97,12 +100,41 @@ namespace SiCoVe
             var email = UserSession.email;
             var email_asunto = "Modificacion de datos de usuario";
             var email_cuerpo = txtObservaciones.Text;
-            var FileUploads1 = Convert.ToString(FileUpload1.FileContent);
-            var FileUploads2 = Convert.ToString(FileUpload1.FileContent);
-            var FileUploads3 = Convert.ToString(FileUpload1.FileContent);
-            var FileUploads4 = Convert.ToString(FileUpload1.FileContent);
+            var fotoDNI = "";
+            var fotoCedula = "";
+            var fotoSeguro = "";
+            var fotoLicencia = "";
 
-            EnviarMail(email, email_asunto, email_cuerpo, FileUploads1, FileUploads2, FileUploads3, FileUploads4);
+            if (!string.IsNullOrEmpty(FileUploadDNI.FileName))
+            {
+                FileUploadDNI.SaveAs(Server.MapPath("FotosDenuncias//" + FileUploadDNI.FileName));
+                fotoDNI = Server.MapPath("FotosDenuncias//" + FileUploadDNI.FileName);
+
+            }
+           
+            if (!string.IsNullOrEmpty(FileUploadLIC.FileName))
+            {
+                FileUploadLIC.SaveAs(Server.MapPath("FotosDenuncias//" + FileUploadLIC.FileName));
+                fotoLicencia = Server.MapPath("FotosDenuncias//" + FileUploadLIC.FileName);
+
+            }
+
+            //if (!string.IsNullOrEmpty(FileUploadCedula.FileName))
+            //{
+            //    FileUploadCedula.SaveAs(Server.MapPath("FotosDenuncias//" + FileUploadCedula.FileName));
+            //    fotoCedula = Server.MapPath("FotosDenuncias//" + FileUploadCedula.FileName);
+
+            //}
+
+            //if (!string.IsNullOrEmpty(FileUploadSeguro.FileName))
+            //{
+            //    FileUploadSeguro.SaveAs(Server.MapPath("FotosDenuncias//" + FileUploadSeguro.FileName));
+            //    fotoSeguro = Server.MapPath("FotosDenuncias//" + FileUploadSeguro.FileName);
+
+            //}
+
+
+            EnviarMail(email, email_asunto, email_cuerpo, fotoDNI, fotoCedula, fotoSeguro, fotoLicencia);
         }
     }
 }

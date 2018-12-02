@@ -653,6 +653,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Site\FotosDenuncias\" />
+    <Folder Include="Site\SolicitarCambios\" />
     <Folder Include="Site\Temp\" />
     <Folder Include="Temp\" />
   </ItemGroup>
