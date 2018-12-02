@@ -326,7 +326,10 @@ namespace SiCoVe.Site
                 per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
                 per.localidad_id = Convert.ToInt32(ddlLocalidadDNI.SelectedValue);
                 per.domicilio = txtDomicilioDNI.Text;
-                per.piso = Convert.ToInt16(txtPisoDNI.Text);
+                if (txtPisoDNI.Text != "")
+                    per.piso = Convert.ToSByte(txtPisoDNI.Text);
+                else
+                    per.piso = null;
                 per.nro_puerta = txtPuertaDNI.Text;
                 per.departamento = txtDepartamentoDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
@@ -343,6 +346,8 @@ namespace SiCoVe.Site
 
                 sicove.usuarios.Add(usu);
 
+                if(cckAutorizado.Checked == true)
+                {
                 licencia lic = new licencia();
                 lic.persona = per;
                 lic.nro_licencia = txtNumLicenciaLIC.Text;
@@ -384,15 +389,38 @@ namespace SiCoVe.Site
                 pol.vehiculo = ve;
                 pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
                 pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
-
+               
                 sicove.polizas.Add(pol);
-
+                }
                 sicove.SaveChanges();
+                CleanControl(this.Controls);
             }
             catch (Exception ex)
             {
                 //LblError.Text = "No se pudieron registrar los datos del Usuario, verifique los datos ingresados.";
                 LblError.Text = Convert.ToString(ex);
+            }
+        }
+        public void CleanControl(ControlCollection controles)
+        {
+            foreach (Control control in controles)
+            {
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is DropDownList)
+                    ((DropDownList)control).ClearSelection();
+                else if (control is RadioButtonList)
+                    ((RadioButtonList)control).ClearSelection();
+                else if (control is CheckBoxList)
+                    ((CheckBoxList)control).ClearSelection();
+                else if (control is RadioButton)
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
+                else if (control.HasControls())
+                    //Esta linea detécta un Control que contenga otros Controles
+                    //Así ningún control se quedará sin ser limpiado.
+                    CleanControl(control.Controls);
             }
         }
     }
