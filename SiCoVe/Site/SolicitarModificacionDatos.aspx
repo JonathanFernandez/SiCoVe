@@ -38,23 +38,23 @@
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator23" ForeColor="red" ControlToValidate="txtObservaciones" runat="server" ErrorMessage="* Debe ingresar las observaciones"></asp:RequiredFieldValidator>--%> 
                                         </div>
                                         <div class="form-group">
-                                            <label>Suba foto de algun documento</label>
+                                            <label>Cargar foto DNI</label>
                                             <asp:FileUpload ID="FileUploadDNI" runat="server" />
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Suba foto de algun documento</label>
+                                            <label>Cargar foto Licencia</label>
                                             <asp:FileUpload ID="FileUploadLIC" runat="server" />
                                         </div>
 
-                                       <%-- <div class="form-group">
+                                        <div class="form-group">
                                             <label>Cargar Foto Cedula</label>
                                             <asp:FileUpload ID="FileUploadCedula" runat="server" />
                                         </div>
                                         <div class="form-group">
                                             <label>Cargar Foto Seguro</label>
                                             <asp:FileUpload ID="FileUploadSeguro" runat="server" />
-                                        </div>--%>
+                                        </div>
 
                                 <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Enviar Modificación" OnClick="btnRegistrarACNC_Click" />
 

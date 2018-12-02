@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-lg-6">
 
-                                <%-- <div class="form-group">
+                                <%-- <div class="form-group">   
                                                 <label>Geolocalización</label>
                                                 <input class="form-control">
                                         
