@@ -122,7 +122,7 @@
                                         <div class="form-group">
                                             <label>Domicilio</label>
                                             <asp:TextBox ID="txtDomicilioDNI" runat="server" class="form-control"></asp:TextBox>
-                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" ControlToValidate="txtDomicilioDNI" runat="server" ErrorMessage="* Debe Ingresar Domicilio" CssClass="label label-danger"></asp:RequiredFieldValidator>--%>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" ControlToValidate="txtDomicilioDNI" runat="server" ErrorMessage="* Debe Ingresar Domicilio" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
 
                                         <div class="form-group">

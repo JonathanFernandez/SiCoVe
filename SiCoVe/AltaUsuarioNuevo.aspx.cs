@@ -185,14 +185,10 @@ namespace SiCoVe
                 per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
                 per.localidad_id = Convert.ToInt32(ddlLocalidadDNI.SelectedValue);
                 per.domicilio = txtDomicilioDNI.Text;
-
-                //per.piso = Convert.ToInt16(txtPisoDNI.Text);
-
                 if (txtPisoDNI.Text != "")
                     per.piso = Convert.ToSByte(txtPisoDNI.Text);
                 else
                     per.piso = null;
-                
                 per.nro_puerta = txtPuertaDNI.Text;
                 per.departamento = txtDepartamentoDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
@@ -209,55 +205,83 @@ namespace SiCoVe
 
                 sicove.usuarios.Add(usu);
 
-                licencia lic = new licencia();
-                lic.persona = per;
-                lic.nro_licencia = txtNumLicenciaLIC.Text;
-                lic.categoria_id = Convert.ToInt32(ddlCategoriaLIC.SelectedValue);
-                lic.municipio_id = Convert.ToInt32(ddlMunicipio.SelectedValue);
-                lic.clases = txtClasesLIC.Text;
-                lic.otorgamiento = Convert.ToDateTime(txtFecOtorgamientoLIC.Text);
-                lic.vencimiento = Convert.ToDateTime(txtFecVencimientoLIC.Text);
-                lic.observaciones = txtObservaciones.Text;
+                if (cckAutorizado.Checked == true)
+                {
+                    licencia lic = new licencia();
+                    lic.persona = per;
+                    lic.nro_licencia = txtNumLicenciaLIC.Text;
+                    lic.categoria_id = Convert.ToInt32(ddlCategoriaLIC.SelectedValue);
+                    lic.municipio_id = Convert.ToInt32(ddlMunicipio.SelectedValue);
+                    lic.clases = txtClasesLIC.Text;
+                    lic.otorgamiento = Convert.ToDateTime(txtFecOtorgamientoLIC.Text);
+                    lic.vencimiento = Convert.ToDateTime(txtFecVencimientoLIC.Text);
+                    lic.observaciones = txtObservaciones.Text;
 
-                sicove.licencias.Add(lic);
+                    sicove.licencias.Add(lic);
 
-                vehiculo ve = new vehiculo();
-                ve.tipo_id = Convert.ToInt32(ddlTipoCED.Text);
-                ve.marca_id = Convert.ToInt32(ddlMarcaCED.Text);
-                ve.modelo = txtModeloCED.Text;
-                ve.año = Convert.ToInt32(txtAnioCED.Text);
-                ve.cilindrada = txtCilindradaCED.Text;
-                ve.motor = txtNumMotorCED.Text;
-                ve.chasis_cuadro = txtChasisCED.Text;
-                ve.dominio = txtDominioCED.Text;
+                    vehiculo ve = new vehiculo();
+                    ve.tipo_id = Convert.ToInt32(ddlTipoCED.Text);
+                    ve.marca_id = Convert.ToInt32(ddlMarcaCED.Text);
+                    ve.modelo = txtModeloCED.Text;
+                    ve.año = Convert.ToInt32(txtAnioCED.Text);
+                    ve.cilindrada = txtCilindradaCED.Text;
+                    ve.motor = txtNumMotorCED.Text;
+                    ve.chasis_cuadro = txtChasisCED.Text;
+                    ve.dominio = txtDominioCED.Text;
 
-                sicove.vehiculoes.Add(ve);
+                    sicove.vehiculoes.Add(ve);
 
-                cedula ced = new cedula();
-                ced.nro_cedula = txtNumCedulaCED.Text;
-                ced.persona = per;
-                ced.uso_id = Convert.ToInt32(ddlUsoCED.SelectedValue);
-                ced.estado_id = Convert.ToInt32(ddlEstadoCED.SelectedValue);
-                ced.vehiculo = ve;
-                ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
-                ced.flag_autorizado = cckAutorizado.Checked;
+                    cedula ced = new cedula();
+                    ced.nro_cedula = txtNumCedulaCED.Text;
+                    ced.persona = per;
+                    ced.uso_id = Convert.ToInt32(ddlUsoCED.SelectedValue);
+                    ced.estado_id = Convert.ToInt32(ddlEstadoCED.SelectedValue);
+                    ced.vehiculo = ve;
+                    ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
+                    ced.flag_autorizado = cckAutorizado.Checked;
 
-                sicove.cedulas.Add(ced);
+                    sicove.cedulas.Add(ced);
 
-                poliza pol = new poliza();
-                pol.nro_poliza = txtPolizaSEG.Text;
-                pol.aseguradora_id = Convert.ToInt32(ddlAseguradoraSEG.SelectedValue);
-                pol.vehiculo = ve;
-                pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
-                pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
+                    poliza pol = new poliza();
+                    pol.nro_poliza = txtPolizaSEG.Text;
+                    pol.aseguradora_id = Convert.ToInt32(ddlAseguradoraSEG.SelectedValue);
+                    pol.vehiculo = ve;
+                    pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
+                    pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
 
-                sicove.polizas.Add(pol);
-
+                    sicove.polizas.Add(pol);
+                }
                 sicove.SaveChanges();
+                lblMensaje.Text = "Usuario dado de alta con éxito.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
+                CleanControl(this.Controls);
             }
             catch (Exception ex)
             {
+                //LblError.Text = "No se pudieron registrar los datos del Usuario, verifique los datos ingresados.";
                 LblError.Text = Convert.ToString(ex);
+            }
+        }
+        public void CleanControl(ControlCollection controles)
+        {
+            foreach (Control control in controles)
+            {
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is DropDownList)
+                    ((DropDownList)control).ClearSelection();
+                else if (control is RadioButtonList)
+                    ((RadioButtonList)control).ClearSelection();
+                else if (control is CheckBoxList)
+                    ((CheckBoxList)control).ClearSelection();
+                else if (control is RadioButton)
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
+                else if (control.HasControls())
+                    //Esta linea detécta un Control que contenga otros Controles
+                    //Así ningún control se quedará sin ser limpiado.
+                    CleanControl(control.Controls);
             }
         }
     }
