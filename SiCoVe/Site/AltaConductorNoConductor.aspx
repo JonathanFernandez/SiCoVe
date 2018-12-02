@@ -8,8 +8,16 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
 <script>
     function cckConductor_click() {
-        alert();
-}
+     if (this.checked) {
+         document.getElementById("conducto1").show();
+         document.getElementById("conducto2").show();
+         document.getElementById("conducto3").show();
+     }else{
+         document.getElementById("conducto1").hide();
+         document.getElementById("conducto2").hide();
+         document.getElementById("conducto3").hide();
+        }  
+     }
 
     </script>
 </asp:Content>
@@ -33,11 +41,11 @@
                             </li>
                             <li><a href="#dni" data-toggle="tab">Datos DNI</a>
                             </li>
-                            <li><a href="#licencia" data-toggle="tab">Datos licencia</a>
+                            <li><a href="#licencia" id="conducto1" data-toggle="tab">Datos licencia</a>
                             </li>
-                            <li><a href="#cedula" data-toggle="tab">Datos cédula</a>
+                            <li><a href="#cedula" id="conducto2" data-toggle="tab">Datos cédula</a>
                             </li>
-                            <li><a href="#seguro" data-toggle="tab">Datos seguro</a>
+                            <li><a href="#seguro" id="conducto3" data-toggle="tab">Datos seguro</a>
                             </li>
                         </ul>
                         <br />
