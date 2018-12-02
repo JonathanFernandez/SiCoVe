@@ -22,9 +22,10 @@ namespace SiCoVe
             {
                 userLog = ((usuario)Session["Usuario"]);
                 //lblUsuario.Text = string.Format("{0} , {1}", userLog.persona.apellido, userLog.persona.nombre);
+                LoadStyles();
                 LoadScripts();
 
-                LoadStyles();
+                
             }
             else
             {
@@ -55,11 +56,17 @@ namespace SiCoVe
 
             scriptStyle = new HtmlHeaderStyleLink("~/Content/jquery-ui.css");
             scriptStyle.IncludeOn(Page.Header);
+
+            scriptStyle = new HtmlHeaderStyleLink("~/Content/bootstrap-datetimepicker.min.css");
+            scriptStyle.IncludeOn(Page.Header);
         }
 
         private void LoadScripts()
         {
             HtmlHeaderJSLink scriptLink = new HtmlHeaderJSLink("~/Content/vendor/jquery/jquery.js");
+            scriptLink.IncludeOn(Page.Header);
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/moment.js");
             scriptLink.IncludeOn(Page.Header);
 
             scriptLink = new HtmlHeaderJSLink("~/Scripts/jquery-3.3.1.min.js");
@@ -92,6 +99,7 @@ namespace SiCoVe
             //scriptLink = new HtmlHeaderJSLink("~/Content/data/morris-data.js");
             //scriptLink.IncludeOn(Page.Header); 
 
+
             scriptLink = new HtmlHeaderJSLink("~/Scripts/master.js");
             scriptLink.IncludeOn(Page.Header);
 
@@ -117,6 +125,10 @@ namespace SiCoVe
             scriptLink = new HtmlHeaderJSLink("~/Content/data/flot-data.js");
             scriptLink.IncludeOn(Page.Header);
             //FIN - Agregado para pantalla Estadisticas
+
+            scriptLink = new HtmlHeaderJSLink("~/Scripts/bootstrap-datetimepicker.min.js");
+            scriptLink.IncludeOn(Page.Header);
+
         }
     }
 }

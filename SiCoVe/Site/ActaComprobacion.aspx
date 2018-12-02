@@ -1,11 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActaComprobacion.aspx.cs" Inherits="SiCoVe.Site.ActaComprobacion" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="IncludeCssSection" runat="server">
+    <link href="../Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
+
+    
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+  
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -29,16 +33,17 @@
                                     <asp:TextBox ID="txtNumActaAC" runat="server" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvNumActaAC" runat="server" ErrorMessage="El N° de acta es obligatorio" ControlToValidate="txtNombre" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
-                                <div class="form-group">
-                                    <label>Fecha</label>
+                               
+                                           
+                               <div class='input-group date datetimepicker'>
+                                    <label>Fecha y hora</label>
                                     <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control"></asp:TextBox>
+                                                        <span class="input-group-addon" style="height:2px !important;">
+                                        <span class="glyphicon glyphicon-calendar" ></span>
+                                        </span>
                                     <asp:RequiredFieldValidator ID="rfFecActaAC" runat="server" ErrorMessage="La Fecha es obligatoria" ControlToValidate="txtFecActaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
-                                <div class="form-group">
-                                    <label>Hora</label>
-                                    <asp:TextBox ID="txtHoraActaAC" runat="server" class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfHoraActaAC" runat="server" ErrorMessage="La Hora es obligatoria" ControlToValidate="txtHoraActaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
-                                </div>
+
                                 <div class="form-group">
                                     <label>Dominio</label>
                                     <asp:TextBox ID="txtDominioAC" runat="server" class="form-control"></asp:TextBox>
