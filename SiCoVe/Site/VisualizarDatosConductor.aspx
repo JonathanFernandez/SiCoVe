@@ -4,9 +4,26 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
+    <script>
+  $(document).ready(function () {
+        if (document.getElementById("PaginaCentral_ContentPlaceHolder_cckConductor").checked) {
+
+            //document.getElementById("conducto1").show();
+            document.getElementById("conducto1").style.display = "block"
+            document.getElementById("conducto2").style.display = "block"
+            document.getElementById("conducto3").style.display = "block"
+        } else {
+            document.getElementById("conducto1").style.display = "none"
+            document.getElementById("conducto2").style.display = "none"
+            document.getElementById("conducto3").style.display = "none"
+        }
+        });
+
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -28,11 +45,11 @@
                             </li>
                             <li><a href="#dni" data-toggle="tab">Datos DNI</a>
                             </li>
-                            <li><a href="#licencia" data-toggle="tab">Datos licencia</a>
+                            <li id="conducto1" ><a href="#licencia" data-toggle="tab">Datos licencia</a>
                             </li>
-                            <li><a href="#cedula" data-toggle="tab">Datos cédula</a>
+                            <li id="conducto2" ><a href="#cedula" data-toggle="tab">Datos cédula</a>
                             </li>
-                            <li><a href="#seguro" data-toggle="tab">Datos seguro</a>
+                            <li id="conducto3" ><a href="#seguro" data-toggle="tab">Datos seguro</a>
                             </li>
                         </ul>
                         <br />
@@ -47,7 +64,10 @@
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="red" ControlToValidate="txtMailACNC" runat="server" ErrorMessage="* Debe ingresar Email" name="email" type="email" required="required" display="Dynamic"></asp:RequiredFieldValidator>
                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="red" ControlToValidate="txtMailACNC" runat="server" ErrorMessage="* Debe ingresar un Email válido." ValidationExpression="^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$" display="Dynamic"></asp:RegularExpressionValidator>
                                         </div>
-
+                                        <div style="display:none" class="form-group">
+                                            <label>Es conductor?
+                                            <asp:CheckBox ID="cckConductor" runat="server" onchange="cckConductor_click()" ></asp:CheckBox> </label>
+                                        </div>
                                     </div>
                                     <!-- Datos DNI -->
                                     <div class="tab-pane fade" id="dni">

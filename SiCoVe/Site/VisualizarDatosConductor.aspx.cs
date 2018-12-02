@@ -39,12 +39,13 @@ namespace SiCoVe.Site
                 txtPuertaDNI.Text = per.nro_puerta;
                 txtFecNacimientoDNI.Text = string.Format("{0:dd/MM/yyyy}", per.fecha_nacimiento);
                 txtLugarNacimientoDNI.Text = per.lugar_nacimiento;
-
+                cckConductor.Checked = per.flag_conductor;
                 usuario usu = (from u in sicove.usuarios where u.persona_id == per.id select u).FirstOrDefault();
 
                 txtMailACNC.Text = usu.email;
-
-                licencia lic = (from t in sicove.licencias where t.persona_id == per.id select t).FirstOrDefault();
+                if (cckConductor.Checked == true)
+                {
+                    licencia lic = (from t in sicove.licencias where t.persona_id == per.id select t).FirstOrDefault();
                 txtNumLicenciaLIC.Text = Convert.ToString(lic.nro_licencia);
                 ddlCategoriaLIC.Text = Convert.ToString(lic.categoria_id);
                 ddlMunicipio.Text = Convert.ToString(lic.municipio_id);
@@ -78,7 +79,7 @@ namespace SiCoVe.Site
                 txtFecDesdeSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_desde);
                 txtFecHastaSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_hasta);
                 txtAseguradoSEG.Text = string.Format("{0} {1}", per.apellido, per.nombre);
-
+                }
             }
 
         }
