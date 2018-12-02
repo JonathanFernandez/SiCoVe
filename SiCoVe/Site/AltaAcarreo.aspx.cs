@@ -44,12 +44,25 @@ namespace SiCoVe.Site
 
         private void CargarPlaya()
         {
-            var playa= sicove.playa_acarreo.ToList();
+            var playa = sicove.playa_acarreo.ToList();
 
-            ddlPlaya.DataTextField = "descripcion";
-            ddlPlaya.DataValueField = "id";
-            ddlPlaya.DataSource = playa;
-            ddlPlaya.DataBind();
+            ddlPlaya.Items.Insert(0, new ListItem("Seleccione Playa...", "0"));
+
+            foreach (playa_acarreo p in playa)
+            {
+                ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                ddlPlaya.Items.Add(item);
+
+            }
+
+            ddlPlaya.SelectedIndex = 0;
+            //var playa= sicove.playa_acarreo.ToList();
+
+            //ddlPlaya.DataTextField = "descripcion";
+            //ddlPlaya.DataValueField = "id";
+            //ddlPlaya.DataSource = playa;
+            //ddlPlaya.DataBind();
         }
 
         protected void btnGuardarAcarreo_Click(object sender, EventArgs e)

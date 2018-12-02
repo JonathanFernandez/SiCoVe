@@ -24,14 +24,14 @@
                                     <div class="col-lg-6">
 
                                         <div class="form-group">
-                                                <label>Detalle de infracción</label>
+                                                 <label>Detalle de infracción</label>
                                                  <asp:TextBox TextMode="MultiLine" ID="txtDetalleInfraccion" runat="server" class="form-control"></asp:TextBox>
-                                            
+                                                 <asp:RequiredFieldValidator ID="RFVtxtDetalleInfraccion" ControlToValidate="txtPatente" runat="server" ErrorMessage="* Debe ingresar Infracción" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                             </div>
                                         <div class="form-group">
                                                 <label>Patente</label>
-                                                 <asp:TextBox  ID="txtPatente" runat="server" class="form-control" required="required"></asp:TextBox>
-                                    
+                                                 <asp:TextBox  ID="txtPatente" runat="server" class="form-control"></asp:TextBox>
+                                                 <asp:RequiredFieldValidator ID="RFVtxtPatente" ControlToValidate="txtPatente" runat="server" ErrorMessage="* Debe ingresar Patente" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                             </div>
 
                                          <%--<div class="form-group">
@@ -42,12 +42,13 @@
                                            <div class="form-group">
                                     <label>Localidad</label>
                                     <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
-                                </div>
+                                    <asp:CompareValidator ID="CVddlLocalidad" ControlToValidate="ddlLocalidad" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Localidad" CssClass="label label-danger"></asp:CompareValidator>
+                                    </div>
                                          
                                       <div class="form-group">
                                                 <label>Playa de Estacionamiento</label>
-                                               <asp:DropDownList ID="ddlPlaya" runat="server" class="form-control"></asp:DropDownList>
-                                    
+                                                <asp:DropDownList ID="ddlPlaya" runat="server" class="form-control"></asp:DropDownList>
+                                                <asp:CompareValidator ID="CVddlPlaya" ControlToValidate="ddlPlaya" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Playa de Estacionamiento" CssClass="label label-danger"></asp:CompareValidator>
                                             </div>
                                       
                                    
