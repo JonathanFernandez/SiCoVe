@@ -361,6 +361,11 @@ namespace SiCoVe.Site
                 }
             }
         }
+
+        protected void btnGraficar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  
