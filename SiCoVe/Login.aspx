@@ -61,9 +61,16 @@
                                 </div>--%>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <%--<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>--%>
-                                 <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
-                             <div class="form-group">
-                                 <br />
+                                <asp:Button runat="server" Text="Login" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
+                                <br />
+
+                                <div class="form-group">
+                                    <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/AltaUsuarioNuevo.aspx">
+                                        <asp:Label ID="lblNuevoUsuario" runat="server">Crear usuario</asp:Label>
+                                    </asp:HyperLink>
+                                </div>
+                                <br />
+                                <div class="form-group">
                                     <asp:Label ID="lblMensaje" runat="server" Text="E-Mail o Password Incorrecta!" Visible="false"></asp:Label>
                                 </div>
                             </fieldset>

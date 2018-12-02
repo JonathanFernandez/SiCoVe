@@ -144,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AltaUsuarioNuevo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -335,6 +336,7 @@
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
     <Content Include="Master.Master" />
+    <Content Include="notificacion.html" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\master.js" />
     <Content Include="Site\ActualizarDatosUsuario.aspx" />
@@ -399,6 +401,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaUsuarioNuevo.aspx.cs">
+      <DependentUpon>AltaUsuarioNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaUsuarioNuevo.aspx.designer.cs">
+      <DependentUpon>AltaUsuarioNuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>

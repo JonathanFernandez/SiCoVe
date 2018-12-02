@@ -6,6 +6,6 @@
 
   });
 
-  function openModal() {
-      $('#mimodal').modal('show');
-  }
+  //function openModal() {
+  //    $('#mymodal').modal('show');
+  //}
