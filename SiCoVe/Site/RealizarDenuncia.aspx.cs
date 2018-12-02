@@ -80,7 +80,9 @@ namespace SiCoVe.Site
             var mail = sicove.SP_GENERAR_EMAIL_DENUNCIA(den.id).FirstOrDefault();
 
             EnviarMail(mail.email, mail.email_asunto, mail.email_cuerpo , mail.ruta_adjunto);
-           }
+           //     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#myModal').modal('show');", true);
+
+            }
           catch (Exception ex)
           {
                 LblError.Text = "No se pudo registrar la denuncia, verifique los datos ingresados.";

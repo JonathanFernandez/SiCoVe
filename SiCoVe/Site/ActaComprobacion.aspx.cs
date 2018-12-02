@@ -242,7 +242,7 @@ namespace SiCoVe.Site
                         ac.control_id = (int)id_control;
 
                     ac.nro_acta = Convert.ToInt64(txtNumActaAC.Text);
-                    ac.fecha_hora = DateTime.Parse(String.Concat(txtFecActaAC.Text, " ", txtHoraActaAC.Text));
+                    ac.fecha_hora = DateTime.Parse(txtFecActaAC.Text);
                     ac.provincia_id = Convert.ToInt16(ddlProvinciaINF.SelectedValue);
                     ac.localidad_id = Convert.ToInt16(ddlLocalidadINF.SelectedValue);
                     ac.locacion = txtLugarInfraccionAC.Text;
