@@ -22,5 +22,27 @@ namespace SiCoVe.Site
             GvHistorialDenuncias.DataBind();
         }
 
+        protected void GvHistorialDenuncias_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int rowIndex = Convert.ToInt32(e.CommandArgument);
+            int idDenuncia = Convert.ToInt32(GvHistorialDenuncias.Rows[rowIndex].Cells[0].Text);
+
+            var denuncia = (from d in sicove.denuncias where d.id == idDenuncia select d).FirstOrDefault();
+
+            switch (e.CommandName)
+            {
+
+                case "Confirmar":
+                    denuncia.estado_id = 2; 
+                    break;
+                case "Anular":
+                    denuncia.estado_id = 3;
+                    break;
+              
+            }
+
+            sicove.SaveChanges();
+            listadoDenuncias();
+        }
     }
 }
