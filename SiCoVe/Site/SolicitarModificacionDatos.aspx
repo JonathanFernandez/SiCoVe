@@ -49,29 +49,29 @@
 
                                 <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Enviar Modificación" OnClick="btnRegistrarACNC_Click" />
 
-                                    <br />
-                              <%--<asp:ScriptManager ID="ScriptManager1" runat="server">
-                            </asp:ScriptManager>
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Enviar Modificación" OnClick="btnRegistrarACNC_Click" />
-                                    <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
-                                    </ajaxToolkit:ModalPopupExtender>
-                                    <br />
-                                        <asp:Panel ID="PanelModal" runat="server" Style="display:none; background:white; width:auto; height:auto; margin-left:auto;">
+                          <div class="panel-body">
+                           <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
                                         <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Modificacion de Usuario</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Solicitud de Modificación</h4>
                                         </div>
                                         <div class="modal-body">
-                                            Se envió la solicitud de modificación
+                                          <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
                                         </div>
                                         <div class="modal-footer">
-                                            <button class="btn btn-outline btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <%--    <button type="button" class="btn btn-primary">Save changes</button>--%>
                                         </div>
-                                    </asp:Panel>
-                                </ContentTemplate>
-                            </asp:UpdatePanel> --%>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        </div>
                                     </div>
                          </div>
                        </div>
