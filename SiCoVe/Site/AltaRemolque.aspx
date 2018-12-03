@@ -47,7 +47,6 @@
                             <label>E-Mail</label>
                             <asp:TextBox ID="txtEMail" runat="server" class="form-control" name="email" type="email" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar E-Mail" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtEMail" runat="server" ErrorMessage="* Debe ingresar un Email válido." display="dynamic" ValidationExpression="\w+([-+.']\w+)@\w+([-.]\w+)\.\w+([-.]\w+)*" CssClass="label label-danger"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
@@ -131,6 +130,29 @@
                         </div>
                              <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
                        </div>
+                                                      <div class="panel-body">
+                           <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <%--    <button type="button" class="btn btn-primary">Save changes</button>--%>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        </div>
                      </div>
                    </div>
                 </div>

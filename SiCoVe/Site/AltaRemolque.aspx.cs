@@ -82,7 +82,10 @@ namespace SiCoVe.Site
                 per.provincia_id = Convert.ToInt32(ddlProvincia.SelectedValue);
                 per.localidad_id = Convert.ToInt32(ddlLocalidad.SelectedValue);
                 per.domicilio = txtDomicilio.Text;
-                per.piso = Convert.ToInt16(txtPiso.Text);
+                if (txtPiso.Text != "")
+                    per.piso = Convert.ToSByte(txtPiso.Text);
+                else
+                    per.piso = null;
                 per.departamento = txtDepartamento.Text;
                 per.nro_puerta = txtNumPuerta.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
@@ -107,7 +110,8 @@ namespace SiCoVe.Site
 
 
                 sicove.SaveChanges();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario dado de alta con éxito');", true);
+                lblMensaje.Text = "Usuario dado de alta con éxito.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
                 CleanControl(this.Controls);
 
             }
