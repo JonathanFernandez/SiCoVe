@@ -48,11 +48,11 @@ namespace SiCoVe.Site
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            if(UserSession.perfil_usuario_id != 1)
-                GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(txtLocalidad.Text, txtDominio.Text).ToList();
-            else
-                GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(null, null).ToList();
-            GvHistorialAcarreo.DataBind();
+            //if(UserSession.perfil_usuario_id != 1)
+            //    GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO( (txtLocalidad.Text, txtDominio.Text).ToList();
+            //else
+            //    GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(null, null).ToList();
+            //GvHistorialAcarreo.DataBind();
 
         }
     }

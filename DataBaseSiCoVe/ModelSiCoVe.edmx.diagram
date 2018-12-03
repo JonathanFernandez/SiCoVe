@@ -56,7 +56,12 @@
         <AssociationConnector Association="sicoveModel.FK_poliza_vehiculo" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_provincia_provincia" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_vehiculo_tipo_vehiculo" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="sicoveModel.infraccion" Width="1.5" PointX="8.875" PointY="16" />
+        <EntityTypeShape EntityType="sicoveModel.remolque" Width="1.5" PointX="8.5" PointY="36.125" />
+        <AssociationConnector Association="sicoveModel.FK_remolque_localidad" />
+        <AssociationConnector Association="sicoveModel.FK_remolque_personal_remolque" />
+        <AssociationConnector Association="sicoveModel.FK_remolque_playa_acarreo" />
+        <AssociationConnector Association="sicoveModel.FK_remolque_vehiculo" />
+        <EntityTypeShape EntityType="sicoveModel.infraccion" Width="1.5" PointX="8.25" PointY="16" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_categoria_licencia" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_codigo_infraccion" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_control" />
@@ -70,11 +75,6 @@
         <AssociationConnector Association="sicoveModel.FK_infraccion_provincia" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_tipo_vehiculo" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_vehiculo" />
-        <EntityTypeShape EntityType="sicoveModel.remolque" Width="1.5" PointX="8.5" PointY="36.125" />
-        <AssociationConnector Association="sicoveModel.FK_remolque_localidad" />
-        <AssociationConnector Association="sicoveModel.FK_remolque_personal_remolque" />
-        <AssociationConnector Association="sicoveModel.FK_remolque_playa_acarreo" />
-        <AssociationConnector Association="sicoveModel.FK_remolque_vehiculo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

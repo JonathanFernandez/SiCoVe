@@ -53,8 +53,8 @@ namespace DataBaseSiCoVe
         public virtual DbSet<uso_cedula> uso_cedula { get; set; }
         public virtual DbSet<usuario> usuarios { get; set; }
         public virtual DbSet<vehiculo> vehiculoes { get; set; }
-        public virtual DbSet<infraccion> infraccions { get; set; }
         public virtual DbSet<remolque> remolques { get; set; }
+        public virtual DbSet<infraccion> infraccions { get; set; }
     
         public virtual ObjectResult<SP_GENERAR_EMAIL_ACARREO_Result> SP_GENERAR_EMAIL_ACARREO(string dominio, Nullable<int> remolque_id)
         {
@@ -78,17 +78,9 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GENERAR_EMAIL_DENUNCIA_Result>("SP_GENERAR_EMAIL_DENUNCIA", denunciaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(string lOCALIDAD, string dOMINIO)
+        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO()
         {
-            var lOCALIDADParameter = lOCALIDAD != null ?
-                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
-                new ObjectParameter("LOCALIDAD", typeof(string));
-    
-            var dOMINIOParameter = dOMINIO != null ?
-                new ObjectParameter("DOMINIO", dOMINIO) :
-                new ObjectParameter("DOMINIO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, dOMINIOParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO");
         }
     
         public virtual ObjectResult<SP_LISTADO_AGENTE_TRANSITO_Result> SP_LISTADO_AGENTE_TRANSITO(Nullable<int> nRO_LEGAJO, string aPELLIDO, string nOMBRE)

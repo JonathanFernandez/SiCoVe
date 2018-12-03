@@ -21,9 +21,9 @@ namespace DataBaseSiCoVe
         }
     
         public int id { get; set; }
-        public int agente_transito_id { get; set; }
-        public int vehiculo_id { get; set; }
-        public int licencia_id { get; set; }
+        public Nullable<int> agente_transito_id { get; set; }
+        public Nullable<int> vehiculo_id { get; set; }
+        public Nullable<int> licencia_id { get; set; }
         public int codigo_infraccion_id { get; set; }
         public int provincia_id { get; set; }
         public int localidad_id { get; set; }
