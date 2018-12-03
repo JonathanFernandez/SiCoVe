@@ -17,10 +17,23 @@ namespace SiCoVe.Site
             if (!Page.IsPostBack)
             {
                 var tip = sicove.tipo_vehiculo.ToList();
-                var id = UserSession.persona_id;
-                persona per = (from a in sicove.personas where a.id == id select a).FirstOrDefault();
-                agente_transito lic = (from t in sicove.agente_transito where t.usuario_id == per.id select t).FirstOrDefault();
-                txtNumAgenteAC.Text = Convert.ToString(lic.nro_legajo);
+                var id_perosna = UserSession.persona_id;
+
+                persona per = (from a in sicove.personas where a.id == id_perosna select a).FirstOrDefault();
+
+                //agente_transito ag = (from t in sicove.agente_transito where t.usuario_id == per.id select t).FirstOrDefault();
+
+                int ag = ( from u in sicove.usuarios join
+                           a in sicove.agente_transito on u.id equals a.usuario_id
+                           where u.persona_id == id_perosna
+                           select a.nro_legajo).FirstOrDefault();
+
+                //id_agente = (from ag in sicove.agente_transito
+                //             where ag.nro_legajo == numAgente
+                //             select ag.id).First();
+
+                txtNumAgenteAC.Text = Convert.ToString(ag);
+
                 ddlTipoVehiculoAC.Items.Insert(0, new ListItem("Seleccione tipo de vehiculo...", "0"));
 
                 foreach (tipo_vehiculo j in tip)

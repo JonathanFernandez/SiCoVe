@@ -29,7 +29,7 @@
             <br />      
                     <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" />
             <br />
-            <asp:Button ID="btnTraerPatente" runat="server" Text="LeerPatente" OnClick="btnTraerPatente_Click" />
+            <asp:Button ID="btnTraerPatente" runat="server" style="display:block; margin:auto;" Text="LeerPatente" OnClick="btnTraerPatente_Click" />
 
              <br />
             <asp:Label ID="lblPatente" runat="server" Text=""></asp:Label>

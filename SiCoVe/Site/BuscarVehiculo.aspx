@@ -49,7 +49,7 @@
                                             
                                             </div>
                                          <div class="form-group">
-                                                <asp:Button ID="btnTraerPatente" runat="server" Text="Verificar Patente" OnClick="btnTraerPatente_Click" CssClass="btn btn-success" />
+                                                <asp:Button ID="btnTraerPatente" runat="server" Text="Verificar Patente" style="display:block; margin:auto;" OnClick="btnTraerPatente_Click" CssClass="btn btn-success" />
                                           
                                             </div>
                                          <div class="form-group">
@@ -70,7 +70,7 @@
 
                                          
                                          <div class="form-group">
-                                                <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Acarreo" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
+                                                <asp:Button ID="btnGenerarInfraccion" runat="server" Text="Generar Acarreo" style="display:block; margin:auto;" OnClick="btnGenerarInfraccion_Click" CssClass="btn btn-primary" />
                                                
                                           
                                             </div>

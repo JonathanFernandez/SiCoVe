@@ -160,7 +160,7 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/VisualizarDatosConductor.aspx"><i class="fa fa-edit fa-fw"></i> Visualizar datos </asp:HyperLink>
                             </li>
                             <li runat="server" id ="liSolicitarModificarDatos" visible="false">
-                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModificacionDatos.aspx"><i class="fa fa-dashboard fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
+                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/SolicitarModificacionDatos.aspx"><i class="fa fa-edit fa-fw"></i> Solicitar modificar datos </asp:HyperLink>
                             </li>
                             <li runat="server" id ="liRealizarDenuncia" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarDenuncia.aspx"><i class="fa fa-edit fa-fw"></i> Realizar denuncia </asp:HyperLink>

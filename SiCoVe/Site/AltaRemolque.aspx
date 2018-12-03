@@ -128,7 +128,7 @@
                             <asp:TextBox type="number" ID="txtNumPuerta" runat="server" class="form-control"></asp:TextBox>
                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator17" ForeColor="red" ControlToValidate="txtNumPuerta" runat="server" ErrorMessage="* Debe ingresar Numero de Puerta"></asp:RequiredFieldValidator>--%>
                         </div>
-                             <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
+                             <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" style="display:block; margin:auto;" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
                        </div>
                          <div class="panel-body">
                            <!-- Modal -->

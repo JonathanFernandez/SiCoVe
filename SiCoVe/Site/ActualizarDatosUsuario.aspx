@@ -277,7 +277,7 @@
                                         </div>
                                     </div>
                                     <br />
-                                    <asp:Button ID="btnEnviar" runat="server" class="btn btn-default" Text="Enviar" />
+                                    <asp:Button ID="btnEnviar" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Aceptar" />
                                     <!-- Finalizar control -->
                                     <!--<div class="tab-pane fade" id="control">
                                         <div class="form-group">

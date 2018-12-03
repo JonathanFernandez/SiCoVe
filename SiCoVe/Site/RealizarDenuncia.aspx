@@ -5,8 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-
-
     <script>
         //$( document ).ready(function() { $('#myModal').modal('show');});
 
@@ -22,9 +20,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
-
-
     </script>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -45,13 +40,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-lg-6">
-
-                                <%-- <div class="form-group">   
-                                                <label>Geolocalización</label>
-                                                <input class="form-control">
-                                        
-                                        </div>--%>
+                            <div class="col-lg-8">
                                 <div class="form-group">
                                     <label>Localidad</label>
                                     <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control"></asp:DropDownList>
@@ -64,7 +53,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Adjunte una foto</label>
-                                    <asp:Image ID="imgFoto" runat="server" Style="width: 100%; height: 300px;" />
+                                    <asp:Image ID="imgFoto" runat="server" Style="width: 100%; height: 200px;" />
                                 </div>
                                 <div class="form-group">
                                     <asp:FileUpload ID="FileUploadFoto" runat="server" onchange="showimagepreview(this)" CssClass="btn btn-primary" />
@@ -82,22 +71,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6">
-
-
                                         <div class="form-group">
-                                            <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-primary" />
-
-
+                                            <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" style="display:block; margin:auto;" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-default" />
                                         </div>
-
-
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
                     </div>
                     <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
                 </div>

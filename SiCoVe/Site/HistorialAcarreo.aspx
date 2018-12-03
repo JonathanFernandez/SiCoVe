@@ -10,7 +10,7 @@
        <div id="page-wrapper">
           <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Visualización Acarreo</h1>
+                    <h1 class="page-header">Historial de Acarreos</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -22,7 +22,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                             Historial Acarreo
+                             Busqueda
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body" >
@@ -41,7 +41,7 @@
                         <br />
 
                       <div class="col-sm-2">
-                        <asp:Button class="btn btn-outline btn-primary " ID="btnBuscar" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
+                        <asp:Button class="btn btn-default" ID="btnBuscar" style="display:block; margin:auto;" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
                       </div>
                    </div>
                             <asp:GridView runat="server" ID="GvHistorialAcarreo" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="False">

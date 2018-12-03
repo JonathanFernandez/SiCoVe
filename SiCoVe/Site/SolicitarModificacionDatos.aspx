@@ -30,27 +30,24 @@
                     <div class="panel-heading">
                         Solicitar actualización de datos
                     </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Observaciones</label>
+                            <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="100" Wrap="true" TextMode="MultiLine"></asp:textbox>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen evidencia de los cambios solicitados</label>
+                            <asp:FileUpload ID="FileUploadDNI" runat="server" CssClass="btn btn-primary"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen evidencia de los cambios solicitados</label>
+                            <asp:FileUpload ID="FileUploadLIC" runat="server" CssClass="btn btn-primary"/>
+                        </div>
 
-                   <div class="panel-body">
-                                        <div class="form-group">
-                                            <label>Observaciones</label>
-                                            <asp:textbox id="txtObservaciones" runat="server" class="form-control" height="85" Wrap="true" TextMode="MultiLine"></asp:textbox>
-                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator23" ForeColor="red" ControlToValidate="txtObservaciones" runat="server" ErrorMessage="* Debe ingresar las observaciones"></asp:RequiredFieldValidator>--%> 
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Suba foto de algun documento</label>
-                                            <asp:FileUpload ID="FileUploadDNI" runat="server" />
-                                        </div>
+                        <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" style="display:block; margin:auto;" Text="Enviar Modificación" OnClick="btnRegistrarACNC_Click" />
 
-                                        <div class="form-group">
-                                            <label>Suba foto de algun documento</label>
-                                            <asp:FileUpload ID="FileUploadLIC" runat="server" />
-                                        </div>
-
-                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Text="Enviar Modificación" OnClick="btnRegistrarACNC_Click" />
-
-                          <div class="panel-body">
-                           <!-- Modal -->
+                        <div class="panel-body">
+                            <!-- Modal -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -59,23 +56,19 @@
                                             <h4 class="modal-title" id="myModalLabel">Solicitud de Modificación</h4>
                                         </div>
                                         <div class="modal-body">
-                                          <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                                            <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <%--    <button type="button" class="btn btn-primary">Save changes</button>--%>
                                         </div>
                                     </div>
-                                    <!-- /.modal-content -->
                                 </div>
-                                <!-- /.modal-dialog -->
                             </div>
-                            <!-- /.modal -->
                         </div>
-                                    </div>
-                         </div>
-                       </div>
-                     </div>                     
-                   </div>
+                    </div>
+                </div>
+            </div>
+        </div>                     
+    </div>
 
 </asp:Content>

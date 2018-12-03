@@ -273,7 +273,7 @@
                             </asp:ScriptManager>
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
-                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" OnClick="btnGuardarMDC_Click" Text="Modificar" />
+                                    <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" style="display:block; margin:auto;" OnClick="btnGuardarMDC_Click" Text="Modificar" />
                                     <ajaxToolkit:ModalPopupExtender ID="btnRegistrarACNC_ModalPopupExtender" runat="server" BehaviorID="btnRegistrarACNC_ModalPopupExtender" TargetControlID="btnRegistrarACNC" PopupControlID="panelModal" BackgroundCssClass="modalBackground">
                                     </ajaxToolkit:ModalPopupExtender>
                                     <br />

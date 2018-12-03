@@ -52,7 +52,7 @@
                                             </div>
                                       
                                    
-                                        <asp:Button ID="btnGuardarAcarreo" runat="server" class="btn btn-success" Text="Guardar Acarreo" OnClick="btnGuardarAcarreo_Click" />
+                                        <asp:Button ID="btnGuardarAcarreo" runat="server" class="btn btn-success" style="display:block; margin:auto;" Text="Guardar Acarreo" OnClick="btnGuardarAcarreo_Click" />
                                         <%--<button type="button" class="btn btn-danger">Cancelar</button>--%>
 
                                     </div>
