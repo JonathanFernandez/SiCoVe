@@ -62,7 +62,15 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label>Selecciones reporte</label>
-                            <asp:DropDownList ID="ddlGraficos" runat="server" class="form-control" OnSelectedIndexChanged="ddlGraficos_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlGraficos" runat="server" class="form-control"></asp:DropDownList>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha desde</label>
+                            <asp:TextBox type="number" ID="txtFecDesde" TextMode="Date" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha hasta</label>
+                            <asp:TextBox type="number" ID="txtFecHasta" TextMode="Date" runat="server" class="form-control"></asp:TextBox>
                         </div>
 
                         <asp:Button ID="btnGraficar" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Aceptar" OnClick="btnGraficar_Click" />
