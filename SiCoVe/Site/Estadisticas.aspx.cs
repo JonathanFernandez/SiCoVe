@@ -32,272 +32,6 @@ namespace SiCoVe.Site
             }
         }
 
-        protected void ddlGraficos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int id_grafico = Convert.ToInt16(ddlGraficos.SelectedValue);
-
-            if (id_grafico == 0)
-            {
-                llenarPrimerGrafico();
-            }
-
-            if (id_grafico == 1)
-            {
-                lblflot.InnerText = "Infracciones por Zona";
-                lblbar.InnerText = "Infracciones por Zona";
-
-                StringBuilder sb;
-
-                int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_LOCALIDAD(null,null).ToList();
-
-                if (dataContLoc.Count > 0)
-                {
-                    sb = new StringBuilder();
-                    sb.Append("var dataMen = [");
-
-                    foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
-                    {
-                        if (flag == 0)
-                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
-                        else
-                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
-
-                        flag = 1;
-                    }
-
-                    sb.Append("];");
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
-
-                    flag = 0;
-
-                    if (dataContLoc.Count > 0)
-                    {
-                        sb = new StringBuilder();
-                        sb.Append("Morris.Bar({");
-                        sb.Append("element: 'morris-bar-chartAnual',");
-                        sb.Append(" data: [");
-
-                        foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
-                        {
-                            if (flag == 0)
-                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            else
-                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            flag = 1;
-                        }
-
-                        sb.Append("],");
-
-                        sb.Append("xkey: 'area',");
-                        sb.Append("ykeys: ['cantidad'],");
-                        sb.Append("labels: ['cantidad'],");
-                        sb.Append("barRatio: 0.4,");
-                        sb.Append("xLabelAngle: 35,");
-                        sb.Append("hideHover: 'auto',");
-                        sb.Append("resize: true");
-                        sb.Append("});");
-
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
-                    }
-                }
-            }
-
-            if (id_grafico == 2)
-            {
-                lblflot.InnerText = "Acarreos por Zona";
-                lblbar.InnerText = "Acarreos por Zona";
-
-                StringBuilder sb;
-
-                int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_ACARREOS_X_LOCALIDAD(null, null).ToList();
-
-                if (dataContLoc.Count > 0)
-                {
-                    sb = new StringBuilder();
-                    sb.Append("var dataMen = [");
-
-                    foreach (SP_LISTAR_ACARREOS_X_LOCALIDAD_Result lo in dataContLoc)
-                    {
-                        if (flag == 0)
-                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
-                        else
-                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
-
-                        flag = 1;
-                    }
-
-                    sb.Append("];");
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
-
-                    flag = 0;
-
-                    if (dataContLoc.Count > 0)
-                    {
-                        sb = new StringBuilder();
-                        sb.Append("Morris.Bar({");
-                        sb.Append("element: 'morris-bar-chartAnual',");
-                        sb.Append(" data: [");
-
-                        foreach (SP_LISTAR_ACARREOS_X_LOCALIDAD_Result lo in dataContLoc)
-                        {
-                            if (flag == 0)
-                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            else
-                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            flag = 1;
-                        }
-
-                        sb.Append("],");
-
-                        sb.Append("xkey: 'area',");
-                        sb.Append("ykeys: ['cantidad'],");
-                        sb.Append("labels: ['cantidad'],");
-                        sb.Append("barRatio: 0.4,");
-                        sb.Append("xLabelAngle: 35,");
-                        sb.Append("hideHover: 'auto',");
-                        sb.Append("resize: true");
-                        sb.Append("});");
-
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
-                    }
-                }
-            }
-
-            if (id_grafico == 3)
-            {
-                lblflot.InnerText = "Denuncias por Zona";
-                lblbar.InnerText = "Denuncias por Zona";
-
-                StringBuilder sb;
-
-                int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_DENUNCIAS_X_LOCALIDAD(null, null).ToList();
-
-                if (dataContLoc.Count > 0)
-                {
-                    sb = new StringBuilder();
-                    sb.Append("var dataMen = [");
-
-                    foreach (SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result lo in dataContLoc)
-                    {
-                        if (flag == 0)
-                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
-                        else
-                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
-
-                        flag = 1;
-                    }
-
-                    sb.Append("];");
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
-
-                    flag = 0;
-
-                    if (dataContLoc.Count > 0)
-                    {
-                        sb = new StringBuilder();
-                        sb.Append("Morris.Bar({");
-                        sb.Append("element: 'morris-bar-chartAnual',");
-                        sb.Append(" data: [");
-
-                        foreach (SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result lo in dataContLoc)
-                        {
-                            if (flag == 0)
-                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            else
-                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            flag = 1;
-                        }
-
-                        sb.Append("],");
-
-                        sb.Append("xkey: 'area',");
-                        sb.Append("ykeys: ['cantidad'],");
-                        sb.Append("labels: ['cantidad'],");
-                        sb.Append("barRatio: 0.4,");
-                        sb.Append("xLabelAngle: 35,");
-                        sb.Append("hideHover: 'auto',");
-                        sb.Append("resize: true");
-                        sb.Append("});");
-
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
-                    }
-                }
-            }
-
-            if (id_grafico == 4)
-            {
-                lblflot.InnerText = "Infracciones por Categoría";
-                lblbar.InnerText = "Infracciones por Categoría";
-
-                StringBuilder sb;
-
-                int flag = 0;
-                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_CATEGORIA(null, null).ToList();
-
-                if (dataContLoc.Count > 0)
-                {
-                    sb = new StringBuilder();
-                    sb.Append("var dataMen = [");
-
-                    foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
-                    {
-                        if (flag == 0)
-                            sb.Append("{label: '" + lo.categoria_infraccion.ToString() + "', data: " + lo.cantidad + " }");
-                        else
-                            sb.Append(",{label: '" + lo.categoria_infraccion.ToString() + "', data: " + lo.cantidad + " }");
-
-                        flag = 1;
-                    }
-
-                    sb.Append("];");
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
-
-                    flag = 0;
-
-                    if (dataContLoc.Count > 0)
-                    {
-                        sb = new StringBuilder();
-                        sb.Append("Morris.Bar({");
-                        sb.Append("element: 'morris-bar-chartAnual',");
-                        sb.Append(" data: [");
-
-                        foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
-                        {
-                            if (flag == 0)
-                                sb.Append("{ area: '" + lo.categoria_infraccion.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            else
-                                sb.Append(",{ area: '" + lo.categoria_infraccion.ToString() + "', cantidad: " + lo.cantidad + "}");
-                            flag = 1;
-                        }
-
-                        sb.Append("],");
-
-                        sb.Append("xkey: 'area',");
-                        sb.Append("ykeys: ['cantidad'],");
-                        sb.Append("labels: ['cantidad'],");
-                        sb.Append("barRatio: 0.4,");
-                        sb.Append("xLabelAngle: 35,");
-                        sb.Append("hideHover: 'auto',");
-                        sb.Append("resize: true");
-                        sb.Append("});");
-
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
-                    }
-                }
-            }
-        }
-
         private void llenarPrimerGrafico()
         {
             lblflot.InnerText = "Controles por Zona";
@@ -364,7 +98,282 @@ namespace SiCoVe.Site
 
         protected void btnGraficar_Click(object sender, EventArgs e)
         {
+            int id_grafico = Convert.ToInt16(ddlGraficos.SelectedValue);
 
+            DateTime? fecDesde;
+            DateTime? fecHasta;
+
+            if (txtFecDesde.Text != "" && txtFecHasta.Text != "")
+            {
+                fecDesde = Convert.ToDateTime(txtFecDesde.Text);
+                fecHasta = Convert.ToDateTime(txtFecHasta.Text);
+            }
+            else
+            {
+                fecDesde = null;
+                fecHasta = null;
+            }
+
+            if (id_grafico == 0)
+            {
+                llenarPrimerGrafico();
+            }
+
+            if (id_grafico == 1)
+            {
+                lblflot.InnerText = "Infracciones por Zona";
+                lblbar.InnerText = "Infracciones por Zona";
+
+                StringBuilder sb;
+
+                int flag = 0;
+                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_LOCALIDAD(fecDesde, fecHasta).ToList();
+
+                if (dataContLoc.Count > 0)
+                {
+                    sb = new StringBuilder();
+                    sb.Append("var dataMen = [");
+
+                    foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
+                    {
+                        if (flag == 0)
+                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
+                        else
+                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
+
+                        flag = 1;
+                    }
+
+                    sb.Append("];");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
+
+                    flag = 0;
+
+                    if (dataContLoc.Count > 0)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Morris.Bar({");
+                        sb.Append("element: 'morris-bar-chartAnual',");
+                        sb.Append(" data: [");
+
+                        foreach (SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result lo in dataContLoc)
+                        {
+                            if (flag == 0)
+                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            else
+                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            flag = 1;
+                        }
+
+                        sb.Append("],");
+
+                        sb.Append("xkey: 'area',");
+                        sb.Append("ykeys: ['cantidad'],");
+                        sb.Append("labels: ['cantidad'],");
+                        sb.Append("barRatio: 0.4,");
+                        sb.Append("xLabelAngle: 35,");
+                        sb.Append("hideHover: 'auto',");
+                        sb.Append("resize: true");
+                        sb.Append("});");
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
+                    }
+                }
+            }
+
+            if (id_grafico == 2)
+            {
+                lblflot.InnerText = "Acarreos por Zona";
+                lblbar.InnerText = "Acarreos por Zona";
+
+                StringBuilder sb;
+
+                int flag = 0;
+                var dataContLoc = sicove.SP_LISTAR_ACARREOS_X_LOCALIDAD(fecDesde, fecHasta).ToList();
+
+                if (dataContLoc.Count > 0)
+                {
+                    sb = new StringBuilder();
+                    sb.Append("var dataMen = [");
+
+                    foreach (SP_LISTAR_ACARREOS_X_LOCALIDAD_Result lo in dataContLoc)
+                    {
+                        if (flag == 0)
+                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
+                        else
+                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
+
+                        flag = 1;
+                    }
+
+                    sb.Append("];");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
+
+                    flag = 0;
+
+                    if (dataContLoc.Count > 0)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Morris.Bar({");
+                        sb.Append("element: 'morris-bar-chartAnual',");
+                        sb.Append(" data: [");
+
+                        foreach (SP_LISTAR_ACARREOS_X_LOCALIDAD_Result lo in dataContLoc)
+                        {
+                            if (flag == 0)
+                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            else
+                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            flag = 1;
+                        }
+
+                        sb.Append("],");
+
+                        sb.Append("xkey: 'area',");
+                        sb.Append("ykeys: ['cantidad'],");
+                        sb.Append("labels: ['cantidad'],");
+                        sb.Append("barRatio: 0.4,");
+                        sb.Append("xLabelAngle: 35,");
+                        sb.Append("hideHover: 'auto',");
+                        sb.Append("resize: true");
+                        sb.Append("});");
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
+                    }
+                }
+            }
+
+            if (id_grafico == 3)
+            {
+                lblflot.InnerText = "Denuncias por Zona";
+                lblbar.InnerText = "Denuncias por Zona";
+
+                StringBuilder sb;
+
+                int flag = 0;
+                var dataContLoc = sicove.SP_LISTAR_DENUNCIAS_X_LOCALIDAD(fecDesde, fecHasta).ToList();
+
+                if (dataContLoc.Count > 0)
+                {
+                    sb = new StringBuilder();
+                    sb.Append("var dataMen = [");
+
+                    foreach (SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result lo in dataContLoc)
+                    {
+                        if (flag == 0)
+                            sb.Append("{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
+                        else
+                            sb.Append(",{label: '" + lo.localidad.ToString() + "', data: " + lo.cantidad + " }");
+
+                        flag = 1;
+                    }
+
+                    sb.Append("];");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
+
+                    flag = 0;
+
+                    if (dataContLoc.Count > 0)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Morris.Bar({");
+                        sb.Append("element: 'morris-bar-chartAnual',");
+                        sb.Append(" data: [");
+
+                        foreach (SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result lo in dataContLoc)
+                        {
+                            if (flag == 0)
+                                sb.Append("{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            else
+                                sb.Append(",{ area: '" + lo.localidad.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            flag = 1;
+                        }
+
+                        sb.Append("],");
+
+                        sb.Append("xkey: 'area',");
+                        sb.Append("ykeys: ['cantidad'],");
+                        sb.Append("labels: ['cantidad'],");
+                        sb.Append("barRatio: 0.4,");
+                        sb.Append("xLabelAngle: 35,");
+                        sb.Append("hideHover: 'auto',");
+                        sb.Append("resize: true");
+                        sb.Append("});");
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
+                    }
+                }
+            }
+
+            if (id_grafico == 4)
+            {
+                lblflot.InnerText = "Infracciones por Categoría";
+                lblbar.InnerText = "Infracciones por Categoría";
+
+                StringBuilder sb;
+
+                int flag = 0;
+                var dataContLoc = sicove.SP_LISTAR_INFRACCIONES_X_CATEGORIA(fecDesde, fecHasta).ToList();
+
+                if (dataContLoc.Count > 0)
+                {
+                    sb = new StringBuilder();
+                    sb.Append("var dataMen = [");
+
+                    foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
+                    {
+                        if (flag == 0)
+                            sb.Append("{label: '" + lo.categoria_infraccion.ToString() + "', data: " + lo.cantidad + " }");
+                        else
+                            sb.Append(",{label: '" + lo.categoria_infraccion.ToString() + "', data: " + lo.cantidad + " }");
+
+                        flag = 1;
+                    }
+
+                    sb.Append("];");
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Graficos", "\n" + sb.ToString(), true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "GraficosPie", "\n llenarFlotPie(dataMen);", true);
+
+                    flag = 0;
+
+                    if (dataContLoc.Count > 0)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Morris.Bar({");
+                        sb.Append("element: 'morris-bar-chartAnual',");
+                        sb.Append(" data: [");
+
+                        foreach (SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result lo in dataContLoc)
+                        {
+                            if (flag == 0)
+                                sb.Append("{ area: '" + lo.categoria_infraccion.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            else
+                                sb.Append(",{ area: '" + lo.categoria_infraccion.ToString() + "', cantidad: " + lo.cantidad + "}");
+                            flag = 1;
+                        }
+
+                        sb.Append("],");
+
+                        sb.Append("xkey: 'area',");
+                        sb.Append("ykeys: ['cantidad'],");
+                        sb.Append("labels: ['cantidad'],");
+                        sb.Append("barRatio: 0.4,");
+                        sb.Append("xLabelAngle: 35,");
+                        sb.Append("hideHover: 'auto',");
+                        sb.Append("resize: true");
+                        sb.Append("});");
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "bAnual", "\n" + sb.ToString(), true);
+                    }
+                }
+            }
         }
     }
 }

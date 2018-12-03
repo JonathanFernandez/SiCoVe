@@ -31,6 +31,24 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.DropDownList ddlGraficos;
         
         /// <summary>
+        /// Control txtFecDesde.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFecDesde;
+        
+        /// <summary>
+        /// Control txtFecHasta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFecHasta;
+        
+        /// <summary>
         /// Control btnGraficar.
         /// </summary>
         /// <remarks>
