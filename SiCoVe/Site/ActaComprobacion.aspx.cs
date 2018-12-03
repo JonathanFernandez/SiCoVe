@@ -17,7 +17,10 @@ namespace SiCoVe.Site
             if (!Page.IsPostBack)
             {
                 var tip = sicove.tipo_vehiculo.ToList();
-
+                var id = UserSession.persona_id;
+                persona per = (from a in sicove.personas where a.id == id select a).FirstOrDefault();
+                agente_transito lic = (from t in sicove.agente_transito where t.usuario_id == per.id select t).FirstOrDefault();
+                txtNumAgenteAC.Text = Convert.ToString(lic.nro_legajo);
                 ddlTipoVehiculoAC.Items.Insert(0, new ListItem("Seleccione tipo de vehiculo...", "0"));
 
                 foreach (tipo_vehiculo j in tip)
@@ -159,9 +162,9 @@ namespace SiCoVe.Site
                     int numDocumento = Convert.ToInt32(txtNumDocumentoAC.Text);
 
 
-                    id_agente = (from ag in sicove.agente_transito
-                                 where ag.nro_legajo == numAgente
-                                 select ag.id).First();
+                    //id_agente = (from ag in sicove.agente_transito
+                    //             where ag.nro_legajo == numAgente
+                    //             select ag.id).First();
 
                     try
                     {
@@ -277,14 +280,39 @@ namespace SiCoVe.Site
 
                     sicove.infraccions.Add(ac);
                     sicove.SaveChanges();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
+                    CleanControl(this.Controls);
 
                     //this.Page.Response.Write("<script language='JavaScript'>window.alert('Acta generada correctamente');window.location.href = './ActaComprobacion.aspx';</script>");
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception(ex.Message);
+                    //throw new Exception(ex.Message);
+                    LblError.Text = Convert.ToString(ex);
                 }
             }
         }
+         public void CleanControl(ControlCollection controles)
+         {
+            foreach (Control control in controles)
+            {
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is DropDownList)
+                    ((DropDownList)control).ClearSelection();
+                else if (control is RadioButtonList)
+                    ((RadioButtonList)control).ClearSelection();
+                else if (control is CheckBoxList)
+                    ((CheckBoxList)control).ClearSelection();
+                else if (control is RadioButton)
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
+                else if (control.HasControls())
+                    //Esta linea detécta un Control que contenga otros Controles
+                    //Así ningún control se quedará sin ser limpiado.
+                    CleanControl(control.Controls);
+            }
+         }
     }
 }

@@ -31,28 +31,28 @@
                                 <div class="form-group">
                                     <label>N° de acta</label>
                                     <asp:TextBox ID="txtNumActaAC" runat="server" class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfvNumActaAC" runat="server" ErrorMessage="El N° de acta es obligatorio" ControlToValidate="txtNombre" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvNumActaAC" runat="server" ErrorMessage="*El N° de acta es obligatorio" ControlToValidate="txtNombre" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
-                               
-                                           
-                               <div class='input-group date datetimepicker'>
+                                <div class='input-group date datetimepicker'>
                                     <label>Fecha y hora</label>
                                     <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control"></asp:TextBox>
-                                                        <span class="input-group-addon" style="height:2px !important;">
-                                        <span class="glyphicon glyphicon-calendar" ></span>
-                                        </span>
-                                    <asp:RequiredFieldValidator ID="rfFecActaAC" runat="server" ErrorMessage="La Fecha es obligatoria" ControlToValidate="txtFecActaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                    <span class="input-group-addon" style="height:2px ">
+                                    <span class="glyphicon glyphicon-calendar" >
+                                    </span>
+                                    </span>
                                 </div>
-
-                                <div class="form-group">
+                                    <div class="form-group">
+                                    <asp:RequiredFieldValidator ID="rfFecActaAC" runat="server" ErrorMessage="*La Fecha es obligatoria" ControlToValidate="txtFecActaAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="form-group">
                                     <label>Dominio</label>
                                     <asp:TextBox ID="txtDominioAC" runat="server" class="form-control"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="rfDominioAC" runat="server" ErrorMessage="El Dominio es obligatorio" ControlToValidate="txtDominioAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfDominioAC" runat="server" ErrorMessage="*El Dominio es obligatorio" ControlToValidate="txtDominioAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Tipo de vehículo</label>
                                     <asp:DropDownList ID="ddlTipoVehiculoAC" runat="server" class="form-control"></asp:DropDownList>
-                                    <asp:CompareValidator ID="cvTipoVehiculoAC" ControlToValidate="ddlTipoVehiculoAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Tipo de vehículo" CssClass="label label-danger"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="cvTipoVehiculoAC" ControlToValidate="ddlTipoVehiculoAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="*Debe seleccionar Tipo de vehículo" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Otros</label>
@@ -61,7 +61,7 @@
                                 <div class="form-group">
                                     <label>Marca</label>
                                     <asp:DropDownList ID="ddlMarcaAC" runat="server" class="form-control"></asp:DropDownList>
-                                    <asp:CompareValidator ID="cvMarcaAC" ControlToValidate="ddlMarcaAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="Debe seleccionar Marca" CssClass="label label-danger"></asp:CompareValidator>
+                                    <asp:CompareValidator ID="cvMarcaAC" ControlToValidate="ddlMarcaAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="*Debe seleccionar Marca" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">
                                     <label>Modelo</label>
@@ -121,7 +121,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>N° de documento</label>
-                                    <asp:TextBox ID="txtNumDocumentoAC" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:TextBox Type="number" ID="txtNumDocumentoAC" runat="server" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfNumDocumentoAC" runat="server" ErrorMessage="El N° de documento es obligatorio" ControlToValidate="txtNumDocumentoAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
@@ -176,14 +176,37 @@
                                 </div>
                                 <div class="form-group">
                                     <label>N° agente / inspector</label>
-                                    <asp:TextBox ID="txtNumAgenteAC" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:TextBox type= "number" ReadOnly="true" ID="txtNumAgenteAC" runat="server" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfNumAgenteAC" runat="server" ErrorMessage="El N° agente / inspector es obligatorio" ControlToValidate="txtNumAgenteAC" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <br />
                                 <asp:Button ID="btnAceptarAC" style="display:block; margin:auto;" runat="server" class="btn btn-default" Text="Aceptar" OnClick="btnAceptarAC_Click" />
                             </div>
+                            <div class="panel-body">
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <%--    <button type="button" class="btn btn-primary">Save changes</button>--%>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
                         </div>
                     </div>  
+                        <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
                 </div>   
             </div> 
         </div> 
