@@ -67,6 +67,7 @@ namespace SiCoVe
             sicove.personas.Remove(per);
             sicove.SaveChanges();
             ListadoRemolque();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario dado de baja con éxito');", true);
         }
 
         protected void GvRemolque_RowCommand(object sender, GridViewCommandEventArgs e)

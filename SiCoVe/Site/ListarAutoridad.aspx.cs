@@ -65,6 +65,7 @@ namespace SiCoVe
            
             sicove.personas.Remove(per);
             sicove.SaveChanges();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario dado de baja con éxito');", true);
             ListadoAutoridad();
         }
 
