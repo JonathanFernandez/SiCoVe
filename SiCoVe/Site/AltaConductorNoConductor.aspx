@@ -6,21 +6,23 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-<script>
-    function cckConductor_click() {
-        if (document.getElementById("PaginaCentral_ContentPlaceHolder_cckConductor").checked) {
-            
-         //document.getElementById("conducto1").show();
-         document.getElementById("conducto1").style.display = "block"
-         document.getElementById("conducto2").style.display = "block"
-         document.getElementById("conducto3").style.display = "block"            
-     } else {
-         document.getElementById("conducto1").style.display = "none"
-         document.getElementById("conducto2").style.display = "none"
-         document.getElementById("conducto3").style.display = "none"            
-        }  
-     }
+    <script>
+        function cckConductor_click() {
+            if (document.getElementById("PaginaCentral_ContentPlaceHolder_cckConductor").checked) {
+                document.getElementById("conducto1").style.display = "block";
+                document.getElementById("conducto2").style.display = "block";
+                document.getElementById("conducto3").style.display = "block";   
 
+                document.getElementById("PaginaCentral_ContentPlaceHolder_btnRegistrarACNC1").style.display = "none";
+                document.getElementById("PaginaCentral_ContentPlaceHolder_divBotonOculto").style.display = "none";
+            } else {
+                document.getElementById("conducto1").style.display = "none";
+                document.getElementById("conducto2").style.display = "none";
+                document.getElementById("conducto3").style.display = "none";   
+                 
+                
+            }  
+         }
     </script>
 </asp:Content>
 
@@ -146,6 +148,10 @@
                                             <asp:TextBox ID="txtLugarNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator16" ForeColor="red" ControlToValidate="txtLugarNacimientoDNI" runat="server" ErrorMessage="* Debe Ingresar Lugar Nacimiento"></asp:RequiredFieldValidator>--%>
                                         </div>
+
+                                        <div ID="divBotonOculto" class="form-group">
+                                            <asp:Button ID="btnRegistrarACNC1" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
+                                        </div>
                                     </div>
                                     <!-- Datos licencia -->
                                     <div class="tab-pane fade" id="licencia">
@@ -212,9 +218,6 @@
                                         <div class="form-group">
                                             <label>Uso</label>
                                             <asp:DropDownList ID="ddlUsoCED" runat="server" class="form-control"></asp:DropDownList>
-                                                <!--option>Privado</!--option>
-                                                <option>Público</option>
-                                                <option>Oficial</option-->
                                         </div>
                                           <div class="form-group">
                                             <label>Año</label>
@@ -263,34 +266,33 @@
                                             <label>Fecha hasta</label>
                                             <asp:TextBox type="number" ID="txtFecHastaSEG" runat="server" TextMode="Date" class="form-control"></asp:TextBox>
                                         </div>
-                                    </div>
-                                </div>
-                                        <asp:Button ID="btnRegistrarACNC" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
-                                
-                                          <div class="panel-body">
-                           <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                          <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <%--    <button type="button" class="btn btn-primary">Save changes</button>--%>
-                                        </div>
-                                    </div>
-                                    <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
-                            </div>
-                            <!-- /.modal -->
-                        </div>
 
+                                        <asp:Button ID="btnRegistrarACNC2" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
+
+                                    </div>
+                                </div>
+                                
+                                <%--<asp:Button ID="btnRegistrarACNC" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />--%>
+                                
+                                <div class="panel-body">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                            </div>
                         </div>
                     </div>
