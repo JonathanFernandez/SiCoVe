@@ -95,7 +95,7 @@
                     <div class="panel-heading">
                         <label id="lblbar" runat="server"></label>
                     </div>
-                    <div class="panel-body" style="height:480px;">
+                    <div class="panel-body">
                         <div class="flot-chart">
                             <div class="flot-chart-content" id="morris-bar-chartAnual"></div>
                         </div>
