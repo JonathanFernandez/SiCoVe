@@ -100,10 +100,11 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                 </ul>
                             </li>
                             <li runat="server" id ="liConductor" visible="false">
-                                <a href="#"><i class="fa fa-table fa-fw"></i> Conductor<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-table fa-fw"></i> Conductores<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarUsuarios.aspx">Listar usuarios</asp:HyperLink>
+                                        <%--<asp:HyperLink runat="server" NavigateUrl="~/Site/ListarUsuarios.aspx">Listar usuarios</asp:HyperLink>--%>
+                                        <asp:HyperLink runat="server" NavigateUrl="~/Site/ListarConductor.aspx"><i class="fa fa-edit fa-fw"></i> Modificar conductor </asp:HyperLink>
                                     </li>
                                 </ul>
                             </li>
