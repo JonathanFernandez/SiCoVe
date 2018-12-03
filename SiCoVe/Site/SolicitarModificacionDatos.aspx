@@ -44,6 +44,17 @@
                             <asp:FileUpload ID="FileUploadLIC" runat="server" CssClass="btn btn-primary"/>
                         </div>
 
+                        <%--INI - Estos controles no hacen nada--%>
+                        <div class="form-group">
+                            <label>Imagen evidencia de los cambios solicitados</label>
+                            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="btn btn-primary"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen evidencia de los cambios solicitados</label>
+                            <asp:FileUpload ID="FileUpload2" runat="server" CssClass="btn btn-primary"/>
+                        </div>
+                        <%--FIN - Estos controles no hacen nada--%>
+
                         <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" style="display:block; margin:auto;" Text="Enviar Modificación" OnClick="btnRegistrarACNC_Click" />
 
                         <div class="panel-body">

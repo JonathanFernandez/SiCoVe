@@ -41,7 +41,7 @@
                         <br />
 
                       <div class="col-sm-2">
-                        <asp:Button class="btn btn-default" ID="btnBuscar" style="display:block; margin:auto;" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
+                        <asp:Button class="btn btn-default" ID="btnBuscar" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
                       </div>
                    </div>
                             <asp:GridView runat="server" ID="GvHistorialAcarreo" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="False">

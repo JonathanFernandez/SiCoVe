@@ -69,24 +69,20 @@
                                     <asp:TextBox ID="txtPatente" runat="server" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe Ingresar Fecha de vencimiento" ControlToValidate="txtFecha" Display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" style="display:block; margin:auto;" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-default" />
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" style="display:block; margin:auto;" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-default" />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
                 </div>
-                <!-- /.panel -->
+                <asp:Label ID="LblError" runat="server" ForeColor="Red"></asp:Label>
             </div>
-            <!-- /.col-lg-12 -->
+            <!-- /.panel -->
         </div>
-        <!-- /.row -->
+        <!-- /.col-lg-12 -->
     </div>
+        <!-- /.row -->
     <!-- /#page-wrapper -->
     <div class="panel-body">
         <!-- Modal -->

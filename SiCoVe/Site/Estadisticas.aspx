@@ -57,7 +57,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <label id="lblSeleccione" runat="server">Selección de opción</label>
+                        Selección de reporte
                     </div>
                     <div class="panel-body">
                         <div class="form-group">

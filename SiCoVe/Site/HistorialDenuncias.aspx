@@ -19,7 +19,7 @@
             <div class="col-lg-6">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <label id="lblSeleccione" runat="server">Selección de localidad</label>
+                        Selección de localidad
                     </div>
                     <div class="panel-body">
                         <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocalidad_SelectedIndexChanged"></asp:DropDownList>
@@ -35,7 +35,7 @@
             <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <label id="Label1" runat="server">Historial Denuncias</label>
+                        Historial Denuncias
                     </div>
            
                     <div class="panel-body">

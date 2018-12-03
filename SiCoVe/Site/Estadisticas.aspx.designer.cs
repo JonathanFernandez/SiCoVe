@@ -13,15 +13,6 @@ namespace SiCoVe.Site {
     public partial class Estadisticas {
         
         /// <summary>
-        /// Control lblSeleccione.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSeleccione;
-        
-        /// <summary>
         /// Control ddlGraficos.
         /// </summary>
         /// <remarks>
