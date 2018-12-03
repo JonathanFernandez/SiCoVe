@@ -167,7 +167,8 @@ namespace SiCoVe
 
 
                 sicove.SaveChanges();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario dado de alta con éxito');", true);
+                lblMensaje.Text = "Usuario dado de alta con éxito.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
                 CleanControl(this.Controls);
 
             }
