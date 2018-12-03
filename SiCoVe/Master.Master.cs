@@ -48,7 +48,7 @@ namespace SiCoVe
                     break;
                 case 2:
                     ////Usuario Conductor
-                    liCrearUsuario.Visible = true;
+                    //liCrearUsuario.Visible = true;
                     liVisualizarDatos.Visible = true;
                     liSolicitarModificarDatos.Visible = true;
                     liRealizarDenuncia.Visible = true;

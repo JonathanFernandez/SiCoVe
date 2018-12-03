@@ -61,40 +61,21 @@ format: 'DD/MM/YYYY HH:mm:ss',
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+
 				<div class="navbar-header">
                     <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/Index.aspx">
-                     <%--   <asp:Image ID="imgLogo" runat="server" Width="120px" Height="43px" style="margin-top:3px" src="~/img/Logo.png"/>--%>
                         <img id="imgLog" runat="server" src="~/img/Logo.png" style="margin-top:3px;width:120px;height:43px;" />
                     </asp:HyperLink>
                     <a class="navbar-brand" href="~/Index.aspx" style="padding: 15px 5px;">SiCoVe 1.0</a>
                 </div>
-               <%-- <asp:Label runat="server" ID="lblUsuario"></asp:Label><b class="caret"></b>--%>
-                <ul class="nav navbar-top-links navbar-right">
-                            <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx" style="float:right; margin:15px;" ><i class="fa fa-fw fa-power-off"></i> Salir </asp:HyperLink>
 
-                    <!--<li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li>
-                                 <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx"><i class="fa fa-fw fa-power-off"></i> Log Out </asp:HyperLink>
-                            </li>
-                        </ul>
-                    </li>-->
+                <ul class="nav navbar-top-links navbar-right">
+                    <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx" style="float:right; margin:15px;" ><i class="fa fa-fw fa-power-off"></i> Salir </asp:HyperLink>
                 </ul>
 
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <!--Logo-->
-                            <%--<li class="sidebar-search">
-                                <div class="text-center">
-                                    <asp:HyperLink runat="server" NavigateUrl="~/Index.aspx">
-                                        <asp:Image ID="imgLogo" runat="server" Width="220px" Height="110px" src="/img/Logo.png"/>
-                                    </asp:HyperLink>
-                                </div>
-                            </li>--%>
                             <!--Usuario Administrador-->
                             <li runat="server" id ="liRemolque" visible="false">
                                 <a href="#"><i class="fa fa-edit fa-fw"></i> Remolque<span class="fa arrow"></span></a>
@@ -153,9 +134,9 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialAcarreo.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de remolques </asp:HyperLink>
                             </li>
                             <!--Usuario Conductor-->
-                            <li runat="server" id ="liCrearUsuario" visible="false">
+                            <%--<li runat="server" id ="liCrearUsuario" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/AltaConductorNoConductor.aspx"><i class="fa fa-edit fa-fw"></i> Crear usuario </asp:HyperLink>
-                            </li>
+                            </li>--%>
                             <li runat="server" id ="liVisualizarDatos" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/VisualizarDatosConductor.aspx"><i class="fa fa-edit fa-fw"></i> Visualizar datos </asp:HyperLink>
                             </li>
