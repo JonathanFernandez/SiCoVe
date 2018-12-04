@@ -55,18 +55,15 @@ namespace SiCoVe.Site
 
                 var loc = sicove.municipios.ToList();
 
-                //ddlLugNacimientoDNI.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
                 ddlLocalidadFC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
                 foreach (municipio p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
-                   // ddlLugNacimientoDNI.Items.Add(item);
                     ddlLocalidadFC.Items.Add(item);
                 }
 
-                //ddlLugNacimientoDNI.SelectedIndex = 0;
                 ddlLocalidadFC.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
@@ -181,34 +178,6 @@ namespace SiCoVe.Site
                 ddlTipoCED.SelectedIndex = 0; 
             }   
         }
-
-        //protected void ddlPersona_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int id_persona = Convert.ToInt16(ddlPersona.SelectedValue);
-
-        //    var dat = (from ve in sicove.vehiculoes
-        //               join ce in sicove.cedulas  on ve.id equals ce.vehiculo_id
-        //               join pe in sicove.personas on ce.persona_id equals pe.id
-        //               join ti in sicove.tipo_vehiculo on ve.tipo_id equals ti.id
-        //               where pe.id == id_persona
-        //               select new {
-        //                            ID_VEHICULO   = ti.id,
-        //                            TIPO_VEHICULO = ti.descripcion
-        //               }).ToList();
-
-        //    ddlTipoVehiculo.Items.Insert(0, new ListItem("Seleccione tipo de vehiculo...", "0"));
-
-        //    ddlTipoVehiculo.DataSource = dat;
-        //    ddlTipoVehiculo.DataBind();
-
-        //    ddlTipoVehiculo.SelectedIndex = 0;
-        //}
-
-        //protected void ddlTipoVehiculo_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    int id_persona = Convert.ToInt16(ddlPersona.SelectedValue);
-        //    int id_tipVehi = Convert.ToInt16(ddlTipoVehiculo.SelectedValue);
-        //}
 
         protected void ddlPersona_SelectedIndexChanged(object sender, EventArgs e)
         {
