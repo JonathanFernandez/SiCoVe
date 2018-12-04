@@ -70,7 +70,7 @@ namespace SiCoVe
                 txtChasisCED.Text= ve.chasis_cuadro;
                 txtDominioCED.Text = ve.dominio;
 
-                poliza pol = (from z in sicove.polizas where z.id == ced.vehiculo_id select z).First();
+                poliza pol = (from z in sicove.polizas where z.vehiculo_id == ve.id select z).First();
                 txtPolizaSEG.Text = pol.nro_poliza;
                 ddlAseguradoraSEG.SelectedValue = Convert.ToString(pol.aseguradora_id );
                 txtFecDesdeSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_desde);
