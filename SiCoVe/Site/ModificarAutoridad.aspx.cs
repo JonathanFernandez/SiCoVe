@@ -15,7 +15,8 @@ namespace SiCoVe
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!Page.IsPostBack) {
+            if (!Page.IsPostBack)
+            {
 
                 CargarCombos();
 
@@ -24,7 +25,7 @@ namespace SiCoVe
                     id = Convert.ToInt32(Session["id"].ToString());
 
                 persona per = (from a in sicove.personas where a.id == id select a).FirstOrDefault();
-                           
+
                 txtApellido.Text = per.apellido;
                 txtNombre.Text = per.nombre;
                 txtNumDocumento.Text = Convert.ToString(per.dni);
@@ -36,20 +37,19 @@ namespace SiCoVe
                 txtPiso.Text = Convert.ToString(per.piso);
                 txtDepartamento.Text = per.departamento;
                 txtNumPuerta.Text = per.nro_puerta;
-                txtFechaNacimiento.Text = string.Format("{0:MM/dd/yyyy}", per.fecha_nacimiento);
+                txtFechaNacimiento.Text = string.Format("{0:dd/MM/yyyy}", per.fecha_nacimiento);
                 txtLugarNacimiento.Text = per.lugar_nacimiento;
                 cckrautoridad.Checked = per.flag_conductor;
 
                 usuario usu = (from u in sicove.usuarios where u.persona_id == per.id select u).FirstOrDefault();
-               
-                    txtEMail.Text = usu.email;
-                    txtContraseña.Text = usu.contraseña;
+
+                txtEMail.Text = usu.email;
+                txtContraseña.Text = usu.contraseña;
 
                 agente_transito at = (from t in sicove.agente_transito where t.usuario_id == usu.id select t).FirstOrDefault();
-                
-                    txtLegajo.Text = Convert.ToString(at.nro_legajo);
-            }
 
+                txtLegajo.Text = Convert.ToString(at.nro_legajo);
+            }
         }
 
         private void CargarCombos()
@@ -62,7 +62,6 @@ namespace SiCoVe
 
         private void CargarSexo()
         {
-
             var sexo = sicove.sexoes.ToList();
 
             ddlSexo.DataTextField = "descripcion";
@@ -78,8 +77,8 @@ namespace SiCoVe
             ddlNacionalidad.DataValueField = "id";
             ddlNacionalidad.DataSource = nacionalidades;
             ddlNacionalidad.DataBind();
-
         }
+
         private void CargarProvincia()
         {
             var provincia = sicove.provincias.ToList();
@@ -101,14 +100,14 @@ namespace SiCoVe
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
             var id = 0;
+
             if (Session["id"] != null)
                 id = Convert.ToInt32(Session["id"].ToString());
 
             bool result = ActualizarAutoridad(id);
 
             if (result)
-                Response.Redirect("ListarAutoridad.aspx");
-
+                Response.Redirect("ListarAutoridad.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
         }
 
         public bool ActualizarAutoridad(int id)
@@ -117,7 +116,6 @@ namespace SiCoVe
 
             try
             {
-
                 persona per = (from a in sicove.personas where a.id == id select a).First();
 
                 per.apellido = txtApellido.Text;
@@ -128,7 +126,7 @@ namespace SiCoVe
                 per.provincia_id = Convert.ToInt32(ddlProvincia.SelectedValue);
                 ddlLocalidad.SelectedValue = Convert.ToString(per.localidad_id);
                 per.domicilio = txtDomicilio.Text;
-                per.piso =Convert.ToInt16(txtPiso.Text);
+                per.piso = Convert.ToInt16(txtPiso.Text);
                 per.departamento = txtDepartamento.Text;
                 per.nro_puerta = txtNumPuerta.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
@@ -142,7 +140,7 @@ namespace SiCoVe
 
                 agente_transito at = (from t in sicove.agente_transito where t.usuario_id == usu.id select t).First();
 
-                 at.nro_legajo = Convert.ToInt32(txtLegajo.Text);
+                at.nro_legajo = Convert.ToInt32(txtLegajo.Text);
 
                 sicove.SaveChanges();
 
@@ -152,6 +150,7 @@ namespace SiCoVe
             {
                 LblError.Text = "No se pudieron actualizar los datos del agente de transito, verifique los datos ingresados.";
             }
+
             return result;
         }
     }

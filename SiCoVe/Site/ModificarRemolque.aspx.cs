@@ -36,12 +36,7 @@ namespace SiCoVe
                 txtPiso.Text = Convert.ToString(per.piso);
                 txtDepartamento.Text = per.departamento;
                 txtNumPuerta.Text = per.nro_puerta;
-
-                //txtFechaNacimiento.Text = per.fecha_nacimiento.ToString();
                 txtFechaNacimiento.Text = string.Format("{0:dd/MM/yyyy}", per.fecha_nacimiento);
-
-                //txtFechaNacimiento.Text = Convert.ToDateTime(per.fecha_nacimiento).ToString("yyyy/mm/dd");
-
                 txtLugarNacimiento.Text = per.lugar_nacimiento;
                 cckrautoridad.Checked = per.flag_conductor;
 
@@ -55,6 +50,7 @@ namespace SiCoVe
                 txtLegajo.Text = Convert.ToString(pr.nro_legajo);
             }
         }
+
         private void CargarCombos()
         {
             CargarSexo();
@@ -110,15 +106,7 @@ namespace SiCoVe
             bool result = ActualizarRemolque(id);
 
             if (result)
-            {
-                //lblMensaje.Text = "Usuario modificado con éxito";
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
-
-                this.Page.Response.Write("<script language='JavaScript'>window.alert('Usuario modificado con éxito');window.location.href = './ListarRemolque.aspx';</script>");
-
-                //CleanControl(this.Controls);
-            }
-            //Response.Redirect("~/Site/ListarRemolque.aspx");
+                Response.Redirect("ListarRemolque.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
         }
 
         public bool ActualizarRemolque(int id)
