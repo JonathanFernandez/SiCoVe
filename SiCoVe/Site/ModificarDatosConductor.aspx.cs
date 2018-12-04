@@ -214,6 +214,7 @@ namespace SiCoVe
                     ddlEstadoCED.SelectedValue = Convert.ToString(ced.estado_id);
                     txtFecVencimientoCED.Text = string.Format("{0:dd/MM/yyyy}", ced.vencimiento);
                     cckAutorizado.Checked = ced.flag_autorizado;
+                    txtTitularCED.Text = ced.nom_titular;
                     if (ced.flag_autorizado == false)
                         txtTitularCED.Text = string.Format("{0} {1}", per.apellido, per.nombre);
 
@@ -427,6 +428,7 @@ namespace SiCoVe
                 ced.estado_id = Convert.ToInt32(ddlEstadoCED.SelectedValue);
                 ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
                 ced.flag_autorizado = cckAutorizado.Checked;
+                ced.nom_titular = txtTitularCED.Text;
 
                 vehiculo ve = (from v in sicove.vehiculoes where v.id == ced.vehiculo_id select v).First();
                 ve.tipo_id = Convert.ToInt32(ddlTipoCED.Text);
