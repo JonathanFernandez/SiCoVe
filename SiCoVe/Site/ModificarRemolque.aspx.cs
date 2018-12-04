@@ -36,7 +36,12 @@ namespace SiCoVe
                 txtPiso.Text = Convert.ToString(per.piso);
                 txtDepartamento.Text = per.departamento;
                 txtNumPuerta.Text = per.nro_puerta;
-                txtFechaNacimiento.Text = string.Format("{0:MM/dd/yyyy}", per.fecha_nacimiento);
+
+                //txtFechaNacimiento.Text = per.fecha_nacimiento.ToString();
+                txtFechaNacimiento.Text = string.Format("{0:dd/MM/yyyy}", per.fecha_nacimiento);
+
+                //txtFechaNacimiento.Text = Convert.ToDateTime(per.fecha_nacimiento).ToString("yyyy/mm/dd");
+
                 txtLugarNacimiento.Text = per.lugar_nacimiento;
                 cckrautoridad.Checked = per.flag_conductor;
 
@@ -60,7 +65,6 @@ namespace SiCoVe
 
         private void CargarSexo()
         {
-
             var sexo = sicove.sexoes.ToList();
 
             ddlSexo.DataTextField = "descripcion";
@@ -76,8 +80,8 @@ namespace SiCoVe
             ddlNacionalidad.DataValueField = "id";
             ddlNacionalidad.DataSource = nacionalidades;
             ddlNacionalidad.DataBind();
-
         }
+
         private void CargarProvincia()
         {
             var provincia = sicove.provincias.ToList();
@@ -99,14 +103,22 @@ namespace SiCoVe
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
             var id = 0;
+
             if (Session["id"] != null)
                 id = Convert.ToInt32(Session["id"].ToString());
 
             bool result = ActualizarRemolque(id);
 
             if (result)
-            Response.Redirect("ListarRemolque.aspx");
+            {
+                //lblMensaje.Text = "Usuario modificado con éxito";
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
 
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('Usuario modificado con éxito');window.location.href = './ListarRemolque.aspx';</script>");
+
+                //CleanControl(this.Controls);
+            }
+            //Response.Redirect("~/Site/ListarRemolque.aspx");
         }
 
         public bool ActualizarRemolque(int id)
@@ -115,7 +127,6 @@ namespace SiCoVe
 
             try
             {
-
                 persona per = (from a in sicove.personas where a.id == id select a).First();
 
                 per.apellido = txtApellido.Text;
@@ -148,8 +159,9 @@ namespace SiCoVe
             }
             catch (Exception ex)
             {
-                LblError.Text = "No se pudieron actualizar los datos del agente de transito, verifique los datos ingresados.";
+                LblError.Text = "No se pudieron actualizar los datos del usuario remolque, verifique los datos ingresados.";
             }
+
             return result;
         }
     }
