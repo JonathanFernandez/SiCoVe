@@ -58,16 +58,7 @@
                     <a class="navbar-brand" href="~/Index.aspx" style="padding: 15px 5px;">SiCoVe 1.0</a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li>
-                                 <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx"><i class="fa fa-fw fa-power-off"></i> Salir </asp:HyperLink>
-                            </li>
-                        </ul>
-                    </li>
+                    <asp:HyperLink runat="server" NavigateUrl="~/LogOut.aspx" style="float:right; margin:15px;" ><i class="fa fa-fw fa-power-off"></i> Salir </asp:HyperLink>
                 </ul>
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse"></div>
