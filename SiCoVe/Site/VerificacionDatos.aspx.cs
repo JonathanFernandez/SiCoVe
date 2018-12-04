@@ -229,7 +229,8 @@ namespace SiCoVe.Site
                 txtNumMotorCED.Text = p.motor.ToString();
                 txtFecVencimientoCED.Text = p.cedula_vencimiento.ToString();
                 txtCilindradaCED.Text = p.cilindrada.ToString();
-                txtTitularCED.Text = String.Concat(p.nombre, ' ', p.apellido);
+                //txtTitularCED.Text = String.Concat(p.nombre, ' ', p.apellido);
+                txtTitularCED.Text = String.Concat(p.nom_titular);
 
                 if (p.flag_autorizado == true)
                     radBEsAutorizado.SelectedValue = "True";
@@ -238,7 +239,8 @@ namespace SiCoVe.Site
 
                 ddlAseguradoraSEG.SelectedIndex = p.aseguradora_id;
 
-                txtAseguradoSEG.Text = String.Concat(p.nombre, ' ', p.apellido);
+                //txtAseguradoSEG.Text = String.Concat(p.nombre, ' ', p.apellido);
+                txtAseguradoSEG.Text = String.Concat(p.nom_asegurado);
                 txtPolizaSEG.Text = p.nro_poliza.ToString();
 
                 ddlMarcaSEG.SelectedIndex = p.vehiculo_marca_id;
