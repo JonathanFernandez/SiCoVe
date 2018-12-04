@@ -70,6 +70,12 @@
                                     </asp:HyperLink>
                                    <asp:Label ID="lblMensaje" runat="server" Text="E-Mail o Password Incorrecta!" Visible="false" CssClass="label label-danger"></asp:Label>
                                 </div>
+                                 <div class="form-group">
+                                    <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/FormularioContacto.aspx">
+                                        <asp:Label ID="Label1" runat="server">Formulario de Contacto</asp:Label>
+                                    </asp:HyperLink>
+                                  
+                                </div>
                             </fieldset>
                        <%-- </form>--%>
                     </div>
