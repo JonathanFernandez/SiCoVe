@@ -43,8 +43,10 @@ namespace SiCoVe
 
                 txtMailACNC.Text = usu.email;
                 txtContraseñaACNC.Text = usu.contraseña;
+                if (per.flag_conductor == true)
+                {
 
-                licencia lic = (from t in sicove.licencias where t.persona_id == per.id select t).FirstOrDefault();
+                    licencia lic = (from t in sicove.licencias where t.persona_id == per.id select t).FirstOrDefault();
                 txtNumLicenciaLIC.Text = Convert.ToString(lic.nro_licencia);
                 ddlCategoriaLIC.SelectedValue = Convert.ToString(lic.categoria_id);
                 ddlMunicipio.SelectedValue = Convert.ToString(lic.municipio_id);
@@ -79,7 +81,7 @@ namespace SiCoVe
                 txtFecHastaSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_hasta);
                 txtAseguradoSEG.Text = string.Format("{0} {1}", per.apellido, per.nombre);
             }
-
+            }
         }
 
         private void CargarCombos()
@@ -260,8 +262,10 @@ namespace SiCoVe
                 per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
                 ddlLocalidadDNI.SelectedValue = Convert.ToString(per.localidad_id);
                 per.domicilio = txtDomicilioDNI.Text;
-                per.piso = Convert.ToInt16(txtPisoDNI.Text);
-                per.departamento = txtDepartamentoDNI.Text;
+                if (txtPisoDNI.Text != "")
+                    per.piso = Convert.ToSByte(txtPisoDNI.Text);
+                else
+                    per.departamento = txtDepartamentoDNI.Text;
                 per.nro_puerta = txtPuertaDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
                 per.lugar_nacimiento = txtLugarNacimientoDNI.Text;
@@ -299,7 +303,7 @@ namespace SiCoVe
                 ve.dominio = txtDominioCED.Text;
                 ced.vehiculo = ve;
 
-                poliza pol = (from z in sicove.polizas where z.id == ced.vehiculo_id select z).First();
+                poliza pol = (from z in sicove.polizas where z.vehiculo_id == ve.id select z).First();
                 pol.nro_poliza = txtPolizaSEG.Text;
                 pol.aseguradora_id = Convert.ToInt32(ddlAseguradoraSEG.SelectedValue);
                 pol.vehiculo = ve;

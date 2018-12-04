@@ -175,9 +175,9 @@ namespace SiCoVe.Site
                     int numDocumento = Convert.ToInt32(txtNumDocumentoAC.Text);
 
 
-                    //id_agente = (from ag in sicove.agente_transito
-                    //             where ag.nro_legajo == numAgente
-                    //             select ag.id).First();
+                    id_agente = (from ag in sicove.agente_transito
+                                 where ag.nro_legajo == numAgente
+                                 select ag.id).First();
 
                     try
                     {
@@ -293,6 +293,7 @@ namespace SiCoVe.Site
 
                     sicove.infraccions.Add(ac);
                     sicove.SaveChanges();
+                    lblMensaje.Text = "Infracción dada de alta con éxito.";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
                     CleanControl(this.Controls);
 

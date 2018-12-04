@@ -239,7 +239,6 @@
                                         <div class="form-group">
                                             <label>Titular</label>
                                             <asp:TextBox ID="txtTitularCED" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RFVtxtTitularCED"  ForeColor="red" ControlToValidate="txtTitularCED" runat="server" ErrorMessage="* Debe ingresar Titular" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                         </div>
                                     </div>
                                     <!-- Datos seguro -->
@@ -252,12 +251,12 @@
                                         <div class="form-group">
                                             <label>Asegurado</label>
                                             <asp:TextBox ID="txtAseguradoSEG" runat="server" class="form-control"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RFVtxtAseguradoSEG"  ForeColor="red" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado" display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="RFVtxtAseguradoSEG"  ForeColor="red" ControlToValidate="txtAseguradoSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado" display="Dynamic" ></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Póliza</label>
-                                            <asp:TextBox ID="txtPolizaSEG" runat="server" class="form-control" required="required"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ForeColor="red" ControlToValidate="txtPolizaSEG" runat="server" ErrorMessage="* Debe ingresar Asegurado" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:TextBox ID="txtPolizaSEG" type="number" runat="server" class="form-control" required="required"></asp:TextBox>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator38" ForeColor="red" ControlToValidate="txtPolizaSEG" runat="server" ErrorMessage="* Debe ingresar Poliza" display="Dynamic"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Fecha desde</label>
