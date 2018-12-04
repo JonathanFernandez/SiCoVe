@@ -175,9 +175,9 @@ namespace SiCoVe.Site
                     int numDocumento = Convert.ToInt32(txtNumDocumentoAC.Text);
 
 
-                    //id_agente = (from ag in sicove.agente_transito
-                    //             where ag.nro_legajo == numAgente
-                    //             select ag.id).First();
+                    id_agente = (from ag in sicove.agente_transito
+                                 where ag.nro_legajo == numAgente
+                                 select ag.id).First();
 
                     try
                     {
