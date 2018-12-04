@@ -45,6 +45,7 @@ namespace SiCoVe
                     liAutoridad.Visible = true;
                     liConductor.Visible = true;
                     liEstadistica.Visible = true;
+                    liHistorialDenuncia.Visible = true;
                     break;
                 case 2:
                     ////Usuario Conductor
@@ -52,7 +53,7 @@ namespace SiCoVe
                     liVisualizarDatos.Visible = true;
                     liSolicitarModificarDatos.Visible = true;
                     liRealizarDenuncia.Visible = true;
-                    liHistorialDenuncia.Visible = true;
+                    liMisDenuncias.Visible = true;
                     break;
                 case 3:
                     ////Usuario Autoridad de Tránsito

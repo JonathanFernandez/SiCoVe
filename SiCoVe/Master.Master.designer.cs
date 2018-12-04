@@ -67,6 +67,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAutoridad;
         
         /// <summary>
+        /// liHistorialDenuncia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHistorialDenuncia;
+        
+        /// <summary>
         /// liConductor control.
         /// </summary>
         /// <remarks>
@@ -175,13 +184,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liRealizarDenuncia;
         
         /// <summary>
-        /// liHistorialDenuncia control.
+        /// liMisDenuncias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liHistorialDenuncia;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMisDenuncias;
         
         /// <summary>
         /// PaginaCentral_ContentPlaceHolder control.

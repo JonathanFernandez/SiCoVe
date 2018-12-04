@@ -11,10 +11,17 @@ namespace DataBaseSiCoVe
 {
     using System;
     
-    public partial class SP_LISTAR_PERSONAS_AUTORIZADAS_Result
+    public partial class SP_LISTADO_MIS_DENUNCIA_Result
     {
         public int id { get; set; }
-        public string apellido { get; set; }
-        public string nombre { get; set; }
+        public int USUARIO { get; set; }
+        public string Nombre { get; set; }
+        public long dni { get; set; }
+        public string ESTADO { get; set; }
+        public string INFRACCION { get; set; }
+        public string dominio { get; set; }
+        public Nullable<System.DateTime> fecha_hora { get; set; }
+        public string observaciones { get; set; }
+        public string LOCALIDAD { get; set; }
     }
 }

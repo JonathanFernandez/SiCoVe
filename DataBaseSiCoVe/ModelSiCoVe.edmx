@@ -833,6 +833,9 @@
         <Function Name="SP_LISTADO_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="localidad_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_LISTADO_MIS_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_usuario" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_LISTADO_PERSONAL_REMOLQUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
@@ -1977,7 +1980,10 @@
             <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_ACARREO_X_REMOLCADOR" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_X_REMOLCADOR_Result)">
-            <Parameter Name="USUARIO" Mode="In" Type="Int32" />
+          <Parameter Name="USUARIO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_MIS_DENUNCIA" ReturnType="Collection(sicoveModel.SP_LISTADO_MIS_DENUNCIA_Result)">
+            <Parameter Name="id_usuario" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="remolque">
@@ -2411,6 +2417,18 @@
           <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTADO_MIS_DENUNCIA_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="USUARIO" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="101" />
+          <Property Type="Int64" Name="dni" Nullable="false" />
+          <Property Type="String" Name="ESTADO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="INFRACCION" Nullable="false" MaxLength="300" />
+          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
+          <Property Type="String" Name="observaciones" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
         </ComplexType>
       </Schema>
@@ -2928,6 +2946,22 @@
                 <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
                 <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
                 <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_MIS_DENUNCIA" FunctionName="sicoveModel.Store.SP_LISTADO_MIS_DENUNCIA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_MIS_DENUNCIA_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="INFRACCION" ColumnName="INFRACCION" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
                 <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
               </ComplexTypeMapping>
             </ResultMapping>

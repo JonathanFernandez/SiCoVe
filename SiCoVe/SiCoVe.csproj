@@ -344,6 +344,7 @@
     <Content Include="Site\AltaAutoridad.aspx" />
     <Content Include="Site\BuscarVehiculo.aspx" />
     <Content Include="Site\Estadisticas.aspx" />
+    <Content Include="Site\HisorialMisDenuncias.aspx" />
     <Content Include="Site\HistorialAcarreo.aspx" />
     <Content Include="Site\HistorialControles.aspx" />
     <Content Include="Site\ListarConductor.aspx" />
@@ -531,6 +532,13 @@
     </Compile>
     <Compile Include="Site\Estadisticas.aspx.designer.cs">
       <DependentUpon>Estadisticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site\HisorialMisDenuncias.aspx.cs">
+      <DependentUpon>HisorialMisDenuncias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site\HisorialMisDenuncias.aspx.designer.cs">
+      <DependentUpon>HisorialMisDenuncias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site\HistorialAcarreo.aspx.cs">
       <DependentUpon>HistorialAcarreo.aspx</DependentUpon>

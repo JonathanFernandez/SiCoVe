@@ -99,6 +99,9 @@ format: 'DD/MM/YYYY HH:mm:ss',
                                     </li>
                                 </ul>
                             </li>
+                             <li runat="server" id ="liHistorialDenuncia" visible="false">
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias </asp:HyperLink>
+                            </li>
                             <li runat="server" id ="liConductor" visible="false">
                                 <a href="#"><i class="fa fa-table fa-fw"></i> Conductores<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -147,9 +150,10 @@ format: 'DD/MM/YYYY HH:mm:ss',
                             <li runat="server" id ="liRealizarDenuncia" visible="false">
                                 <asp:HyperLink runat="server" NavigateUrl="~/Site/RealizarDenuncia.aspx"><i class="fa fa-edit fa-fw"></i> Realizar denuncia </asp:HyperLink>
                             </li>
-                            <li runat="server" id ="liHistorialDenuncia" visible="false">
-                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HistorialDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Historial de denuncias </asp:HyperLink>
+                             <li runat="server" id ="liMisDenuncias" visible="false">
+                                <asp:HyperLink runat="server" NavigateUrl="~/Site/HisorialMisDenuncias.aspx"><i class="fa fa-files-o fa-fw"></i> Listado mis denuncias </asp:HyperLink>
                             </li>
+                           
                         </ul>
                     </div>
                 </div>
