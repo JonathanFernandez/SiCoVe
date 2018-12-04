@@ -53,5 +53,7 @@ namespace DataBaseSiCoVe
         public string nro_poliza { get; set; }
         public string vigencia_desde { get; set; }
         public string vigencia_hasta { get; set; }
+        public string nom_titular { get; set; }
+        public string nom_asegurado { get; set; }
     }
 }

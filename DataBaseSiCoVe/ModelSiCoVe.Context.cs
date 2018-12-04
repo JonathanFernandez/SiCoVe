@@ -78,17 +78,13 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GENERAR_EMAIL_DENUNCIA_Result>("SP_GENERAR_EMAIL_DENUNCIA", denunciaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(Nullable<int> lOCALIDAD, string dOMINIO)
+        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(Nullable<int> lOCALIDAD)
         {
             var lOCALIDADParameter = lOCALIDAD.HasValue ?
                 new ObjectParameter("LOCALIDAD", lOCALIDAD) :
                 new ObjectParameter("LOCALIDAD", typeof(int));
     
-            var dOMINIOParameter = dOMINIO != null ?
-                new ObjectParameter("DOMINIO", dOMINIO) :
-                new ObjectParameter("DOMINIO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, dOMINIOParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter);
         }
     
         public virtual ObjectResult<SP_LISTADO_ACARREO_X_REMOLCADOR_Result> SP_LISTADO_ACARREO_X_REMOLCADOR(Nullable<int> uSUARIO)
@@ -134,17 +130,13 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONDUCTORES_Result>("SP_LISTADO_CONDUCTORES", dNIParameter, aPELLIDOParameter, nOMBREParameter);
         }
     
-        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES(Nullable<int> lOCALIDAD, string dOMINIO)
+        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES(Nullable<int> lOCALIDAD)
         {
             var lOCALIDADParameter = lOCALIDAD.HasValue ?
                 new ObjectParameter("LOCALIDAD", lOCALIDAD) :
                 new ObjectParameter("LOCALIDAD", typeof(int));
     
-            var dOMINIOParameter = dOMINIO != null ?
-                new ObjectParameter("DOMINIO", dOMINIO) :
-                new ObjectParameter("DOMINIO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES", lOCALIDADParameter, dOMINIOParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES", lOCALIDADParameter);
         }
     
         public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA(Nullable<int> localidad_id)
@@ -234,15 +226,6 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_CONTROLES_X_LOCALIDAD_Result>("SP_LISTAR_CONTROLES_X_LOCALIDAD", fecha_desdeParameter, fecha_hastaParameter);
         }
     
-        public virtual ObjectResult<SP_LISTAR_DATOS_PERSONA_Result> SP_LISTAR_DATOS_PERSONA(Nullable<int> persona)
-        {
-            var personaParameter = persona.HasValue ?
-                new ObjectParameter("persona", persona) :
-                new ObjectParameter("persona", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
-        }
-    
         public virtual ObjectResult<SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result> SP_LISTAR_DENUNCIAS_X_LOCALIDAD(Nullable<System.DateTime> fecha_desde, Nullable<System.DateTime> fecha_hasta)
         {
             var fecha_desdeParameter = fecha_desde.HasValue ?
@@ -289,6 +272,15 @@ namespace DataBaseSiCoVe
                 new ObjectParameter("dominio", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_PERSONAS_AUTORIZADAS_Result>("SP_LISTAR_PERSONAS_AUTORIZADAS", dominioParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTAR_DATOS_PERSONA_Result> SP_LISTAR_DATOS_PERSONA(Nullable<int> persona)
+        {
+            var personaParameter = persona.HasValue ?
+                new ObjectParameter("persona", persona) :
+                new ObjectParameter("persona", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
         }
     }
 }
