@@ -205,12 +205,12 @@
                                         <div class="form-group">
                                             <label>Tipo</label>
                                             <asp:DropDownList ID="ddlTipoCED" runat="server" class="form-control"></asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator29" ForeColor="red" ControlToValidate="ddlTipoCED" runat="server" ErrorMessage="* Debe ingresar Tipo" display="Dynamic"></asp:RequiredFieldValidator>
+                                            <asp:CompareValidator ID="CVddlTipoCED" ControlToValidate="ddlTipoCED" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="* Debe seleccionar Tipo" CssClass="label label-danger"></asp:CompareValidator>
                                         </div>
                                         <div class="form-group">
                                             <label>Uso</label>
                                             <asp:DropDownList ID="ddlUsoCED" runat="server" class="form-control"></asp:DropDownList>
-                                             <asp:CompareValidator ID="CVddlUsoCED" ControlToValidate="ddlUsoCED" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="* Debe seleccionar Uso" CssClass="label label-danger"></asp:CompareValidator>
+                                            <asp:CompareValidator ID="CVddlUsoCED" ControlToValidate="ddlUsoCED" runat="server" ValueToCompare="0" Operator="NotEqual" Display ="Dynamic" ErrorMessage="* Debe seleccionar Uso" CssClass="label label-danger"></asp:CompareValidator>
                                         </div>
                                           <div class="form-group">
                                             <label>Año</label>

@@ -481,13 +481,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoCED;
         
         /// <summary>
-        /// Control RequiredFieldValidator29.
+        /// Control CVddlTipoCED.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator29;
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlTipoCED;
         
         /// <summary>
         /// Control ddlUsoCED.
