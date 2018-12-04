@@ -31,7 +31,7 @@
 
                         
                             <asp:Label ID="LblLocalidad" runat="server" Text="Label">Localidad</asp:Label>
-                            <asp:TextBox class="form-control" ID="txtLocalidad" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control" AutoPostBack="true"></asp:DropDownList>
                         </div>
                         <div class="col-sm-2">
                             <asp:Label ID="LblDominio" runat="server" Text="Label">Dominio</asp:Label>

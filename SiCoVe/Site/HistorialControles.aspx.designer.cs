@@ -13,24 +13,6 @@ namespace SiCoVe.Site {
     public partial class HistorialControles {
         
         /// <summary>
-        /// Control LblLegajo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblLegajo;
-        
-        /// <summary>
-        /// Control txtLegajo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLegajo;
-        
-        /// <summary>
         /// Control LblLocalidad.
         /// </summary>
         /// <remarks>
@@ -40,13 +22,13 @@ namespace SiCoVe.Site {
         protected global::System.Web.UI.WebControls.Label LblLocalidad;
         
         /// <summary>
-        /// Control txtLocalidad.
+        /// Control ddlLocalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLocalidad;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLocalidad;
         
         /// <summary>
         /// Control LblDominio.

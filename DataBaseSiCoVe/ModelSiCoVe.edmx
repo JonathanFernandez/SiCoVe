@@ -809,7 +809,13 @@
         <Function Name="SP_GENERAR_EMAIL_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="denuncia" Type="int" Mode="In" />
         </Function>
-        <Function Name="SP_LISTADO_ACARREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LISTADO_ACARREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOCALIDAD" Type="int" Mode="In" />
+          <Parameter Name="DOMINIO" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_LISTADO_ACARREO_X_REMOLCADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USUARIO" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_LISTADO_AGENTE_TRANSITO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NRO_LEGAJO" Type="int" Mode="In" />
           <Parameter Name="APELLIDO" Type="nvarchar" Mode="In" />
@@ -821,8 +827,7 @@
           <Parameter Name="NOMBRE" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="SP_LISTADO_CONTROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="LEGAJO" Type="int" Mode="In" />
-          <Parameter Name="LOCALIDAD" Type="varchar" Mode="In" />
+          <Parameter Name="LOCALIDAD" Type="int" Mode="In" />
           <Parameter Name="DOMINIO" Type="varchar" Mode="In" />
         </Function>
         <Function Name="SP_LISTADO_DENUNCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1830,8 +1835,6 @@
           <FunctionImport Name="SP_GENERAR_EMAIL_DENUNCIA" ReturnType="Collection(sicoveModel.SP_GENERAR_EMAIL_DENUNCIA_Result)">
           <Parameter Name="denuncia" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_LISTADO_ACARREO" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_Result)">
-            </FunctionImport>
           <FunctionImport Name="SP_LISTADO_AGENTE_TRANSITO" ReturnType="Collection(sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result)">
             <Parameter Name="NRO_LEGAJO" Mode="In" Type="Int32" />
             <Parameter Name="APELLIDO" Mode="In" Type="String" />
@@ -1841,11 +1844,6 @@
             <Parameter Name="DNI" Mode="In" Type="Int32" />
             <Parameter Name="APELLIDO" Mode="In" Type="String" />
             <Parameter Name="NOMBRE" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_LISTADO_CONTROLES" ReturnType="Collection(sicoveModel.SP_LISTADO_CONTROLES_Result)">
-            <Parameter Name="LEGAJO" Mode="In" Type="Int32" />
-            <Parameter Name="LOCALIDAD" Mode="In" Type="String" />
-            <Parameter Name="DOMINIO" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_DENUNCIA" ReturnType="Collection(sicoveModel.SP_LISTADO_DENUNCIA_Result)">
           <Parameter Name="localidad_id" Mode="In" Type="Int32" />
@@ -1942,6 +1940,45 @@
             <End Role="vehiculo" EntitySet="vehiculoes" />
             <End Role="infraccion" EntitySet="infraccions" />
           </AssociationSet>
+          <FunctionImport Name="SP_LISTADO_ACARREO" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_Result)">
+            <Parameter Name="LOCALIDAD" Mode="In" Type="Int32" />
+            <Parameter Name="DOMINIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_CONTROLES" ReturnType="Collection(sicoveModel.SP_LISTADO_CONTROLES_Result)">
+            <Parameter Name="LOCALIDAD" Mode="In" Type="Int32" />
+            <Parameter Name="DOMINIO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_ACARREOS_X_LOCALIDAD1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_ACARREOS_X_PLAYA1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_CONTROLES_X_AGENTE1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_CONTROLES_X_LOCALIDAD1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_DENUNCIAS_X_LOCALIDAD1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_INFRACCIONES_X_CATEGORIA1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTAR_INFRACCIONES_X_LOCALIDAD1">
+            <Parameter Name="fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="fecha_hasta" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_LISTADO_ACARREO_X_REMOLCADOR" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_X_REMOLCADOR_Result)">
+            <Parameter Name="USUARIO" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="remolque">
           <Key>
@@ -2020,15 +2057,6 @@
           <Property Type="String" Name="email_cuerpo" Nullable="true" MaxLength="439" />
           <Property Type="String" Name="ruta_adjunto" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="SP_LISTADO_ACARREO_Result">
-          <Property Type="Int32" Name="REMOLCADOR" Nullable="false" />
-          <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-        </ComplexType>
         <ComplexType Name="SP_LISTADO_AGENTE_TRANSITO_Result">
           <Property Type="Int64" Name="DNI" Nullable="false" />
           <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
@@ -2049,18 +2077,6 @@
           <Property Type="String" Name="NACIONALIDAD" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="DOMICILIO" Nullable="true" MaxLength="80" />
           <Property Type="Int32" Name="ID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="SP_LISTADO_CONTROLES_Result">
-          <Property Type="Int32" Name="AGENTE_TRANSITO_ID" Nullable="false" />
-          <Property Type="DateTime" Name="FECHA_HORA" Nullable="true" Precision="23" />
-          <Property Type="String" Name="LOCACION" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="OBSERVACIONES" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-          <Property Type="String" Name="PROVINCIA" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="VEHICULO" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="DOMINIO" Nullable="true" MaxLength="10" />
         </ComplexType>
         <ComplexType Name="SP_LISTADO_DENUNCIA_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -2367,6 +2383,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SP_LISTADO_ACARREO_Result">
+          <Property Type="Int32" Name="REMOLCADOR" Nullable="false" />
+          <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTADO_CONTROLES_Result">
+          <Property Type="Int32" Name="AGENTE_TRANSITO_ID" Nullable="false" />
+          <Property Type="DateTime" Name="FECHA_HORA" Nullable="true" Precision="23" />
+          <Property Type="String" Name="LOCACION" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="OBSERVACIONES" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="APELLIDO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+          <Property Type="String" Name="PROVINCIA" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VEHICULO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DOMINIO" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTADO_ACARREO_X_REMOLCADOR_Result">
+          <Property Type="Int32" Name="REMOLCADOR" Nullable="false" />
+          <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2676,19 +2722,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_Result">
-                <ScalarProperty Name="REMOLCADOR" ColumnName="REMOLCADOR" />
-                <ScalarProperty Name="PLAYA" ColumnName="PLAYA" />
-                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
-                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
-                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
-                <ScalarProperty Name="dominio" ColumnName="dominio" />
-                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_LISTADO_AGENTE_TRANSITO" FunctionName="sicoveModel.Store.SP_LISTADO_AGENTE_TRANSITO">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_AGENTE_TRANSITO_Result">
@@ -2715,22 +2748,6 @@
                 <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
                 <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTADO_CONTROLES" FunctionName="sicoveModel.Store.SP_LISTADO_CONTROLES">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_CONTROLES_Result">
-                <ScalarProperty Name="AGENTE_TRANSITO_ID" ColumnName="AGENTE_TRANSITO_ID" />
-                <ScalarProperty Name="FECHA_HORA" ColumnName="FECHA_HORA" />
-                <ScalarProperty Name="LOCACION" ColumnName="LOCACION" />
-                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
-                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
-                <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
-                <ScalarProperty Name="VEHICULO" ColumnName="VEHICULO" />
-                <ScalarProperty Name="DOMINIO" ColumnName="DOMINIO" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2764,38 +2781,6 @@
                 <ScalarProperty Name="DOMICILIO" ColumnName="DOMICILIO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NRO_LEGAJO" ColumnName="NRO_LEGAJO" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_ACARREOS_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_ACARREOS_X_LOCALIDAD">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_ACARREOS_X_LOCALIDAD_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="localidad" ColumnName="localidad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_ACARREOS_X_PLAYA" FunctionName="sicoveModel.Store.SP_LISTAR_ACARREOS_X_PLAYA">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_ACARREOS_X_PLAYA_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="playa_acarreo" ColumnName="playa_acarreo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_AGENTE" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_AGENTE">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_CONTROLES_X_AGENTE_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="nombre_agente" ColumnName="nombre_agente" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_LOCALIDAD">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_CONTROLES_X_LOCALIDAD_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="localidad" ColumnName="localidad" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2845,30 +2830,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_DENUNCIAS_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_DENUNCIAS_X_LOCALIDAD">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_DENUNCIAS_X_LOCALIDAD_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="localidad" ColumnName="localidad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_INFRACCIONES_X_CATEGORIA" FunctionName="sicoveModel.Store.SP_LISTAR_INFRACCIONES_X_CATEGORIA">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_INFRACCIONES_X_CATEGORIA_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="categoria_infraccion" ColumnName="categoria_infraccion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_INFRACCIONES_X_LOCALIDAD" FunctionName="sicoveModel.Store.SP_LISTAR_INFRACCIONES_X_LOCALIDAD">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_INFRACCIONES_X_LOCALIDAD_Result">
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="localidad" ColumnName="localidad" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_LISTAR_PERSONAS_AUTORIZADAS" FunctionName="sicoveModel.Store.SP_LISTAR_PERSONAS_AUTORIZADAS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sicoveModel.SP_LISTAR_PERSONAS_AUTORIZADAS_Result">
@@ -2915,6 +2876,62 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_Result">
+                <ScalarProperty Name="REMOLCADOR" ColumnName="REMOLCADOR" />
+                <ScalarProperty Name="PLAYA" ColumnName="PLAYA" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_CONTROLES" FunctionName="sicoveModel.Store.SP_LISTADO_CONTROLES">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_CONTROLES_Result">
+                <ScalarProperty Name="AGENTE_TRANSITO_ID" ColumnName="AGENTE_TRANSITO_ID" />
+                <ScalarProperty Name="FECHA_HORA" ColumnName="FECHA_HORA" />
+                <ScalarProperty Name="LOCACION" ColumnName="LOCACION" />
+                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+                <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+                <ScalarProperty Name="VEHICULO" ColumnName="VEHICULO" />
+                <ScalarProperty Name="DOMINIO" ColumnName="DOMINIO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_ACARREOS_X_LOCALIDAD1" FunctionName="sicoveModel.Store.SP_LISTAR_ACARREOS_X_LOCALIDAD">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_ACARREOS_X_PLAYA1" FunctionName="sicoveModel.Store.SP_LISTAR_ACARREOS_X_PLAYA">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_AGENTE1" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_AGENTE">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_CONTROLES_X_LOCALIDAD1" FunctionName="sicoveModel.Store.SP_LISTAR_CONTROLES_X_LOCALIDAD">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_DENUNCIAS_X_LOCALIDAD1" FunctionName="sicoveModel.Store.SP_LISTAR_DENUNCIAS_X_LOCALIDAD">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_INFRACCIONES_X_CATEGORIA1" FunctionName="sicoveModel.Store.SP_LISTAR_INFRACCIONES_X_CATEGORIA">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_INFRACCIONES_X_LOCALIDAD1" FunctionName="sicoveModel.Store.SP_LISTAR_INFRACCIONES_X_LOCALIDAD">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO_X_REMOLCADOR" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO_X_REMOLCADOR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_X_REMOLCADOR_Result">
+                <ScalarProperty Name="REMOLCADOR" ColumnName="REMOLCADOR" />
+                <ScalarProperty Name="PLAYA" ColumnName="PLAYA" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

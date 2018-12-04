@@ -11,10 +11,14 @@ namespace DataBaseSiCoVe
 {
     using System;
     
-    public partial class SP_LISTAR_PERSONAS_AUTORIZADAS_Result
+    public partial class SP_LISTADO_ACARREO_X_REMOLCADOR_Result
     {
-        public int id { get; set; }
-        public string apellido { get; set; }
-        public string nombre { get; set; }
+        public int REMOLCADOR { get; set; }
+        public string PLAYA { get; set; }
+        public Nullable<System.DateTime> fecha_hora { get; set; }
+        public string ubicacion { get; set; }
+        public string detalle_infraccion { get; set; }
+        public string dominio { get; set; }
+        public string LOCALIDAD { get; set; }
     }
 }

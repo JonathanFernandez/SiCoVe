@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a70c15e0cde44d61bff712431118acac" Name="Diagram1" ZoomLevel="100">
+      <Diagram DiagramId="a70c15e0cde44d61bff712431118acac" Name="Diagram1" ZoomLevel="32">
         <EntityTypeShape EntityType="sicoveModel.agente_transito" Width="1.5" PointX="7.5" PointY="40.75" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.aseguradora" Width="1.5" PointX="3" PointY="48.875" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.categoria_infraccion" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />

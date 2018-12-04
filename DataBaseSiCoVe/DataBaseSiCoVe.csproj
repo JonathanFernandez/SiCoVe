@@ -147,6 +147,9 @@
     <Compile Include="SP_LISTADO_ACARREO_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_LISTADO_ACARREO_X_REMOLCADOR_Result.cs">
+      <DependentUpon>ModelSiCoVe.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_LISTADO_AGENTE_TRANSITO_Result.cs">
       <DependentUpon>ModelSiCoVe.tt</DependentUpon>
     </Compile>
