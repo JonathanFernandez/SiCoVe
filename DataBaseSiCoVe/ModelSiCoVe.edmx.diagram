@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a70c15e0cde44d61bff712431118acac" Name="Diagram1" ZoomLevel="32">
+      <Diagram DiagramId="a70c15e0cde44d61bff712431118acac" Name="Diagram1" ZoomLevel="106">
         <EntityTypeShape EntityType="sicoveModel.agente_transito" Width="1.5" PointX="7.5" PointY="40.75" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.aseguradora" Width="1.5" PointX="3" PointY="48.875" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.categoria_infraccion" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />
@@ -67,14 +67,14 @@
         <AssociationConnector Association="sicoveModel.FK_infraccion_provincia" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_tipo_vehiculo" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_vehiculo" />
-        <EntityTypeShape EntityType="sicoveModel.cedula" Width="1.5" PointX="5.25" PointY="13.125" />
-        <EntityTypeShape EntityType="sicoveModel.poliza" Width="1.5" PointX="5.25" PointY="44.375" />
-        <AssociationConnector Association="sicoveModel.FK_poliza_aseguradora1" />
-        <AssociationConnector Association="sicoveModel.FK_cedula_estado_cedula1" />
-        <AssociationConnector Association="sicoveModel.FK_cedula_persona1" />
-        <AssociationConnector Association="sicoveModel.FK_cedula_uso_cedula1" />
-        <AssociationConnector Association="sicoveModel.FK_cedula_vehiculo1" />
-        <AssociationConnector Association="sicoveModel.FK_poliza_vehiculo1" />
+        <EntityTypeShape EntityType="sicoveModel.cedula" Width="1.5" PointX="5.875" PointY="18" />
+        <EntityTypeShape EntityType="sicoveModel.poliza" Width="1.5" PointX="5.875" PointY="44.25" />
+        <AssociationConnector Association="sicoveModel.FK_poliza_aseguradora" />
+        <AssociationConnector Association="sicoveModel.FK_cedula_estado_cedula" />
+        <AssociationConnector Association="sicoveModel.FK_cedula_persona" />
+        <AssociationConnector Association="sicoveModel.FK_cedula_uso_cedula" />
+        <AssociationConnector Association="sicoveModel.FK_cedula_vehiculo" />
+        <AssociationConnector Association="sicoveModel.FK_poliza_vehiculo" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
