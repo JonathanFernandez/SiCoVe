@@ -33,11 +33,10 @@
                                     <asp:TextBox ID="txtNumActaAC" runat="server" class="form-control"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="rfvNumActaAC" runat="server" ErrorMessage="*El N° de acta es obligatorio" ControlToValidate="txtNombre" Display ="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
-                                <div class='input-group date datetimepicker'>
+                                <div class='input-group date '>
                                     <label>Fecha y hora</label>
-                                    <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control"></asp:TextBox>
-                                    <span class="input-group-addon" style="height:2px ">
-                                    <span class="glyphicon glyphicon-calendar" >
+                                    <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control datetimepicker"></asp:TextBox>
+
                                     </span>
                                     </span>
                                 </div>
