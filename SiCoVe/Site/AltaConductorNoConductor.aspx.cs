@@ -346,8 +346,8 @@ namespace SiCoVe.Site
 
                 sicove.usuarios.Add(usu);
 
-                if(cckAutorizado.Checked == true)
-                {
+                //if(cckAutorizado.Checked == true)
+                //{
                 licencia lic = new licencia();
                 lic.persona = per;
                 lic.nro_licencia = txtNumLicenciaLIC.Text;
@@ -391,7 +391,7 @@ namespace SiCoVe.Site
                 pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
                
                 sicove.polizas.Add(pol);
-                }
+                //}
                 sicove.SaveChanges();
                 lblMensaje.Text = "Usuario dado de alta con éxito.";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
