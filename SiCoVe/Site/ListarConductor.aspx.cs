@@ -25,7 +25,8 @@ namespace SiCoVe
             GvConductor.DataSource = (from p in sicove.personas
                                       join s in sicove.sexoes on p.sexo_id equals s.id
                                       join n in sicove.nacionalidads on p.nacionalidad_id equals n.id
-                                      where p.flag_conductor == true
+                                      join u in sicove.usuarios on p.id equals u.persona_id
+                                      where u.perfil_usuario_id == 2
                                       select new
                                       {
                                           ID = p.id,
@@ -79,7 +80,7 @@ namespace SiCoVe
 
             sicove.personas.Remove(per);
             sicove.SaveChanges();
-
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Usuario dado de baja con éxito');", true);
             ListadoDatosConductor();
         }
 

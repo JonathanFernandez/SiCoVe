@@ -6,23 +6,6 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
-    <script>
-        function cckConductor_click() {
-            if (document.getElementById("PaginaCentral_ContentPlaceHolder_cckConductor").checked) {
-                document.getElementById("conducto1").style.display = "block";
-                document.getElementById("conducto2").style.display = "block";
-                document.getElementById("conducto3").style.display = "block";   
-                document.getElementById("PaginaCentral_ContentPlaceHolder_btnRegistrarACNC1").style.display = "none";
-                document.getElementById("PaginaCentral_ContentPlaceHolder_divBotonOculto").style.display = "none";
-            } else {
-                document.getElementById("conducto1").style.display = "none";
-                document.getElementById("conducto2").style.display = "none";
-                document.getElementById("conducto3").style.display = "none";   
-                document.getElementById("PaginaCentral_ContentPlaceHolder_btnRegistrarACNC1").style.display = "block";
-                document.getElementById("PaginaCentral_ContentPlaceHolder_divBotonOculto").style.display = "block";
-            }  
-         }
-    </script>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -44,11 +27,11 @@
                             </li>
                             <li><a href="#dni" data-toggle="tab">Datos DNI</a>
                             </li>
-                            <li id="conducto1" style="display:none"><a href="#licencia"  data-toggle="tab">Datos licencia</a>
+                            <li id="conducto1" ><a href="#licencia"  data-toggle="tab">Datos licencia</a>
                             </li>
-                            <li id="conducto2" style="display:none"><a href="#cedula" data-toggle="tab">Datos cédula</a>
+                            <li id="conducto2" ><a href="#cedula" data-toggle="tab">Datos cédula</a>
                             </li>
-                            <li id="conducto3" style="display:none"><a href="#seguro" data-toggle="tab">Datos seguro</a>
+                            <li id="conducto3" ><a href="#seguro" data-toggle="tab">Datos seguro</a>
                             </li>
                         </ul>
                         <br />
@@ -74,8 +57,7 @@
                                             <asp:CompareValidator ID="CVtxtConContraseñaACNC" ControlToValidate="txtConContraseñaACNC" ControlToCompare="txtContraseñaACNC" runat="server" ErrorMessage="* Las contraseñas no coinciden" display="Dynamic" CssClass="label label-danger"></asp:CompareValidator>
                                         </div>
                                         <div class="form-group">
-                                            <label>Es conductor?
-                                            <asp:CheckBox ID="cckConductor" runat="server" onclick="cckConductor_click()" ></asp:CheckBox> </label>
+                                            <asp:CheckBox ID="cckConductor" runat="server" style="display:none" Checked="true" onclick="cckConductor_click()" ></asp:CheckBox>
                                         </div>
                                     </div>
                                     <!-- Datos DNI -->
@@ -146,10 +128,6 @@
                                          <%--   <asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>--%>
                                             <asp:TextBox ID="txtLugarNacimientoDNI" runat="server" class="form-control"></asp:TextBox>
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator16" ForeColor="red" ControlToValidate="txtLugarNacimientoDNI" runat="server" ErrorMessage="* Debe Ingresar Lugar Nacimiento"></asp:RequiredFieldValidator>--%>
-                                        </div>
-
-                                        <div ID="divBotonOculto" class="form-group">
-                                            <asp:Button ID="btnRegistrarACNC1" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Registrar" OnClick="btnRegistrarACNC_Click" />
                                         </div>
                                     </div>
                                     <!-- Datos licencia -->
