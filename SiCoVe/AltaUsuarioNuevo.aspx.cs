@@ -174,6 +174,19 @@ namespace SiCoVe
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
+
+            bool result = AltaUsuario();
+
+            if (result)
+                       Response.Redirect("~/Login.aspx", false);
+                       Session.Clear();
+                       Session.RemoveAll();
+                       Session.Abandon();
+        }
+        public bool AltaUsuario()
+        {
+            bool result = false;
+
             try
             {
                 persona per = new persona();
@@ -260,13 +273,15 @@ namespace SiCoVe
                 lblMensaje.Text = "Usuario dado de alta con éxito.";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
                 CleanControl(this.Controls);
-            }
+                         }
             catch (Exception ex)
             {
                 //LblError.Text = "No se pudieron registrar los datos del Usuario, verifique los datos ingresados.";
                 LblError.Text = Convert.ToString(ex);
             }
+            return result;
         }
+
         public void CleanControl(ControlCollection controles)
         {
             foreach (Control control in controles)

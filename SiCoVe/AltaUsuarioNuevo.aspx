@@ -329,9 +329,32 @@
                                                         <div class="modal-body">
                                                           <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
                                                         </div>
-                                                        <div class="modal-footer">
+                                                        <%--<div class="modal-footer">
                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                        </div>
+                                                        </div>--%>
+                                                        <br />
+                                                        <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                                        </asp:ScriptManager>
+                                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                            <ContentTemplate>
+                                                                <asp:Button ID="btnRegistrarACNC" runat="server" class="btn btn-default" Style="display: block; margin: auto;" OnClick="btnRegistrarACNC_Click" Text="Aceptar" />
+                                                                 <br />
+                                                                <asp:Panel ID="PanelModal" runat="server" Style="display: none; background: white; width: auto; height: auto; margin-left: auto;">
+                                                                    <div class="modal-header">
+                                                                        <button class="close" data-dismiss="modal">&times;</button>
+                                                                        <h4 class="modal-title">Alta de Usuario</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Se ha dado de alta el usuario correctamente
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button class="btn btn-outline btn-primary" data-dismiss="modal" aria-hidden="true" style="margin-left: 166px;">Cerrar</button>
+                                                                    </div>
+                                                                </asp:Panel>
+                                                            </ContentTemplate>
+                                                        </asp:UpdatePanel>
+
+
                                                     </div>
                                                 </div>
                                             </div>
