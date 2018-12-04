@@ -301,6 +301,15 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtLugarNacimientoDNI;
         
         /// <summary>
+        /// Control btnRegistrarACNC1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegistrarACNC1;
+        
+        /// <summary>
         /// Control txtNumLicenciaLIC.
         /// </summary>
         /// <remarks>
@@ -535,13 +544,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtFecHastaSEG;
         
         /// <summary>
-        /// Control btnRegistrarACNC.
+        /// Control btnRegistrarACNC2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrarACNC;
+        protected global::System.Web.UI.WebControls.Button btnRegistrarACNC2;
         
         /// <summary>
         /// Control lblMensaje.

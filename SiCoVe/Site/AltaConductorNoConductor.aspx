@@ -18,6 +18,8 @@
                 document.getElementById("conducto1").style.display = "none";
                 document.getElementById("conducto2").style.display = "none";
                 document.getElementById("conducto3").style.display = "none";   
+                document.getElementById("PaginaCentral_ContentPlaceHolder_btnRegistrarACNC1").style.display = "block";
+                document.getElementById("PaginaCentral_ContentPlaceHolder_divBotonOculto").style.display = "block";
             }  
          }
     </script>
@@ -216,7 +218,7 @@
                                             <label>Uso</label>
                                             <asp:DropDownList ID="ddlUsoCED" runat="server" class="form-control"></asp:DropDownList>
                                         </div>
-                                          <div class="form-group">
+                                        <div class="form-group">
                                             <label>Año</label>
                                             <asp:TextBox type="number" ID="txtAnioCED" runat="server" class="form-control"></asp:TextBox>
                                         </div>
