@@ -31,9 +31,12 @@
         </div>
                         <!-- /.panel-heading -->
 
-                        <div class="panel-body">
-                            
-
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="panel panel-default" style="width: 1000px;">
+                    <div class="panel-heading">
+                        Historial de Controles
+                    </div>
 
                             <asp:GridView ID="GvHistorialControles" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False">
                             <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
