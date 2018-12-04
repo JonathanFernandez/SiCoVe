@@ -17,7 +17,7 @@ namespace SiCoVe
 
             if (!Page.IsPostBack) {
 
-                CargarCombos();
+                //CargarCombos();
 
                 var id = 0;
                 if (Session["id"] != null)
@@ -49,51 +49,109 @@ namespace SiCoVe
 
                 txtLegajo.Text = Convert.ToString(pr.nro_legajo);
             }
-        }
 
-        private void CargarCombos()
-        {
-            CargarSexo();
-            CargarNacionalidad();
-            CargarProvincia();
-            CargarLocalidad();
-        }
+            var Sex = sicove.sexoes.ToList();
 
-        private void CargarSexo()
-        {
-            var sexo = sicove.sexoes.ToList();
+            ddlSexo.Items.Insert(0, new ListItem("Seleccione Sexo...", "0"));
 
-            ddlSexo.DataTextField = "descripcion";
-            ddlSexo.DataValueField = "id";
-            ddlSexo.DataSource = sexo;
-            ddlSexo.DataBind();
-        }
+            foreach (sexo s in Sex)
+            {
+                ListItem item = new ListItem(s.descripcion, Convert.ToString(s.id));
 
-        private void CargarNacionalidad()
-        {
-            var nacionalidades = sicove.nacionalidads.ToList();
-            ddlNacionalidad.DataTextField = "descripcion";
-            ddlNacionalidad.DataValueField = "id";
-            ddlNacionalidad.DataSource = nacionalidades;
-            ddlNacionalidad.DataBind();
-        }
+                ddlSexo.Items.Add(item);
+            }
 
-        private void CargarProvincia()
-        {
-            var provincia = sicove.provincias.ToList();
-            ddlProvincia.DataTextField = "descripcion";
-            ddlProvincia.DataValueField = "id";
-            ddlProvincia.DataSource = provincia;
-            ddlProvincia.DataBind();
-        }
+            ddlSexo.SelectedIndex = 0;
 
-        private void CargarLocalidad()
-        {
-            var localidad = sicove.localidads.ToList();
-            ddlLocalidad.DataTextField = "descripcion";
-            ddlLocalidad.DataValueField = "id";
-            ddlLocalidad.DataSource = localidad;
-            ddlLocalidad.DataBind();
+            /*--------------------------------------------------------------------------------*/
+            var nac = sicove.nacionalidads.ToList();
+
+            ddlNacionalidad.Items.Insert(0, new ListItem("Seleccione Nacionalidad...", "0"));
+
+            foreach (nacionalidad n in nac)
+            {
+                ListItem item = new ListItem(n.descripcion, Convert.ToString(n.id));
+
+                ddlNacionalidad.Items.Add(item);
+            }
+
+            ddlNacionalidad.SelectedIndex = 0;
+            /*--------------------------------------------------------------------------------*/
+            var pro = sicove.provincias.ToList();
+
+            ddlProvincia.Items.Insert(0, new ListItem("Seleccione Provincia...", "0"));
+
+            foreach (provincia p in pro)
+            {
+                ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                ddlProvincia.Items.Add(item);
+                //ddlProvinciaDNI.Items.Add(item);
+            }
+
+            ddlProvincia.SelectedIndex = 0;
+            //ddlProvinciaDNI.SelectedIndex = 0;
+
+            /*--------------------------------------------------------------------------------*/
+            var loc = sicove.localidads.ToList();
+
+            ddlLocalidad.Items.Insert(0, new ListItem("Seleccione Localidad...", "0"));
+
+            foreach (localidad p in loc)
+            {
+                ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+                ddlLocalidad.Items.Add(item);
+            }
+
+            ddlLocalidad.SelectedIndex = 0;
+
+
+            //private void CargarCombos()
+            //{
+            //    CargarSexo();
+            //    CargarNacionalidad();
+            //    CargarProvincia();
+            //    CargarLocalidad();
+            //}
+
+            //private void CargarSexo()
+            //{
+            //    var sexo = sicove.sexoes.ToList();
+
+            //    ddlSexo.DataTextField = "descripcion";
+            //    ddlSexo.DataValueField = "id";
+            //    ddlSexo.DataSource = sexo;
+            //    ddlSexo.DataBind();
+            //}
+
+            //private void CargarNacionalidad()
+            //{
+            //    var nacionalidades = sicove.nacionalidads.ToList();
+            //    ddlNacionalidad.DataTextField = "descripcion";
+            //    ddlNacionalidad.DataValueField = "id";
+            //    ddlNacionalidad.DataSource = nacionalidades;
+            //    ddlNacionalidad.DataBind();
+            //}
+
+            //private void CargarProvincia()
+            //{
+            //    var provincia = sicove.provincias.ToList();
+            //    ddlProvincia.DataTextField = "descripcion";
+            //    ddlProvincia.DataValueField = "id";
+            //    ddlProvincia.DataSource = provincia;
+            //    ddlProvincia.DataBind();
+            //}
+
+            //private void CargarLocalidad()
+            //{
+            //    var localidad = sicove.localidads.ToList();
+            //    ddlLocalidad.DataTextField = "descripcion";
+            //    ddlLocalidad.DataValueField = "id";
+            //    ddlLocalidad.DataSource = localidad;
+            //    ddlLocalidad.DataBind();
+            //}
+
         }
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
