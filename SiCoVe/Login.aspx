@@ -68,10 +68,7 @@
                                     <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/AltaUsuarioNuevo.aspx">
                                         <asp:Label ID="lblNuevoUsuario" runat="server">Crear usuario</asp:Label>
                                     </asp:HyperLink>
-                                </div>
-                                <br />
-                                <div class="form-group">
-                                    <asp:Label ID="lblMensaje" runat="server" Text="E-Mail o Password Incorrecta!" Visible="false"></asp:Label>
+                                   <asp:Label ID="lblMensaje" runat="server" Text="E-Mail o Password Incorrecta!" Visible="false" CssClass="label label-danger"></asp:Label>
                                 </div>
                             </fieldset>
                        <%-- </form>--%>
