@@ -14,13 +14,12 @@ namespace SiCoVe
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!Page.IsPostBack)
             {
-
                 CargarCombos();
 
                 var id = 0;
+
                 if (Session["id"] != null)
                     id = Convert.ToInt32(Session["id"].ToString());
 
@@ -99,15 +98,20 @@ namespace SiCoVe
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
-            var id = 0;
+            Page.Validate();
 
-            if (Session["id"] != null)
-                id = Convert.ToInt32(Session["id"].ToString());
+            if (Page.IsValid)
+            {
+                var id = 0;
 
-            bool result = ActualizarAutoridad(id);
+                if (Session["id"] != null)
+                    id = Convert.ToInt32(Session["id"].ToString());
 
-            if (result)
-                Response.Redirect("ListarAutoridad.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
+                bool result = ActualizarAutoridad(id);
+
+                if (result)
+                    Response.Redirect("ListarAutoridad.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
+            }
         }
 
         public bool ActualizarAutoridad(int id)

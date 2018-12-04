@@ -98,15 +98,20 @@ namespace SiCoVe
 
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
-            var id = 0;
+            Page.Validate();
 
-            if (Session["id"] != null)
-                id = Convert.ToInt32(Session["id"].ToString());
+            if (Page.IsValid)
+            {
+                var id = 0;
 
-            bool result = ActualizarRemolque(id);
+                if (Session["id"] != null)
+                    id = Convert.ToInt32(Session["id"].ToString());
 
-            if (result)
-                Response.Redirect("ListarRemolque.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
+                bool result = ActualizarRemolque(id);
+
+                if (result)
+                    Response.Redirect("ListarRemolque.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
+            }
         }
 
         public bool ActualizarRemolque(int id)

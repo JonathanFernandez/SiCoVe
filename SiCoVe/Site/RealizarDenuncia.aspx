@@ -6,15 +6,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
     <script>
-        //$( document ).ready(function() { $('#myModal').modal('show');});
-
         function showimagepreview(input) {
 
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-
-                    //document.getElementsByTagName("imgFoto")[0].setAttribute("src", e.target.result);  
                     document.getElementById('PaginaCentral_ContentPlaceHolder_imgFoto').src = e.target.result;
                 }
                 reader.readAsDataURL(input.files[0]);
@@ -28,9 +24,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Realizar Denuncias</h1>
             </div>
-            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->
 
         <div class="row">
             <div class="col-lg-6">
@@ -70,7 +64,7 @@
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe Ingresar Fecha de vencimiento" ControlToValidate="txtFecha" Display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
                                 </div>
                                 <div class="form-group">
-                                    <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" style="display:block; margin:auto;" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-default" />
+                                    <asp:Button ID="btnGenerarDenuncia" runat="server" Text="Generar Denuncia" Style="display: block; margin: auto;" OnClick="btnGenerarDenuncia_Click" CssClass="btn btn-default" />
                                 </div>
                             </div>
                         </div>
@@ -82,7 +76,7 @@
         </div>
         <!-- /.col-lg-12 -->
     </div>
-        <!-- /.row -->
+    <!-- /.row -->
     <!-- /#page-wrapper -->
     <div class="panel-body">
         <!-- Modal -->

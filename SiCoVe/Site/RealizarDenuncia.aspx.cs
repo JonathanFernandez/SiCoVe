@@ -17,7 +17,7 @@ namespace SiCoVe.Site
         {
             if (!Page.IsPostBack)
             {
-               CargarLocalidades();
+                CargarLocalidades();
             }
         }
         private void CargarLocalidades()
@@ -31,7 +31,6 @@ namespace SiCoVe.Site
                 ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
                 ddlLocalidad.Items.Add(item);
-
             }
 
             ddlLocalidad.SelectedIndex = 0;
@@ -39,57 +38,62 @@ namespace SiCoVe.Site
 
         protected void btnGenerarDenuncia_Click(object sender, EventArgs e)
         {
-         try
-           {
-            denuncia den = new denuncia();
-            den.usuario_id = UserSession.id;
-            den.estado_id = 1;
-            den.dominio = txtPatente.Text;
+            Page.Validate();
 
-            if (!string.IsNullOrEmpty(FileUploadFoto.FileName))
-            {   
-                FileUploadFoto.SaveAs(Server.MapPath("FotosDenuncias//" + FileUploadFoto.FileName));
+            if (Page.IsValid)
+            {
+                try
+                {
+                    denuncia den = new denuncia();
+                    den.usuario_id = UserSession.id;
+                    den.estado_id = 1;
+                    den.dominio = txtPatente.Text;
 
-                imgFoto.ImageUrl = "FotosDenuncias/" + FileUploadFoto.FileName;
-                den.ruta_adjunto = Server.MapPath("FotosDenuncias//" + FileUploadFoto.FileName);
+                    if (!string.IsNullOrEmpty(FileUploadFoto.FileName))
+                    {
+                        FileUploadFoto.SaveAs(Server.MapPath("FotosDenuncias//" + FileUploadFoto.FileName));
 
+                        imgFoto.ImageUrl = "FotosDenuncias/" + FileUploadFoto.FileName;
+                        den.ruta_adjunto = Server.MapPath("FotosDenuncias//" + FileUploadFoto.FileName);
+
+                    }
+                    den.fecha_hora = Convert.ToDateTime(txtFecha.Text);
+                    den.observaciones = txtDetalleDenuncia.Text;
+                    den.localidad_id = Convert.ToInt32(ddlLocalidad.SelectedValue);
+
+                    sicove.denuncias.Add(den);
+
+                    sicove.SaveChanges();
+
+                    int loc = Convert.ToInt32(ddlLocalidad.SelectedValue);
+
+
+                    den = (from d in sicove.denuncias
+                           where
+                           d.dominio == txtPatente.Text &&
+                           d.usuario_id == UserSession.id &&
+                           d.estado_id == 1 &&
+                           d.localidad_id == loc
+                           orderby d.id descending
+                           select d
+
+                           ).FirstOrDefault();
+
+                    var mail = sicove.SP_GENERAR_EMAIL_DENUNCIA(den.id).FirstOrDefault();
+
+                    EnviarMail(mail.email, mail.email_asunto, mail.email_cuerpo, mail.ruta_adjunto);
+                    lblMensaje.Text = "Denuncia realizada con exito.";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
+                    CleanControl(this.Controls);
+                    //Response.Redirect("RealizarDenuncia.aspx"); //Response.Redirect("~/Site/ListarRemolque.aspx");
+                }
+                catch (Exception ex)
+                {
+                    lblMensaje.Text = "No se pudo registrar la denuncia.";
+                    LblError.Text = "No se pudo registrar la denuncia, verifique los datos ingresados.";
+                    //LblError.Text = Convert.ToString(ex);
+                }
             }
-            den.fecha_hora = Convert.ToDateTime(txtFecha.Text);
-            den.observaciones = txtDetalleDenuncia.Text;
-            den.localidad_id = Convert.ToInt32(ddlLocalidad.SelectedValue);
-
-            sicove.denuncias.Add(den);
-
-            sicove.SaveChanges();
-
-            int loc = Convert.ToInt32(ddlLocalidad.SelectedValue);
-
-
-            den = (from d in sicove.denuncias
-                   where
-                   d.dominio == txtPatente.Text &&
-                   d.usuario_id == UserSession.id &&
-                   d.estado_id == 1 &&
-                   d.localidad_id == loc
-                   orderby d.id descending
-                   select d
-
-                   ).FirstOrDefault();
-
-
-            var mail = sicove.SP_GENERAR_EMAIL_DENUNCIA(den.id).FirstOrDefault();
-
-                EnviarMail(mail.email, mail.email_asunto, mail.email_cuerpo , mail.ruta_adjunto);
-                lblMensaje.Text = "Denuncia realizada con exito.";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
-
-            }
-            catch (Exception ex)
-          {
-                lblMensaje.Text = "No se pudo registrar la denuncia.";
-                LblError.Text = "No se pudo registrar la denuncia, verifique los datos ingresados.";
-                //LblError.Text = Convert.ToString(ex);
-          }
         }
 
         private void EnviarMail(string email, string email_asunto, string email_cuerpo, string ruta_adjunto)
@@ -114,7 +118,7 @@ namespace SiCoVe.Site
 
 
             string body = email_cuerpo;
-           
+
             mmsg.Body = body;
             mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
 
@@ -157,6 +161,36 @@ namespace SiCoVe.Site
                 Response.Write(msj.Message);
                 //Aquí gestionamos los errores al intentar enviar el correo
                 // return false;
+            }
+        }
+
+        public void CleanControl(ControlCollection controles)
+        {
+            foreach (Control control in controles)
+            {
+                if (control is TextBox)
+                    ((TextBox)control).Text = string.Empty;
+                else if (control is DropDownList)
+                    ((DropDownList)control).ClearSelection();
+
+
+                else if (control is Image)
+                    imgFoto.ImageUrl = "";
+                else if (control is FileUpload)
+                    FileUploadFoto.Dispose();
+
+                else if (control is RadioButtonList)
+                    ((RadioButtonList)control).ClearSelection();
+                else if (control is CheckBoxList)
+                    ((CheckBoxList)control).ClearSelection();
+                else if (control is RadioButton)
+                    ((RadioButton)control).Checked = false;
+                else if (control is CheckBox)
+                    ((CheckBox)control).Checked = false;
+                else if (control.HasControls())
+                    //Esta linea detécta un Control que contenga otros Controles
+                    //Así ningún control se quedará sin ser limpiado.
+                    CleanControl(control.Controls);
             }
         }
     }
