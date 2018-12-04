@@ -24,20 +24,26 @@
                         <div class="panel-heading">
                              Busqueda
                         </div>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                Selección de localidad
+                                            </div>
+                                            <div class="panel-body">
+                                                <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlLocalidad_SelectedIndexChanged"></asp:DropDownList>
+
+                                                <%--<br />
+                                                <asp:Button ID="btnGraficar" runat="server" style="display:block; margin:auto;" class="btn btn-default" Text="Aceptar" OnClick="btnGraficar_Click" />--%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body" >
                                               <div class="form-group">
-                        <div class="col-sm-2">
 
-                        
-                            <asp:Label ID="LblLocalidad" runat="server" Text="Label">Localidad</asp:Label>
-                            <asp:DropDownList ID="ddlLocalidad" runat="server" class="form-control" AutoPostBack="true"></asp:DropDownList>
-                        </div>
-                        <div class="col-sm-2">
-                            <asp:Label ID="LblDominio" runat="server" Text="Label">Dominio</asp:Label>
-                            <asp:TextBox class="form-control" ID="txtDominio" runat="server"></asp:TextBox>
-                         &nbsp;
-                        </div>
                         <br />
 
                       <div class="col-sm-2">

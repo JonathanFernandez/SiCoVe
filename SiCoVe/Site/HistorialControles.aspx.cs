@@ -23,14 +23,14 @@ namespace SiCoVe.Site
 
         public void listadoControles()
         {
-            GvHistorialControles.DataSource = sicove.SP_LISTADO_CONTROLES(null,null).ToList();
+            GvHistorialControles.DataSource = sicove.SP_LISTADO_CONTROLES(null).ToList();
             GvHistorialControles.DataBind();
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            GvHistorialControles.DataSource = sicove.SP_LISTADO_CONTROLES(Convert.ToInt32(ddlLocalidad.SelectedValue), txtDominio.Text).ToList();
+            GvHistorialControles.DataSource = sicove.SP_LISTADO_CONTROLES(Convert.ToInt32(ddlLocalidad.SelectedValue)).ToList();
 
             GvHistorialControles.DataBind();
         }
