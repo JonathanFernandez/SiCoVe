@@ -14,13 +14,8 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-
         <div class="row">
-
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Selección de localidad
@@ -31,6 +26,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
@@ -39,7 +35,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-                            <div class="form-group"
+                            <div class="form-group">
                             <asp:GridView runat="server" ID="GvHistorialAcarreo" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="False">
                                 <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                 <Columns>  
