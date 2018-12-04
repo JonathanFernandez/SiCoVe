@@ -185,10 +185,12 @@ namespace SiCoVe
                 per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
                 per.localidad_id = Convert.ToInt32(ddlLocalidadDNI.SelectedValue);
                 per.domicilio = txtDomicilioDNI.Text;
+
                 if (txtPisoDNI.Text != "")
                     per.piso = Convert.ToSByte(txtPisoDNI.Text);
                 else
                     per.piso = null;
+
                 per.nro_puerta = txtPuertaDNI.Text;
                 per.departamento = txtDepartamentoDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
@@ -205,7 +207,7 @@ namespace SiCoVe
 
                 sicove.usuarios.Add(usu);
 
-                if (cckAutorizado.Checked == true)
+                if (cckConductor.Checked == true)
                 {
                     licencia lic = new licencia();
                     lic.persona = per;
@@ -239,6 +241,7 @@ namespace SiCoVe
                     ced.vehiculo = ve;
                     ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
                     ced.flag_autorizado = cckAutorizado.Checked;
+                    ced.nom_titular = txtTitularCED.Text;
 
                     sicove.cedulas.Add(ced);
 
@@ -248,9 +251,11 @@ namespace SiCoVe
                     pol.vehiculo = ve;
                     pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
                     pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
+                    pol.nom_asegurado = txtAseguradoSEG.Text;
 
                     sicove.polizas.Add(pol);
                 }
+
                 sicove.SaveChanges();
                 lblMensaje.Text = "Usuario dado de alta con éxito.";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
