@@ -399,10 +399,10 @@ namespace SiCoVe
                 per.provincia_id = Convert.ToInt32(ddlProvinciaDNI.SelectedValue);
                 ddlLocalidadDNI.SelectedValue = Convert.ToString(per.localidad_id);
                 per.domicilio = txtDomicilioDNI.Text;
+                per.departamento = txtDepartamentoDNI.Text;
                 if (txtPisoDNI.Text != "")
                     per.piso = Convert.ToSByte(txtPisoDNI.Text);
                 else
-                    per.departamento = txtDepartamentoDNI.Text;
                 per.nro_puerta = txtPuertaDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
                 per.lugar_nacimiento = txtLugarNacimientoDNI.Text;
