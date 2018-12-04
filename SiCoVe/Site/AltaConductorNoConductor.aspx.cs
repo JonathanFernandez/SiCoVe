@@ -195,7 +195,7 @@ namespace SiCoVe.Site
                 per.departamento = txtDepartamentoDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
                 per.lugar_nacimiento = txtLugarNacimientoDNI.Text;
-                per.flag_conductor = cckAutorizado.Checked;
+                per.flag_conductor = true;
 
                 sicove.personas.Add(per);
 
@@ -239,6 +239,7 @@ namespace SiCoVe.Site
                 ced.vehiculo = ve;
                 ced.vencimiento = Convert.ToDateTime(txtFecVencimientoCED.Text);
                 ced.flag_autorizado = cckAutorizado.Checked;
+                ced.nom_titular = txtTitularCED.Text;
 
                 sicove.cedulas.Add(ced);
 
@@ -248,7 +249,8 @@ namespace SiCoVe.Site
                 pol.vehiculo = ve;
                 pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
                 pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
-               
+                pol.nom_asegurado = txtAseguradoSEG.Text;
+
                 sicove.polizas.Add(pol);
 
                 sicove.SaveChanges();

@@ -46,6 +46,7 @@
           <Property Name="vehiculo_id" Type="int" Nullable="false" />
           <Property Name="vencimiento" Type="date" Nullable="false" />
           <Property Name="flag_autorizado" Type="bit" Nullable="false" />
+          <Property Name="nom_titular" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="codigo_infraccion">
           <Key>
@@ -228,6 +229,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nro_poliza" Type="nvarchar" MaxLength="50" />
           <Property Name="aseguradora_id" Type="int" Nullable="false" />
+          <Property Name="nom_asegurado" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="vehiculo_id" Type="int" Nullable="false" />
           <Property Name="vigencia_desde" Type="date" />
           <Property Name="vigencia_hasta" Type="date" />
@@ -1092,7 +1094,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="polizas" Relationship="Self.FK_poliza_aseguradora" FromRole="aseguradora" ToRole="poliza" />
+          <NavigationProperty Name="polizas1" Relationship="sicoveModel.FK_poliza_aseguradora1" FromRole="aseguradora" ToRole="poliza1" />
         </EntityType>
         <EntityType Name="categoria_infraccion">
           <Key>
@@ -1110,23 +1112,6 @@
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_categoria_licencia" FromRole="categoria_licencia" ToRole="licencia" />
           <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_categoria_licencia" FromRole="categoria_licencia" ToRole="infraccion" />
-        </EntityType>
-        <EntityType Name="cedula">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nro_cedula" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="persona_id" Type="Int32" Nullable="false" />
-          <Property Name="uso_id" Type="Int32" Nullable="false" />
-          <Property Name="estado_id" Type="Int32" Nullable="false" />
-          <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
-          <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="flag_autorizado" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="estado_cedula" Relationship="Self.FK_cedula_estado_cedula" FromRole="cedula" ToRole="estado_cedula" />
-          <NavigationProperty Name="persona" Relationship="Self.FK_cedula_persona" FromRole="cedula" ToRole="persona" />
-          <NavigationProperty Name="uso_cedula" Relationship="Self.FK_cedula_uso_cedula" FromRole="cedula" ToRole="uso_cedula" />
-          <NavigationProperty Name="vehiculo" Relationship="Self.FK_cedula_vehiculo" FromRole="cedula" ToRole="vehiculo" />
         </EntityType>
         <EntityType Name="codigo_infraccion">
           <Key>
@@ -1180,7 +1165,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_estado_cedula" FromRole="estado_cedula" ToRole="cedula" />
+          <NavigationProperty Name="cedulas1" Relationship="sicoveModel.FK_cedula_estado_cedula1" FromRole="estado_cedula" ToRole="cedula1" />
         </EntityType>
         <EntityType Name="estado_denuncia">
           <Key>
@@ -1275,7 +1260,6 @@
           <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
           <Property Name="lugar_nacimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="flag_conductor" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_persona" FromRole="persona" ToRole="cedula" />
           <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_persona" FromRole="persona" ToRole="licencia" />
           <NavigationProperty Name="localidad" Relationship="Self.FK_persona_localidad" FromRole="persona" ToRole="localidad" />
           <NavigationProperty Name="nacionalidad" Relationship="Self.FK_persona_nacionalidad" FromRole="persona" ToRole="nacionalidad" />
@@ -1283,6 +1267,7 @@
           <NavigationProperty Name="sexo" Relationship="Self.FK_persona_sexo" FromRole="persona" ToRole="sexo" />
           <NavigationProperty Name="usuarios" Relationship="Self.FK_usuario_persona" FromRole="persona" ToRole="usuario" />
           <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_persona" FromRole="persona" ToRole="infraccion" />
+          <NavigationProperty Name="cedulas1" Relationship="sicoveModel.FK_cedula_persona1" FromRole="persona" ToRole="cedula1" />
         </EntityType>
         <EntityType Name="personal_remolque">
           <Key>
@@ -1301,19 +1286,6 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="remolques" Relationship="sicoveModel.FK_remolque_playa_acarreo" FromRole="playa_acarreo" ToRole="remolque" />
-        </EntityType>
-        <EntityType Name="poliza">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nro_poliza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="aseguradora_id" Type="Int32" Nullable="false" />
-          <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
-          <Property Name="vigencia_desde" Type="DateTime" Precision="0" />
-          <Property Name="vigencia_hasta" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="aseguradora" Relationship="Self.FK_poliza_aseguradora" FromRole="poliza" ToRole="aseguradora" />
-          <NavigationProperty Name="vehiculo" Relationship="Self.FK_poliza_vehiculo" FromRole="poliza" ToRole="vehiculo" />
         </EntityType>
         <EntityType Name="provincia">
           <Key>
@@ -1350,7 +1322,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_uso_cedula" FromRole="uso_cedula" ToRole="cedula" />
+          <NavigationProperty Name="cedulas1" Relationship="sicoveModel.FK_cedula_uso_cedula1" FromRole="uso_cedula" ToRole="cedula1" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
@@ -1380,12 +1352,12 @@
           <Property Name="motor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="chasis_cuadro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="dominio" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="cedulas" Relationship="Self.FK_cedula_vehiculo" FromRole="vehiculo" ToRole="cedula" />
           <NavigationProperty Name="marca_vehiculo" Relationship="Self.FK_vehiculo_marca_vehiculo" FromRole="vehiculo" ToRole="marca_vehiculo" />
-          <NavigationProperty Name="polizas" Relationship="Self.FK_poliza_vehiculo" FromRole="vehiculo" ToRole="poliza" />
           <NavigationProperty Name="tipo_vehiculo" Relationship="Self.FK_vehiculo_tipo_vehiculo" FromRole="vehiculo" ToRole="tipo_vehiculo" />
           <NavigationProperty Name="remolques" Relationship="sicoveModel.FK_remolque_vehiculo" FromRole="vehiculo" ToRole="remolque" />
           <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_vehiculo" FromRole="vehiculo" ToRole="infraccion" />
+          <NavigationProperty Name="cedulas1" Relationship="sicoveModel.FK_cedula_vehiculo1" FromRole="vehiculo" ToRole="cedula1" />
+          <NavigationProperty Name="polizas1" Relationship="sicoveModel.FK_poliza_vehiculo1" FromRole="vehiculo" ToRole="poliza1" />
         </EntityType>
         <Association Name="FK_agente_transito_usuario">
           <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
@@ -1396,18 +1368,6 @@
             </Principal>
             <Dependent Role="agente_transito">
               <PropertyRef Name="usuario_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_poliza_aseguradora">
-          <End Role="aseguradora" Type="Self.aseguradora" Multiplicity="1" />
-          <End Role="poliza" Type="Self.poliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aseguradora">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="poliza">
-              <PropertyRef Name="aseguradora_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1432,54 +1392,6 @@
             </Principal>
             <Dependent Role="licencia">
               <PropertyRef Name="categoria_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cedula_estado_cedula">
-          <End Role="estado_cedula" Type="Self.estado_cedula" Multiplicity="1" />
-          <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="estado_cedula">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="cedula">
-              <PropertyRef Name="estado_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cedula_persona">
-          <End Role="persona" Type="Self.persona" Multiplicity="1" />
-          <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="persona">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="cedula">
-              <PropertyRef Name="persona_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cedula_uso_cedula">
-          <End Role="uso_cedula" Type="Self.uso_cedula" Multiplicity="1" />
-          <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="uso_cedula">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="cedula">
-              <PropertyRef Name="uso_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_cedula_vehiculo">
-          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
-          <End Role="cedula" Type="Self.cedula" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="vehiculo">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="cedula">
-              <PropertyRef Name="vehiculo_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1651,18 +1563,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_poliza_vehiculo">
-          <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="1" />
-          <End Role="poliza" Type="Self.poliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="vehiculo">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="poliza">
-              <PropertyRef Name="vehiculo_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_provincia_provincia">
           <End Role="provincia" Type="Self.provincia" Multiplicity="1" />
           <End Role="provincia1" Type="Self.provincia" Multiplicity="0..1" />
@@ -1692,7 +1592,6 @@
           <EntitySet Name="aseguradoras" EntityType="Self.aseguradora" />
           <EntitySet Name="categoria_infraccion" EntityType="Self.categoria_infraccion" />
           <EntitySet Name="categoria_licencia" EntityType="Self.categoria_licencia" />
-          <EntitySet Name="cedulas" EntityType="Self.cedula" />
           <EntitySet Name="codigo_infraccion" EntityType="Self.codigo_infraccion" />
           <EntitySet Name="controls" EntityType="Self.control" />
           <EntitySet Name="denuncias" EntityType="Self.denuncia" />
@@ -1707,7 +1606,6 @@
           <EntitySet Name="personas" EntityType="Self.persona" />
           <EntitySet Name="personal_remolque" EntityType="Self.personal_remolque" />
           <EntitySet Name="playa_acarreo" EntityType="Self.playa_acarreo" />
-          <EntitySet Name="polizas" EntityType="Self.poliza" />
           <EntitySet Name="provincias" EntityType="Self.provincia" />
           <EntitySet Name="sexoes" EntityType="Self.sexo" />
           <EntitySet Name="tipo_vehiculo" EntityType="Self.tipo_vehiculo" />
@@ -1718,10 +1616,6 @@
             <End Role="usuario" EntitySet="usuarios" />
             <End Role="agente_transito" EntitySet="agente_transito" />
           </AssociationSet>
-          <AssociationSet Name="FK_poliza_aseguradora" Association="Self.FK_poliza_aseguradora">
-            <End Role="aseguradora" EntitySet="aseguradoras" />
-            <End Role="poliza" EntitySet="polizas" />
-          </AssociationSet>
           <AssociationSet Name="FK_codigo_infraccion_categoria_infraccion" Association="Self.FK_codigo_infraccion_categoria_infraccion">
             <End Role="categoria_infraccion" EntitySet="categoria_infraccion" />
             <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
@@ -1729,22 +1623,6 @@
           <AssociationSet Name="FK_licencia_categoria_licencia" Association="Self.FK_licencia_categoria_licencia">
             <End Role="categoria_licencia" EntitySet="categoria_licencia" />
             <End Role="licencia" EntitySet="licencias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cedula_estado_cedula" Association="Self.FK_cedula_estado_cedula">
-            <End Role="estado_cedula" EntitySet="estado_cedula" />
-            <End Role="cedula" EntitySet="cedulas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cedula_persona" Association="Self.FK_cedula_persona">
-            <End Role="persona" EntitySet="personas" />
-            <End Role="cedula" EntitySet="cedulas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cedula_uso_cedula" Association="Self.FK_cedula_uso_cedula">
-            <End Role="uso_cedula" EntitySet="uso_cedula" />
-            <End Role="cedula" EntitySet="cedulas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_cedula_vehiculo" Association="Self.FK_cedula_vehiculo">
-            <End Role="vehiculo" EntitySet="vehiculoes" />
-            <End Role="cedula" EntitySet="cedulas" />
           </AssociationSet>
           <AssociationSet Name="FK_denuncia_estado_denuncia" Association="Self.FK_denuncia_estado_denuncia">
             <End Role="estado_denuncia" EntitySet="estado_denuncia" />
@@ -1801,10 +1679,6 @@
           <AssociationSet Name="FK_personal_remolque_usuario" Association="Self.FK_personal_remolque_usuario">
             <End Role="usuario" EntitySet="usuarios" />
             <End Role="personal_remolque" EntitySet="personal_remolque" />
-          </AssociationSet>
-          <AssociationSet Name="FK_poliza_vehiculo" Association="Self.FK_poliza_vehiculo">
-            <End Role="vehiculo" EntitySet="vehiculoes" />
-            <End Role="poliza" EntitySet="polizas" />
           </AssociationSet>
           <AssociationSet Name="FK_provincia_provincia" Association="Self.FK_provincia_provincia">
             <End Role="provincia" EntitySet="provincias" />
@@ -1983,9 +1857,35 @@
           <Parameter Name="USUARIO" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTADO_MIS_DENUNCIA" ReturnType="Collection(sicoveModel.SP_LISTADO_MIS_DENUNCIA_Result)">
-            <Parameter Name="id_usuario" Mode="In" Type="Int32" />
+          <Parameter Name="id_usuario" Mode="In" Type="Int32" />
           </FunctionImport>
-        </EntityContainer>
+          <EntitySet Name="cedulas" EntityType="sicoveModel.cedula" />
+          <EntitySet Name="polizas" EntityType="sicoveModel.poliza" />
+          <AssociationSet Name="FK_poliza_aseguradora1" Association="sicoveModel.FK_poliza_aseguradora1">
+            <End Role="aseguradora" EntitySet="aseguradoras" />
+            <End Role="poliza1" EntitySet="polizas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cedula_estado_cedula1" Association="sicoveModel.FK_cedula_estado_cedula1">
+            <End Role="estado_cedula" EntitySet="estado_cedula" />
+            <End Role="cedula1" EntitySet="cedulas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cedula_persona1" Association="sicoveModel.FK_cedula_persona1">
+            <End Role="persona" EntitySet="personas" />
+            <End Role="cedula1" EntitySet="cedulas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cedula_uso_cedula1" Association="sicoveModel.FK_cedula_uso_cedula1">
+            <End Role="uso_cedula" EntitySet="uso_cedula" />
+            <End Role="cedula1" EntitySet="cedulas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cedula_vehiculo1" Association="sicoveModel.FK_cedula_vehiculo1">
+            <End Role="vehiculo" EntitySet="vehiculoes" />
+            <End Role="cedula1" EntitySet="cedulas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_poliza_vehiculo1" Association="sicoveModel.FK_poliza_vehiculo1">
+            <End Role="vehiculo" EntitySet="vehiculoes" />
+            <End Role="poliza1" EntitySet="polizas" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="remolque">
           <Key>
             <PropertyRef Name="id" />
@@ -2431,7 +2331,111 @@
           <Property Type="String" Name="observaciones" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
         </ComplexType>
-      </Schema>
+        <EntityType Name="cedula">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nro_cedula" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="persona_id" Type="Int32" Nullable="false" />
+          <Property Name="uso_id" Type="Int32" Nullable="false" />
+          <Property Name="estado_id" Type="Int32" Nullable="false" />
+          <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+          <Property Name="vencimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="flag_autorizado" Type="Boolean" Nullable="false" />
+          <Property Name="nom_titular" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="estado_cedula" Relationship="sicoveModel.FK_cedula_estado_cedula1" FromRole="cedula1" ToRole="estado_cedula" />
+          <NavigationProperty Name="persona" Relationship="sicoveModel.FK_cedula_persona1" FromRole="cedula1" ToRole="persona" />
+          <NavigationProperty Name="uso_cedula" Relationship="sicoveModel.FK_cedula_uso_cedula1" FromRole="cedula1" ToRole="uso_cedula" />
+          <NavigationProperty Name="vehiculo" Relationship="sicoveModel.FK_cedula_vehiculo1" FromRole="cedula1" ToRole="vehiculo" />
+        </EntityType>
+        <EntityType Name="poliza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nro_poliza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aseguradora_id" Type="Int32" Nullable="false" />
+          <Property Name="nom_asegurado" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="vehiculo_id" Type="Int32" Nullable="false" />
+          <Property Name="vigencia_desde" Type="DateTime" Precision="0" />
+          <Property Name="vigencia_hasta" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="aseguradora" Relationship="sicoveModel.FK_poliza_aseguradora1" FromRole="poliza1" ToRole="aseguradora" />
+          <NavigationProperty Name="vehiculo" Relationship="sicoveModel.FK_poliza_vehiculo1" FromRole="poliza1" ToRole="vehiculo" />
+        </EntityType>
+        <Association Name="FK_poliza_aseguradora1">
+          <End Type="sicoveModel.aseguradora" Role="aseguradora" Multiplicity="1" />
+          <End Type="sicoveModel.poliza" Role="poliza1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aseguradora">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="poliza1">
+              <PropertyRef Name="aseguradora_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cedula_estado_cedula1">
+          <End Type="sicoveModel.estado_cedula" Role="estado_cedula" Multiplicity="1" />
+          <End Type="sicoveModel.cedula" Role="cedula1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_cedula">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cedula1">
+              <PropertyRef Name="estado_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cedula_persona1">
+          <End Type="sicoveModel.persona" Role="persona" Multiplicity="1" />
+          <End Type="sicoveModel.cedula" Role="cedula1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cedula1">
+              <PropertyRef Name="persona_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cedula_uso_cedula1">
+          <End Type="sicoveModel.uso_cedula" Role="uso_cedula" Multiplicity="1" />
+          <End Type="sicoveModel.cedula" Role="cedula1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="uso_cedula">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cedula1">
+              <PropertyRef Name="uso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cedula_vehiculo1">
+          <End Type="sicoveModel.vehiculo" Role="vehiculo" Multiplicity="1" />
+          <End Type="sicoveModel.cedula" Role="cedula1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cedula1">
+              <PropertyRef Name="vehiculo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_poliza_vehiculo1">
+          <End Type="sicoveModel.vehiculo" Role="vehiculo" Multiplicity="1" />
+          <End Type="sicoveModel.poliza" Role="poliza1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vehiculo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="poliza1">
+              <PropertyRef Name="vehiculo_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2467,20 +2471,6 @@
               <MappingFragment StoreEntitySet="categoria_licencia">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cedulas">
-            <EntityTypeMapping TypeName="sicoveModel.cedula">
-              <MappingFragment StoreEntitySet="cedula">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nro_cedula" ColumnName="nro_cedula" />
-                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
-                <ScalarProperty Name="uso_id" ColumnName="uso_id" />
-                <ScalarProperty Name="estado_id" ColumnName="estado_id" />
-                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
-                <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
-                <ScalarProperty Name="flag_autorizado" ColumnName="flag_autorizado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2633,18 +2623,6 @@
               <MappingFragment StoreEntitySet="playa_acarreo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="polizas">
-            <EntityTypeMapping TypeName="sicoveModel.poliza">
-              <MappingFragment StoreEntitySet="poliza">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nro_poliza" ColumnName="nro_poliza" />
-                <ScalarProperty Name="aseguradora_id" ColumnName="aseguradora_id" />
-                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
-                <ScalarProperty Name="vigencia_desde" ColumnName="vigencia_desde" />
-                <ScalarProperty Name="vigencia_hasta" ColumnName="vigencia_hasta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2966,6 +2944,34 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="cedulas">
+            <EntityTypeMapping TypeName="sicoveModel.cedula">
+              <MappingFragment StoreEntitySet="cedula">
+                <ScalarProperty Name="nom_titular" ColumnName="nom_titular" />
+                <ScalarProperty Name="flag_autorizado" ColumnName="flag_autorizado" />
+                <ScalarProperty Name="vencimiento" ColumnName="vencimiento" />
+                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
+                <ScalarProperty Name="estado_id" ColumnName="estado_id" />
+                <ScalarProperty Name="uso_id" ColumnName="uso_id" />
+                <ScalarProperty Name="persona_id" ColumnName="persona_id" />
+                <ScalarProperty Name="nro_cedula" ColumnName="nro_cedula" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="polizas">
+            <EntityTypeMapping TypeName="sicoveModel.poliza">
+              <MappingFragment StoreEntitySet="poliza">
+                <ScalarProperty Name="vigencia_hasta" ColumnName="vigencia_hasta" />
+                <ScalarProperty Name="vigencia_desde" ColumnName="vigencia_desde" />
+                <ScalarProperty Name="vehiculo_id" ColumnName="vehiculo_id" />
+                <ScalarProperty Name="nom_asegurado" ColumnName="nom_asegurado" />
+                <ScalarProperty Name="aseguradora_id" ColumnName="aseguradora_id" />
+                <ScalarProperty Name="nro_poliza" ColumnName="nro_poliza" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
