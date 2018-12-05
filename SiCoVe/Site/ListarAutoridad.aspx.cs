@@ -27,14 +27,21 @@ namespace SiCoVe
         }
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            int legajo = 0; 
-            if(txtLegajo.Text != "")
+            int legajo = 0;
+            if (txtLegajo.Text == "")
+                ListadoAutoridad();
+            else
+            {
                 legajo = Convert.ToInt32(txtLegajo.Text);
-            
 
-            GvAutoridad.DataSource = sicove.SP_LISTADO_AGENTE_TRANSITO(legajo, txtApellido.Text, txtNombre.Text).ToList();
 
-            GvAutoridad.DataBind();
+
+                GvAutoridad.DataSource = sicove.SP_LISTADO_AGENTE_TRANSITO(legajo, txtApellido.Text, txtNombre.Text).ToList();
+
+
+                GvAutoridad.DataBind();
+            }
+
         }
 
         protected void GvAutoridad_edit(object sender, GridViewEditEventArgs e)
