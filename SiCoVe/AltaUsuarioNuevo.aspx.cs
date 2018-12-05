@@ -214,7 +214,7 @@ namespace SiCoVe
                 per.departamento = txtDepartamentoDNI.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFecNacimientoDNI.Text);
                 per.lugar_nacimiento = txtLugarNacimientoDNI.Text;
-                per.flag_conductor = cckAutorizado.Checked;
+                per.flag_conductor = cckConductor.Checked;
 
                 sicove.personas.Add(per);
 
