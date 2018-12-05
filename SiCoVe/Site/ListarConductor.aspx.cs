@@ -88,7 +88,37 @@ namespace SiCoVe
 
 
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            int documento = 0;
+            if (TxtDocumento.Text == "")
+                ListadoDatosConductor();
+            else
+            {
+                documento = Convert.ToInt32(TxtDocumento.Text);
 
+
+
+                GvConductor.DataSource = (from p in sicove.personas
+                                          join s in sicove.sexoes on p.sexo_id equals s.id
+                                          join n in sicove.nacionalidads on p.nacionalidad_id equals n.id
+                                          join u in sicove.usuarios on p.id equals u.persona_id
+                                          where p.dni == documento
+                                          select new
+                                          {
+                                              ID = p.id,
+                                              NOMBRE = p.nombre,
+                                              APELLIDO = p.apellido,
+                                              DNI = p.dni,
+                                              SEXO = s.descripcion,
+                                              FECHA_NACIMIENTO = p.fecha_nacimiento,
+                                              NACIONALIDAD = n.descripcion,
+                                              DOMICILIO = p.domicilio
+                                          }).ToList();
+                GvConductor.DataBind();
+            }
+
+        }
 
 
 

@@ -1,6 +1,4 @@
-﻿//using IronOcr;
-//using MODI;
-using OpenAlprApi.Api;
+﻿using OpenAlprApi.Api;
 using OpenAlprApi.Model;
 using System;
 using System.Collections.Generic;
@@ -8,20 +6,22 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataBaseSiCoVe;
 
 namespace SiCoVe.Site
 {
     public partial class RealizarControl : SiCoVeMaster
     {
+        sicoveEntities sicove = new sicoveEntities();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //btnGenerarInfraccion.Enabled = false;
-            //btnVerificarDatos.Enabled    = false;
+            if (!Page.IsPostBack)
+                btnGenerarControl.Enabled = false;
         }
 
         protected void btnTraerPatente_Click(object sender, EventArgs e)
         {
-
             if (!string.IsNullOrEmpty(FileUploadFoto.FileName))
             {
                 //var Ocr = new AutoOcr();
@@ -44,6 +44,8 @@ namespace SiCoVe.Site
 
         private void leer()
         {
+            String dominio = "";
+
             var apiInstance = new DefaultApi();
             //byte[] imageArray = System.IO.File.ReadAllBytes(@"C:\Users\fernajo003\Documents\GitHub\SiCoVe\SiCoVe\Temp\" + FileUploadFoto.FileName);
             byte[] imageArray = System.IO.File.ReadAllBytes(Server.MapPath("Temp//" + FileUploadFoto.FileName));
@@ -58,15 +60,13 @@ namespace SiCoVe.Site
             var topn = 56;  // int? | The number of results you would like to be returned for plate  candidates and vehicle classifications  (optional)  (default to 10)
             var prewarp = "";// prewarp_example;  // string | Prewarp configuration is used to calibrate the analyses for the  angle of a particular camera.  More information is available here http://doc.openalpr.com/accuracy_improvements.html#calibration  (optional)  (default to )
 
-            String dominio = "";
-
             try
             {
                 InlineResponse200 result = apiInstance.RecognizeBytes(imageBytes, secretKey, country, recognizeVehicle, state, returnImage, topn, prewarp);
                 //lblPatente3.Text = result.Results[0].Plate;
 
-                //Session["dominio"] = result.Results[0].Plate;
                 dominio = result.Results[0].Plate;
+                Session["dominio"] = dominio;
 
                 //btnGenerarInfraccion.Enabled = true;
                 //btnVerificarDatos.Enabled = true;
@@ -74,18 +74,36 @@ namespace SiCoVe.Site
             }
             catch (Exception e)
             {
-                lblPatente3.Text = "Exception when calling DefaultApi.RecognizeBytes: " + e.Message;
-                //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
+                lblPatente3.Text = string.Empty;
+                lblMensaje.Text = "Patente no decifrada, puede continuar pero debe ingresar la patente manualmente";
             }
 
-            abirPantalla(dominio);
+            if(dominio == "")
+            {
+                divOculto.Visible = true;
+            }
+
+            btnGenerarControl.Enabled = true;
+            //abirPantalla(dominio);
         }
 
-        private void abirPantalla(String dominio)
+        protected void btnGenerarControl_Click(object sender, EventArgs e)
         {
-            //String dominio = Convert.ToString(Session["dominio"]);
+            String dominio = Convert.ToString(Session["dominio"]);
 
-            Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio, false);
+            int cantidad = 0;
+
+            var per = sicove.SP_LISTAR_PERSONAS_AUTORIZADAS(dominio).ToList();
+
+            foreach (SP_LISTAR_PERSONAS_AUTORIZADAS_Result j in per)
+            {
+                cantidad++;
+            }
+
+            if(cantidad > 0)
+                Response.Redirect("~/Site/VerificacionDatos.aspx?dominio=" + dominio, false);
+            else
+                this.Page.Response.Write("<script language='JavaScript'>window.alert('No se encontraron datos, por favor, realice el correspondiente alta');window.location.href = './AltaConductorNoConductor.aspx';</script>");
         }
             //protected void btnGenerarInfraccion_Click(object sender, EventArgs e)
             //{

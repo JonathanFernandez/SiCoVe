@@ -38,6 +38,7 @@ namespace SiCoVe.Site
             else
                 lblPatente3.Text = "Debe subir una patente.";
         }
+
         private void leer()
         {
             var apiInstance = new DefaultApi();

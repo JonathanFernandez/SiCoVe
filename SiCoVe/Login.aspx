@@ -41,7 +41,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Ingreso al Sistema</h3>
+                        <h3 class="panel-title">Ingreso al sistema</h3>
                     </div>
                     <div class="panel-body">
                         <%--<form role="form">--%>
@@ -52,7 +52,7 @@
                                 <div class="form-group">
                                     <asp:TextBox runat="server" ID="txtPass"  TextMode="Password" class="form-control" placeholder="Contraseña" name="password"   value="" required="required"></asp:TextBox>
                                 </div>
-                                <asp:Button runat="server" Text="Iniciar Sesión" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
+                                <asp:Button runat="server" Text="Iniciar sesión" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
                             </fieldset>
 
                             <br />
@@ -72,7 +72,7 @@
                             <br/>
                             <div class="form-group">
                                 <asp:HyperLink class="navbar-brand" style="padding: 0px 10px; margin-left: -129px; margin-bottom: -25px;" runat="server" NavigateUrl="~/FormularioContacto.aspx">
-                                    <asp:Label ID="Label1" runat="server">Formulario de Contacto</asp:Label>
+                                    <asp:Label ID="Label1" runat="server">Formulario de contacto</asp:Label>
                                 </asp:HyperLink>
                             </div>
                        <%-- </form>--%>

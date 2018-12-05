@@ -4,6 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="includeJsSection" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .Hide {
+            display: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
@@ -39,11 +44,10 @@
                             <asp:GridView ID="GvHistorialControles" CssClass="table table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False">
                             <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                             <Columns>
-                              
                                 <asp:BoundField HeaderText="Fecha" DataField="FECHA_HORA" DataFormatString = "{0: dd-MM-yyyy}"/>     
                                 <asp:BoundField HeaderText="Provincia"  DataField="PROVINCIA"/>
                                 <asp:BoundField HeaderText="Localidad" DataField="LOCALIDAD" />
-                                <asp:BoundField HeaderText="Locacion" DataField="LOCACION" />
+                                <asp:BoundField HeaderText="Locación" DataField="LOCACION" />
                                 <asp:BoundField HeaderText="Observaciones" DataField="OBSERVACIONES" />                 
                                 <asp:BoundField HeaderText="Apellido (Conductor)" DataField="APELLIDO" /> 
                                 <asp:BoundField HeaderText="Nombre (Conductor)" DataField="NOMBRE" />  
