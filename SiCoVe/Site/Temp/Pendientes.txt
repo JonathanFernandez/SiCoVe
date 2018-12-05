@@ -1,0 +1,10 @@
+Pendientes:
+
+Agregar filtro "Localidad" en pantalla Denuncias. (Jony)
+
+Historial de acarreos, mostrar solo acarreos del propio usuario
+y falta fecha y hora en listado (Cristian)
+
+falta historial de controles de transito (Cristian)
+
+----------------------------------------------------------------
