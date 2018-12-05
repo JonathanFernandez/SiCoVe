@@ -77,18 +77,18 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                var inf = sicove.codigo_infraccion.ToList();
+                //var inf = sicove.codigo_infraccion.ToList();
 
                 ddlInfraccionAC.Items.Insert(0, new ListItem("Seleccione infracción...", "0"));
 
-                foreach (codigo_infraccion p in inf)
-                {
-                    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+                //foreach (codigo_infraccion p in inf)
+                //{
+                //    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
-                    ddlInfraccionAC.Items.Add(item);
-                }
+                //    ddlInfraccionAC.Items.Add(item);
+                //}
 
-                ddlInfraccionAC.SelectedIndex = 0;
+                //ddlInfraccionAC.SelectedIndex = 0;
 
                 /*--------------------------------------------------------------------------------*/
 
@@ -306,8 +306,9 @@ namespace SiCoVe.Site
                 }
             }
         }
-         public void CleanControl(ControlCollection controles)
-         {
+
+        public void CleanControl(ControlCollection controles)
+        {
             foreach (Control control in controles)
             {
                 if (control is TextBox)
@@ -327,6 +328,24 @@ namespace SiCoVe.Site
                     //Así ningún control se quedará sin ser limpiado.
                     CleanControl(control.Controls);
             }
-         }
+        }
+
+        protected void ddlCatInfraccionAC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlInfraccionAC.Items.Clear();
+
+            int id_infra = Convert.ToInt16(ddlCatInfraccionAC.SelectedValue);
+
+            var cod = (from ci in sicove.codigo_infraccion where ci.categoria_id == id_infra select ci).ToList();
+
+            ddlInfraccionAC.Items.Insert(0, new ListItem("Seleccione infracción...", "0"));
+
+            foreach (codigo_infraccion c in cod)
+            {
+                ListItem item = new ListItem(c.descripcion, c.id.ToString());
+
+                ddlInfraccionAC.Items.Add(item);
+            }
+        }
     }
 }

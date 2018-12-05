@@ -34,9 +34,6 @@
                                 <div class='input-group date'>
                                     <label>Fecha y hora</label>
                                     <asp:TextBox ID="txtFecActaAC" runat="server" class="form-control datetimepicker"></asp:TextBox>
-
-                                    <%-- </span>
-                                    </span>--%>
                                 </div>
                                 <div class="form-group">
                                     <asp:RequiredFieldValidator ID="rfFecActaAC" runat="server" ErrorMessage="*La Fecha es obligatoria" ControlToValidate="txtFecActaAC" Display="Dynamic" CssClass="label label-danger"></asp:RequiredFieldValidator>
@@ -67,7 +64,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Categoría de infracción</label>
-                                    <asp:DropDownList ID="ddlCatInfraccionAC" runat="server" class="form-control"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlCatInfraccionAC" runat="server" class="form-control" OnSelectedIndexChanged="ddlCatInfraccionAC_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
                                     <asp:CompareValidator ID="cvCatInfraccionAC" ControlToValidate="ddlCatInfraccionAC" runat="server" ValueToCompare="0" Operator="NotEqual" Display="Dynamic" ErrorMessage="Debe seleccionar Categoría de infracción" CssClass="label label-danger"></asp:CompareValidator>
                                 </div>
                                 <div class="form-group">

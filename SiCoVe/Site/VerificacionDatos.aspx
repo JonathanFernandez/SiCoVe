@@ -10,8 +10,6 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
     <div id="page-wrapper">
-
-        <!--INI-->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Verificación</h1>
@@ -19,8 +17,6 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-            <!--FIN-->
-
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Verificación de datos
@@ -80,7 +76,6 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Lugar de nacimiento</label>
-                                            <%--<asp:DropDownList ID="ddlLugNacimientoDNI" runat="server" class="form-control"></asp:DropDownList>--%>
                                             <asp:TextBox ID="txtLugNacimientoDNI" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
                                         </div>
                                     </div>
