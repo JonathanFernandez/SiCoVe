@@ -40,22 +40,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.TextBox txtEMail;
         
         /// <summary>
-        /// Control RequiredFieldValidator2.
+        /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// Control RegularExpressionValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// Control txtContraseña.
@@ -148,13 +139,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlProvincia;
         
         /// <summary>
-        /// Control RequiredFieldValidator8.
+        /// Control CVddlProvincia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlProvincia;
         
         /// <summary>
         /// Control txtDomicilio.
@@ -184,13 +175,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlNacionalidad;
         
         /// <summary>
-        /// Control RequiredFieldValidator10.
+        /// Control CVddlNacionalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlNacionalidad;
         
         /// <summary>
         /// Control txtFechaNacimiento.
@@ -220,13 +211,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
         
         /// <summary>
-        /// Control RequiredFieldValidator12.
+        /// Control CVddlSexo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlSexo;
         
         /// <summary>
         /// Control ddlLocalidad.
@@ -238,13 +229,13 @@ namespace SiCoVe {
         protected global::System.Web.UI.WebControls.DropDownList ddlLocalidad;
         
         /// <summary>
-        /// Control RequiredFieldValidator13.
+        /// Control CVddlLocalidad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
+        protected global::System.Web.UI.WebControls.CompareValidator CVddlLocalidad;
         
         /// <summary>
         /// Control txtLugarNacimiento.
