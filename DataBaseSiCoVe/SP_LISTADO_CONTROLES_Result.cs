@@ -13,7 +13,6 @@ namespace DataBaseSiCoVe
     
     public partial class SP_LISTADO_CONTROLES_Result
     {
-        public int AGENTE_TRANSITO_ID { get; set; }
         public Nullable<System.DateTime> FECHA_HORA { get; set; }
         public string LOCACION { get; set; }
         public string OBSERVACIONES { get; set; }
