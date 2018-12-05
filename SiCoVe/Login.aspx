@@ -47,36 +47,34 @@
                         <%--<form role="form">--%>
                             <fieldset>
                                 <div class="form-group">
-                                    <%--<input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>--%>
                                     <asp:TextBox  runat="server" ID="txtEmail" CssClass="form-control" placeholder="E-mail" name="email" type="email" required="required" ></asp:TextBox>
                                 </div>
                                 <div class="form-group">
-                                    <%--<input class="form-control" placeholder="Password" name="password" type="password" value="">--%>
                                     <asp:TextBox runat="server" ID="txtPass"  TextMode="Password" class="form-control" placeholder="Contraseña" name="password"   value="" required="required"></asp:TextBox>
                                 </div>
-                                <%--<div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>--%>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <%--<a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>--%>
                                 <asp:Button runat="server" Text="Iniciar Sesión" id="btnLogin" class="btn btn-lg btn-success btn-block"  OnClick="btnLogin_Click" OnClientClick="btnLogin_OnClientClick()" />
-                                <br />
-
-                                <div class="form-group">
-                                    <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/AltaUsuarioNuevo.aspx">
-                                        <asp:Label ID="lblNuevoUsuario" runat="server">Crear usuario</asp:Label>
-                                    </asp:HyperLink>
-                                   <asp:Label ID="lblMensaje" runat="server" Text="E-Mail o Password Incorrecta!" Visible="false" CssClass="label label-danger"></asp:Label>
-                                </div>
-                                 <div class="form-group">
-                                    <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/FormularioContacto.aspx">
-                                        <asp:Label ID="Label1" runat="server">Formulario de Contacto</asp:Label>
-                                    </asp:HyperLink>
-                                  
-                                </div>
                             </fieldset>
+
+                            <br />
+
+                            <div class="form-group">
+                                <asp:Label ID="lblMensaje" runat="server" style="display: block; margin: auto;" Text="E-Mail o Password Incorrecta!" Visible="false" CssClass="label label-danger"></asp:Label>
+                            </div>
+
+                            <div class="form-group">
+                                <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/AltaUsuarioNuevo.aspx">
+                                    <asp:Label ID="lblNuevoUsuario" runat="server">Crear usuario</asp:Label>
+                                </asp:HyperLink>
+                            </div>
+
+                            <br />
+
+                            <br/>
+                            <div class="form-group">
+                                <asp:HyperLink class="navbar-brand" style="padding: 0px 10px; margin-left: -129px;" runat="server" NavigateUrl="~/FormularioContacto.aspx">
+                                    <asp:Label ID="Label1" runat="server">Formulario de Contacto</asp:Label>
+                                </asp:HyperLink>
+                            </div>
                        <%-- </form>--%>
                     </div>
                 </div>
