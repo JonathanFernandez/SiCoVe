@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <asp:Label ID="lblPatente3" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblPatente3" runat="server" Text="" Visible="false"></asp:Label>
                                 </div>
 
                                 <div class="form-group">
