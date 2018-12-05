@@ -68,7 +68,7 @@
                     <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/Index.aspx">
                         <img id="imgLog" runat="server" src="~/img/Logo.png" style="margin-top:3px;width:120px;height:43px;" />
                     </asp:HyperLink>
-                    <a class="navbar-brand" href="~/Index.aspx" style="padding: 15px 5px;">SiCoVe 1.0</a>
+                    <a class="navbar-brand" href="Index.aspx" style="padding: 15px 5px;">SiCoVe 1.0</a>
                 </div>
 
                 <ul class="nav navbar-top-links navbar-right">
