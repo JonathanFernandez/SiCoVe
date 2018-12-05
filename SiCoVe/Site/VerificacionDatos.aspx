@@ -6,6 +6,11 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="server"> 
+    <script>
+        function btnCerrar_OnClientClick() {
+            location.href ="RealizarControl.aspx";
+        }
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="PaginaCentral_ContentPlaceHolder" runat="server">
@@ -276,7 +281,8 @@
                                                   <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    <%--<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>--%>
+                            <asp:Button ID="btnCerrar" runat="server" Text="Cerrar" OnClientClick="btnCerrar_OnClientClick()" CssClass="btn btn-default" data-dismiss="modal"/>
                                                 </div>
                                             </div>
                                         </div>
