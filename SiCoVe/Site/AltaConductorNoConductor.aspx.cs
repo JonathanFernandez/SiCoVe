@@ -264,6 +264,7 @@ namespace SiCoVe.Site
                 LblError.Text = Convert.ToString(ex);
             }
         }
+
         public void CleanControl(ControlCollection controles)
         {
             foreach (Control control in controles)
