@@ -9,7 +9,6 @@
         <EntityTypeShape EntityType="sicoveModel.aseguradora" Width="1.5" PointX="3" PointY="48.875" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.categoria_infraccion" Width="1.5" PointX="0.75" PointY="19.875" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.categoria_licencia" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="sicoveModel.codigo_infraccion" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.control" Width="1.5" PointX="3" PointY="22.5" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.denuncia" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.estado_cedula" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
@@ -30,7 +29,6 @@
         <EntityTypeShape EntityType="sicoveModel.usuario" Width="1.5" PointX="5.25" PointY="40.125" IsExpanded="true" />
         <EntityTypeShape EntityType="sicoveModel.vehiculo" Width="1.5" PointX="3" PointY="34.75" IsExpanded="true" />
         <AssociationConnector Association="sicoveModel.FK_agente_transito_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="sicoveModel.FK_codigo_infraccion_categoria_infraccion" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_licencia_categoria_licencia" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_denuncia_estado_denuncia" ManuallyRouted="false" />
         <AssociationConnector Association="sicoveModel.FK_denuncia_localidad" ManuallyRouted="false" />
@@ -55,7 +53,6 @@
         <AssociationConnector Association="sicoveModel.FK_remolque_vehiculo" />
         <EntityTypeShape EntityType="sicoveModel.infraccion" Width="1.5" PointX="8.25" PointY="16" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_categoria_licencia" />
-        <AssociationConnector Association="sicoveModel.FK_infraccion_codigo_infraccion" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_control" />
         <AssociationConnector Association="sicoveModel.FK_denuncia_infraccion" />
         <AssociationConnector Association="sicoveModel.FK_infraccion_imp_localidad" />
@@ -75,6 +72,9 @@
         <AssociationConnector Association="sicoveModel.FK_cedula_uso_cedula" />
         <AssociationConnector Association="sicoveModel.FK_cedula_vehiculo" />
         <AssociationConnector Association="sicoveModel.FK_poliza_vehiculo" />
+        <EntityTypeShape EntityType="sicoveModel.codigo_infraccion" Width="1.5" PointX="3" PointY="51.625" />
+        <AssociationConnector Association="sicoveModel.FK_codigo_infraccion_categoria_infraccion" />
+        <AssociationConnector Association="sicoveModel.FK_infraccion_codigo_infraccion" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

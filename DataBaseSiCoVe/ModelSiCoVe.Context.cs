@@ -31,7 +31,6 @@ namespace DataBaseSiCoVe
         public virtual DbSet<aseguradora> aseguradoras { get; set; }
         public virtual DbSet<categoria_infraccion> categoria_infraccion { get; set; }
         public virtual DbSet<categoria_licencia> categoria_licencia { get; set; }
-        public virtual DbSet<codigo_infraccion> codigo_infraccion { get; set; }
         public virtual DbSet<control> controls { get; set; }
         public virtual DbSet<denuncia> denuncias { get; set; }
         public virtual DbSet<estado_cedula> estado_cedula { get; set; }
@@ -55,6 +54,7 @@ namespace DataBaseSiCoVe
         public virtual DbSet<infraccion> infraccions { get; set; }
         public virtual DbSet<cedula> cedulas { get; set; }
         public virtual DbSet<poliza> polizas { get; set; }
+        public virtual DbSet<codigo_infraccion> codigo_infraccion { get; set; }
     
         public virtual ObjectResult<SP_GENERAR_EMAIL_ACARREO_Result> SP_GENERAR_EMAIL_ACARREO(string dominio, Nullable<int> remolque_id)
         {
@@ -76,15 +76,6 @@ namespace DataBaseSiCoVe
                 new ObjectParameter("denuncia", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GENERAR_EMAIL_DENUNCIA_Result>("SP_GENERAR_EMAIL_DENUNCIA", denunciaParameter);
-        }
-    
-        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(Nullable<int> lOCALIDAD)
-        {
-            var lOCALIDADParameter = lOCALIDAD.HasValue ?
-                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
-                new ObjectParameter("LOCALIDAD", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter);
         }
     
         public virtual ObjectResult<SP_LISTADO_ACARREO_X_REMOLCADOR_Result> SP_LISTADO_ACARREO_X_REMOLCADOR(Nullable<int> uSUARIO)
@@ -281,6 +272,19 @@ namespace DataBaseSiCoVe
                 new ObjectParameter("persona", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTAR_DATOS_PERSONA_Result>("SP_LISTAR_DATOS_PERSONA", personaParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTADO_ACARREO_Result> SP_LISTADO_ACARREO(Nullable<int> lOCALIDAD, Nullable<int> rEMOLCADOR_ID)
+        {
+            var lOCALIDADParameter = lOCALIDAD.HasValue ?
+                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
+                new ObjectParameter("LOCALIDAD", typeof(int));
+    
+            var rEMOLCADOR_IDParameter = rEMOLCADOR_ID.HasValue ?
+                new ObjectParameter("REMOLCADOR_ID", rEMOLCADOR_ID) :
+                new ObjectParameter("REMOLCADOR_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, rEMOLCADOR_IDParameter);
         }
     }
 }

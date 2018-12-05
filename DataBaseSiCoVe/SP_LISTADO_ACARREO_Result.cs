@@ -13,10 +13,8 @@ namespace DataBaseSiCoVe
     
     public partial class SP_LISTADO_ACARREO_Result
     {
-        public int REMOLCADOR { get; set; }
         public string PLAYA { get; set; }
         public Nullable<System.DateTime> fecha_hora { get; set; }
-        public string ubicacion { get; set; }
         public string detalle_infraccion { get; set; }
         public string dominio { get; set; }
         public string LOCALIDAD { get; set; }

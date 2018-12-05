@@ -53,9 +53,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="codigo_infraccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="codigo_infraccion" Type="nvarchar" MaxLength="4" />
           <Property Name="categoria_id" Type="int" Nullable="false" />
-          <Property Name="descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="300" />
         </EntityType>
         <EntityType Name="control">
           <Key>
@@ -813,6 +813,7 @@
         </Function>
         <Function Name="SP_LISTADO_ACARREO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="LOCALIDAD" Type="int" Mode="In" />
+          <Parameter Name="REMOLCADOR_ID" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_LISTADO_ACARREO_X_REMOLCADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="USUARIO" Type="int" Mode="In" />
@@ -1100,7 +1101,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="codigo_infraccion" Relationship="Self.FK_codigo_infraccion_categoria_infraccion" FromRole="categoria_infraccion" ToRole="codigo_infraccion" />
+          <NavigationProperty Name="codigo_infraccion" Relationship="sicoveModel.FK_codigo_infraccion_categoria_infraccion" FromRole="categoria_infraccion" ToRole="codigo_infraccion" />
         </EntityType>
         <EntityType Name="categoria_licencia">
           <Key>
@@ -1110,17 +1111,6 @@
           <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="licencias" Relationship="Self.FK_licencia_categoria_licencia" FromRole="categoria_licencia" ToRole="licencia" />
           <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_categoria_licencia" FromRole="categoria_licencia" ToRole="infraccion" />
-        </EntityType>
-        <EntityType Name="codigo_infraccion">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="codigo_infraccion1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="categoria_id" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="categoria_infraccion" Relationship="Self.FK_codigo_infraccion_categoria_infraccion" FromRole="codigo_infraccion" ToRole="categoria_infraccion" />
-          <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_codigo_infraccion" FromRole="codigo_infraccion" ToRole="infraccion" />
         </EntityType>
         <EntityType Name="control">
           <Key>
@@ -1369,18 +1359,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_codigo_infraccion_categoria_infraccion">
-          <End Role="categoria_infraccion" Type="Self.categoria_infraccion" Multiplicity="1" />
-          <End Role="codigo_infraccion" Type="Self.codigo_infraccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="categoria_infraccion">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="codigo_infraccion">
-              <PropertyRef Name="categoria_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_licencia_categoria_licencia">
           <End Role="categoria_licencia" Type="Self.categoria_licencia" Multiplicity="1" />
           <End Role="licencia" Type="Self.licencia" Multiplicity="*" />
@@ -1590,7 +1568,6 @@
           <EntitySet Name="aseguradoras" EntityType="Self.aseguradora" />
           <EntitySet Name="categoria_infraccion" EntityType="Self.categoria_infraccion" />
           <EntitySet Name="categoria_licencia" EntityType="Self.categoria_licencia" />
-          <EntitySet Name="codigo_infraccion" EntityType="Self.codigo_infraccion" />
           <EntitySet Name="controls" EntityType="Self.control" />
           <EntitySet Name="denuncias" EntityType="Self.denuncia" />
           <EntitySet Name="estado_cedula" EntityType="Self.estado_cedula" />
@@ -1613,10 +1590,6 @@
           <AssociationSet Name="FK_agente_transito_usuario" Association="Self.FK_agente_transito_usuario">
             <End Role="usuario" EntitySet="usuarios" />
             <End Role="agente_transito" EntitySet="agente_transito" />
-          </AssociationSet>
-          <AssociationSet Name="FK_codigo_infraccion_categoria_infraccion" Association="Self.FK_codigo_infraccion_categoria_infraccion">
-            <End Role="categoria_infraccion" EntitySet="categoria_infraccion" />
-            <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
           </AssociationSet>
           <AssociationSet Name="FK_licencia_categoria_licencia" Association="Self.FK_licencia_categoria_licencia">
             <End Role="categoria_licencia" EntitySet="categoria_licencia" />
@@ -1708,10 +1681,6 @@
             <End Role="categoria_licencia" EntitySet="categoria_licencia" />
             <End Role="infraccion" EntitySet="infraccions" />
           </AssociationSet>
-          <AssociationSet Name="FK_infraccion_codigo_infraccion" Association="sicoveModel.FK_infraccion_codigo_infraccion">
-            <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
-            <End Role="infraccion" EntitySet="infraccions" />
-          </AssociationSet>
           <AssociationSet Name="FK_infraccion_control" Association="sicoveModel.FK_infraccion_control">
             <End Role="control" EntitySet="controls" />
             <End Role="infraccion" EntitySet="infraccions" />
@@ -1789,9 +1758,6 @@
           <FunctionImport Name="SP_GENERAR_EMAIL_DENUNCIA" ReturnType="Collection(sicoveModel.SP_GENERAR_EMAIL_DENUNCIA_Result)">
           <Parameter Name="denuncia" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_LISTADO_ACARREO" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_Result)">
-          <Parameter Name="LOCALIDAD" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="SP_LISTADO_ACARREO_X_REMOLCADOR" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_X_REMOLCADOR_Result)">
           <Parameter Name="USUARIO" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1851,7 +1817,20 @@
           <Parameter Name="dominio" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_LISTAR_DATOS_PERSONA" ReturnType="Collection(sicoveModel.SP_LISTAR_DATOS_PERSONA_Result)">
-            <Parameter Name="persona" Mode="In" Type="Int32" />
+          <Parameter Name="persona" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="codigo_infraccion" EntityType="sicoveModel.codigo_infraccion" />
+          <AssociationSet Name="FK_codigo_infraccion_categoria_infraccion" Association="sicoveModel.FK_codigo_infraccion_categoria_infraccion">
+            <End Role="categoria_infraccion" EntitySet="categoria_infraccion" />
+            <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_infraccion_codigo_infraccion" Association="sicoveModel.FK_infraccion_codigo_infraccion">
+            <End Role="codigo_infraccion" EntitySet="codigo_infraccion" />
+            <End Role="infraccion" EntitySet="infraccions" />
+          </AssociationSet>
+          <FunctionImport Name="SP_LISTADO_ACARREO" ReturnType="Collection(sicoveModel.SP_LISTADO_ACARREO_Result)">
+            <Parameter Name="LOCALIDAD" Mode="In" Type="Int32" />
+            <Parameter Name="REMOLCADOR_ID" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <EntityType Name="remolque">
@@ -1956,7 +1935,6 @@
           <Property Name="imputado_licencia_municipio_id" Type="Int32" />
           <Property Name="imputado_licencia_categoria_id" Type="Int32" />
           <NavigationProperty Name="categoria_licencia" Relationship="sicoveModel.FK_infraccion_categoria_licencia" FromRole="infraccion" ToRole="categoria_licencia" />
-          <NavigationProperty Name="codigo_infraccion" Relationship="sicoveModel.FK_infraccion_codigo_infraccion" FromRole="infraccion" ToRole="codigo_infraccion" />
           <NavigationProperty Name="control" Relationship="sicoveModel.FK_infraccion_control" FromRole="infraccion" ToRole="control" />
           <NavigationProperty Name="denuncias" Relationship="sicoveModel.FK_denuncia_infraccion" FromRole="infraccion" ToRole="denuncia" />
           <NavigationProperty Name="localidad" Relationship="sicoveModel.FK_infraccion_imp_localidad" FromRole="infraccion" ToRole="localidad" />
@@ -1968,6 +1946,7 @@
           <NavigationProperty Name="provincia" Relationship="sicoveModel.FK_infraccion_provincia" FromRole="infraccion" ToRole="provincia" />
           <NavigationProperty Name="tipo_vehiculo" Relationship="sicoveModel.FK_infraccion_tipo_vehiculo" FromRole="infraccion" ToRole="tipo_vehiculo" />
           <NavigationProperty Name="vehiculo" Relationship="sicoveModel.FK_infraccion_vehiculo" FromRole="infraccion" ToRole="vehiculo" />
+          <NavigationProperty Name="codigo_infraccion" Relationship="sicoveModel.FK_infraccion_codigo_infraccion" FromRole="infraccion" ToRole="codigo_infraccion" />
         </EntityType>
         <Association Name="FK_infraccion_categoria_licencia">
           <End Type="sicoveModel.categoria_licencia" Role="categoria_licencia" Multiplicity="0..1" />
@@ -1978,18 +1957,6 @@
             </Principal>
             <Dependent Role="infraccion">
               <PropertyRef Name="imputado_licencia_categoria_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_infraccion_codigo_infraccion">
-          <End Type="sicoveModel.codigo_infraccion" Role="codigo_infraccion" Multiplicity="1" />
-          <End Type="sicoveModel.infraccion" Role="infraccion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="codigo_infraccion">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="infraccion">
-              <PropertyRef Name="codigo_infraccion_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2240,15 +2207,6 @@
           <Property Type="String" Name="email_cuerpo" Nullable="true" MaxLength="439" />
           <Property Type="String" Name="ruta_adjunto" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="SP_LISTADO_ACARREO_Result">
-          <Property Type="Int32" Name="REMOLCADOR" Nullable="false" />
-          <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
-          <Property Type="String" Name="ubicacion" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
-          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
-        </ComplexType>
         <ComplexType Name="SP_LISTADO_ACARREO_X_REMOLCADOR_Result">
           <Property Type="Int32" Name="REMOLCADOR" Nullable="false" />
           <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
@@ -2405,6 +2363,48 @@
           <Property Type="String" Name="nom_titular" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="nom_asegurado" Nullable="false" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="codigo_infraccion">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_infraccion1" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="categoria_id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="categoria_infraccion" Relationship="sicoveModel.FK_codigo_infraccion_categoria_infraccion" FromRole="codigo_infraccion" ToRole="categoria_infraccion" />
+          <NavigationProperty Name="infraccions" Relationship="sicoveModel.FK_infraccion_codigo_infraccion" FromRole="codigo_infraccion" ToRole="infraccion" />
+        </EntityType>
+        <Association Name="FK_codigo_infraccion_categoria_infraccion">
+          <End Type="sicoveModel.categoria_infraccion" Role="categoria_infraccion" Multiplicity="1" />
+          <End Type="sicoveModel.codigo_infraccion" Role="codigo_infraccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria_infraccion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="codigo_infraccion">
+              <PropertyRef Name="categoria_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_infraccion_codigo_infraccion">
+          <End Type="sicoveModel.codigo_infraccion" Role="codigo_infraccion" Multiplicity="1" />
+          <End Type="sicoveModel.infraccion" Role="infraccion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="codigo_infraccion">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="infraccion">
+              <PropertyRef Name="codigo_infraccion_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_LISTADO_ACARREO_Result">
+          <Property Type="String" Name="PLAYA" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="fecha_hora" Nullable="true" Precision="23" />
+          <Property Type="String" Name="detalle_infraccion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="dominio" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LOCALIDAD" Nullable="true" MaxLength="60" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2440,16 +2440,6 @@
             <EntityTypeMapping TypeName="sicoveModel.categoria_licencia">
               <MappingFragment StoreEntitySet="categoria_licencia">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="codigo_infraccion">
-            <EntityTypeMapping TypeName="sicoveModel.codigo_infraccion">
-              <MappingFragment StoreEntitySet="codigo_infraccion">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="codigo_infraccion1" ColumnName="codigo_infraccion" />
-                <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2753,19 +2743,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_Result">
-                <ScalarProperty Name="REMOLCADOR" ColumnName="REMOLCADOR" />
-                <ScalarProperty Name="PLAYA" ColumnName="PLAYA" />
-                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
-                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
-                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
-                <ScalarProperty Name="dominio" ColumnName="dominio" />
-                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO_X_REMOLCADOR" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO_X_REMOLCADOR">
             <ResultMapping>
               <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_X_REMOLCADOR_Result">
@@ -2983,6 +2960,27 @@
                 <ScalarProperty Name="vigencia_hasta" ColumnName="vigencia_hasta" />
                 <ScalarProperty Name="nom_titular" ColumnName="nom_titular" />
                 <ScalarProperty Name="nom_asegurado" ColumnName="nom_asegurado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="codigo_infraccion">
+            <EntityTypeMapping TypeName="sicoveModel.codigo_infraccion">
+              <MappingFragment StoreEntitySet="codigo_infraccion">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+                <ScalarProperty Name="codigo_infraccion1" ColumnName="codigo_infraccion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADO_ACARREO" FunctionName="sicoveModel.Store.SP_LISTADO_ACARREO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="sicoveModel.SP_LISTADO_ACARREO_Result">
+                <ScalarProperty Name="PLAYA" ColumnName="PLAYA" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="detalle_infraccion" ColumnName="detalle_infraccion" />
+                <ScalarProperty Name="dominio" ColumnName="dominio" />
+                <ScalarProperty Name="LOCALIDAD" ColumnName="LOCALIDAD" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
