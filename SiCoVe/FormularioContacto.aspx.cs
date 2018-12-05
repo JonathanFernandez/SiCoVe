@@ -20,6 +20,30 @@ namespace SiCoVe
 
             if (Page.IsValid)
             {
+                try
+                {
+                    bool result = EnviarCorreo();
+
+                    if (result)
+                        Response.Redirect("Login.aspx", false);
+
+                    //Response.Redirect("~/Login.aspx", false);
+                }
+                catch (System.Net.Mail.SmtpException msj)
+                {
+                    Response.Write(msj.Message);
+                    //Aquí gestionamos los errores al intentar enviar el correo
+                    // return false;
+                }
+            }
+        }
+
+        public bool EnviarCorreo()
+        {
+            bool result = true;
+
+            try
+            {
                 /*-------------------------MENSAJE DE CORREO----------------------*/
 
                 //Creamos un nuevo Objeto de mensaje
@@ -27,28 +51,19 @@ namespace SiCoVe
 
                 //Direccion de correo electronico a la que queremos enviar el mensaje
                 mmsg.To.Add("sicoveunlam@outlook.com");
-                //mmsg.To.Add("jonathan.fernandez.ex@pirelli.com");
-                //mmsg.To.Add("walter.santucho.it@gmail.com ");
-                //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
                 //Asunto
                 mmsg.Subject = "Formulario de contacto";
                 mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
-
                 //Cuerpo del Mensaje
-
-
                 string body = txtDetalle.Text;
 
                 mmsg.Body = body;
                 mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
 
-
-
                 //Correo electronico desde la que enviamos el mensaje
                 mmsg.From = new System.Net.Mail.MailAddress("sicoveunlam@outlook.com");
-
 
                 /*-------------------------CLIENTE DE CORREO----------------------*/
 
@@ -65,30 +80,23 @@ namespace SiCoVe
                 cliente.Host = "smtp-mail.outlook.com"; //"smtp.live.com";// "smtp-mail.outlook.com";
                                                         //"smtp.live.com"
 
-                // cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
-
-
                 /*-------------------------ENVIO DE CORREO----------------------*/
 
-                try
-                {
-                    //Enviamos el mensaje      
-                    cliente.Send(mmsg);
-                    cliente.Dispose();
+                //Enviamos el mensaje      
+                cliente.Send(mmsg);
+                cliente.Dispose();
 
-                    lblMensaje.Text = "Formulario enviado con exito.";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
-                    CleanControl(this.Controls);
-
-                    Response.Redirect("~/Login.aspx", false);
-                }
-                catch (System.Net.Mail.SmtpException msj)
-                {
-                    Response.Write(msj.Message);
-                    //Aquí gestionamos los errores al intentar enviar el correo
-                    // return false;
-                }
+                lblMensaje.Text = "Formulario enviado con exito.";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
+                CleanControl(this.Controls);
             }
+            catch (Exception ex)
+            {
+                result = false;
+                LblError.Text = Convert.ToString(ex);
+            }
+
+            return result;
         }
 
         public void CleanControl(ControlCollection controles)
