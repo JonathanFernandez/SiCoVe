@@ -23,7 +23,7 @@ namespace SiCoVe.Site
 
         public void listadoControles()
         {
-            var agente = (from a in sicove.agente_transito where a.usuario_id == UserSession.id select a.id).FirstOrDefault();
+            var agente = (from a in sicove.agente_transito where a.usuario_id == UserSession.id select a.usuario_id).FirstOrDefault();
             GvHistorialControles.DataSource = sicove.SP_LISTADO_CONTROLES(Convert.ToInt32(ddlLocalidad.SelectedValue), Convert.ToInt32(agente)).ToList();
             GvHistorialControles.DataBind();
         }
