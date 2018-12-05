@@ -30,9 +30,10 @@
     <script type="text/javascript" src="../Content/vendor/raphael/raphael.min.js" ></script>
     <script type="text/javascript" src="../Content/vendor/morrisjs/morris.js" ></script>
     <script type="text/javascript" src="../Scripts/master.js" ></script>
-    <script type="text/javascript" src="../Scripts/moment.js" ></script>
-    <script type="text/javascript" src="../Scripts/bootstrap-datetimepicker.js"></script>
     
+    <script type="text/javascript" src="../Scripts/moment.js" ></script>
+    
+    <script type="text/javascript" src="../Scripts/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript" src="../Content/vendor/flot/excanvas.js" ></script>
     <script type="text/javascript" src="../Content/vendor/flot/jquery.flot.js" ></script>
     <script type="text/javascript" src="../Content/vendor/flot/jquery.flot.pie.js" ></script>
@@ -40,14 +41,13 @@
     <script type="text/javascript" src="../Content/vendor/flot/jquery.flot.time.js" ></script>
     <script type="text/javascript" src="../Content/vendor/flot-tooltip/jquery.flot.tooltip.min.js" ></script>
     <script type="text/javascript" src="../Content/data/flot-data.js" ></script>
-    <script>
+    <script type="text/javascript">
   $(document).ready(function () {
 
       $('.datetimepicker').datetimepicker({
-        locale: 'es',
-
-format: 'DD/MM/YYYY HH:mm:ss',
-
+        format: 'DD/MM/YYYY HH:mm:ss',
+        locale: 'es'
+        
       });
   });
     </script>
