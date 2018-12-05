@@ -58,10 +58,10 @@
                             <br />
 
                             <div class="form-group">
-                                <asp:Label ID="lblMensaje" runat="server" style="display: block; margin: auto;" Text="E-Mail o Password Incorrecta!" Visible="false" CssClass="label label-danger"></asp:Label>
+                                <asp:Label ID="lblMensaje" runat="server" style="display: block; margin: auto; margin-bottom: 30px;" Text="E-Mail o Password Incorrecta!" Visible="false" Display="Dynamic" CssClass="label label-danger"></asp:Label>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="margin-top: -15px;">
                                 <asp:HyperLink class="navbar-brand" style="padding: 0px 10px;" runat="server" NavigateUrl="~/AltaUsuarioNuevo.aspx">
                                     <asp:Label ID="lblNuevoUsuario" runat="server">Crear usuario</asp:Label>
                                 </asp:HyperLink>
@@ -71,7 +71,7 @@
 
                             <br/>
                             <div class="form-group">
-                                <asp:HyperLink class="navbar-brand" style="padding: 0px 10px; margin-left: -129px;" runat="server" NavigateUrl="~/FormularioContacto.aspx">
+                                <asp:HyperLink class="navbar-brand" style="padding: 0px 10px; margin-left: -129px; margin-bottom: -25px;" runat="server" NavigateUrl="~/FormularioContacto.aspx">
                                     <asp:Label ID="Label1" runat="server">Formulario de Contacto</asp:Label>
                                 </asp:HyperLink>
                             </div>
