@@ -158,6 +158,7 @@
     <Content Include="Content\dist\js\sb-admin-2.min.js" />
     <Content Include="Content\gulpfile.js" />
     <Content Include="Content\index.html" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\js\sb-admin-2.js" />
     <Content Include="Content\pages\blank.html" />
     <Content Include="Content\pages\buttons.html" />

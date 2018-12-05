@@ -11,13 +11,15 @@
     <meta name="author" content="">
     <title></title>
     
-
-    <asp:ContentPlaceHolder ID="IncludeCssSection" runat="server"></asp:ContentPlaceHolder>
+   
+    <asp:ContentPlaceHolder ID="IncludeCssSection" runat="server">
+        <link rel="stylesheet" href="../Content/jquery-ui.css"  />
+    </asp:ContentPlaceHolder>
 
     
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
+     
      <script type="text/javascript" src="../Content/vendor/jquery/jquery.js" ></script>
     <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js" ></script>
     <script type="text/javascript" src="../Content/vendor/jquery/jquery.min.js" ></script>
