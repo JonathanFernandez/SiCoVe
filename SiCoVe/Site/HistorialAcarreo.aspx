@@ -39,10 +39,10 @@
                             <asp:GridView runat="server" ID="GvHistorialAcarreo" CssClass="table table-bordered table-hover table-striped" AutoGenerateColumns="False">
                                 <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                 <Columns>  
-                                     <asp:BoundField HeaderText="Remolcador"  DataField="REMOLCADOR"/> 
+                                    
                                     <asp:BoundField HeaderText="Playa"  DataField="PLAYA"/>                                 
                                     <asp:BoundField HeaderText="Fecha" DataField="FECHA_HORA" DataFormatString = "{0: dd-MM-yyyy}"/>     
-                                    <asp:BoundField HeaderText="ubicacion"  DataField="UBICACION"/>
+                                    
                                     <asp:BoundField HeaderText="Detalle" DataField="DETALLE_INFRACCION" />
                                     <asp:BoundField HeaderText="dominio" DataField="DOMINIO" />                                
                                     <asp:BoundField HeaderText="Localidad" DataField="LOCALIDAD" />                                                                                                

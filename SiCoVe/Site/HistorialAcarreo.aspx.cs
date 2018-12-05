@@ -23,7 +23,9 @@ namespace SiCoVe.Site
 
         public void listadoAcarreo()
         {
-            GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(Convert.ToInt32(ddlLocalidad.SelectedValue)).ToList();
+            var acarreador = (from r in sicove.personal_remolque where r.usuario_id == UserSession.id select r.id).FirstOrDefault();
+              
+            GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(Convert.ToInt32(ddlLocalidad.SelectedValue), Convert.ToInt32(acarreador)).ToList();
             // GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO_X_REMOLCADOR(UserSession.id).ToList();
             GvHistorialAcarreo.DataBind();
                        
@@ -48,11 +50,9 @@ namespace SiCoVe.Site
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-    //        if(UserSession.perfil_usuario_id != 1)
-                GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(Convert.ToInt32(ddlLocalidad.SelectedValue)).ToList();
-//            else
-  //              GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(null, null).ToList();
-            GvHistorialAcarreo.DataBind();
+            //GvHistorialAcarreo.DataSource = sicove.SP_LISTADO_ACARREO(Convert.ToInt32(ddlLocalidad.SelectedValue)).ToList();
+            //GvHistorialAcarreo.DataBind();
+            listadoAcarreo();
 
         }
 
