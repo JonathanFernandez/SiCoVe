@@ -68,14 +68,14 @@ namespace SiCoVe.Site
                 dominio = result.Results[0].Plate;
                 //Session["dominio"] = dominio;
 
-                lblPatente3.Text = dominio;
+                txtDominio.Text = dominio;
                 //btnGenerarInfraccion.Enabled = true;
                 //btnVerificarDatos.Enabled = true;
                 //Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                lblPatente3.Text = string.Empty;
+                txtDominio.Text = string.Empty;
                 lblMensaje.Text = "Patente no decifrada, puede continuar pero debe ingresar la patente manualmente";
                 //Session["dominio"] = dominio;
             }
@@ -91,7 +91,7 @@ namespace SiCoVe.Site
 
         protected void btnGenerarControl_Click(object sender, EventArgs e)
         {
-            String dominio = lblPatente3.Text;// Convert.ToString(Session["dominio"]);
+            String dominio = txtDominio.Text;// Convert.ToString(Session["dominio"]);
 
             int cantidad = 0;
 
