@@ -53,11 +53,11 @@ namespace SiCoVe.Site
 
                 /*--------------------------------------------------------------------------------*/
 
-                var loc = sicove.municipios.ToList();
+                var loc = sicove.localidads.ToList();
 
                 ddlLocalidadFC.Items.Insert(0, new ListItem("Seleccione localidad...", "0"));
 
-                foreach (municipio p in loc)
+                foreach (localidad p in loc)
                 {
                     ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
 
