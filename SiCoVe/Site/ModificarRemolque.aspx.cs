@@ -15,9 +15,10 @@ namespace SiCoVe
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!Page.IsPostBack) {
+            if (!Page.IsPostBack)
+            {
 
-                //CargarCombos();
+                CargarCombos();
 
                 var id = 0;
                 if (Session["id"] != null)
@@ -48,112 +49,112 @@ namespace SiCoVe
                 personal_remolque pr = (from t in sicove.personal_remolque where t.usuario_id == usu.id select t).FirstOrDefault();
 
                 txtLegajo.Text = Convert.ToString(pr.nro_legajo);
-            }
+            
 
-            var Sex = sicove.sexoes.ToList();
+            //var Sex = sicove.sexoes.ToList();
 
-            ddlSexo.Items.Insert(0, new ListItem("Seleccione Sexo...", "0"));
+            //ddlSexo.Items.Insert(0, new ListItem("Seleccione Sexo...", "0"));
 
-            foreach (sexo s in Sex)
-            {
-                ListItem item = new ListItem(s.descripcion, Convert.ToString(s.id));
-
-                ddlSexo.Items.Add(item);
-            }
-
-            ddlSexo.SelectedIndex = 0;
-
-            /*--------------------------------------------------------------------------------*/
-            var nac = sicove.nacionalidads.ToList();
-
-            ddlNacionalidad.Items.Insert(0, new ListItem("Seleccione Nacionalidad...", "0"));
-
-            foreach (nacionalidad n in nac)
-            {
-                ListItem item = new ListItem(n.descripcion, Convert.ToString(n.id));
-
-                ddlNacionalidad.Items.Add(item);
-            }
-
-            ddlNacionalidad.SelectedIndex = 0;
-            /*--------------------------------------------------------------------------------*/
-            var pro = sicove.provincias.ToList();
-
-            ddlProvincia.Items.Insert(0, new ListItem("Seleccione Provincia...", "0"));
-
-            foreach (provincia p in pro)
-            {
-                ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
-
-                ddlProvincia.Items.Add(item);
-                //ddlProvinciaDNI.Items.Add(item);
-            }
-
-            ddlProvincia.SelectedIndex = 0;
-            //ddlProvinciaDNI.SelectedIndex = 0;
-
-            /*--------------------------------------------------------------------------------*/
-            var loc = sicove.localidads.ToList();
-
-            ddlLocalidad.Items.Insert(0, new ListItem("Seleccione Localidad...", "0"));
-
-            foreach (localidad p in loc)
-            {
-                ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
-
-                ddlLocalidad.Items.Add(item);
-            }
-
-            ddlLocalidad.SelectedIndex = 0;
-
-
-            //private void CargarCombos()
+            //foreach (sexo s in Sex)
             //{
-            //    CargarSexo();
-            //    CargarNacionalidad();
-            //    CargarProvincia();
-            //    CargarLocalidad();
+            //    ListItem item = new ListItem(s.descripcion, Convert.ToString(s.id));
+
+            //    ddlSexo.Items.Add(item);
             //}
 
-            //private void CargarSexo()
-            //{
-            //    var sexo = sicove.sexoes.ToList();
+            //ddlSexo.SelectedIndex = 0;
 
-            //    ddlSexo.DataTextField = "descripcion";
-            //    ddlSexo.DataValueField = "id";
-            //    ddlSexo.DataSource = sexo;
-            //    ddlSexo.DataBind();
+            ///*--------------------------------------------------------------------------------*/
+            //var nac = sicove.nacionalidads.ToList();
+
+            //ddlNacionalidad.Items.Insert(0, new ListItem("Seleccione Nacionalidad...", "0"));
+
+            //foreach (nacionalidad n in nac)
+            //{
+            //    ListItem item = new ListItem(n.descripcion, Convert.ToString(n.id));
+
+            //    ddlNacionalidad.Items.Add(item);
             //}
 
-            //private void CargarNacionalidad()
+            //ddlNacionalidad.SelectedIndex = 0;
+            ///*--------------------------------------------------------------------------------*/
+            //var pro = sicove.provincias.ToList();
+
+            //ddlProvincia.Items.Insert(0, new ListItem("Seleccione Provincia...", "0"));
+
+            //foreach (provincia p in pro)
             //{
-            //    var nacionalidades = sicove.nacionalidads.ToList();
-            //    ddlNacionalidad.DataTextField = "descripcion";
-            //    ddlNacionalidad.DataValueField = "id";
-            //    ddlNacionalidad.DataSource = nacionalidades;
-            //    ddlNacionalidad.DataBind();
+            //    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+            //    ddlProvincia.Items.Add(item);
+            //    //ddlProvinciaDNI.Items.Add(item);
             //}
 
-            //private void CargarProvincia()
-            //{
-            //    var provincia = sicove.provincias.ToList();
-            //    ddlProvincia.DataTextField = "descripcion";
-            //    ddlProvincia.DataValueField = "id";
-            //    ddlProvincia.DataSource = provincia;
-            //    ddlProvincia.DataBind();
-            //}
+            //ddlProvincia.SelectedIndex = 0;
+            ////ddlProvinciaDNI.SelectedIndex = 0;
 
-            //private void CargarLocalidad()
-            //{
-            //    var localidad = sicove.localidads.ToList();
-            //    ddlLocalidad.DataTextField = "descripcion";
-            //    ddlLocalidad.DataValueField = "id";
-            //    ddlLocalidad.DataSource = localidad;
-            //    ddlLocalidad.DataBind();
-            //}
+            ///*--------------------------------------------------------------------------------*/
+            //var loc = sicove.localidads.ToList();
 
+            //ddlLocalidad.Items.Insert(0, new ListItem("Seleccione Localidad...", "0"));
+
+            //foreach (localidad p in loc)
+            //{
+            //    ListItem item = new ListItem(p.descripcion, Convert.ToString(p.id));
+
+            //    ddlLocalidad.Items.Add(item);
+            }
         }
+        //ddlLocalidad.SelectedIndex = 0;
 
+
+        private void CargarCombos()
+            {
+                CargarSexo();
+                CargarNacionalidad();
+                CargarProvincia();
+                CargarLocalidad();
+            }
+
+            private void CargarSexo()
+            {
+                var sexo = sicove.sexoes.ToList();
+
+                ddlSexo.DataTextField = "descripcion";
+                ddlSexo.DataValueField = "id";
+                ddlSexo.DataSource = sexo;
+                ddlSexo.DataBind();
+            }
+
+            private void CargarNacionalidad()
+            {
+                var nacionalidades = sicove.nacionalidads.ToList();
+                ddlNacionalidad.DataTextField = "descripcion";
+                ddlNacionalidad.DataValueField = "id";
+                ddlNacionalidad.DataSource = nacionalidades;
+                ddlNacionalidad.DataBind();
+            }
+
+            private void CargarProvincia()
+            {
+                var provincia = sicove.provincias.ToList();
+                ddlProvincia.DataTextField = "descripcion";
+                ddlProvincia.DataValueField = "id";
+                ddlProvincia.DataSource = provincia;
+                ddlProvincia.DataBind();
+            }
+
+            private void CargarLocalidad()
+            {
+                var localidad = sicove.localidads.ToList();
+                ddlLocalidad.DataTextField = "descripcion";
+                ddlLocalidad.DataValueField = "id";
+                ddlLocalidad.DataSource = localidad;
+                ddlLocalidad.DataBind();
+            }
+
+
+       
         protected void btnRegistrarACNC_Click(object sender, EventArgs e)
         {
             Page.Validate();
@@ -188,8 +189,10 @@ namespace SiCoVe
                 per.provincia_id = Convert.ToInt32(ddlProvincia.SelectedValue);
                 ddlLocalidad.SelectedValue = Convert.ToString(per.localidad_id);
                 per.domicilio = txtDomicilio.Text;
-                per.piso = Convert.ToInt16(txtPiso.Text);
-                per.departamento = txtDepartamento.Text;
+                if (txtPiso.Text != "")
+                    per.piso = Convert.ToSByte(txtPiso.Text);
+                else
+                    per.departamento = txtDepartamento.Text;
                 per.nro_puerta = txtNumPuerta.Text;
                 per.fecha_nacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
                 per.lugar_nacimiento = txtLugarNacimiento.Text;
@@ -215,5 +218,6 @@ namespace SiCoVe
 
             return result;
         }
-    }
+             }
 }
+    
