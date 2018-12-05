@@ -24,8 +24,8 @@ namespace SiCoVe
                 {
                     bool result = EnviarCorreo();
 
-                    if (result)
-                        Response.Redirect("Login.aspx", false);
+                    //if (result)
+                    //    Response.Redirect("~/Login.aspx", false);
 
                     //Response.Redirect("~/Login.aspx", false);
                 }

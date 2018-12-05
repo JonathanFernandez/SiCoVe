@@ -22,6 +22,12 @@
 
     <!-- Custom Fonts -->
     <link href="Content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        function btnCerrar_OnClientClick() {
+            location.href ="Login.aspx";
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -94,7 +100,8 @@
                             <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <%--<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>--%>
+                            <asp:Button ID="btnCerrar" runat="server" Text="Cerrar" OnClientClick="btnCerrar_OnClientClick()" CssClass="btn btn-default" data-dismiss="modal"/>
                         </div>
                     </div>
                 </div>
