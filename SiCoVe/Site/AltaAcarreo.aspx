@@ -55,6 +55,27 @@
                                         <asp:Button ID="btnGuardarAcarreo" runat="server" class="btn btn-success" style="display:block; margin:auto;" Text="Guardar Acarreo" OnClick="btnGuardarAcarreo_Click" />
                                         <%--<button type="button" class="btn btn-danger">Cancelar</button>--%>
 
+                                                                        <div class="panel-body">
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Mensaje</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <asp:Label runat="server" ID="lblMensaje" Text=""></asp:Label>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                     </div>
                             </div>
 

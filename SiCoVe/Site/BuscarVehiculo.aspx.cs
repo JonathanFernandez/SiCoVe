@@ -68,7 +68,7 @@ namespace SiCoVe.Site
             catch (Exception e)
             {
                 lblPatente3.Text = string.Empty;
-                lblMensaje.Text = "Patente no decifrada, puede continuar pero debe ingresar la patente manualmente";
+                lblMensaje.Text = "Patente no descifrada, puede continuar pero debe ingresar la patente manualmente";
                
                 //Debug.Print("Exception when calling DefaultApi.RecognizeBytes: " + e.Message);
             }
