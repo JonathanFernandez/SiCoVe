@@ -121,15 +121,6 @@ namespace DataBaseSiCoVe
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONDUCTORES_Result>("SP_LISTADO_CONDUCTORES", dNIParameter, aPELLIDOParameter, nOMBREParameter);
         }
     
-        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES(Nullable<int> lOCALIDAD)
-        {
-            var lOCALIDADParameter = lOCALIDAD.HasValue ?
-                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
-                new ObjectParameter("LOCALIDAD", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES", lOCALIDADParameter);
-        }
-    
         public virtual ObjectResult<SP_LISTADO_DENUNCIA_Result> SP_LISTADO_DENUNCIA(Nullable<int> localidad_id)
         {
             var localidad_idParameter = localidad_id.HasValue ?
@@ -285,6 +276,19 @@ namespace DataBaseSiCoVe
                 new ObjectParameter("REMOLCADOR_ID", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_ACARREO_Result>("SP_LISTADO_ACARREO", lOCALIDADParameter, rEMOLCADOR_IDParameter);
+        }
+    
+        public virtual ObjectResult<SP_LISTADO_CONTROLES_Result> SP_LISTADO_CONTROLES(Nullable<int> lOCALIDAD, Nullable<int> aGENTE_ID)
+        {
+            var lOCALIDADParameter = lOCALIDAD.HasValue ?
+                new ObjectParameter("LOCALIDAD", lOCALIDAD) :
+                new ObjectParameter("LOCALIDAD", typeof(int));
+    
+            var aGENTE_IDParameter = aGENTE_ID.HasValue ?
+                new ObjectParameter("AGENTE_ID", aGENTE_ID) :
+                new ObjectParameter("AGENTE_ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_LISTADO_CONTROLES_Result>("SP_LISTADO_CONTROLES", lOCALIDADParameter, aGENTE_IDParameter);
         }
     }
 }
