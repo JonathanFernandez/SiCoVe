@@ -60,9 +60,8 @@ namespace SiCoVe.Site
                 ddlEstadoCED.Text = Convert.ToString(ced.estado_id);
                 txtFecVencimientoCED.Text = string.Format("{0:dd/MM/yyyy}", ced.vencimiento);
                 cckAutorizado.Checked = ced.flag_autorizado;
-                if (ced.flag_autorizado == false)
-                txtTitularCED.Text = string.Format("{0} {1}", per.apellido , per.nombre);
-
+                txtTitularCED.Text = ced.nom_titular;
+                
                 vehiculo ve = (from v in sicove.vehiculoes where v.id == ced.vehiculo_id select v).First();
                 ddlTipoCED.Text = Convert.ToString(ve.tipo_id);
                 ddlMarcaCED.Text = Convert.ToString(ve.marca_id);
@@ -73,12 +72,13 @@ namespace SiCoVe.Site
                 txtChasisCED.Text = ve.chasis_cuadro;
                 txtDominioCED.Text = ve.dominio;
 
-                poliza pol = (from z in sicove.polizas where z.id == ced.vehiculo_id select z).First();
+                poliza pol = (from z in sicove.polizas where z.vehiculo_id == ve.id select z).First();
                 txtPolizaSEG.Text = pol.nro_poliza;
                 ddlAseguradoraSEG.Text = Convert.ToString(pol.aseguradora_id);
                 txtFecDesdeSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_desde);
                 txtFecHastaSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_hasta);
-                txtAseguradoSEG.Text = string.Format("{0} {1}", per.apellido, per.nombre);
+                txtAseguradoSEG.Text = pol.nom_asegurado;
+
                 }
             }
 

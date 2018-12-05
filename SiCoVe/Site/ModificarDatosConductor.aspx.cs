@@ -215,8 +215,6 @@ namespace SiCoVe
                     txtFecVencimientoCED.Text = string.Format("{0:dd/MM/yyyy}", ced.vencimiento);
                     cckAutorizado.Checked = ced.flag_autorizado;
                     txtTitularCED.Text = ced.nom_titular;
-                    if (ced.flag_autorizado == false)
-                        txtTitularCED.Text = string.Format("{0} {1}", per.apellido, per.nombre);
 
                     vehiculo ve = (from v in sicove.vehiculoes where v.id == ced.vehiculo_id select v).First();
                     ddlTipoCED.Text = Convert.ToString(ve.tipo_id);
@@ -233,7 +231,7 @@ namespace SiCoVe
                     ddlAseguradoraSEG.SelectedValue = Convert.ToString(pol.aseguradora_id);
                     txtFecDesdeSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_desde);
                     txtFecHastaSEG.Text = string.Format("{0:dd/MM/yyyy}", pol.vigencia_hasta);
-                    txtAseguradoSEG.Text = string.Format("{0} {1}", per.apellido, per.nombre);
+                    txtAseguradoSEG.Text = pol.nom_asegurado;
                 }
 
                 //private void CargarCombos()
@@ -447,6 +445,7 @@ namespace SiCoVe
                 pol.vehiculo = ve;
                 pol.vigencia_desde = Convert.ToDateTime(txtFecDesdeSEG.Text);
                 pol.vigencia_hasta = Convert.ToDateTime(txtFecHastaSEG.Text);
+                pol.nom_asegurado = txtAseguradoSEG.Text;
 
                 sicove.SaveChanges();
 
