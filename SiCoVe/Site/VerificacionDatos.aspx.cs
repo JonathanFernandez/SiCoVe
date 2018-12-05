@@ -310,6 +310,8 @@ namespace SiCoVe.Site
 
                     sicove.controls.Add(con);
                     sicove.SaveChanges();
+                    lblMensaje.Text = "Control realizado con éxito.";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$( document ).ready(function() { $('#myModal').modal('show');});", true);
                 }
                 catch (Exception ex)
                 {
